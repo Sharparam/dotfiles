@@ -96,9 +96,14 @@ fortune | cowsay
 
 eval "$(thefuck --alias)"
 
+eval "$(hub alias -s)"
+
 launch()
 {
     nohup $@ >&/dev/null &
 }
 
 [ -s "/home/sharparam/.dnx/dnvm/dnvm.sh" ] && . "/home/sharparam/.dnx/dnvm/dnvm.sh" # Load dnvm
+
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit && compinit
