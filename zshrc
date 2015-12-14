@@ -90,7 +90,7 @@ cowfortune()
     fortune $@ | cowsay
 }
 
-fortune | cowsay
+cowfortune
 
 . /usr/share/powerline/bindings/zsh/powerline.zsh
 
