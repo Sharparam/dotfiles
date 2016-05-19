@@ -1,0 +1,20 @@
+{
+	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme",
+	"draw_white_space": "selection",
+	"font_face": "Deja Vu Sans Mono",
+	"font_size": 10,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Vintage",
+		"Vintageous"
+	],
+	"rulers":
+	[
+		80,
+		120
+	],
+	"show_encoding": true,
+	"show_line_endings": true,
+	"theme": "Soda Dark 3.sublime-theme"
+}

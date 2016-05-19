@@ -1,0 +1,33 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"ApacheConf.tmLanguage",
+		"Base16 Color Schemes",
+		"CMake",
+		"Darkula Color Scheme",
+		"DoxyDoxygen",
+		"EditorConfig",
+		"Emmet",
+		"GitGutter",
+		"Gitignore",
+		"LaTeX Snippets",
+		"LaTeX Word Count",
+		"LaTeXTools",
+		"MIPS Syntax",
+		"Moonscripty",
+		"Package Control",
+		"Prolog",
+		"SFTP",
+		"SideBarEnhancements",
+		"Theme - Soda",
+		"Tomorrow Color Schemes",
+		"VCS Gutter",
+		"Vintageous",
+		"Visual Studio Dark"
+	]
+}
