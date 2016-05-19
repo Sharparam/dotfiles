@@ -1,0 +1,16 @@
+{
+    "syntaxmgr_settings": [
+        {
+            "platforms": ["windows"],
+            "settings": {
+                "font_face": "Consolas"
+            }
+        },
+        {
+            "platforms": ["linux"],
+            "settings": {
+                "font_face": "Deja Vu Sans Mono"
+            }
+        }
+    ]
+}
