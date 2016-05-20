@@ -3,13 +3,15 @@
         {
             "platforms": ["windows"],
             "settings": {
-                "font_face": "Consolas"
+                "font_face": "Consolas",
+                "font_size": 10
             }
         },
         {
             "platforms": ["linux"],
             "settings": {
-                "font_face": "Deja Vu Sans Mono"
+                "font_face": "Deja Vu Sans Mono",
+                "font_size": 10
             }
         }
     ]
