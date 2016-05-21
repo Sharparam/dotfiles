@@ -1,3 +1,5 @@
+let $PYTHONPATH='/usr/lib/python3.5/site-packages'
+
 set nocompatible " be iMproved, required
 filetype off " required
 
