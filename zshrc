@@ -94,7 +94,7 @@ eval "$(thefuck --alias)"
 eval "$(hub alias -s)"
 
 cowfortune() {
-	fortune $@ | cowsay -s -f bong -W 80
+	fortune $@ | cowsay -W 80
 }
 
 launch()
