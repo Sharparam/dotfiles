@@ -5,7 +5,7 @@ export ZSH=/home/sharparam/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -53,13 +53,16 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.composer/vendor/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+#export LANG=en_GB.UTF-8
+#export LANGUAGE=en_GB.UTF-8
+
+. /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -67,6 +70,9 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+
+export VISUAL="vim"
+export EDITOR="vim"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -83,28 +89,22 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#alias cowfortune="fortune | cowsay"
-
-cowfortune() { fortune $@ | cowsay }
-
-cowfortune
-
-. /usr/share/powerline/bindings/zsh/powerline.zsh
-
 eval "$(thefuck --alias)"
 
 eval "$(hub alias -s)"
+
+cowfortune() {
+	fortune $@ | cowsay -s -f bong -W 80
+}
 
 launch()
 {
     nohup $@ >&/dev/null &
 }
 
-[ -s "/home/sharparam/.dnx/dnvm/dnvm.sh" ] && . "/home/sharparam/.dnx/dnvm/dnvm.sh" # Load dnvm
+scrotclip()
+{
+    scrot $@ /tmp/scrotclip.png -e 'xclip -se c -t image/png -i $f && rm $f'
+}
 
-fpath=(~/.zsh/completions $fpath)
-autoload -U compinit && compinit
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-source $HOME/.rvm/scripts/rvm
-
+cowfortune
