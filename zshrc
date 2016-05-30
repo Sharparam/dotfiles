@@ -64,13 +64,6 @@ export LANGUAGE=en_GB.UTF-8
 
 . /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 export VISUAL="vim"
 export EDITOR="vim"
 
@@ -80,18 +73,9 @@ export EDITOR="vim"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 eval "$(thefuck --alias)"
-
 eval "$(hub alias -s)"
+eval "$(rbenv init -)"
 
 cowfortune() {
 	fortune $@ | cowsay -W 80
