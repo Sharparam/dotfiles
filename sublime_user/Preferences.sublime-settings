@@ -1,7 +1,7 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme",
 	"draw_white_space": "selection",
-	"font_size": 10,
+	"font_size": 11,
 	"highlight_line": true,
 	"ignored_packages":
 	[
