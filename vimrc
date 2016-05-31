@@ -1,3 +1,5 @@
+let $PYTHONPATH='/usr/lib/python3.5/site-packages'
+
 set nocompatible " be iMproved, required
 filetype off " required
 
@@ -9,13 +11,15 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'AutoClose'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
 filetype plugin indent on
 
-set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 set laststatus=2
 set t_Co=256

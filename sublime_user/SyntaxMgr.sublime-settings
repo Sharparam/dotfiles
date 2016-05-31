@@ -3,7 +3,8 @@
         {
             "platforms": ["windows"],
             "settings": {
-                "font_face": "Consolas"
+                "font_face": "Consolas",
+                "font_size": 10
             }
         },
         {
