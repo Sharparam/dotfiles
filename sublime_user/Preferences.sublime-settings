@@ -5,6 +5,7 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
+		"DoxyDoxygen",
 		"Vintage",
 		"Vintageous",
 		"Visual Studio Dark"
