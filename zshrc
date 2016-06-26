@@ -77,6 +77,8 @@ eval "$(thefuck --alias)"
 eval "$(hub alias -s)"
 eval "$(rbenv init -)"
 
+alias emacs="TERM=xterm-256color emacs -nw"
+
 cowfortune() {
 	fortune $@ | cowsay -W 80
 }
