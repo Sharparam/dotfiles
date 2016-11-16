@@ -30,3 +30,6 @@ indent_size = 2
 
 [*.gemspec]
 indent_size = 2
+
+[*.{tex,sty,cls}]
+indent_size = 2
