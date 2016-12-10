@@ -73,6 +73,8 @@ export EDITOR="vim"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+export ANDROID_HOME=/opt/android-sdk
+
 eval "$(thefuck --alias)"
 eval "$(hub alias -s)"
 eval "$(rbenv init -)"
