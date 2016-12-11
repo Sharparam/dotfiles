@@ -8,5 +8,8 @@
 (evil-mode 1)
 
 (require 'powerline)
-(powerline-default-theme)
+
+(require 'moe-theme)
+(powerline-moe-theme)
+(moe-dark)
 

@@ -10,7 +10,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'AutoClose'
+""Plugin 'AutoClose'
 " Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
@@ -31,7 +31,7 @@ set autoread " Auto-reload files on external change
 
 set showcmd
 
-set mouse=a
+"set mouse=a
 
 set cul
 hi CursorLine term=none cterm=none ctermbg=3

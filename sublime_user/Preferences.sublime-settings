@@ -1,13 +1,23 @@
 {
+	"always_show_minimap_viewport": true,
+	"auto_complete_delay": 100,
 	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme",
 	"draw_white_space": "selection",
+	"ensure_newline_at_eof_on_save": true,
 	"font_size": 11,
 	"highlight_line": true,
+	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
+		"DoxyDoxygen",
 		"Vintage",
 		"Vintageous",
 		"Visual Studio Dark"
+	],
+	"indent_guide_options":
+	[
+		"draw_normal",
+		"draw_active"
 	],
 	"rulers":
 	[
@@ -16,5 +26,8 @@
 	],
 	"show_encoding": true,
 	"show_line_endings": true,
-	"theme": "Soda Dark 3.sublime-theme"
+	"show_tab_close_buttons": false,
+	"theme": "Soda Dark 3.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true
 }

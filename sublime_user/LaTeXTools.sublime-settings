@@ -36,7 +36,7 @@
 	// "no_errors" (only hide the panel if the build was successful even with warnings),
 	// "no_warnings" (only hide the panel if no warnings occur) and
 	// "never" (default, never hide the build panel)
-	"hide_build_panel": "no_errors",
+	"hide_build_panel": "no_warnings",
 
 // ------------------------------------------------------------------
 // Temporary file settings
@@ -160,7 +160,7 @@
 
 		"linux" : {
 			// See README or third-party documentation
-            //"command": ["latexmk", "-cd", "-e", "-f", "-pdf", "-xelatex", "-interaction=nonstopmode", "-synctex=1"] 
+            //"command": ["latexmk", "-cd", "-e", "-f", "-pdf", "-xelatex", "-interaction=nonstopmode", "-synctex=1"]
 		}
 	},
 

@@ -49,7 +49,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git rails ruby rbenv)
 
 # User configuration
 
@@ -73,12 +73,20 @@ export EDITOR="vim"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+export ANDROID_HOME=/opt/android-sdk
+
 eval "$(thefuck --alias)"
 eval "$(hub alias -s)"
 eval "$(rbenv init -)"
 
+alias emacs="TERM=xterm-256color emacs -nw"
+
 cowfortune() {
 	fortune $@ | cowsay -W 80
+}
+
+thinkfortune () {
+    fortune $@ | cowthink -W 80 -f bong -s
 }
 
 launch()
