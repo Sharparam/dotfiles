@@ -69,11 +69,11 @@
 		// Path used when invoking tex & friends; "" is fine for MiKTeX
 		// For TeXlive 2011 (or other years) use
 		// "texpath" : "C:\\texlive\\2011\\bin\\win32;$PATH",
-		"texpath" : "",
+		"texpath" : "E:\\texlive\\2016\\bin\\win32;$PATH",
 		// TeX distro: "miktex" or "texlive"
-		"distro" : "miktex",
+		"distro" : "texlive",
 		// Command to invoke Sumatra. If blank, "SumatraPDF.exe" is used (it has to be on your PATH)
-		"sumatra": ""
+		"sumatra": "E:\\Program Files\\SumatraPDF\\SumatraPDF.exe"
 	},
 
 	"linux" : {
