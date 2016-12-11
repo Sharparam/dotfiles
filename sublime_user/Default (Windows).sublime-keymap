@@ -1,0 +1,5 @@
+[
+	{ "keys": ["ctrl+s"], "command": "save_all" },
+	{ "keys": ["ctrl+shift+s"], "command": "prompt_save_as" },
+	{ "keys": ["ctrl+alt+s"], "command": "save" }
+]
