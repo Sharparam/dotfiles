@@ -10,7 +10,8 @@
         {
             "platforms": ["linux"],
             "settings": {
-                "font_face": "Deja Vu Sans Mono"
+                "font_face": "Deja Vu Sans Mono",
+                "dpi_scale": 1.5
             }
         }
     ]
