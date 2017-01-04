@@ -60,12 +60,14 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 #export LANG=en_GB.UTF-8
-export LANGUAGE=en_GB.UTF-8
+export LANGUAGE=en_US.UTF-8
 
 . /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 
 export VISUAL="vim"
 export EDITOR="vim"
+export TERMINAL="termite"
+export BROWSER="firefox"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -73,7 +75,7 @@ export EDITOR="vim"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-export ANDROID_HOME=/opt/android-sdk
+#export ANDROID_HOME=/opt/android-sdk
 
 eval "$(thefuck --alias)"
 eval "$(hub alias -s)"
