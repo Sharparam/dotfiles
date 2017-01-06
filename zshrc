@@ -77,6 +77,8 @@ export BROWSER="firefox"
 
 #export ANDROID_HOME=/opt/android-sdk
 
+export $(gnome-keyring-daemon --start)
+
 eval "$(thefuck --alias)"
 eval "$(hub alias -s)"
 eval "$(rbenv init -)"
