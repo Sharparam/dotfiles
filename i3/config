@@ -147,8 +147,10 @@ bindsym $mod+Shift+8 move container to workspace $WS8
 bindsym $mod+Shift+9 move container to workspace $WS9
 bindsym $mod+Shift+0 move container to workspace $WS10
 
-workspace $WS5 output HDMI1
-workspace $WS6 output HDMI1
+workspace $WS5 output HDMI2
+workspace $WS6 output HDMI2
+workspace $WS9 output HDMI2
+workspace $WS10 output HDMI2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -199,6 +201,10 @@ workspace_auto_back_and_forth yes
 #assign [class="Termite"] $WS1
 assign [class="Subl3"] $WS2
 assign [class="Firefox"] $WS3
+
+# PDFPC settings
+assign [class="Pdfpc" window_role="presenter"] $WS7
+assign [class="Pdfpc" window_role="presentation"] $WS9
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
