@@ -2,6 +2,7 @@
 	"always_show_minimap_viewport": true,
 	"auto_complete_delay": 100,
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+	"dpi_scale": 1.5,
 	"draw_white_space": "selection",
 	"ensure_newline_at_eof_on_save": true,
 	"font_size": 11,
@@ -29,6 +30,5 @@
 	"show_tab_close_buttons": false,
 	"theme": "Soda Dark 3.sublime-theme",
 	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true,
-	"dpi_scale": 1.5
+	"trim_trailing_white_space_on_save": true
 }
