@@ -66,7 +66,7 @@ export LANGUAGE=en_US.UTF-8
 
 export VISUAL="vim"
 export EDITOR="vim"
-export TERMINAL="termite"
+export TERMINAL="st"
 export BROWSER="firefox"
 
 # Compilation flags
