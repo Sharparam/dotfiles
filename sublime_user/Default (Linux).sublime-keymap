@@ -1,3 +1,4 @@
 [
-    { "keys": ["ctrl+s"], "command": "save_all" }
+    { "keys": ["ctrl+s"], "command": "save_all" },
+    { "keys": ["ctrl+alt+m"], "command": "toggle_menu" }
 ]
