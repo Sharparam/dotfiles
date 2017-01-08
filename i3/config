@@ -223,3 +223,5 @@ bar {
 
 for_window [class="^.*"] border pixel 2
 for_window [class="Arandr"] floating enable
+
+hide_edge_borders both
