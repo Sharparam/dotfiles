@@ -6,11 +6,30 @@ Xft.rgba: rgb
 
 URxvt*depth: 32
 
-URxvt*font: xft:Droid\ Sans\ Mono:pixelsize=13:antialias=true:hinting=true,xft:Droid\ Sans\ Mono:pixelsize=13:antialias=true:hinting=true,xft:Symbola:pixelsize=13:antialias=true:hinting=true
+URxvt*font: xft:Fira\ Code:size=7:antialias=true:hinting=true,xft:Symbola:size=7:antialias=true:hinting=true
 
-URxvt*scrollstyle: plain
+!URxvt*scrollstyle: plain
 
-URxvt*scrollbar: false
+URxvt*scrollBar: false
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+URxvt*saveLines: 10000
+
+URxvt*urgentOnBell: true
+
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.url-select.launcher: firefox
+URxvt.url-select.underline: true
+URxvt.keysym.M-u: perl:url-select:select-next
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+
+URxvt*iso14755: False
+URxvt*keysym.Shift-Control-C: perl:clipboard:copy
+URxvt*keysym.Shift-Control-V: perl:clipboard:paste
+URxvt*clipboard.copycmd: xclip -i -selection clipboard
+URxvt*clipboard.pastecmd: xclip -o -selection clipboard
 
 #define base00 #1d1f21
 #define base01 #282a2e
