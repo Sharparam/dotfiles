@@ -215,8 +215,8 @@ bar {
     colors {
         background $bg-color
         separator #757575
-        focused_workspace  $bg-color          $bg-color          #e0e0e0
-        inactive_workspace $inactive-bg-color $inactive-bg-color #a0a0a0
+        focused_workspace  $bg-color          $bg-color          #e5e5e5
+        inactive_workspace $inactive-bg-color $inactive-bg-color #707070
         urgent_workspace   $urgent-bg-color   $urgent-bg-color   #e0e0e0
     }
 }
