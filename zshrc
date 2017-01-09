@@ -20,6 +20,8 @@ zplug "plugins/sudo", from:oh-my-zsh
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
+zplug "mafredri/zsh-async"
+
 zplug "themes/amuse", from:oh-my-zsh
 
 if ! zplug check; then
