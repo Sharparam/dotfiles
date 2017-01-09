@@ -70,11 +70,11 @@ eval "$(rbenv init -)"
 alias emacs="TERM=xterm-256color emacs -nw"
 
 cowfortune() {
-	fortune $@ | cowsay -W 75
+	fortune $@ | cowsay -W 70
 }
 
 thinkfortune () {
-    fortune $@ | cowthink -W 75 -f bong -s
+    fortune $@ | cowthink -W 70 -f bong -s
 }
 
 launch()
