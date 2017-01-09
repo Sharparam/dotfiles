@@ -62,7 +62,7 @@ source $ZSH/oh-my-zsh.sh
 #export LANG=en_GB.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-. /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
+. /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 
 export VISUAL="vim"
 export EDITOR="vim"
