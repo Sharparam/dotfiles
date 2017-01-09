@@ -2,7 +2,6 @@
 	"always_show_minimap_viewport": true,
 	"auto_complete_delay": 100,
 	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme",
-	"dpi_scale": 1.5,
 	"draw_white_space": "selection",
 	"ensure_newline_at_eof_on_save": true,
 	"font_size": 11,
