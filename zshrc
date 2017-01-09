@@ -22,7 +22,8 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 zplug "mafredri/zsh-async"
 
-zplug "themes/amuse", from:oh-my-zsh
+#zplug "themes/amuse", from:oh-my-zsh
+zplug "sindresorhus/pure", defer:1
 
 if ! zplug check; then
     zplug install
