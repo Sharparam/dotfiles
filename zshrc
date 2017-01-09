@@ -30,7 +30,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/sharparam/.oh-my-zsh
-zplug load --verbose
+zplug load
 
 # User configuration
 
