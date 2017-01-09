@@ -6,7 +6,7 @@ Xft.rgba: rgb
 
 URxvt*depth: 32
 
-URxvt*font: xft:Fira\ Code:size=7:antialias=true:hinting=true,xft:Symbola:size=7:antialias=true:hinting=true
+URxvt*font: xft:Fira\ Code:size=8:antialias=true:hinting=true,xft:DejaVu\ Sans\ Mono:size=8:antialias=true:hinting=true,xft:Symbola:size=8:antialias=true:hinting=true
 
 !URxvt*scrollstyle: plain
 
