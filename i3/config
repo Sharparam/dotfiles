@@ -32,7 +32,7 @@ font pango:Fira Code 7
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -101,12 +101,15 @@ bindsym $mod+a focus parent
 # focus monitor to the right
 bindsym $mod+Tab focus output right
 
-set $bg-color #1d1f21
-set $inactive-bg-color #1d1f21
-set $text-color #c5c8c6
-set $inactive-text-color #b4b7b4
-set $urgent-bg-color #e53935
+set $bg-color #2f343f
+set $inactive-bg-color #2f343f
+set $text-color #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent-bg-color #E53935
 
+
+# window colors
+#                       border             background         text                 indicator
 client.focused          $bg-color          $bg-color          $text-color          #00aa00
 client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00aa00
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00aa00
@@ -147,8 +150,14 @@ bindsym $mod+Shift+8 move container to workspace $WS8
 bindsym $mod+Shift+9 move container to workspace $WS9
 bindsym $mod+Shift+0 move container to workspace $WS10
 
+workspace $WS1 output eDPI1
+workspace $WS2 output eDPI1
+workspace $WS3 output eDPI1
+workspace $WS4 output eDPI1
 workspace $WS5 output HDMI2
 workspace $WS6 output HDMI2
+workspace $WS7 output eDPI1
+workspace $WS8 output eDPI1
 workspace $WS9 output HDMI2
 workspace $WS10 output HDMI2
 
@@ -202,6 +211,9 @@ workspace_auto_back_and_forth yes
 assign [class="Subl3"] $WS2
 assign [class="Firefox"] $WS3
 assign [class="TelegramDesktop"] $WS4
+assign [class="Steam" title="^Friends$"] $WS4
+assign [class="Steam" title=" - Chat$"] $WS4
+assign [class="Steam" title="^Steam$"] $WS5
 
 # PDFPC settings
 assign [class="Pdfpc" window_role="presenter"] $WS7
@@ -215,9 +227,10 @@ bar {
     colors {
         background $bg-color
         separator #757575
-        focused_workspace  $bg-color          $bg-color          #e5e5e5
-        inactive_workspace $inactive-bg-color $inactive-bg-color #707070
-        urgent_workspace   $urgent-bg-color   $urgent-bg-color   #e0e0e0
+        #                  border             background         text
+        focused_workspace  $bg-color          $bg-color          $text-color
+        inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
     }
 }
 
@@ -226,4 +239,4 @@ for_window [class="Arandr"] floating enable
 
 hide_edge_borders both
 
-exec --no-startup-id urxvtd -q -o -f
+#exec --no-startup-id urxvtd -q -o -f
