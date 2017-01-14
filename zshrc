@@ -50,7 +50,7 @@ export LANGUAGE=en_US.UTF-8
 
 export VISUAL="vim"
 export EDITOR="vim"
-export TERMINAL="st"
+export TERMINAL="termite"
 export BROWSER="firefox"
 
 # Compilation flags
