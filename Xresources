@@ -27,7 +27,7 @@ URxvt.keysym.M-u: perl:url-select:select-next
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.M-s: perl:keyboard-select:search
 
-!URxvt*iso14755: False
+URxvt*iso14755: False
 !URxvt*keysym.Shift-Control-C: perl:clipboard:copy
 !URxvt*keysym.Shift-Control-V: perl:clipboard:paste
 !URxvt*clipboard.copycmd: xclip -i -selection clipboard
