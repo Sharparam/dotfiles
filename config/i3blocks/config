@@ -28,6 +28,19 @@ command=/usr/lib/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
+#[mediaplayer]
+#label=♪
+#command=$SCRIPT_DIR/mediaplayer/mediaplayer
+#instance=mpd
+#interval=5
+#signal=15
+
+[sharp-music]
+command=/home/sharparam/dotfiles/i3blocks/sharp-music.rb
+#label=♪
+interval=5
+signal=12
+
 # Volume indicator
 #
 # The first parameter sets the step (and units to display)
