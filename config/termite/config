@@ -31,7 +31,7 @@ filter_unmatched_urls = true
 # emit escape sequences for extra modified keys
 #modify_other_keys = false
 
-font = Fira Code 8
+font = Iosevka Term 8
 
 [colors]
 foreground = #d3d0c8
@@ -73,7 +73,7 @@ color20 = #a09f93
 color21 = #e8e6df
 
 [hints]
-font = Fira Code 8
+#font = Fira Code 8
 #foreground = #dcdccc
 #background = #3f3f3f
 #active_foreground = #e68080
