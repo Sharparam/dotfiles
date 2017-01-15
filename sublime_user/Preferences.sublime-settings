@@ -1,7 +1,7 @@
 {
 	"always_show_minimap_viewport": true,
 	"auto_complete_delay": 100,
-	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night-Eighties.tmTheme",
+	"color_scheme": "Packages/Base16 Color Schemes/Themes/base16-eighties.tmTheme",
 	"draw_white_space": "selection",
 	"ensure_newline_at_eof_on_save": true,
 	"font_size": 10,
