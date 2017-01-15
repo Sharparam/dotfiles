@@ -1,0 +1,29 @@
+URxvt*depth: 32
+
+#define urxvtsize 8
+
+URxvt*font: xft:Fira\ Code:size=urxvtsize:antialias=true:hinting=true,xft:DejaVu\ Sans\ Mono:size=urxvtsize:antialias=true:hinting=true,xft:Symbola:size=urxvtsize:antialias=true:hinting=true,xft:FontAwesome:size=urxvtsize:antialias=true:hinting=true
+
+!URxvt*scrollstyle: plain
+
+URxvt*scrollBar: false
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+URxvt*saveLines: 10000
+
+URxvt*urgentOnBell: true
+
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.url-select.launcher: firefox
+URxvt.url-select.underline: true
+URxvt.keysym.M-u: perl:url-select:select-next
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+
+URxvt*iso14755: False
+!URxvt*keysym.Shift-Control-C: perl:clipboard:copy
+!URxvt*keysym.Shift-Control-V: perl:clipboard:paste
+!URxvt*clipboard.copycmd: xclip -i -selection clipboard
+!URxvt*clipboard.pastecmd: xclip -o -selection clipboard
+
