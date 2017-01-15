@@ -63,8 +63,8 @@ set novisualbell
 syntax enable
 
 set background=dark
-"let base16colorspace=256
-"colorscheme base16-eighties
+let base16colorspace=256
+colorscheme base16-eighties
 "hi ColorColumn ctermbg=237
 "hi LineNr ctermbg=237
 "hi CursorLine ctermbg=237
