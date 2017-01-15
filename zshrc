@@ -28,7 +28,7 @@ zplug "mafredri/zsh-async"
 #zplug "themes/amuse", from:oh-my-zsh
 zplug "sindresorhus/pure", defer:1
 
-zplug "simonwhitaker/gibo", use:gibo-completion.zsh
+zplug "simonwhitaker/gibo", use:/, hook-build:"ln -fs gibo-completion.zsh _gibo"
 
 zplug "djui/alias-tips"
 
