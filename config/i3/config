@@ -237,6 +237,9 @@ bar {
 for_window [class="^.*"] border pixel 2
 for_window [class="Arandr"] floating enable
 
+new_window pixel
+
 hide_edge_borders both
 
+exec --no-startup-id compton -b
 #exec --no-startup-id urxvtd -q -o -f
