@@ -2,9 +2,6 @@ typeset -U path
 
 path=($HOME/bin $HOME/.local/bin $path)
 
-autoload -U compinit
-compinit
-
 source $HOME/.zplug/init.zsh
 
 zplug "lib/*", from:oh-my-zsh
