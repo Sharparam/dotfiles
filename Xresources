@@ -66,28 +66,39 @@ URxvt*iso14755: False
 
 ! "Enabled modi" Set from: Default
 ! rofi.modi:                           window,run,ssh
-! "Window width" Set from: Default
-! rofi.width:                          50
-! "Number of lines" Set from: Default
+rofi.width: 100
 rofi.lines: 10
-! "Number of columns" Set from: Default
-! rofi.columns:                        2
-! "Font to use" Set from: Default
-rofi.font: Fira\ Code 20
-! "Color scheme for normal row" Set from: Default
-rofi.color-normal:                   base00,base05,base00,base03,base00
-! "Color scheme for urgent row" Set from: Default
-! rofi.color-urgent:                   #fdf6e3,#dc322f,#eee8d5,#dc322f,#fdf6e3
-! "Color scheme for active row" Set from: Default
-rofi.color-active:                   base01,#00cc00,base01,base03,base01
-! "Color scheme window" Set from: Default
-rofi.color-window:                   base00,base00
+rofi.columns: 1
+rofi.font: Iosevka 30
+
+#define rofibg argb:bb2d2d2d
+#define rofibgb #393939
+#define rofinone argb:00000000
+#define rofitext #d3d0c8
+#define rofitexta #99cc99
+#define rofibga argb:5599cc99
+#define rofitextu #f2777a
+#define rofibgu argb:55f2777a
+!#747369
+#define rofihl argb:55393939
+
+rofi.color-enabled: true
+!                      bg  border    sep.
+rofi.color-window: rofibg, rofibg, rofibg
+!                        bg         fg   alt. bg    hl bg     hl fg
+rofi.color-normal: rofinone,  rofitext, rofinone,  rofihl, rofitext
+rofi.color-active: rofinone, rofitexta, rofinone, rofibga, rofitext
+rofi.color-urgent: rofinone, rofitextu, rofinone, rofibgu, rofitext
+
 ! "Border width" Set from: Default
 rofi.bw: 0
+
 ! "Location on screen" Set from: Default
 ! rofi.location:                       0
+
 ! "Padding" Set from: Default
-! rofi.padding:                        5
+rofi.padding: 500
+
 ! "Y-offset relative to location" Set from: Default
 ! rofi.yoffset:                        0
 ! "X-offset relative to location" Set from: Default
