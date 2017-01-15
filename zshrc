@@ -1,9 +1,15 @@
 typeset -U path
 
+path=($HOME/bin $HOME/.local/bin $path)
+
+autoload -U compinit
+compinit
+
 source $HOME/.zplug/init.zsh
 
 zplug "lib/*", from:oh-my-zsh
 
+#zplug "plugins/autojump", from:oh-my-zsh
 zplug "plugins/bundler", from:oh-my-zsh
 zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug "plugins/docker-compose", from:oh-my-zsh
@@ -25,6 +31,15 @@ zplug "mafredri/zsh-async"
 #zplug "themes/amuse", from:oh-my-zsh
 zplug "sindresorhus/pure", defer:1
 
+zplug "simonwhitaker/gibo", use:gibo-completion.zsh
+
+zplug "djui/alias-tips"
+
+zplug "supercrabtree/k"
+
+export _Z_CMD=j
+zplug "rupa/z", use:z.sh
+
 if ! zplug check; then
     zplug install
 fi
@@ -36,11 +51,6 @@ export ZSH=/home/sharparam/.oh-my-zsh
 zplug load
 
 # User configuration
-
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-#source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 #export LANG=en_GB.UTF-8
@@ -77,13 +87,11 @@ thinkfortune () {
     fortune $@ | cowthink -W 70 -f bong -s
 }
 
-launch()
-{
+launch() {
     nohup $@ >&/dev/null &
 }
 
-scrotclip()
-{
+scrotclip() {
     scrot $@ /tmp/scrotclip.png -e 'xclip -se c -t image/png -i $f && rm $f'
 }
 
