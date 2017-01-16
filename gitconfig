@@ -5,3 +5,5 @@
 	default = simple
 [github]
     username = Sharparam
+[gui]
+	spellingdictionary = none
