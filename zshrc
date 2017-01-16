@@ -18,15 +18,13 @@ zplug "plugins/history-substring-search", from:oh-my-zsh
 zplug "plugins/rails", from:oh-my-zsh
 zplug "plugins/rbenv", from:oh-my-zsh
 zplug "plugins/ruby", from:oh-my-zsh
-zplug "plugins/sublime", from:oh-my-zsh
+#zplug "plugins/sublime", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 zplug "mafredri/zsh-async"
-
-#zplug "themes/amuse", from:oh-my-zsh
-zplug "sindresorhus/pure", defer:1
+zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
 zplug "simonwhitaker/gibo", use:/, hook-build:"ln -fs gibo-completion.zsh _gibo"
 
