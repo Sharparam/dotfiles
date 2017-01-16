@@ -9,8 +9,6 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-exec xrandr --dpi 168
-
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -241,5 +239,6 @@ new_window pixel
 
 hide_edge_borders both
 
+exec --no-startup-id xrandr --dpi 168
 exec --no-startup-id compton -b
 #exec --no-startup-id urxvtd -q -o -f

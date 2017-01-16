@@ -2,7 +2,7 @@ URxvt*depth: 32
 
 #define urxvtsize 8
 
-URxvt*font: xft:Iosevka\ Term:size=urxvtsize:antialias=true:hinting=true,xft:DejaVu\ Sans\ Mono:size=urxvtsize:antialias=true:hinting=true,xft:Symbola:size=urxvtsize:antialias=true:hinting=true,xft:FontAwesome:size=urxvtsize:antialias=true:hinting=true
+URxvt*font: xft:Iosevka\ Term:size=urxvtsize:antialias=true:hinting=true,xft:DejaVu\ Sans\ Mono\ for\ Powerline:size=urxvtsize
 
 !URxvt*scrollstyle: plain
 
