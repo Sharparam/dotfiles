@@ -2,7 +2,7 @@ URxvt*depth: 32
 
 #define urxvtsize 8
 
-URxvt*font: xft:Fira\ Code:size=urxvtsize:antialias=true:hinting=true,xft:DejaVu\ Sans\ Mono:size=urxvtsize:antialias=true:hinting=true,xft:Symbola:size=urxvtsize:antialias=true:hinting=true,xft:FontAwesome:size=urxvtsize:antialias=true:hinting=true
+URxvt*font: xft:Iosevka\ Term:size=urxvtsize:antialias=true:hinting=true,xft:DejaVu\ Sans\ Mono:size=urxvtsize:antialias=true:hinting=true,xft:Symbola:size=urxvtsize:antialias=true:hinting=true,xft:FontAwesome:size=urxvtsize:antialias=true:hinting=true
 
 !URxvt*scrollstyle: plain
 
@@ -26,4 +26,3 @@ URxvt*iso14755: False
 !URxvt*keysym.Shift-Control-V: perl:clipboard:paste
 !URxvt*clipboard.copycmd: xclip -i -selection clipboard
 !URxvt*clipboard.pastecmd: xclip -o -selection clipboard
-
