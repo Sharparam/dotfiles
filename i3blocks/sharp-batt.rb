@@ -66,7 +66,7 @@ batteries = data.split("\n").map do |line|
   data
 end
 
-charging = batteries.any? { |batt| batt[:status] == :charging }
+charging = `acpi -a` =~ /^Adapter \d+: on-line$/
 
 output = charging ? FA_PLUG + ' ' : ''
 
