@@ -72,6 +72,9 @@ eval "$(rbenv init -)"
 
 alias emacs="TERM=xterm-256color emacs -nw"
 
+# Ugly workaround to get SSH working properly in all terminals
+alias ssh="TERM=xterm-256color ssh"
+
 cowfortune() {
 	fortune $@ | cowsay -W 70
 }
