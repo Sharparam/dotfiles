@@ -4,6 +4,8 @@ path=($HOME/bin $HOME/.local/bin $path)
 
 export ZSH_TMUX_AUTOSTART=false
 export ZSH_TMUX_AUTOSTART_ONCE=true
+# The tmux plugin is stupid and doesn't properly detect 256color terminals
+#export ZSH_TMUX_FIXTERM=false
 
 source $HOME/.zplug/init.zsh
 
