@@ -2,6 +2,9 @@ typeset -U path
 
 path=($HOME/bin $HOME/.local/bin $path)
 
+export ZSH_TMUX_AUTOSTART=true
+export ZSH_TMUX_AUTOSTART_ONCE=false
+
 source $HOME/.zplug/init.zsh
 
 zplug "lib/*", from:oh-my-zsh
@@ -20,6 +23,7 @@ zplug "plugins/rbenv", from:oh-my-zsh
 zplug "plugins/ruby", from:oh-my-zsh
 #zplug "plugins/sublime", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
+zplug "plugins/tmux", from:oh-my-zsh
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
