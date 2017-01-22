@@ -2,8 +2,8 @@ typeset -U path
 
 path=($HOME/bin $HOME/.local/bin $path)
 
-export ZSH_TMUX_AUTOSTART=true
-export ZSH_TMUX_AUTOSTART_ONCE=false
+export ZSH_TMUX_AUTOSTART=false
+export ZSH_TMUX_AUTOSTART_ONCE=true
 
 source $HOME/.zplug/init.zsh
 
