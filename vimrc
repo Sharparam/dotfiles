@@ -2,6 +2,7 @@ let mapleader=' '
 
 let g:airline_theme='base16_eighties'
 let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1
 
 set nocompatible " be iMproved, required
 
@@ -27,7 +28,6 @@ set expandtab
 set laststatus=2
 set t_Co=256
 set noshowmode
-set showtabline=2
 
 set nu " Display line numbers
 set autoread " Auto-reload files on external change
