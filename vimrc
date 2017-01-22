@@ -1,25 +1,24 @@
-"let $PYTHONPATH='/usr/lib/python3.5/site-packages'
-let g:powerline_pycmd='py3'
-
 let mapleader=' '
 
+let g:airline_theme='base16_eighties'
+let g:airline_powerline_fonts=1
+
 set nocompatible " be iMproved, required
-filetype off " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'chriskempson/base16-vim'
-""Plugin 'AutoClose'
-" Plugin 'Valloric/YouCompleteMe'
-
-call vundle#end()
-
-filetype plugin indent on
+call plug#begin('~/.vim/plugged')
+Plug 'editorconfig/editorconfig-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
+Plug 'chriskempson/base16-vim'
+Plug 'edkolev/tmuxline.vim'
+call plug#end()
 
 set tabstop=4
 set shiftwidth=4
@@ -60,15 +59,9 @@ set novisualbell
 " Colors and fonts "
 """"""""""""""""""""
 
-syntax enable
-
 set background=dark
 let base16colorspace=256
 colorscheme base16-eighties
-"hi ColorColumn ctermbg=237
-"hi LineNr ctermbg=237
-"hi CursorLine ctermbg=237
-"hi CursorLineNr ctermbg=237
 
 set encoding=utf8
 
