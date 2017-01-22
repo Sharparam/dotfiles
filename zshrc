@@ -24,6 +24,7 @@ zplug "plugins/ruby", from:oh-my-zsh
 #zplug "plugins/sublime", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
+zplug "plugins/tmuxinator", from:oh-my-zsh
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
@@ -78,6 +79,8 @@ alias emacs="TERM=xterm-256color emacs -nw"
 
 # Ugly workaround to get SSH working properly in all terminals
 alias ssh="TERM=xterm-256color ssh"
+
+alias mux="tmuxinator"
 
 cowfortune() {
 	fortune $@ | cowsay -W 70
