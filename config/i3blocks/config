@@ -87,10 +87,10 @@ signal=10
 #instance=wlan0
 color=#00FF00
 interval=10
-#separator=false
+separator=false
 
 [wifi]
-#instance=wlp3s0
+instance=wlp4s0
 interval=10
 #separator=false
 
