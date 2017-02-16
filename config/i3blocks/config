@@ -122,7 +122,6 @@ min_width=CPU: 100.00%
 # The battery instance defaults to 0.
 [sharp-batt]
 command=/home/sharparam/dotfiles/i3blocks/sharp-batt.rb
-#label=BAT
 #label=⚡
 #instance=1
 markup=pango
