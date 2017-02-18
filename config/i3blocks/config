@@ -137,7 +137,7 @@ interval=30
 
 # Date Time
 [time]
-command=date '+%Y-%m-%d %H:%M:%S'
+command=date '+%Y-%m-%d %H:%M:%S%n%H:%M'
 interval=1
 
 # OpenVPN support
