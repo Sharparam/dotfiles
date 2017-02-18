@@ -27,6 +27,7 @@
 command=/usr/lib/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
+color=#f3f4f5
 
 #[mediaplayer]
 #label=♪
