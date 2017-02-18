@@ -95,8 +95,9 @@ bindsym $mod+d focus child
 # focus monitor to the right
 bindsym $mod+Tab focus output right
 
-set $bg-color #2f343f
-set $inactive-bg-color #2f343f
+# BG: #2f343f
+set $bg-color #2d2d2d
+set $inactive-bg-color #2d2d2d
 set $text-color #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color #E53935
