@@ -29,10 +29,29 @@ def color(percent)
   end
 end
 
-def batt_to_s(battery)
+def batt_symbol(percent)
+  if percent < 10
+    "\uf244" # 
+  elsif percent < 40
+    "\uf243" # 
+  elsif percent < 60
+    "\uf242" # 
+  elsif percent < 80
+    "\uf241" # 
+  else
+    "\uf240" # 
+  end
+end
+
+def batt_to_s(battery, short = false)
   output = battery[:status] == :charging ? (FA_LIGHTNING + ' ') : ''
-  output += "#{battery[:id]}: <span color='#{color battery[:percent]}'>#{battery[:percent]}%</span>"
-  output += " #{battery[:hours].round 1}h" if [:discharging, :charging].include? battery[:status]
+
+  if short
+    output += "<span color='#{color battery[:percent]}' font='FontAwesome'>#{batt_symbol battery[:percent]}</span>"
+  else
+    output += "#{battery[:id]}: <span color='#{color battery[:percent]}'>#{battery[:percent]}%</span>"
+    output += " #{battery[:hours].round 1}h" if [:discharging, :charging].include? battery[:status]
+  end
 
   output
 end
@@ -69,10 +88,12 @@ end
 charging = `acpi -a` =~ /^Adapter \d+: on-line$/
 
 output = charging ? FA_PLUG + ' ' : ''
+short_output = output
 
 output += batteries.map { |batt| batt_to_s batt }.join ' '
+short_output += batteries.map { |batt| batt_to_s batt, true}.join ' '
 
 puts output
-puts output
+puts short_output
 
 exit 33 if batteries.all? { |batt| batt[:percent] < 10 }
