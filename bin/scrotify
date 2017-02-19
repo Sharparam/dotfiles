@@ -33,23 +33,37 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-def scrot(args = '')
-  `ssh -q scrotify mkdir -p #{TARGET}/`
+def error(msg)
+    `notify-send -u critical "Scrotify" "#{msg}"`
+    abort msg
+end
+
+def maim(args = '')
+  `ssh -q #{REMOTE} mkdir -p #{TARGET}/`
+
   `notify-send -u low "Scrotify" "Taking screenshot..."`
-  `scrot #{args} #{LOCAL}/#{FILENAME} -e 'rsync -q $f #{REMOTE}:#{TARGET}/ && rm $f'`
-  abort 'scrot or rsync failed' unless $?.exitstatus == 0
+
+  `maim #{args} #{LOCAL}/#{FILENAME}`
+  error 'maim failed' unless $?.exitstatus == 0
+
+  `rsync -q #{LOCAL}/#{FILENAME} #{REMOTE}:#{TARGET}/`
+  error 'rsync failed' unless $?.exitstatus == 0
+
+  `rm #{LOCAL}/#{FILENAME}`
   Open3.popen2('xclip -sel c') { |i, _, _| i.print(URL); i.close; }
+
   `notify-send -u normal "Scrotify" "#{URL}"`
 end
 
 def capture(mode = :all)
   case mode
   when :select
-    scrot '-s'
+    maim '-s'
   when :active
-    scrot '-u'
+    active = `xdotool getactivewindow`.strip
+    maim "-i #{active}"
   else
-    scrot
+    maim
   end
 end
 
