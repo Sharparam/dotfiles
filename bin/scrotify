@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+
+# This script can use some improving...
+
+require 'optparse'
+require 'open3'
+
+TIME = Time.now
+DATE_PATH = TIME.strftime '%Y/%m/%d'
+LOCAL = '/tmp'
+FILENAME = "#{TIME.strftime '%Y-%m-%d_%H-%M-%S'}.png"
+REMOTE = 'scrotify' # In ~/.ssh/config
+TARGET = "/var/www/files.sharparam.com/public_html/#{DATE_PATH}"
+URL = "http://files.sharparam.com/#{DATE_PATH}/#{FILENAME}"
+
+options = {
+  mode: :all
+}
+
+# Apparently the keyring variables cannot be accessed from scripts that run
+# from i3's exec tool, so we have to manually set the socket here.
+ENV['SSH_AUTH_SOCK'] = '/run/user/1000/keyring/ssh'
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: #{$0} [options]"
+
+  opts.on('-s', '--select', 'Screenshot region') do
+    options[:mode] = :select
+  end
+
+  opts.on('-a', '--active', 'Screenshot active window') do
+    options[:mode] = :active
+  end
+end.parse!
+
+def scrot(args = '')
+  `ssh -q scrotify mkdir -p #{TARGET}/`
+  `notify-send -u low "Scrotify" "Taking screenshot..."`
+  `scrot #{args} #{LOCAL}/#{FILENAME} -e 'rsync -q $f #{REMOTE}:#{TARGET}/ && rm $f'`
+  abort 'scrot or rsync failed' unless $?.exitstatus == 0
+  Open3.popen2('xclip -sel c') { |i, _, _| i.print(URL); i.close; }
+  `notify-send -u normal "Scrotify" "#{URL}"`
+end
+
+def capture(mode = :all)
+  case mode
+  when :select
+    scrot '-s'
+  when :active
+    scrot '-u'
+  else
+    scrot
+  end
+end
+
+capture options[:mode]
