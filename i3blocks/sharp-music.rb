@@ -19,6 +19,7 @@ when 5 # Mouse 5 (?)
 end
 
 mpc = `mpc`.split "\n"
+mpc_short = `mpc -f "%title%"`.split "\n"
 
 # If we get less than 3 lines of output, it means playback is stopped
 exit if mpc.size < 3
@@ -36,3 +37,4 @@ data = {
 print "#{ICONS[data[:status]]} #{data[:now_playing]}"
 print " #{data[:mods]}" if data[:mods].size > 0
 puts
+puts "#{ICONS[data[:status]]} #{mpc_short[0]}"
