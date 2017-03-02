@@ -265,5 +265,6 @@ exec --no-startup-id compton -b
 exec --no-startup-id start-pulseaudio-x11
 #exec --no-startup-id urxvtd -q -o -f
 exec --no-startup-id dunst
+exec --no-startup-id sh $HOME/.fehbg
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
