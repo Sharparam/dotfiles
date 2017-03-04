@@ -39,12 +39,13 @@ def error(msg)
 end
 
 def maim(args = '')
-  `ssh -q #{REMOTE} mkdir -p #{TARGET}/`
-
-  `notify-send -u low "Scrotify" "Taking screenshot..."`
-
   `maim #{args} #{LOCAL}/#{FILENAME}`
   error 'maim failed' unless $?.exitstatus == 0
+
+  `notify-send -u low "Scrotify" "Uploading screenshot..."`
+
+  `ssh -q #{REMOTE} mkdir -p #{TARGET}/`
+  error 'ssh mkdir failed' unless $?.exitstatus == 0
 
   `rsync -q #{LOCAL}/#{FILENAME} #{REMOTE}:#{TARGET}/`
   error 'rsync failed' unless $?.exitstatus == 0
