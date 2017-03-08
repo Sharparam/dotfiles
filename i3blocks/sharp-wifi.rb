@@ -24,9 +24,9 @@ conf = `iwconfig #{interface}`
 
 ssid = conf.match(/ESSID:"(.+)"\s*$/)[1].to_s
 
-quality = conf.match(/Link Quality=(\d+)\//)[1].to_f
+quality, max_quality = conf.match(/Link Quality=(\d+)\/(\d+)/).to_a[1..2].map(&:to_f)
 
-strength = ((quality / 70.0) * 100).round
+strength = ((quality / max_quality) * 100).round
 
 long = "#{ssid}: #{address} #{strength}%"
 short = "#{strength}%"
