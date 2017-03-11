@@ -53,7 +53,7 @@ command=$SCRIPT_DIR/volume-pulseaudio/volume-pulseaudio -F 3 -f 3
 #label=♪
 #instance=Master
 #instance=PCM
-interval=once
+interval=10
 signal=10
 
 # Disk usage
