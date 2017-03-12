@@ -31,6 +31,11 @@ strength = ((quality / max_quality) * 100).round
 long = "#{ssid}: #{address} #{strength}%"
 short = "#{strength}%"
 
+if ENV['BLOCK_BUTTON'].to_i == 2
+  require 'open3'
+  Open3.popen2('xclip -sel c') { |i, _, _| i.write address }
+end
+
 puts long
 puts short
 puts color strength
