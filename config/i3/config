@@ -114,11 +114,11 @@ set $WS1 "1:"
 set $WS2 "2:"
 set $WS3 "3:"
 set $WS4 "4:"
-set $WS5 "5"
-set $WS6 "6"
-set $WS7 "7"
-set $WS8 "8"
-set $WS9 "9"
+set $WS5 "5:5"
+set $WS6 "6:6"
+set $WS7 "7:7"
+set $WS8 "8:8"
+set $WS9 "9:9"
 set $WS10 "10:"
 
 # switch to workspace
@@ -241,6 +241,7 @@ assign [class="Pdfpc" window_role="presentation"] $WS9
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+    strip_workspace_numbers yes
     status_command SCRIPT_DIR=~/i3blocks-contrib i3blocks
     tray_output primary
     colors {
