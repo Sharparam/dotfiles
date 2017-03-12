@@ -2,24 +2,28 @@
 # encoding: utf-8
 
 ICONS = { playing: '', paused: '', stopped: '' }.freeze
-
 MODS = { repeat: '', random: '', single: '', consume: '' }.freeze
 
-case ENV['BLOCK_BUTTON'].to_i
-when 1 # Left mouse button
-  `mpc next`
-when 2 # Scroll click
-  `mpc toggle`
-when 3 # Right mouse button
-  `mpc prev`
-when 4 # Mouse 4 (?)
-  `mpc volume +5`
-when 5 # Mouse 5 (?)
-  `mpc volume -5`
+def copy(s)
+  require 'open3'
+  Open3.popen2('xclip -sel c') { |i, _, _| i.write s }
 end
+
+def mpcf(f)
+  `mpc -f "#{f}"`.split("\n").first
+end
+
+mouse = ENV['BLOCK_BUTTON'].to_i
 
 mpc = `mpc`.split "\n"
 mpc_short = `mpc -f "%title%"`.split "\n"
+
+case mouse
+when 2
+  copy mpcf '[[%artist% - ]%title%[ (%album%)]]|[%file%]'
+when 3
+  copy mpcf '%file%'
+end
 
 # If we get less than 3 lines of output, it means playback is stopped
 exit if mpc.size < 3
@@ -36,5 +40,5 @@ data = {
 
 print "#{ICONS[data[:status]]} #{data[:now_playing]}"
 print " #{data[:mods]}" if data[:mods].size > 0
-puts
-puts "#{ICONS[data[:status]]} #{mpc_short[0]}"
+puts "\n#{ICONS[data[:status]]} #{mpc_short[0]}"
+puts '#a0a0a0' if data[:status] == :paused
