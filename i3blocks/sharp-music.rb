@@ -6,7 +6,7 @@ MODS = { repeat: '', random: '', single: '', consume: '' }.freeze
 
 def copy(s)
   require 'open3'
-  Open3.popen2('xclip -sel c') { |i, _, _| i.write s }
+  Open3.popen2('xclip -sel c') { |i, o, w| i << s }
 end
 
 def mpcf(f)
