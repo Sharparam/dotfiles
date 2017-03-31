@@ -19,6 +19,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'edkolev/tmuxline.vim'
+Plug 'rhysd/vim-crystal'
 call plug#end()
 
 set tabstop=4
