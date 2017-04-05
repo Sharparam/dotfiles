@@ -213,9 +213,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
-bindsym $mod+Left exec --no-startup-id mpc prev && pkill -RTMIN+12 i3blocks
-bindsym $mod+Right exec --no-startup-id mpc next && pkill -RTMIN+12 i3blocks
-bindsym $mod+Down exec --no-startup-id mpc toggle && pkill -RTMIN+12 i3blocks
+bindsym $mod+Left exec --no-startup-id $HOME/dotfiles/i3blocks/sharp-music.rb previous && pkill -RTMIN+12 i3blocks
+bindsym $mod+Right exec --no-startup-id $HOME/dotfiles/i3blocks/sharp-music.rb next && pkill -RTMIN+12 i3blocks
+bindsym $mod+Down exec --no-startup-id $HOME/dotfiles/i3blocks/sharp-music.rb toggle && pkill -RTMIN+12 i3blocks
 
 bindsym Ctrl+Mod1+l exec /home/sharparam/bin/lockify
 

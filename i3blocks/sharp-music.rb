@@ -8,6 +8,20 @@ PLAYER = [MPC.new, Spotify.new].find { |p| p.available }
 
 exit unless PLAYER
 
+if ARGV.first
+  case ARGV.first
+  when 'toggle'
+    PLAYER.toggle
+  when 'next'
+    PLAYER.next
+  when 'previous'
+    PLAYER.previous
+  else
+    abort 'Invalid option'
+  end
+  exit
+end
+
 ICONS = { playing: '', paused: '', stopped: '' }.freeze
 MODS = { repeat: '', random: '', single: '', consume: '' }.freeze
 
