@@ -1,6 +1,13 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
+require_relative 'mpc'
+require_relative 'spotify'
+
+PLAYER = [MPC.new, Spotify.new].find { |p| p.available }
+
+exit unless PLAYER
+
 ICONS = { playing: '', paused: '', stopped: '' }.freeze
 MODS = { repeat: '', random: '', single: '', consume: '' }.freeze
 
@@ -9,36 +16,16 @@ def copy(s)
   Open3.popen2('xclip -sel c') { |i, o, w| i << s }
 end
 
-def mpcf(f)
-  `mpc -f "#{f}"`.split("\n").first
-end
-
-mouse = ENV['BLOCK_BUTTON'].to_i
-
-mpc = `mpc`.split "\n"
-mpc_short = `mpc -f "%title%"`.split "\n"
-
-case mouse
+case ENV['BLOCK_BUTTON'].to_i
 when 2
-  copy mpcf '[[%artist% - ]%title%[ (%album%)]]|[%file%]'
+  copy PLAYER.long
 when 3
-  copy mpcf '%file%'
+  copy PLAYER.file
 end
 
-# If we get less than 3 lines of output, it means playback is stopped
-exit if mpc.size < 3
+mods = [:repeat, :random, :single, :consume].map { |m| MODS[m] if PLAYER[m] }.compact.join(' ')
 
-mods = Hash[mpc[2].scan(/(\w+): (off|on)/).map do |m|
-  [m.first.to_sym, m.last == 'on']
-end]
-
-data = {
-  now_playing: mpc[0],
-  status: mpc[1].match(/^\[(\w+)\]/)[1].to_sym,
-  mods: [:repeat, :random, :single, :consume].map { |m| MODS[m] if mods[m] }.compact.join(' ')
-}
-
-print "#{ICONS[data[:status]]} #{data[:now_playing]}"
-print " #{data[:mods]}" if data[:mods].size > 0
-puts "\n#{ICONS[data[:status]]} #{mpc_short[0]}"
-puts '#a0a0a0' if data[:status] == :paused
+print "#{ICONS[PLAYER.status]} #{PLAYER}"
+print " #{mods}" if mods.size > 0
+puts "\n#{ICONS[PLAYER.status]} #{PLAYER.short}"
+puts '#a0a0a0' if PLAYER.status == :paused
