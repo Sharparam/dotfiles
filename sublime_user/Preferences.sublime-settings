@@ -10,8 +10,8 @@
 	"ignored_packages":
 	[
 		"DoxyDoxygen",
+		"Six",
 		"Vintage",
-		"Vintageous",
 		"Visual Studio Dark"
 	],
 	"indent_guide_options":
