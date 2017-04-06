@@ -233,6 +233,7 @@ assign [class="TelegramDesktop"] $WS4
 assign [class="Steam" title="^Friends$"] $WS4
 assign [class="Steam" title=" - Chat$"] $WS4
 assign [class="Steam" title="^Steam$"] $WS5
+assign [class="Spotify"] $WS10
 
 # PDFPC settings
 assign [class="Pdfpc" window_role="presenter"] $WS7
@@ -256,6 +257,7 @@ bar {
 
 for_window [class="^.*"] border pixel 2
 for_window [class="Arandr"] floating enable
+for_window [class="(?i)spotify"] move to workspace $WS10
 
 new_window pixel
 
