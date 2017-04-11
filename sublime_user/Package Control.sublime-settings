@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"A File Icon",
 		"AdvancedNewFile",
 		"ApacheConf.tmLanguage",
 		"Base16 Color Schemes",
@@ -19,6 +20,7 @@
 		"LaTeX Snippets",
 		"LaTeX Word Count",
 		"LaTeXTools",
+		"Material Theme",
 		"MIPS Syntax",
 		"Moonscripty",
 		"Oceanic Next Color Scheme",

@@ -1,7 +1,7 @@
 {
 	"always_show_minimap_viewport": true,
 	"auto_complete_delay": 100,
-	"color_scheme": "Packages/Base16 Color Schemes/Themes/base16-eighties.tmTheme",
+	"color_scheme": "Packages/Material Theme/schemes/Material-Theme-Darker.tmTheme",
 	"draw_white_space": "selection",
 	"ensure_newline_at_eof_on_save": true,
 	"font_size": 10,
@@ -19,6 +19,13 @@
 		"draw_normal",
 		"draw_active"
 	],
+	"material_theme_arrow_folders": true,
+	"material_theme_bright_scrollbars": true,
+	"material_theme_compact_panel": true,
+	"material_theme_compact_sidebar": true,
+	"material_theme_small_statusbar": true,
+	"material_theme_small_tab": true,
+	"material_theme_tabs_separator": true,
 	"rulers":
 	[
 		80,
@@ -27,7 +34,7 @@
 	"show_encoding": true,
 	"show_line_endings": true,
 	"show_tab_close_buttons": false,
-	"theme": "Soda Dark 3.sublime-theme",
+	"theme": "Material-Theme-Darker.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }
