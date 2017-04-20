@@ -7,3 +7,5 @@
     username = Sharparam
 [gui]
 	spellingdictionary = none
+[core]
+	autocrlf = input
