@@ -171,10 +171,14 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym j resize shrink width 25 px or 25 ppt
+        bindsym Shift+j resize shrink width 100 px or 100 ppt
+        bindsym k resize grow height 25 px or 25 ppt
+        bindsym Shift+k grow height 100 px or 100 ppt
+        bindsym l resize shrink height 25 px or 25 ppt
+        bindsym Shift+l resize shrink height 100 px or 100 ppt
+        bindsym semicolon resize grow width 25 px or 25 ppt
+        bindsym Shift+semicolon resize grow width 100 px or 100 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -260,6 +264,8 @@ for_window [class="^.*"] border pixel 2
 for_window [class="Arandr"] floating enable
 for_window [class="jetbrains-studio"] move to workspace $WS2
 for_window [class="(?i)spotify"] move to workspace $WS10
+
+for_window [class="mpv"] floating enable, resize set 213 120, move absolute position 1500 30
 
 new_window pixel
 
