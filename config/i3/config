@@ -265,7 +265,9 @@ for_window [class="Arandr"] floating enable
 for_window [class="jetbrains-studio"] move to workspace $WS2
 for_window [class="(?i)spotify"] move to workspace $WS10
 
-for_window [class="mpv"] floating enable, resize set 213 120, move absolute position 1500 30
+for_window [class="mpv"] floating enable, resize set 640 360, move absolute position 1270 15
+
+for_window [class="Pcmanfm"] floating enable
 
 new_window pixel
 
