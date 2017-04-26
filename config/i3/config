@@ -95,6 +95,9 @@ bindsym $mod+d focus child
 # focus monitor to the right
 bindsym $mod+Tab focus output right
 
+# Toggle sticky status of current window
+bindsym $mod+Shift+s sticky toggle
+
 # BG: #2f343f
 set $bg-color #2d2d2d
 set $inactive-bg-color #2d2d2d
