@@ -1,6 +1,8 @@
 class MPC
   def initialize
-    @mods = Hash[run[2].scan(/(\w+): (off|on)/).map do |m|
+    output = run.split("\n")
+    return unless output.size >= 3
+    @mods = Hash[output[2].scan(/(\w+): (off|on)/).map do |m|
       [m.first.to_sym, m.last == 'on']
     end]
   end
