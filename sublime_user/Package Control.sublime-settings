@@ -15,6 +15,7 @@
 		"Dockerfile Syntax Highlighting",
 		"DoxyDoxygen",
 		"EditorConfig",
+		"FindKeyConflicts",
 		"GitGutter",
 		"Gitignore",
 		"LaTeX Snippets",
