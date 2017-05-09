@@ -177,7 +177,7 @@ mode "resize" {
         bindsym j resize shrink width 25 px or 25 ppt
         bindsym Shift+j resize shrink width 100 px or 100 ppt
         bindsym k resize grow height 25 px or 25 ppt
-        bindsym Shift+k grow height 100 px or 100 ppt
+        bindsym Shift+k resize grow height 100 px or 100 ppt
         bindsym l resize shrink height 25 px or 25 ppt
         bindsym Shift+l resize shrink height 100 px or 100 ppt
         bindsym semicolon resize grow width 25 px or 25 ppt
