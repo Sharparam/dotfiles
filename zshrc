@@ -71,7 +71,10 @@ export BROWSER="firefox"
 
 #export ANDROID_HOME=/opt/android-sdk
 
-export $(gnome-keyring-daemon --start)
+pgrep gnome-keyring >& /dev/null
+if [ $? -eq 0 ]; then
+    export $(gnome-keyring-daemon --start)
+fi
 
 eval "$(thefuck --alias)"
 eval "$(hub alias -s)"
