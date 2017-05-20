@@ -235,6 +235,7 @@ workspace_auto_back_and_forth yes
 #assign [class="Termite"] $WS1
 assign [class="Subl3"] $WS2
 assign [class="Code"] $WS2
+assign [class="jetbrains-idea-ce"] $WS2
 assign [class="jetbrains-studio"] $WS2
 assign [class="Firefox"] $WS3
 assign [class="TelegramDesktop"] $WS4
@@ -265,7 +266,6 @@ bar {
 
 for_window [class="^.*"] border pixel 2
 for_window [class="Arandr"] floating enable
-for_window [class="jetbrains-studio"] move to workspace $WS2
 for_window [class="(?i)spotify"] move to workspace $WS10
 
 for_window [class="mpv"] floating enable, resize set 640 360, move absolute position 1270 15
