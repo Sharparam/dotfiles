@@ -272,3 +272,5 @@ exec --no-startup-id dunst
 exec --no-startup-id sh $HOME/.fehbg
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+exec --no-startup-id i3-msg 'workspace $WS1'
