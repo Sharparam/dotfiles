@@ -59,11 +59,11 @@ end
 def capture(mode = :all)
   case mode
   when :select
-    region = `slop -f%g`.strip
+    region = `slop -f %g`.strip
     maim "-g #{region}"
   when :active
     `xdotool getactivewindow getwindowgeometry` =~ /(\d+),(\d+).+?(\d+)x(\d+)/m
-    maim "-x #{$1} -y #{$2} -w #{$3} -h #{$4}"
+    maim "-g #{$3}x#{$4}+#{$1}+#{$2}"
   else
     maim
   end
