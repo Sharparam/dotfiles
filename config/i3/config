@@ -259,6 +259,8 @@ for_window [class="(?i)spotify"] move to workspace $WS10
 for_window [class="mpv"] floating enable, resize set 640 360, move absolute position 1270 15
 
 for_window [class="Pcmanfm"] floating enable
+for_window [class="jetbrains-studio" title="Android Virtual Device Manager"] floating enable
+for_window [title="Android Emulator - .+"] floating enable
 
 new_window pixel
 
