@@ -140,10 +140,10 @@ workspace $WS1 output eDPI1
 workspace $WS2 output eDPI1
 workspace $WS3 output eDPI1
 workspace $WS4 output eDPI1
-workspace $WS5 output HDMI2
-workspace $WS6 output HDMI2
-workspace $WS7 output eDPI1
-workspace $WS8 output eDPI1
+workspace $WS5 output eDPI1
+workspace $WS6 output eDPI1
+workspace $WS7 output HDMI2
+workspace $WS8 output HDMI2
 workspace $WS9 output HDMI2
 workspace $WS10 output HDMI2
 
