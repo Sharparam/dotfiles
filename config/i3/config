@@ -233,7 +233,7 @@ assign [class="Steam" title="^Steam$"] $WS5
 assign [class="Spotify"] $WS10
 
 # PDFPC settings
-assign [class="Pdfpc" window_role="presenter"] $WS7
+assign [class="Pdfpc" window_role="presenter"] $WS6
 assign [class="Pdfpc" window_role="presentation"] $WS9
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -259,6 +259,7 @@ for_window [class="(?i)spotify"] move to workspace $WS10
 for_window [class="mpv"] floating enable, resize set 640 360, move absolute position 1270 15
 
 for_window [class="Pcmanfm"] floating enable
+for_window [class="Xarchiver"] floating enable
 for_window [class="jetbrains-studio" title="Android Virtual Device Manager"] floating enable
 for_window [title="Android Emulator - .+"] floating enable
 
