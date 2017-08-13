@@ -230,7 +230,7 @@ assign [class="TelegramDesktop"] $WS4
 assign [class="Steam" title="^Friends$"] $WS4
 assign [class="Steam" title=" - Chat$"] $WS4
 assign [class="Steam" title="^Steam$"] $WS5
-assign [class="Spotify"] $WS10
+#assign [class="(?i)spotify"] $WS10
 
 # PDFPC settings
 assign [class="Pdfpc" window_role="presenter"] $WS6
