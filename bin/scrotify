@@ -39,7 +39,7 @@ def error(msg)
 end
 
 def maim(args = '')
-  `maim #{args} #{LOCAL}/#{FILENAME}`
+  `maim -u #{args} #{LOCAL}/#{FILENAME}`
   error 'maim failed' unless $?.exitstatus == 0
 
   `notify-send -u low "Scrotify" "Uploading screenshot..."`
