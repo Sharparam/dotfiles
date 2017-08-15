@@ -95,6 +95,8 @@ alias ssh="TERM=xterm-256color ssh"
 
 alias mux="tmuxinator"
 
+alias sketchup="WINEARCH=win64 WINEPREFIX=~/.sketchup wine start /unix ~/.sketchup/drive_c/Program\ Files/SketchUp/SketchUp\ 2017/SketchUp.exe"
+
 cowfortune() {
 	fortune $@ | cowsay -W 70
 }
