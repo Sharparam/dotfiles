@@ -9,3 +9,5 @@
 	spellingdictionary = none
 [core]
 	autocrlf = input
+[commit]
+	gpgsign = true
