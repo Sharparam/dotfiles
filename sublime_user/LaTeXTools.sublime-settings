@@ -46,7 +46,7 @@
 		".blg",".bbl",".aux",".log",".brf",".nlo",".out",".dvi",".ps",
 		".lof",".toc",".fls",".fdb_latexmk",".pdfsync",".synctex.gz",
 		".ind",".ilg",".idx", ".lol", ".glo", ".bcf", ".ist", ".run.xml",
-        ".glg", ".gls", ".lot", ".vrb", ".nav", ".snm"
+        ".glg", ".gls", ".lot", ".vrb", ".nav", ".snm", ".acr", ".xdy", ".acn"
 	],
 	// Folders that are not traversed when deleting temp files
 	"temp_files_ignored_folders": [
