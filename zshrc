@@ -20,6 +20,7 @@ zplug "plugins/gem", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/github", from:oh-my-zsh
 zplug "plugins/history-substring-search", from:oh-my-zsh
+zplug "plugins/pyenv", from:oh-my-zsh
 zplug "plugins/rails", from:oh-my-zsh
 zplug "plugins/rbenv", from:oh-my-zsh
 zplug "plugins/ruby", from:oh-my-zsh
@@ -71,11 +72,21 @@ export BROWSER="firefox"
 
 #export ANDROID_HOME=/opt/android-sdk
 
-export $(gnome-keyring-daemon --start)
+pgrep gnome-keyring >& /dev/null
+if [ $? -eq 0 ]; then
+    export $(gnome-keyring-daemon --start)
+fi
 
 eval "$(thefuck --alias)"
 eval "$(hub alias -s)"
 eval "$(rbenv init -)"
+
+if [[ -d "$HOME/.pyenv/" ]]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    path=($HOME/.pyenv/bin "$path[@]")
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
 alias emacs="TERM=xterm-256color emacs -nw"
 
@@ -83,6 +94,8 @@ alias emacs="TERM=xterm-256color emacs -nw"
 alias ssh="TERM=xterm-256color ssh"
 
 alias mux="tmuxinator"
+
+alias sketchup="WINEARCH=win64 WINEPREFIX=~/.sketchup wine start /unix ~/.sketchup/drive_c/Program\ Files/SketchUp/SketchUp\ 2017/SketchUp.exe"
 
 cowfortune() {
 	fortune $@ | cowsay -W 70
@@ -99,5 +112,8 @@ launch() {
 scrotclip() {
     scrot $@ /tmp/scrotclip.png -e 'xclip -se c -t image/png -i $f && rm $f'
 }
+
+# WTF, Ansible?
+export ANSIBLE_NOCOWS=1
 
 cowfortune

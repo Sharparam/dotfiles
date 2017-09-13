@@ -37,8 +37,8 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+space exec --no-startup-id "rofi -show run"
-bindsym XF86Search exec --no-startup-id "rofi -combi-modi window,run -show combi -modi combi"
+bindsym $mod+space exec --no-startup-id "rofi -combi-modi run,drun -show combi -modi combi"
+bindsym XF86Search exec --no-startup-id "rofi -combi-modi window,run,drun -show combi -modi combi"
 
 bindsym XF86Display exec arandr
 
@@ -48,23 +48,11 @@ bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
-# alternatively, you can use the cursor keys:
-#bindsym $mod+Left focus left
-#bindsym $mod+Down focus down
-#bindsym $mod+Up focus up
-#bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
-#bindsym $mod+Shift+Left move left
-#bindsym $mod+Shift+Down move down
-#bindsym $mod+Shift+Up move up
-#bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -94,6 +82,9 @@ bindsym $mod+d focus child
 
 # focus monitor to the right
 bindsym $mod+Tab focus output right
+
+# Toggle sticky status of current window
+bindsym $mod+Shift+s sticky toggle
 
 # BG: #2f343f
 set $bg-color #2d2d2d
@@ -149,10 +140,10 @@ workspace $WS1 output eDPI1
 workspace $WS2 output eDPI1
 workspace $WS3 output eDPI1
 workspace $WS4 output eDPI1
-workspace $WS5 output HDMI2
-workspace $WS6 output HDMI2
-workspace $WS7 output eDPI1
-workspace $WS8 output eDPI1
+workspace $WS5 output eDPI1
+workspace $WS6 output eDPI1
+workspace $WS7 output HDMI2
+workspace $WS8 output HDMI2
 workspace $WS9 output HDMI2
 workspace $WS10 output HDMI2
 
@@ -171,10 +162,14 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym j resize shrink width 25 px or 25 ppt
+        bindsym Shift+j resize shrink width 100 px or 100 ppt
+        bindsym k resize grow height 25 px or 25 ppt
+        bindsym Shift+k resize grow height 100 px or 100 ppt
+        bindsym l resize shrink height 25 px or 25 ppt
+        bindsym Shift+l resize shrink height 100 px or 100 ppt
+        bindsym semicolon resize grow width 25 px or 25 ppt
+        bindsym Shift+semicolon resize grow width 100 px or 100 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -223,20 +218,24 @@ bindsym --release Ctrl+Print exec --no-startup-id "sleep 0.5; /home/sharparam/bi
 bindsym --release Print exec --no-startup-id /home/sharparam/bin/scrotify
 bindsym --release Shift+Print exec --no-startup-id /home/sharparam/bin/scrotify -a
 
+bindsym $mod+b exec --no-startup-id sh $HOME/.fehbg
+
 workspace_auto_back_and_forth yes
 
 #assign [class="Termite"] $WS1
 assign [class="Subl3"] $WS2
 assign [class="Code"] $WS2
+assign [class="jetbrains-idea-ce"] $WS2
+assign [class="jetbrains-studio"] $WS2
 assign [class="Firefox"] $WS3
 assign [class="TelegramDesktop"] $WS4
 assign [class="Steam" title="^Friends$"] $WS4
 assign [class="Steam" title=" - Chat$"] $WS4
 assign [class="Steam" title="^Steam$"] $WS5
-assign [class="Spotify"] $WS10
+#assign [class="(?i)spotify"] $WS10
 
 # PDFPC settings
-assign [class="Pdfpc" window_role="presenter"] $WS7
+assign [class="Pdfpc" window_role="presenter"] $WS6
 assign [class="Pdfpc" window_role="presentation"] $WS9
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -259,6 +258,13 @@ for_window [class="^.*"] border pixel 2
 for_window [class="Arandr"] floating enable
 for_window [class="(?i)spotify"] move to workspace $WS10
 
+for_window [class="mpv"] floating enable, resize set 640 360, move absolute position 1270 15
+
+for_window [class="Pcmanfm"] floating enable
+for_window [class="Xarchiver"] floating enable
+for_window [class="jetbrains-studio" title="Android Virtual Device Manager"] floating enable
+for_window [title="Android Emulator - .+"] floating enable
+
 new_window pixel
 
 hide_edge_borders both
@@ -271,3 +277,7 @@ exec --no-startup-id dunst
 exec --no-startup-id sh $HOME/.fehbg
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+exec --no-startup-id fcitx
+
+exec --no-startup-id i3-msg 'workspace $WS1'

@@ -1,3 +1,6 @@
 setxkbmap -option caps:escape
 xss-lock /home/sharparam/bin/lockify &
 xrandr --dpi 168
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
