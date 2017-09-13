@@ -11,6 +11,7 @@
 	"ignored_packages":
 	[
 		"DoxyDoxygen",
+		"Package Control",
 		"Six",
 		"Vintage",
 		"Visual Studio Dark"
