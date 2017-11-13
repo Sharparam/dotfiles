@@ -94,6 +94,9 @@ if [ "$(hostname)" = 'PC490' ]; then
     export SSH_AGENT_PID=$(pgrep ssh-agent)
     export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name 'agent.*')
   fi
+  if [ "$(ssh-add -l)" == "The agent has no identities." ]; then
+    ssh-add
+  fi
 fi
 
 if [ "$(hostname)" != 'PC490' ];
