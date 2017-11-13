@@ -86,6 +86,15 @@ pgrep gnome-keyring >& /dev/null
 if [ $? -eq 0 ]; then
     export $(gnome-keyring-daemon --start)
 fi
+if [ "$(hostname)" = 'PC490' ]; then
+  if [ -z "$(pgrep ssh-agent)" ]; then
+    rm -rf /tmp/ssh-*
+    eval $(ssh-agent -s) > /dev/null
+  else
+    export SSH_AGENT_PID=$(pgrep ssh-agent)
+    export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name 'agent.*')
+  fi
+fi
 
 if [ "$(hostname)" != 'PC490' ];
 then
