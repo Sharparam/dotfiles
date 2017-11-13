@@ -3,3 +3,5 @@
 Get-Content -Path "$env:USERPROFILE\dotfiles\windows\aliases.ps1" -Raw | Invoke-Expression
 
 Clear-Host
+
+Import-Module posh-git
