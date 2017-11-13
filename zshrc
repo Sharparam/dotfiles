@@ -1,6 +1,12 @@
 typeset -U path
 
-path=($HOME/bin $HOME/.local/bin $path)
+path=($HOME/bin $HOME/.local/bin /usr/lib/go-1.8/bin $path)
+
+if [ "$(hostname)" = 'PC490' ];
+then
+  echo '[WSL] Disabling setting priotiy on background processes'
+  unsetopt BG_NICE
+fi
 
 export ZSH_TMUX_AUTOSTART=false
 export ZSH_TMUX_AUTOSTART_ONCE=true
@@ -32,7 +38,11 @@ zplug "plugins/tmuxinator", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 zplug "mafredri/zsh-async"
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+
+if [ "$(hostname)" != 'PC490' ];
+then
+  zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+fi
 
 zplug "simonwhitaker/gibo", use:/, hook-build:"ln -fs gibo-completion.zsh _gibo"
 
@@ -77,8 +87,11 @@ if [ $? -eq 0 ]; then
     export $(gnome-keyring-daemon --start)
 fi
 
-eval "$(thefuck --alias)"
-eval "$(hub alias -s)"
+if [ "$(hostname)" != 'PC490' ];
+then
+  eval "$(thefuck --alias)"
+  eval "$(hub alias -s)"
+fi
 eval "$(rbenv init -)"
 
 if [[ -d "$HOME/.pyenv/" ]]; then
@@ -86,6 +99,13 @@ if [[ -d "$HOME/.pyenv/" ]]; then
     path=($HOME/.pyenv/bin "$path[@]")
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
+fi
+
+if [ "$(hostname)" = 'PC490' ];
+then
+  autoload -Uz promptinit
+  promptinit
+  prompt adam1
 fi
 
 alias emacs="TERM=xterm-256color emacs -nw"
