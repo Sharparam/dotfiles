@@ -94,7 +94,7 @@ if [ "$(hostname)" = 'PC490' ]; then
     export SSH_AGENT_PID=$(pgrep ssh-agent)
     export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name 'agent.*')
   fi
-  if [ "$(ssh-add -l)" == "The agent has no identities." ]; then
+  if [ "$(ssh-add -l)" = "The agent has no identities." ]; then
     ssh-add
   fi
 fi
@@ -130,7 +130,11 @@ alias mux="tmuxinator"
 alias sketchup="WINEARCH=win64 WINEPREFIX=~/.sketchup wine start /unix ~/.sketchup/drive_c/Program\ Files/SketchUp/SketchUp\ 2017/SketchUp.exe"
 
 cowfortune() {
-	fortune $@ | cowsay -W 70
+    cowargs=('-b' '-d' '-g' '-p' '-s' '-t' '-w' '-y' '')
+    cowextra=${cowargs[$(($RANDOM % ${#cowargs[@]}))]}
+    files=($(cowsay -l | tail -n +2))
+    cowfile=${files[$((RANDOM % ${#files[@]}))]}
+    fortune $@ | cowsay -W 70 -f ${cowfile} ${cowextra}
 }
 
 thinkfortune () {
