@@ -1,6 +1,12 @@
 typeset -U path
 
-path=($HOME/bin $HOME/.local/bin $path)
+path=($HOME/bin $HOME/.local/bin /usr/lib/go-1.8/bin $path)
+
+if [ "$(hostname)" = 'PC490' ];
+then
+  echo '[WSL] Disabling setting priotiy on background processes'
+  unsetopt BG_NICE
+fi
 
 export ZSH_TMUX_AUTOSTART=false
 export ZSH_TMUX_AUTOSTART_ONCE=true
@@ -32,7 +38,11 @@ zplug "plugins/tmuxinator", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 zplug "mafredri/zsh-async"
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+
+if [ "$(hostname)" != 'PC490' ];
+then
+  zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+fi
 
 zplug "simonwhitaker/gibo", use:/, hook-build:"ln -fs gibo-completion.zsh _gibo"
 
@@ -76,9 +86,24 @@ pgrep gnome-keyring >& /dev/null
 if [ $? -eq 0 ]; then
     export $(gnome-keyring-daemon --start)
 fi
+if [ "$(hostname)" = 'PC490' ]; then
+  if [ -z "$(pgrep ssh-agent)" ]; then
+    rm -rf /tmp/ssh-*
+    eval $(ssh-agent -s) > /dev/null
+  else
+    export SSH_AGENT_PID=$(pgrep ssh-agent)
+    export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name 'agent.*')
+  fi
+  if [ "$(ssh-add -l)" = "The agent has no identities." ]; then
+    ssh-add
+  fi
+fi
 
-eval "$(thefuck --alias)"
-eval "$(hub alias -s)"
+if [ "$(hostname)" != 'PC490' ];
+then
+  eval "$(thefuck --alias)"
+  eval "$(hub alias -s)"
+fi
 eval "$(rbenv init -)"
 
 if [[ -d "/usr/share/perl6/" ]]; then
@@ -92,6 +117,13 @@ if [[ -d "$HOME/.pyenv/" ]]; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
+if [ "$(hostname)" = 'PC490' ];
+then
+  autoload -Uz promptinit
+  promptinit
+  prompt adam1
+fi
+
 alias emacs="TERM=xterm-256color emacs -nw"
 
 # Ugly workaround to get SSH working properly in all terminals
@@ -102,7 +134,11 @@ alias mux="tmuxinator"
 alias sketchup="WINEARCH=win64 WINEPREFIX=~/.sketchup wine start /unix ~/.sketchup/drive_c/Program\ Files/SketchUp/SketchUp\ 2017/SketchUp.exe"
 
 cowfortune() {
-	fortune $@ | cowsay -W 70
+    cowargs=('-b' '-d' '-g' '-p' '-s' '-t' '-w' '-y' '')
+    cowextra=${cowargs[$(($RANDOM % ${#cowargs[@]}))]}
+    files=($(cowsay -l | tail -n +2))
+    cowfile=${files[$((RANDOM % ${#files[@]}))]}
+    fortune $@ | cowsay -W 70 -f ${cowfile} ${cowextra}
 }
 
 thinkfortune () {
