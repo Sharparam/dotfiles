@@ -201,12 +201,16 @@ bindsym Ctrl+Mod1+Delete mode "$mode_system"
 
 # Special media keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && pkill -RTMIN+10 i3blocks
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +1% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && pkill -RTMIN+10 i3blocks
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -1% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle && pkill RTMIN+10 i3blocks
 
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 && pkill -RTMIN+12 i3blocks
+bindsym Shift+XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 1 && pkill -RTMIN+12 i3blocks
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 && pkill -RTMIN+12 i3blocks
+bindsym Shift+XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 1 && pkill -RTMIN+12 i3blocks
 
 bindsym $mod+Left exec --no-startup-id $HOME/dotfiles/i3blocks/sharp-music.rb previous && pkill -RTMIN+12 i3blocks
 bindsym $mod+Right exec --no-startup-id $HOME/dotfiles/i3blocks/sharp-music.rb next && pkill -RTMIN+12 i3blocks
