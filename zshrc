@@ -85,6 +85,7 @@ export BROWSER="firefox"
 pgrep gnome-keyring >& /dev/null
 if [ $? -eq 0 ]; then
     export $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
 fi
 if [ "$(hostname)" = 'PC490' ]; then
   if [ -z "$(pgrep ssh-agent)" ]; then
