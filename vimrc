@@ -35,7 +35,9 @@ set autoread " Auto-reload files on external change
 
 set showcmd
 
-set cul
+if hostname() != 'PC490' && hostname() != 'Sharparam-PC'
+  set cul
+endif
 
 " Always show ruler
 "set ruler
@@ -61,7 +63,9 @@ set novisualbell
 """"""""""""""""""""
 
 set background=dark
-let base16colorspace=256
+if hostname() != 'PC490' && hostname() != 'Sharparam-PC'
+  let base16colorspace=256
+endif
 colorscheme base16-eighties
 
 set encoding=utf8
