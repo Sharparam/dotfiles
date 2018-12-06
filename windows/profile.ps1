@@ -57,6 +57,8 @@ Set-PSReadlineOption -TokenKind Number -BackgroundColor          $background
 Set-PSReadlineOption -TokenKind Member -ForegroundColor          Cyan
 Set-PSReadlineOption -TokenKind Member -BackgroundColor          $background
 
+Set-PSReadlineOption -BellStyle None
+
 Clear-Host
 
 Get-Content -Path "$env:USERPROFILE\dotfiles\windows\aliases.ps1" -Raw | Invoke-Expression
