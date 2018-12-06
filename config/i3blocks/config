@@ -56,6 +56,12 @@ command=$SCRIPT_DIR/volume-pulseaudio/volume-pulseaudio -F 3 -f 3
 interval=10
 signal=10
 
+[brightness]
+command=printf "%2.0f%%" $(xbacklight)
+label=
+interval=once
+signal=12
+
 # Disk usage
 #
 # The directory defaults to $HOME if the instance is not specified.

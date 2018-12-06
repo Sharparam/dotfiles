@@ -2,10 +2,15 @@ typeset -U path
 
 path=($HOME/bin $HOME/.local/bin /usr/lib/go-1.8/bin $path)
 
-if [ "$(hostname)" = 'PC490' ];
+wsl_hostnames=(PC490 Sharparam-PC)
+is_wsl=${wsl_hostnames[(I)$(hostname)]}
+
+if [[ $is_wsl ]];
 then
   echo '[WSL] Disabling setting priority on background processes'
   unsetopt BG_NICE
+  echo '[WSL] Setting umask to 022'
+  umask 022
 fi
 
 export ZSH_TMUX_AUTOSTART=false
@@ -30,7 +35,7 @@ zplug "plugins/pyenv", from:oh-my-zsh
 zplug "plugins/rails", from:oh-my-zsh
 zplug "plugins/rbenv", from:oh-my-zsh
 zplug "plugins/ruby", from:oh-my-zsh
-if [ "$(hostname)" = "PC490" ]; then
+if [[ $is_wsl ]]; then
   zplug "plugins/ssh-agent", from:oh-my-zsh
 fi
 #zplug "plugins/sublime", from:oh-my-zsh
@@ -42,7 +47,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 zplug "mafredri/zsh-async"
 
-if [ "$(hostname)" != 'PC490' ];
+if [ ! $is_wsl ];
 then
   zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 fi
@@ -88,14 +93,22 @@ export BROWSER="firefox"
 pgrep gnome-keyring >& /dev/null
 if [ $? -eq 0 ]; then
     export $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
 fi
 
-if [ "$(hostname)" != 'PC490' ];
+if [ ! $is_wsl ];
 then
   eval "$(thefuck --alias)"
   eval "$(hub alias -s)"
 fi
-eval "$(rbenv init -)"
+
+if [[ -d "$HOME/.rbenv/" ]]; then
+  eval "$(rbenv init -)"
+fi
+
+if [[ -d "/usr/share/perl6/" ]]; then
+    path=(/usr/share/perl6/vendor/bin /usr/share/perl6/site/bin $path)
+fi
 
 if [[ -d "$HOME/.pyenv/" ]]; then
     export PYENV_ROOT="$HOME/.pyenv"
@@ -104,11 +117,14 @@ if [[ -d "$HOME/.pyenv/" ]]; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
-if [ "$(hostname)" = 'PC490' ];
+if [ $is_wsl ];
 then
   autoload -Uz promptinit
   promptinit
   prompt adam1
+
+  BASE16_SHELL=$HOME/.config/base16-shell/
+  [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 fi
 
 alias emacs="TERM=xterm-256color emacs -nw"
