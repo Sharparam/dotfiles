@@ -9,6 +9,10 @@
 #
 # Note: ensure you have ssh and ssh-agent available on your path, from Git's Unix tools or Cygwin.
 
+if ($env:COMPUTERNAME -ne 'PC490') {
+    exit
+}
+
 # Retrieve the current SSH agent PId (or zero). Can be used to determine if there
 # is an agent already starting.
 function Get-SshAgent() {
