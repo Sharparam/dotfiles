@@ -4,7 +4,7 @@ path=($HOME/bin $HOME/.local/bin /usr/lib/go-1.8/bin $path)
 
 if [ "$(hostname)" = 'PC490' ];
 then
-  echo '[WSL] Disabling setting priotiy on background processes'
+  echo '[WSL] Disabling setting priority on background processes'
   unsetopt BG_NICE
 fi
 
@@ -30,6 +30,9 @@ zplug "plugins/pyenv", from:oh-my-zsh
 zplug "plugins/rails", from:oh-my-zsh
 zplug "plugins/rbenv", from:oh-my-zsh
 zplug "plugins/ruby", from:oh-my-zsh
+if [ "$(hostname)" = "PC490" ]; then
+  zplug "plugins/ssh-agent", from:oh-my-zsh
+fi
 #zplug "plugins/sublime", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
@@ -86,18 +89,6 @@ pgrep gnome-keyring >& /dev/null
 if [ $? -eq 0 ]; then
     export $(gnome-keyring-daemon --start)
 fi
-if [ "$(hostname)" = 'PC490' ]; then
-  if [ -z "$(pgrep ssh-agent)" ]; then
-    rm -rf /tmp/ssh-*
-    eval $(ssh-agent -s) > /dev/null
-  else
-    export SSH_AGENT_PID=$(pgrep ssh-agent)
-    export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name 'agent.*')
-  fi
-  if [ "$(ssh-add -l)" = "The agent has no identities." ]; then
-    ssh-add
-  fi
-fi
 
 if [ "$(hostname)" != 'PC490' ];
 then
@@ -133,7 +124,7 @@ cowfortune() {
     cowargs=('-b' '-d' '-g' '-p' '-s' '-t' '-w' '-y' '')
     cowextra=${cowargs[$(($RANDOM % ${#cowargs[@]}))]}
     files=($(cowsay -l | tail -n +2))
-    cowfile=${files[$((RANDOM % ${#files[@]}))]}
+    cowfile=${files[$((RANDOM % ${#files[@]} + 1))]}
     fortune $@ | cowsay -W 70 -f ${cowfile} ${cowextra}
 }
 
