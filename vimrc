@@ -30,7 +30,14 @@ set laststatus=2
 set t_Co=256
 set noshowmode
 
-set nu " Display line numbers
+set nu rnu " Display line numbers
+
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+augroup END
+
 set autoread " Auto-reload files on external change
 
 set showcmd
