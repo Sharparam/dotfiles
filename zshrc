@@ -3,7 +3,12 @@ typeset -U path
 path=($HOME/bin $HOME/.local/bin /usr/lib/go-1.8/bin $path)
 
 wsl_hostnames=(PC490 Sharparam-PC)
-is_wsl=${wsl_hostnames[(I)$(hostname)]}
+if (( ${wsl_hostnames[(I)$(hostname)]} ));
+then
+    is_wsl=true
+else
+    is_wsl=
+fi
 
 if [[ $is_wsl ]];
 then
