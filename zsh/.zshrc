@@ -48,7 +48,7 @@ wsl_fix_fsh() {
   if [ ! $is_wsl ]; then
     return
   fi
-  echo "[WSL] Fixing fast-syntax-highlighting"
+  #echo "[WSL] Fixing fast-syntax-highlighting"
   FAST_HIGHLIGHT[chroma-git]="chroma/-ogit.ch"
 }
 
@@ -99,6 +99,7 @@ zplugin snippet PZT::modules/gpg/init.zsh
 zplugin ice svn
 zplugin snippet PZT::modules/ruby/
 
+zstyle ':prezto:module:python:virtualenv' auto-switch 'yes'
 zplugin ice svn
 zplugin snippet PZT::modules/python/
 
@@ -177,4 +178,6 @@ scrotclip() {
 # WTF, Ansible?
 export ANSIBLE_NOCOWS=1
 
-cowfortune
+if [ ! $ASCIINEMA_REC ]; then
+  cowfortune
+fi
