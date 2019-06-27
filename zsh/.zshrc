@@ -125,13 +125,6 @@ if [[ -d "/usr/share/perl6/" ]]; then
     path=(/usr/share/perl6/vendor/bin /usr/share/perl6/site/bin $path)
 fi
 
-#if [[ -d "$HOME/.pyenv/" ]]; then
-#  export PYENV_ROOT="$HOME/.pyenv"
-#  path=($HOME/.pyenv/bin "$path[@]")
-#  eval "$(pyenv init -)"
-#  eval "$(pyenv virtualenv-init -)"
-#fi
-
 alias ...='../..'
 alias ....='../../..'
 alias .....='../../../..'
