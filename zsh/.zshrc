@@ -104,6 +104,9 @@ zstyle ':prezto:module:python:virtualenv' auto-switch 'yes'
 zplugin ice svn
 zplugin snippet PZT::modules/python/
 
+zplugin ice from"gh-r" bpick"*linux_amd64*" pick"ghq_*/ghq" as"command"
+zplugin light motemen/ghq
+
 zplugin light zdharma/zui
 zplugin light zdharma/zplugin-crasis
 
