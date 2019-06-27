@@ -87,14 +87,20 @@ zplugin snippet PZT::modules/history/init.zsh
 zplugin snippet PZT::modules/environment/init.zsh
 zplugin snippet PZT::modules/directory/init.zsh
 
+zstyle ':prezto:module:utility' safe-ops 'no'
+zplugin ice svn
+zplugin snippet PZT::modules/utility/
+
 zplugin ice svn
 zplugin snippet PZT::modules/git/
 zplugin snippet PZT::modules/ssh/init.zsh
 zplugin snippet PZT::modules/gpg/init.zsh
 
-zstyle ':prezto:module:utility' safe-ops 'no'
 zplugin ice svn
-zplugin snippet PZT::modules/utility/
+zplugin snippet PZT::modules/ruby/
+
+zplugin ice svn
+zplugin snippet PZT::modules/python/
 
 zplugin light zdharma/zui
 zplugin light zdharma/zplugin-crasis
@@ -110,21 +116,16 @@ then
   eval "$(hub alias -s)"
 fi
 
-if [[ -d "$HOME/.rbenv/" ]]; then
-  export path=($HOME/.rbenv/bin "$path[@]")
-  eval "$(rbenv init -)"
-fi
-
 if [[ -d "/usr/share/perl6/" ]]; then
     path=(/usr/share/perl6/vendor/bin /usr/share/perl6/site/bin $path)
 fi
 
-if [[ -d "$HOME/.pyenv/" ]]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  path=($HOME/.pyenv/bin "$path[@]")
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
+#if [[ -d "$HOME/.pyenv/" ]]; then
+#  export PYENV_ROOT="$HOME/.pyenv"
+#  path=($HOME/.pyenv/bin "$path[@]")
+#  eval "$(pyenv init -)"
+#  eval "$(pyenv virtualenv-init -)"
+#fi
 
 alias ...='../..'
 alias ....='../../..'
