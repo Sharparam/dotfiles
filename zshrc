@@ -133,6 +133,12 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias ...='../..'
+alias ....='../../..'
+alias .....='../../../..'
+alias ......='../../../../..'
+alias .......='../../../../../..'
+
 # Git aliases
 alias ga='git add'
 alias gst='git status'
