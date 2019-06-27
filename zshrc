@@ -33,7 +33,7 @@ fi
 export _Z_CMD=j
 
 ### Added by Zplugin's installer
-source '/home/sharparam/.zplugin/bin/zplugin.zsh'
+source '~/.zplugin/bin/zplugin.zsh'
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin's installer chunk
@@ -45,7 +45,15 @@ zplugin light zsh-users/zsh-completions
 zplugin ice wait"0" atload"_zsh_autosuggest_start"
 zplugin light zsh-users/zsh-autosuggestions
 
-zplugin ice wait"0" atinit"zpcompinit; zpcdreplay"
+wsl_fix_fsh() {
+    if [ ! $is_wsl ]; then
+        return
+    fi
+    echo "[WSL] Fixing fast-syntax-highlighting"
+    FAST_HIGHLIGHT[chroma-git]="chroma/-ogit.ch"
+}
+
+zplugin ice wait"0" atinit"zpcompinit; zpcdreplay" atload"wsl_fix_fsh"
 zplugin light zdharma/fast-syntax-highlighting
 
 zplugin ice wait"0"
@@ -78,6 +86,7 @@ zplugin snippet PZT::modules/completion/init.zsh
 zplugin snippet PZT::modules/history/init.zsh
 zplugin snippet PZT::modules/environment/init.zsh
 zplugin snippet PZT::modules/directory/init.zsh
+
 zplugin ice svn
 zplugin snippet PZT::modules/git/
 #zplugin snippet PZT::modules/gpg/init.zsh
