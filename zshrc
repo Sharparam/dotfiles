@@ -62,7 +62,7 @@ zplugin light zsh-users/zsh-history-substring-search
 zplugin ice pick"async.zsh" src"pure.zsh"
 zplugin light sindresorhus/pure
 
-zplugin ice from"gh-r" pick"hub-*/bin/hub" as"command" bpkick"*linux-amd64*"
+zplugin ice from"gh-r" pick"hub-*/bin/hub" as"command" bpick"*linux-amd64*"
 zplugin light 'github/hub'
 
 zplugin ice from"gh-r" as"command" mv"hivemind-* -> hivemind"
