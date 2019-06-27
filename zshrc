@@ -87,8 +87,8 @@ zplugin snippet PZT::modules/directory/init.zsh
 
 zplugin ice svn
 zplugin snippet PZT::modules/git/
-#zplugin snippet PZT::modules/gpg/init.zsh
 zplugin snippet PZT::modules/ssh/init.zsh
+zplugin snippet PZT::modules/gpg/init.zsh
 
 zplugin light zdharma/zui
 zplugin light zdharma/zplugin-crasis
