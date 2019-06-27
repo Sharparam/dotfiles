@@ -137,6 +137,23 @@ alias l='ls -CF'
 alias ga='git add'
 alias gst='git status'
 
+# tmux helpers
+ts() {
+    if [ $# -eq 0 ]; then
+        tmux new-session
+    else
+        tmux new-session -s "$1"
+    fi
+}
+
+ta() {
+    if [ $# -eq 0 ]; then
+        tmux attach-session
+    else
+        tmux attach-session -t "$1"
+    fi
+}
+
 cowfortune() {
   cowargs=('-b' '-d' '-g' '-p' '-s' '-t' '-w' '-y' '')
   cowextra=${cowargs[$(($RANDOM % ${#cowargs[@]}))]}
