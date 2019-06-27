@@ -2,8 +2,6 @@ typeset -aUx path
 fpath=($HOME/.zsh $fpath)
 export path=($HOME/.local/bin "$path[@]")
 
-wsl_hostnames=(PC490 Sharparam-PC)
-
 if grep -q Microsoft /proc/version; then
     is_wsl=1
 else
@@ -27,13 +25,13 @@ export EDITOR="vim"
 export BROWSER="firefox"
 
 if [ ! $is_wsl ]; then
-    export TERMINAL="termite"
+  export TERMINAL="termite"
 fi
 
 export _Z_CMD=j
 
 ### Added by Zplugin's installer
-source '~/.zplugin/bin/zplugin.zsh'
+source "$HOME/.zplugin/bin/zplugin.zsh"
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin's installer chunk
@@ -46,11 +44,11 @@ zplugin ice wait"0" atload"_zsh_autosuggest_start"
 zplugin light zsh-users/zsh-autosuggestions
 
 wsl_fix_fsh() {
-    if [ ! $is_wsl ]; then
-        return
-    fi
-    echo "[WSL] Fixing fast-syntax-highlighting"
-    FAST_HIGHLIGHT[chroma-git]="chroma/-ogit.ch"
+  if [ ! $is_wsl ]; then
+    return
+  fi
+  echo "[WSL] Fixing fast-syntax-highlighting"
+  FAST_HIGHLIGHT[chroma-git]="chroma/-ogit.ch"
 }
 
 zplugin ice wait"0" atinit"zpcompinit; zpcdreplay" atload"wsl_fix_fsh"
@@ -107,6 +105,7 @@ then
 fi
 
 if [[ -d "$HOME/.rbenv/" ]]; then
+  export path=($HOME/.rbenv/bin "$path[@]")
   eval "$(rbenv init -)"
 fi
 
@@ -115,18 +114,18 @@ if [[ -d "/usr/share/perl6/" ]]; then
 fi
 
 if [[ -d "$HOME/.pyenv/" ]]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    path=($HOME/.pyenv/bin "$path[@]")
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
+  export PYENV_ROOT="$HOME/.pyenv"
+  path=($HOME/.pyenv/bin "$path[@]")
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
 fi
 
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+  test -r $HOME/.dircolors && eval "$(dircolors -b $HOME/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
 fi
 
 alias ll='ls -alF'
@@ -138,23 +137,23 @@ alias ga='git add'
 alias gst='git status'
 
 cowfortune() {
-    cowargs=('-b' '-d' '-g' '-p' '-s' '-t' '-w' '-y' '')
-    cowextra=${cowargs[$(($RANDOM % ${#cowargs[@]}))]}
-    files=($(cowsay -l | tail -n +2))
-    cowfile=${files[$((RANDOM % ${#files[@]} + 1))]}
-    fortune $@ | cowsay -W 70 -f ${cowfile} ${cowextra}
+  cowargs=('-b' '-d' '-g' '-p' '-s' '-t' '-w' '-y' '')
+  cowextra=${cowargs[$(($RANDOM % ${#cowargs[@]}))]}
+  files=($(cowsay -l | tail -n +2))
+  cowfile=${files[$((RANDOM % ${#files[@]} + 1))]}
+  fortune $@ | cowsay -W 70 -f ${cowfile} ${cowextra}
 }
 
 thinkfortune () {
-    fortune $@ | cowthink -W 70 -f bong -s
+  fortune $@ | cowthink -W 70 -f bong -s
 }
 
 launch() {
-    nohup $@ >&/dev/null &
+  nohup $@ >&/dev/null &
 }
 
 scrotclip() {
-    scrot $@ /tmp/scrotclip.png -e 'xclip -se c -t image/png -i $f && rm $f'
+  scrot $@ /tmp/scrotclip.png -e 'xclip -se c -t image/png -i $f && rm $f'
 }
 
 # WTF, Ansible?
