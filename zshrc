@@ -1,11 +1,11 @@
-typeset -U path
-
-path=($HOME/bin $HOME/.local/bin /usr/lib/go-1.8/bin $path)
+typeset -aUx path
+fpath=($HOME/.zsh $fpath)
+export path=($HOME/.local/bin "$path[@]")
 
 wsl_hostnames=(PC490 Sharparam-PC)
-if (( ${wsl_hostnames[(I)$(hostname)]} ));
-then
-    is_wsl=true
+
+if grep -q Microsoft /proc/version; then
+    is_wsl=1
 else
     is_wsl=
 fi
@@ -18,88 +18,78 @@ then
   umask 022
 fi
 
-export ZSH_TMUX_AUTOSTART=false
-export ZSH_TMUX_AUTOSTART_ONCE=true
-# The tmux plugin is stupid and doesn't properly detect 256color terminals
-#export ZSH_TMUX_FIXTERM=false
+alias git=hub
 
-source $HOME/.zplug/init.zsh
-
-zplug "lib/*", from:oh-my-zsh
-
-#zplug "plugins/autojump", from:oh-my-zsh
-zplug "plugins/bundler", from:oh-my-zsh
-zplug "plugins/colored-man-pages", from:oh-my-zsh
-zplug "plugins/docker-compose", from:oh-my-zsh
-zplug "plugins/docker", from:oh-my-zsh
-zplug "plugins/gem", from:oh-my-zsh
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/github", from:oh-my-zsh
-zplug "plugins/history-substring-search", from:oh-my-zsh
-zplug "plugins/pyenv", from:oh-my-zsh
-zplug "plugins/rails", from:oh-my-zsh
-zplug "plugins/rbenv", from:oh-my-zsh
-zplug "plugins/ruby", from:oh-my-zsh
-if [[ $is_wsl ]]; then
-  zplug "plugins/ssh-agent", from:oh-my-zsh
-fi
-#zplug "plugins/sublime", from:oh-my-zsh
-zplug "plugins/sudo", from:oh-my-zsh
-zplug "plugins/tmux", from:oh-my-zsh
-zplug "plugins/tmuxinator", from:oh-my-zsh
-
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-
-zplug "mafredri/zsh-async"
-
-if [ ! $is_wsl ];
-then
-  zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
-fi
-
-zplug "simonwhitaker/gibo", use:/, hook-build:"ln -fs gibo-completion.zsh _gibo"
-
-zplug "djui/alias-tips"
-
-zplug "supercrabtree/k"
-
-export _Z_CMD=j
-zplug "rupa/z", use:z.sh
-
-if ! zplug check; then
-    zplug install
-fi
-
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
-
-zplug load
-
-# User configuration
-
-# You may need to manually set your language environment
-#export LANG=en_GB.UTF-8
-export LANGUAGE=en_US.UTF-8
-
-#. /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+take() { mkdir -p "$1" && cd "$1" }
 
 export VISUAL="vim"
 export EDITOR="vim"
-export TERMINAL="termite"
 export BROWSER="firefox"
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-#export ANDROID_HOME=/opt/android-sdk
-
-pgrep gnome-keyring >& /dev/null
-if [ $? -eq 0 ]; then
-    export $(gnome-keyring-daemon --start)
-    export SSH_AUTH_SOCK
+if [ ! $is_wsl ]; then
+    export TERMINAL="termite"
 fi
+
+export _Z_CMD=j
+
+### Added by Zplugin's installer
+source '/home/sharparam/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+### End of Zplugin's installer chunk
+
+### BEGIN ZPLUGIN BLOCK ###
+zplugin ice wait"0" blockf
+zplugin light zsh-users/zsh-completions
+
+zplugin ice wait"0" atload"_zsh_autosuggest_start"
+zplugin light zsh-users/zsh-autosuggestions
+
+zplugin ice wait"0" atinit"zpcompinit; zpcdreplay"
+zplugin light zdharma/fast-syntax-highlighting
+
+zplugin ice wait"0"
+zplugin light zsh-users/zsh-history-substring-search
+
+zplugin ice pick"async.zsh" src"pure.zsh"
+zplugin light sindresorhus/pure
+
+zplugin ice from"gh-r" pick"hub-*/bin/hub" as"command" bpkick"*linux-amd64*"
+zplugin light 'github/hub'
+
+zplugin ice from"gh-r" as"command" mv"hivemind-* -> hivemind"
+zplugin light DarthSim/hivemind
+
+zplugin ice from"gh-r" as"program"
+zplugin light junegunn/fzf-bin
+
+zplugin ice pick"bin/fzf-tmux" as"program" multisrc"shell/{completion,key-bindings}.zsh"
+zplugin light junegunn/fzf
+
+zplugin ice wait"0"
+zplugin light molovo/tipz
+
+zplugin ice wait"0"
+zplugin light marzocchi/zsh-notify
+
+zplugin snippet PZT::modules/helper/init.zsh
+zplugin ice atload"[ -d external/ ] || git clone https://github.com/zsh-users/zsh-completions external"
+zplugin snippet PZT::modules/completion/init.zsh
+zplugin snippet PZT::modules/history/init.zsh
+zplugin snippet PZT::modules/environment/init.zsh
+zplugin snippet PZT::modules/directory/init.zsh
+zplugin ice svn
+zplugin snippet PZT::modules/git/
+#zplugin snippet PZT::modules/gpg/init.zsh
+zplugin snippet PZT::modules/ssh/init.zsh
+
+zplugin light zdharma/zui
+zplugin light zdharma/zplugin-crasis
+
+zplugin light supercrabtree/k
+zplugin light rupa/z
+
+### END ZPLUGIN BLOCK ###
 
 if [ ! $is_wsl ];
 then
@@ -122,24 +112,21 @@ if [[ -d "$HOME/.pyenv/" ]]; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
-if [ $is_wsl ];
-then
-  autoload -Uz promptinit
-  promptinit
-  prompt adam1
-
-  BASE16_SHELL=$HOME/.config/base16-shell/
-  [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
-alias emacs="TERM=xterm-256color emacs -nw"
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
-# Ugly workaround to get SSH working properly in all terminals
-alias ssh="TERM=xterm-256color ssh"
-
-alias mux="tmuxinator"
-
-alias sketchup="WINEARCH=win64 WINEPREFIX=~/.sketchup wine start /unix ~/.sketchup/drive_c/Program\ Files/SketchUp/SketchUp\ 2017/SketchUp.exe"
+# Git aliases
+alias ga='git add'
+alias gst='git status'
 
 cowfortune() {
     cowargs=('-b' '-d' '-g' '-p' '-s' '-t' '-w' '-y' '')
