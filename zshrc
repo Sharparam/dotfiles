@@ -19,6 +19,7 @@ fi
 alias git=hub
 
 take() { mkdir -p "$1" && cd "$1" }
+gake() { take "$1" && git init }
 
 export VISUAL="vim"
 export EDITOR="vim"
