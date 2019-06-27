@@ -98,6 +98,7 @@ zplugin snippet PZT::modules/gpg/init.zsh
 
 zplugin ice svn
 zplugin snippet PZT::modules/ruby/
+zplugin snippet PZT::modules/rails/init.zsh
 
 zstyle ':prezto:module:python:virtualenv' auto-switch 'yes'
 zplugin ice svn
