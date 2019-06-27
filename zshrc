@@ -79,6 +79,7 @@ zplugin light molovo/tipz
 zplugin ice wait"0"
 zplugin light marzocchi/zsh-notify
 
+zstyle ':prezto:*:*' color 'yes'
 zplugin snippet PZT::modules/helper/init.zsh
 zplugin ice atload"[ -d external/ ] || git clone https://github.com/zsh-users/zsh-completions external"
 zplugin snippet PZT::modules/completion/init.zsh
@@ -90,6 +91,10 @@ zplugin ice svn
 zplugin snippet PZT::modules/git/
 zplugin snippet PZT::modules/ssh/init.zsh
 zplugin snippet PZT::modules/gpg/init.zsh
+
+zstyle ':prezto:module:utility' safe-ops 'no'
+zplugin ice svn
+zplugin snippet PZT::modules/utility/
 
 zplugin light zdharma/zui
 zplugin light zdharma/zplugin-crasis
@@ -120,18 +125,6 @@ if [[ -d "$HOME/.pyenv/" ]]; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
-
-if [ -x /usr/bin/dircolors ]; then
-  test -r $HOME/.dircolors && eval "$(dircolors -b $HOME/.dircolors)" || eval "$(dircolors -b)"
-  alias ls='ls --color=auto'
-  alias grep='grep --color=auto'
-  alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'
-fi
-
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 
 alias ...='../..'
 alias ....='../../..'
