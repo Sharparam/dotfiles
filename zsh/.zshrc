@@ -1,6 +1,8 @@
 typeset -aUx path
 fpath=($HOME/.zsh $fpath)
-export path=($HOME/.local/bin "$path[@]")
+path=($HOME/.local/bin "$path[@]")
+path[$path[(i)/mnt/c/Ruby/bin]]=()
+export path
 
 if grep -q Microsoft /proc/version; then
     is_wsl=1
