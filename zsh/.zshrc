@@ -54,8 +54,16 @@ wsl_fix_fsh() {
   FAST_HIGHLIGHT[chroma-git]="chroma/-ogit.ch"
 }
 
-zplugin ice wait"0" atinit"zpcompinit; zpcdreplay" atload"wsl_fix_fsh"
-zplugin light zdharma/fast-syntax-highlighting
+# fast-syntax-highlighting is very slow in certain contexts at least on WSL
+# Needs testing on non-WSL to see if slowness persists
+if [[ $is_wsl ]]; then
+  zplugin ice wait"0"
+  zplugin light zsh-users/zsh-syntax-highlighting
+else
+  zplugin ice wait"0" atinit"zpcompinit; zpcdreplay" atload"wsl_fix_fsh"
+  zplugin light zdharma/fast-syntax-highlighting
+fi
+
 
 zplugin ice wait"0"
 zplugin light zsh-users/zsh-history-substring-search
