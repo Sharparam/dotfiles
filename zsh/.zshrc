@@ -106,6 +106,9 @@ zstyle ':prezto:module:python:virtualenv' auto-switch 'yes'
 zplugin ice svn
 zplugin snippet PZT::modules/python/
 
+zplugin ice svn
+zplugin snippet PZT::modules/node/
+
 zplugin ice from"gh-r" bpick"*linux_amd64*" pick"ghq_*/ghq" as"command"
 zplugin light motemen/ghq
 
@@ -126,6 +129,9 @@ fi
 if [[ -d "/usr/share/perl6/" ]]; then
     path=(/usr/share/perl6/vendor/bin /usr/share/perl6/site/bin $path)
 fi
+
+# added by travis gem
+[ -f /home/sharparam/.travis/travis.sh ] && source /home/sharparam/.travis/travis.sh
 
 alias ...='../..'
 alias ....='../../..'
