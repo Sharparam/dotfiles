@@ -11,3 +11,6 @@
 	autocrlf = input
 [commit]
 	gpgsign = true
+[ghq]
+    root = ~/repos
+    root = ~/.ghq
