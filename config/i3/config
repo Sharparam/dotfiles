@@ -236,6 +236,7 @@ assign [class="jetbrains-idea-ce"] $WS2
 assign [class="jetbrains-studio"] $WS2
 assign [class="jetbrains-rider"] $WS2
 assign [class="Firefox"] $WS3
+assign [class="Chromium"] $WS3
 assign [class="TelegramDesktop"] $WS4
 assign [class="Steam" title="^Friends$"] $WS4
 assign [class="Steam" title=" - Chat$"] $WS4
