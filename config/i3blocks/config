@@ -37,7 +37,7 @@ color=#f3f4f5
 #signal=15
 
 [sharp-music]
-command=/home/sharparam/dotfiles/i3blocks/sharp-music.rb
+command=/home/sharparam/.dotfiles/i3blocks/sharp-music.rb
 #label=♪
 interval=5
 signal=12
@@ -77,7 +77,7 @@ signal=12
 #interval=5
 
 [sharp-wifi]
-command=/home/sharparam/dotfiles/i3blocks/sharp-wifi.rb
+command=/home/sharparam/.dotfiles/i3blocks/sharp-wifi.rb
 label=
 instance=wlp4s0
 interval=10
@@ -121,7 +121,7 @@ interval=10
 
 # Battery indicator
 [sharp-batt]
-command=/home/sharparam/dotfiles/i3blocks/sharp-batt.rb
+command=/home/sharparam/.dotfiles/i3blocks/sharp-batt.rb
 #label=⚡
 #instance=1
 markup=pango
