@@ -275,6 +275,9 @@ for_window [class="jetbrains-toolbox"] floating enable
 for_window [class="jetbrains-studio" title="Android Virtual Device Manager"] floating enable
 for_window [title="Android Emulator - .+"] floating enable
 
+for_window [class="minecraft-launcher"] floating enable
+for_window [class="MultiMC5"] floating enable
+
 new_window pixel
 
 hide_edge_borders both
