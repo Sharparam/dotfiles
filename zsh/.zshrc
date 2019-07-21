@@ -151,6 +151,11 @@ alias .......='../../../../../..'
 alias ga='git add'
 alias gst='git status'
 
+# Vim in terminal
+alias ':q'='exit'
+alias ':wq'='exit'
+alias ':x'='exit'
+
 # tmux helpers
 ts() {
     if [ $# -eq 0 ]; then
