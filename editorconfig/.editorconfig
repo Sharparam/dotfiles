@@ -14,3 +14,6 @@ indent_style = tab
 
 [*.{cs,csx,fs,fsx}]
 indent_size = 4
+
+[*.py]
+indent_size = 4
