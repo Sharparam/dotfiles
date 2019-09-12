@@ -1,5 +1,5 @@
 typeset -aUx path
-fpath=($HOME/.zsh $HOME/.zfunc $fpath)
+fpath=($HOME/.zsh $HOME/.zfunc $HOME/.luaver/completions $fpath)
 path=($HOME/.local/bin "$path[@]")
 path[$path[(i)/mnt/c/Ruby/bin]]=()
 export path
@@ -133,6 +133,9 @@ then
   eval "$(thefuck --alias)"
   eval "$(hub alias -s)"
 fi
+
+[ -s $HOME/.luaver/luaver ] && source $HOME/.luaver/luaver
+
 
 if [[ -d "/usr/share/perl6/" ]]; then
     path=(/usr/share/perl6/vendor/bin /usr/share/perl6/site/bin $path)
