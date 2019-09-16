@@ -1,3 +1,9 @@
+# Fix input/output encoding to be UTF-8
+# SERIOUSLY MICROSOFT WHY IS THIS DIRTY HACK REQURIED
+# USE SANE ENCODING DEFAULTS ALREADY LIKE LITERALLY EVERY OTHER OPERATING SYSTEM
+# ON THE G-D DAMN MARKET
+$OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
+
 # Available colors
 # DarkBlue | DarkGreen | DarkCyan | DarkRed | DarkMagenta | DarkYellow |DarkGray
 # Blue | Green | Cyan | Red | Magenta | Yellow | White | Gray | Black
