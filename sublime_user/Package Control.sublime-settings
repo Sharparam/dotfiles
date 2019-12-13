@@ -2,6 +2,8 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
+		"A File Icon",
+		"Dockerfile Syntax Highlighting"
 	],
 	"installed_packages":
 	[
