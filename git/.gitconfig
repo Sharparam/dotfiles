@@ -1,6 +1,7 @@
 [user]
 	email = sharparam@sharparam.com
 	name = Adam Hellberg
+	signingkey = C58C41E27B00AD04
 [push]
 	default = simple
 [github]
