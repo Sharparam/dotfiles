@@ -33,18 +33,24 @@ fi
 
 export _Z_CMD=j
 
-### Added by Zplugin's installer
-source "$HOME/.zplugin/bin/zplugin.zsh"
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
-### End of Zplugin's installer chunk
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+  print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
+  command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+  command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+    print -P "%F{33}▓▒░ %F{34}Installation successful.%f" || \
+    print -P "%F{160}▓▒░ The clone has failed.%f"
+fi
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
 ### BEGIN ZPLUGIN BLOCK ###
-zplugin ice wait"0" blockf
-zplugin light zsh-users/zsh-completions
+zinit ice wait"0" blockf
+zinit light zsh-users/zsh-completions
 
-zplugin ice wait"0" atload"_zsh_autosuggest_start"
-zplugin light zsh-users/zsh-autosuggestions
+zinit ice wait"0" atload"_zsh_autosuggest_start"
+zinit light zsh-users/zsh-autosuggestions
 
 wsl_fix_fsh() {
   if [ ! $is_wsl ]; then
@@ -57,74 +63,76 @@ wsl_fix_fsh() {
 # fast-syntax-highlighting is very slow in certain contexts at least on WSL
 # Needs testing on non-WSL to see if slowness persists
 if [[ $is_wsl ]]; then
-  zplugin ice wait"0"
-  zplugin light zsh-users/zsh-syntax-highlighting
+  zinit ice wait"0"
+  zinit light zsh-users/zsh-syntax-highlighting
 else
-  zplugin ice wait"0" atinit"zpcompinit; zpcdreplay" atload"wsl_fix_fsh"
-  zplugin light zdharma/fast-syntax-highlighting
+  zinit ice wait"0" atinit"zpcompinit; zpcdreplay" atload"wsl_fix_fsh"
+  zinit light zdharma/fast-syntax-highlighting
 fi
 
 
-zplugin ice wait"0"
-zplugin light zsh-users/zsh-history-substring-search
+zinit ice wait"0"
+zinit light zsh-users/zsh-history-substring-search
 
-zplugin ice pick"async.zsh" src"pure.zsh"
-zplugin light sindresorhus/pure
+zinit ice pick"async.zsh" src"pure.zsh"
+zinit light sindresorhus/pure
 
-zplugin ice from"gh-r" pick"hub-*/bin/hub" as"command" bpick"*linux-amd64*"
-zplugin light 'github/hub'
+zinit ice from"gh-r" pick"hub-*/bin/hub" as"command" bpick"*linux-amd64*"
+zinit light 'github/hub'
 
-zplugin ice from"gh-r" as"command" mv"hivemind-* -> hivemind"
-zplugin light DarthSim/hivemind
+zinit ice from"gh-r" as"command" mv"hivemind-* -> hivemind"
+zinit light DarthSim/hivemind
 
-zplugin ice from"gh-r" as"program"
-zplugin light junegunn/fzf-bin
+zinit ice from"gh-r" as"program"
+zinit light junegunn/fzf-bin
 
-zplugin ice pick"bin/fzf-tmux" as"program" multisrc"shell/{completion,key-bindings}.zsh"
-zplugin light junegunn/fzf
+zinit ice pick"bin/fzf-tmux" as"program" multisrc"shell/{completion,key-bindings}.zsh"
+zinit light junegunn/fzf
 
-zplugin ice wait"0"
-zplugin light molovo/tipz
+zinit ice wait"0"
+zinit light molovo/tipz
 
-zplugin ice wait"0"
-zplugin light marzocchi/zsh-notify
+if [ ! $is_wsl ]; then
+  zinit ice wait"0"
+  zinit light marzocchi/zsh-notify
+fi
 
 zstyle ':prezto:*:*' color 'yes'
-zplugin snippet PZT::modules/helper/init.zsh
-zplugin ice atload"[ -d external/ ] || git clone https://github.com/zsh-users/zsh-completions external"
-zplugin snippet PZT::modules/completion/init.zsh
-zplugin snippet PZT::modules/history/init.zsh
-zplugin snippet PZT::modules/environment/init.zsh
-zplugin snippet PZT::modules/directory/init.zsh
+zinit snippet PZT::modules/helper/init.zsh
+zinit ice atload"[ -d external/ ] || git clone https://github.com/zsh-users/zsh-completions external"
+zinit snippet PZT::modules/completion/init.zsh
+zinit snippet PZT::modules/history/init.zsh
+zinit snippet PZT::modules/environment/init.zsh
+zinit snippet PZT::modules/directory/init.zsh
 
 zstyle ':prezto:module:utility' safe-ops 'no'
-zplugin ice svn
-zplugin snippet PZT::modules/utility/
+zinit ice svn
+zinit snippet PZT::modules/utility
 
-zplugin ice svn
-zplugin snippet PZT::modules/git/
-zplugin snippet PZT::modules/ssh/init.zsh
-zplugin snippet PZT::modules/gpg/init.zsh
+zinit ice svn
+zinit snippet PZT::modules/git
+zinit snippet PZT::modules/ssh/init.zsh
+zinit snippet PZT::modules/gpg/init.zsh
 
-zplugin ice svn
-zplugin snippet PZT::modules/ruby/
-zplugin snippet PZT::modules/rails/init.zsh
+zinit ice svn
+zinit snippet PZT::modules/ruby
+zinit snippet PZT::modules/rails/init.zsh
 
 zstyle ':prezto:module:python:virtualenv' auto-switch 'yes'
-zplugin ice svn
-zplugin snippet PZT::modules/python/
+zinit ice svn
+zinit snippet PZT::modules/python
 
-zplugin ice svn
-zplugin snippet PZT::modules/node/
+zinit ice svn
+zinit snippet PZT::modules/node
 
-zplugin ice from"gh-r" bpick"*linux_amd64*" pick"ghq_*/ghq" as"command"
-zplugin light motemen/ghq
+zinit ice from"gh-r" bpick"*linux_amd64*" pick"ghq_*/ghq" as"command"
+zinit light x-motemen/ghq
 
-zplugin light zdharma/zui
-zplugin light zdharma/zplugin-crasis
+zinit light zdharma/zui
+zinit light zdharma/zplugin-crasis
 
-zplugin light supercrabtree/k
-zplugin light rupa/z
+zinit light supercrabtree/k
+zinit light rupa/z
 
 ### END ZPLUGIN BLOCK ###
 
@@ -135,6 +143,11 @@ then
 fi
 
 [ -s $HOME/.luaver/luaver ] && source $HOME/.luaver/luaver
+
+if [[ -d "$HOME/.luaenv" ]]; then
+  path=($HOME/.luaenv/bin $path)
+  eval "$(luaenv init -)"
+fi
 
 
 if [[ -d "/usr/share/perl6/" ]]; then
@@ -164,18 +177,18 @@ if [[ -d "$HOME/.poetry/bin" ]]; then
 
   # Fix for broken `poetry shell`
   # See: https://github.com/sdispater/poetry/issues/571#issuecomment-496486190
-  poetry() {
-    if [[ $@ == 'shell' ]]; then
-      activate_script="$(poetry run poetry env info -p)/bin/activate"
-      if ([[ -f $activate_script ]] && [[ -z "${VIRTUAL_ENV:-}" ]]); then
-        source $activate_script
-      else
-        command poetry "$@"
-      fi
-    else
-      command poetry "$@"
-    fi
-  }
+  #poetry() {
+  #  if [[ $@ == 'shell' ]]; then
+  #    activate_script="$(poetry run poetry env info -p)/bin/activate"
+  #    if ([[ -f $activate_script ]] && [[ -z "${VIRTUAL_ENV:-}" ]]); then
+  #      source $activate_script
+  #    else
+  #      command poetry "$@"
+  #    fi
+  #  else
+  #    command poetry "$@"
+  #  fi
+  #}
 fi
 
 # tmux helpers
