@@ -92,10 +92,10 @@ zinit light junegunn/fzf
 zinit ice wait"0"
 zinit light molovo/tipz
 
-if [ ! $is_wsl ]; then
-  zinit ice wait"0"
-  zinit light marzocchi/zsh-notify
-fi
+#if [ ! $is_wsl ]; then
+#  zinit ice wait"0"
+#  zinit light marzocchi/zsh-notify
+#fi
 
 zstyle ':prezto:*:*' color 'yes'
 zinit snippet PZT::modules/helper/init.zsh
@@ -111,8 +111,8 @@ zinit snippet PZT::modules/utility
 
 zinit ice svn
 zinit snippet PZT::modules/git
-zinit snippet PZT::modules/ssh/init.zsh
-zinit snippet PZT::modules/gpg/init.zsh
+#zinit snippet PZT::modules/ssh/init.zsh
+#zinit snippet PZT::modules/gpg/init.zsh
 
 zinit ice svn
 zinit snippet PZT::modules/ruby
@@ -190,6 +190,11 @@ if [[ -d "$HOME/.poetry/bin" ]]; then
   #  fi
   #}
 fi
+
+export GPG_TTY="$(tty)"
+unset SSH_AGENT_PID
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
 
 # tmux helpers
 ts() {
