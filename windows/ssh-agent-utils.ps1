@@ -20,13 +20,13 @@ function Get-SshAgent() {
     if ([int]$agentPid -eq 0) {
         $agentPid = [Environment]::GetEnvironmentVariable("SSH_AGENT_PID", "Process")
     }
-    
+
     if ([int]$agentPid -eq 0) {
         0
     } else {
         # Make sure the process is actually running
         $process = Get-Process -Id $agentPid -ErrorAction SilentlyContinue
-		
+
         if(($process -eq $null) -or ($process.ProcessName -ne "ssh-agent")) {
             # It is not running (this is an error). Remove env vars and return 0 for no agent.
             [Environment]::SetEnvironmentVariable("SSH_AGENT_PID", $null, "Process")
@@ -45,22 +45,22 @@ function Get-SshAgent() {
 function Start-SshAgent() {
     # Start the agent and gather its feedback info
     [string]$output = ssh-agent
-    
+
     $lines = $output.Split(";")
     $agentPid = 0
-    
+
     foreach ($line in $lines) {
         if (([string]$line).Trim() -match "(.+)=(.*)") {
-            # Set environment variables for user and current process.            
+            # Set environment variables for user and current process.
             [Environment]::SetEnvironmentVariable($matches[1], $matches[2], "Process")
             [Environment]::SetEnvironmentVariable($matches[1], $matches[2], "User")
-            
+
             if ($matches[1] -eq "SSH_AGENT_PID") {
                 $agentPid = $matches[2]
             }
         }
 	}
-    
+
     # Show the agent's PID as expected.
     Write-Host "SSH agent PID:", $agentPid
 }
@@ -74,7 +74,7 @@ function Stop-SshAgent() {
         if ($proc -ne $null) {
             Stop-Process $agentPid
         }
-        
+
         # Remove all enviroment variables
         [Environment]::SetEnvironmentVariable("SSH_AGENT_PID", $null, "Process")
         [Environment]::SetEnvironmentVariable("SSH_AGENT_PID", $null, "User")
@@ -96,11 +96,11 @@ function Add-SshKey() {
 }
 
 # Start the agent if not already running; provide feedback
-$agent = Get-SshAgent
-if ($agent -eq 0) {
-	Write-Host "Starting SSH agent..."
-	Start-SshAgent		# Start agent
-	Add-SshKey			# Add my default key
-} else {
-	Write-Host "SSH agent is running (PID $agent)"
-}
+#$agent = Get-SshAgent
+#if ($agent -eq 0) {
+#	Write-Host "Starting SSH agent..."
+#	Start-SshAgent		# Start agent
+#	Add-SshKey			# Add my default key
+#} else {
+#	Write-Host "SSH agent is running (PID $agent)"
+#}
