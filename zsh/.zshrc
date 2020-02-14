@@ -155,7 +155,11 @@ if [[ -d "/usr/share/perl6/" ]]; then
 fi
 
 # added by travis gem
-[ -f /home/sharparam/.travis/travis.sh ] && source /home/sharparam/.travis/travis.sh
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
+
+if [[ $is_wsl ]]; then
+  [ -f $HOME/qmk_utils/activate_wsl.sh ] && source $HOME/qmk_utils/activate_wsl.sh
+fi
 
 alias ...='../..'
 alias ....='../../..'
