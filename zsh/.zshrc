@@ -196,9 +196,26 @@ if [[ -d "$HOME/.poetry/bin" ]]; then
 fi
 
 export GPG_TTY="$(tty)"
-unset SSH_AGENT_PID
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpgconf --launch gpg-agent
+if [[ $is_wsl ]]; then
+  wsl_gpg_agent_relay="$HOME/.local/bin/wsl-gpg-agent-relay.sh"
+  if [[ -f "$wsl_gpg_agent_relay" ]]; then
+    echo '[WSL] Launching WSL GPG agent relay'
+    $wsl_gpg_agent_relay &
+  else
+    echo "[WSL] Missing: ${wsl_gpg_agent_relay}"
+  fi
+  unset SSH_AGENT_PID
+  export SSH_AUTH_SOCK=$HOME/.local/wsl-ssh-pageant/ssh-agent.sock
+else
+  unset SSH_AGENT_PID
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  gpgconf --launch gpg-agent
+fi
+
+if [[ -d '/usr/local/go/bin' ]]; then
+  path=("$path[@]" /usr/local/go/bin)
+fi
+#export GOPATH="$HOME/go"
 
 # tmux helpers
 ts() {
