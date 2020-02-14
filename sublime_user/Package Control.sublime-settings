@@ -3,7 +3,8 @@
 	"in_process_packages":
 	[
 		"A File Icon",
-		"Dockerfile Syntax Highlighting"
+		"Dockerfile Syntax Highlighting",
+		"SideBarEnhancements"
 	],
 	"installed_packages":
 	[

@@ -6,7 +6,7 @@
 	"draw_white_space": "selection",
 	"ensure_newline_at_eof_on_save": true,
 	"font_face": "Fira Code",
-	"font_size": 10,
+	"font_size": 17,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -14,7 +14,8 @@
 		"DoxyDoxygen",
 		"Six",
 		"Vintage",
-		"Visual Studio Dark"
+		"Visual Studio Dark",
+		"zzz A File Icon zzz"
 	],
 	"indent_guide_options":
 	[
