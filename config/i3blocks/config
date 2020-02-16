@@ -24,7 +24,7 @@
 #
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
-command=/usr/lib/i3blocks/$BLOCK_NAME
+command=$SCRIPT_DIR/$BLOCK_NAME
 separator_block_width=15
 markup=none
 color=#f3f4f5
@@ -48,16 +48,20 @@ signal=12
 # The second parameter overrides the mixer selection
 # See the script for details.
 [volume-pulseaudio]
-command=$SCRIPT_DIR/volume-pulseaudio/volume-pulseaudio -F 3 -f 3
+command=$SCRIPT_DIR/volume-pulseaudio/volume-pulseaudio
 #label=VOL
 #label=♪
 #instance=Master
 #instance=PCM
 interval=10
 signal=10
+LONG_FORMAT="${SYMB}${VOL}%"
+SHORT_FORMAT="${SYMB}${VOL}%"
+#SUBSCRIBE=1
 
 [brightness]
-command=printf "%2.0f%%" $(xbacklight)
+#command=printf "%2.0f%%" $(xbacklight)
+command=/home/sharparam/.dotfiles/i3blocks/brightness.sh
 label=
 interval=once
 signal=12
@@ -100,11 +104,14 @@ interval=10
 #
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-[cpu_usage -w 55 -c 90]
+[cpu_usage]
+command=$SCRIPT_DIR/cpu_usage/cpu_usage
 label=
 interval=10
 #min_width=CPU: 100.00%
 separator=false
+T_WARN=55
+T_CRIT=90
 
 #[load_average]
 #interval=10
@@ -115,9 +122,12 @@ separator=false
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
 [temperature]
-command=/usr/lib/i3blocks/temperature -w 55 -c 70 --chip coretemp-isa-0000
+command=$SCRIPT_DIR/temperature/temperature
 label=
 interval=10
+T_WARN=60
+T_CRIT=80
+SENSOR_CHIP="coretemp-isa-0000"
 
 # Battery indicator
 [sharp-batt]
