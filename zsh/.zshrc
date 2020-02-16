@@ -242,6 +242,6 @@ scrotclip() {
 # WTF, Ansible?
 export ANSIBLE_NOCOWS=1
 
-if [ ! $ASCIINEMA_REC ]; then
+if [ -x "$(command -v cowsay)" ] && [ -x "$(command -v fortune)" ] && [ ! $ASCIINEMA_REC ]; then
   cowfortune
 fi
