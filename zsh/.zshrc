@@ -178,21 +178,6 @@ alias ':x'='exit'
 
 if [[ -d "$HOME/.poetry/bin" ]]; then
   path=($HOME/.poetry/bin "$path[@]")
-
-  # Fix for broken `poetry shell`
-  # See: https://github.com/sdispater/poetry/issues/571#issuecomment-496486190
-  #poetry() {
-  #  if [[ $@ == 'shell' ]]; then
-  #    activate_script="$(poetry run poetry env info -p)/bin/activate"
-  #    if ([[ -f $activate_script ]] && [[ -z "${VIRTUAL_ENV:-}" ]]); then
-  #      source $activate_script
-  #    else
-  #      command poetry "$@"
-  #    fi
-  #  else
-  #    command poetry "$@"
-  #  fi
-  #}
 fi
 
 export GPG_TTY="$(tty)"
