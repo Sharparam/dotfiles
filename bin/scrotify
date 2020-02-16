@@ -19,8 +19,8 @@ options = {
 
 # Apparently the keyring variables cannot be accessed from scripts that run
 # from i3's exec tool, so we have to manually set the socket here.
-ENV['SSH_AUTH_SOCK'] = '/tmp/ssh-agent.sock.1000'
-
+sock = `gpgconf --list-dirs agent-ssh-socket`.strip
+ENV['SSH_AUTH_SOCK'] = sock
 OptionParser.new do |opts|
   opts.banner = "Usage: #{$0} [options]"
 
