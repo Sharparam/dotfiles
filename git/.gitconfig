@@ -12,6 +12,14 @@
 	autocrlf = input
 [commit]
 	gpgsign = true
+[branch "master"]
+    mergeoptions = --no-ff
+[branch "develop"]
+    mergeoptions = --no-ff
+[pull]
+    rebase = true
+[tag]
+    forceSignAnnotated = true
 [ghq]
     root = ~/repos
     root = ~/.ghq
