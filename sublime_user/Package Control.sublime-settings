@@ -2,6 +2,10 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
+		"A File Icon",
+		"Dockerfile Syntax Highlighting",
+		"HexViewer",
+		"SideBarEnhancements"
 	],
 	"installed_packages":
 	[
