@@ -6,21 +6,21 @@ KEYID=${1:-$DEFAULT_KEYID}
 echo "Publishing PGP key $KEYID to keyservers"
 
 echo "Publishing to default keyserver"
-gpg --send-key $KEYID
+gpg --send-key "$KEYID"
 echo "Publishing to MIT keyserver"
-gpg --keyserver pgp.mit.edu --send-key $KEYID
+gpg --keyserver pgp.mit.edu --send-key "$KEYID"
 echo "Publishing to GnuPG keyserver"
-gpg --keyserver keys.gnupg.net --send-key $KEYID
+gpg --keyserver keys.gnupg.net --send-key "$KEYID"
 echo "Publishing to Ubuntu keyserver"
-gpg --keyserver hkps://keyserver.ubuntu.com:443 --send-key $KEYID
+gpg --keyserver hkps://keyserver.ubuntu.com:443 --send-key "$KEYID"
 
 if [ "$KEYID" = "$DEFAULT_KEYID" ]; then
   echo "Publishing key to keys.openpgp.org, this will require verification!"
-  gpg --export $KEYID | curl -T - https://keys.openpgp.org
+  gpg --export "$KEYID" | curl -T - https://keys.openpgp.org
   if command -v 'keybase' > /dev/null 2>&1; then
     echo "Publishing key to Keybase"
-    FP=$(gpg --with-colons --fingerprint $KEYID | awk -F: '$1 == "fpr" {print $10}' | head -n 1)
-    keybase pgp update $FP
+    FP=$(gpg --with-colons --fingerprint "$KEYID" | awk -F: '$1 == "fpr" {print $10}' | head -n 1)
+    keybase pgp update "$FP"
   fi
 fi
 
