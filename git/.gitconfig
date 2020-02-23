@@ -5,7 +5,7 @@
 [push]
 	default = simple
 [github]
-    username = Sharparam
+  username = Sharparam
 [gui]
 	spellingdictionary = none
 [core]
@@ -13,13 +13,13 @@
 [commit]
 	gpgsign = true
 [branch "master"]
-    mergeoptions = --no-ff
+  mergeoptions = --no-ff
 [branch "develop"]
-    mergeoptions = --no-ff
+  mergeoptions = --no-ff
 [pull]
-    rebase = true
+  rebase = true
 [tag]
-    forceSignAnnotated = true
+  forceSignAnnotated = true
 [ghq]
-    root = ~/.ghq
-    root = ~/repos
+  root = ~/.ghq
+  root = ~/repos
