@@ -180,6 +180,10 @@ if [[ -d "$HOME/.poetry/bin" ]]; then
   path=($HOME/.poetry/bin "$path[@]")
 fi
 
+if [[ -d "$HOME/.rakubrew" ]]; then
+  eval "$($HOME/.rakubrew/bin/rakubrew init Zsh)"
+fi
+
 export GPG_TTY="$(tty)"
 if [[ $is_wsl ]]; then
   wsl_gpg_agent_relay="$HOME/.local/bin/wsl-gpg-agent-relay.sh"
