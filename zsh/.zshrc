@@ -125,7 +125,7 @@ zinit snippet PZT::modules/python
 zinit ice svn
 zinit snippet PZT::modules/node
 
-zinit ice from"gh-r" bpick"*linux_amd64*" pick"ghq_*/ghq" as"command"
+zinit ice from"gh-r" bpick"*linux_amd64*" pick"ghq_*/ghq" as"program"
 zinit light x-motemen/ghq
 
 zinit light zdharma/zui
