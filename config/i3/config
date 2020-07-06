@@ -282,6 +282,8 @@ for_window [title="Android Emulator - .+"] floating enable
 for_window [class="minecraft-launcher"] floating enable
 for_window [class="MultiMC5"] floating enable
 
+for_window [title="Steam - News"] floating enable
+
 new_window pixel
 
 hide_edge_borders both
