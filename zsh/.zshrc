@@ -29,7 +29,7 @@ export BROWSER="firefox"
 export BASE16_THEME="eighties"
 
 if [ ! $is_wsl ]; then
-  export TERMINAL="termite"
+  export TERMINAL="alacritty"
 fi
 
 export _Z_CMD=j
