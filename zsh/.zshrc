@@ -26,6 +26,7 @@ gake() { take "$1" && git init }
 export VISUAL="vim"
 export EDITOR="vim"
 export BROWSER="firefox"
+export BASE16_THEME="eighties"
 
 if [ ! $is_wsl ]; then
   export TERMINAL="termite"
@@ -70,12 +71,14 @@ else
   zinit light zdharma/fast-syntax-highlighting
 fi
 
-
 zinit ice wait"0"
 zinit light zsh-users/zsh-history-substring-search
 
 zinit ice pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
+
+zinit ice atload"base16_${BASE16_THEME}"
+zinit light "chriskempson/base16-shell"
 
 zinit ice from"gh-r" pick"hub-*/bin/hub" as"command" bpick"*linux-amd64*"
 zinit light 'github/hub'
