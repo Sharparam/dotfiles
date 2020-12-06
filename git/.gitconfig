@@ -17,7 +17,8 @@
 [branch "develop"]
   mergeoptions = --no-ff
 [pull]
-  rebase = true
+  #rebase = true
+  ff = only
 [tag]
   forceSignAnnotated = true
 [ghq]
