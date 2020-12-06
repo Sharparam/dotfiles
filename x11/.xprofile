@@ -1,5 +1,5 @@
 setxkbmap -option caps:escape
-xss-lock /home/sharparam/bin/lockify &
+xss-lock -l /home/sharparam/bin/lockify &
 xrandr --dpi 168
 xinput disable "SynPS/2 Synaptics TouchPad"
 export GTK_IM_MODULE=fcitx
