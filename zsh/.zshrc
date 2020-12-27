@@ -179,6 +179,9 @@ alias ':q'='exit'
 alias ':wq'='exit'
 alias ':x'='exit'
 
+# Emacs stuff
+alias emacs='emacs -nw'
+
 if [[ -d "$HOME/.poetry/bin" ]]; then
   path=($HOME/.poetry/bin "$path[@]")
 fi
