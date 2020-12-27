@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# --no-fehbg
+feh --bg-fill --randomize --recursive '/home/sharparam/Pictures/bg'
