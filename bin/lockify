@@ -3,6 +3,6 @@
 i3lock \
   -e \
   -c "#000000" \
-  #-i "$BLURRED_PATH" \
   $@
+  #-i "$BLURRED_PATH" \
 #physlock -d
