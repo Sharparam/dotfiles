@@ -23,11 +23,6 @@ alias git=hub
 take() { mkdir -p "$1" && cd "$1" }
 gake() { take "$1" && git init }
 
-export VISUAL="vim"
-export EDITOR="vim"
-export BROWSER="firefox"
-export BASE16_THEME="eighties"
-
 if [ ! $is_wsl ]; then
   export TERMINAL="alacritty"
 fi
@@ -152,7 +147,6 @@ if [[ -d "$HOME/.luaenv" ]]; then
   eval "$(luaenv init -)"
 fi
 
-
 if [[ -d "/usr/share/perl6/" ]]; then
     path=(/usr/share/perl6/vendor/bin /usr/share/perl6/site/bin $path)
 fi
@@ -275,9 +269,6 @@ scrotclip() {
 pj() {
   pushd "$(j -e $@)"
 }
-
-# WTF, Ansible?
-export ANSIBLE_NOCOWS=1
 
 if [[ $+commands[cowsay] && $+commands[fortune] && ! $ASCIINEMA_REC ]]; then
   cowfortune
