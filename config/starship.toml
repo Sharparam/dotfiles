@@ -1,0 +1,16 @@
+[directory]
+#truncation_symbol = '…/'
+
+[directory.substitutions]
+'E:/Users/adamh' = '(E:) ~'
+'F:/Users/adamh' = '(F:) ~'
+'G:/Users/adamh' = '(G:) ~'
+
+[status]
+disabled = false
+
+[git_status]
+ahead = '⇡${count}'
+diverged = '⇡${ahead_count}⇣${behind_count}' # ⇕
+behind = '⇣${count}'
+staged = '[+${count}](green)'
