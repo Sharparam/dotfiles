@@ -3,8 +3,10 @@
 	"in_process_packages":
 	[
 		"A File Icon",
+		"ApacheConf",
 		"Dockerfile Syntax Highlighting",
 		"EditorConfig",
+		"GitGutter",
 		"HexViewer",
 		"SideBarEnhancements"
 	],
