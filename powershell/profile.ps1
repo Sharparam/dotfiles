@@ -7,8 +7,9 @@ Set-PSReadlineOption -BellStyle None
 #Get-Content -Path "$env:USERPROFILE\dotfiles\windows\aliases.ps1" -Raw | Invoke-Expression
 
 Import-Module posh-git
-Import-Module oh-my-posh
-Set-Theme Paradox
+#Import-Module oh-my-posh
+#Set-Theme Paradox
+Invoke-Expression (&starship init powershell)
 
 $DEFAULT_PGP_KEYID = 'C58C41E27B00AD04'
 
