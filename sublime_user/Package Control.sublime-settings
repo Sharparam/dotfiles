@@ -2,55 +2,19 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
-		"A File Icon",
-		"ApacheConf",
-		"Dockerfile Syntax Highlighting",
-		"EditorConfig",
-		"GitGutter",
-		"HexViewer",
-		"SideBarEnhancements"
-		"Sass",
-		"SFTP"
 	],
 	"installed_packages":
 	[
-		"A File Icon",
 		"AdvancedNewFile",
-		"AlignTab",
-		"ApacheConf",
 		"Base16 Color Schemes",
-		"Befunge-93",
-		"CMake",
-		"Crystal",
-		"Darkula Color Scheme",
-		"Dockerfile Syntax Highlighting",
-		"DoxyDoxygen",
 		"EditorConfig",
-		"FindKeyConflicts",
-		"GitGutter",
 		"Gitignore",
-		"HexViewer",
-		"LaTeX Snippets",
-		"LaTeX Word Count",
 		"LaTeXTools",
-		"Material Theme",
-		"MIPS Syntax",
-		"Moonscripty",
-		"Oceanic Next Color Scheme",
 		"Package Control",
-		"PowerShell",
-		"Prolog",
-		"RSpec",
-		"Ruby Slim",
-		"Sass",
-		"SFTP",
 		"SideBarEnhancements",
-		"Six",
 		"SubLilyPond",
 		"SyntaxManager",
-		"Theme - Soda",
-		"Tomorrow Color Schemes",
-		"VCS Gutter",
-		"Visual Studio Dark"
+		"Theme - SoDaReloaded",
+		"VCS Gutter"
 	]
 }

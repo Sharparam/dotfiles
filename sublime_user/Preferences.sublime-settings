@@ -5,15 +5,12 @@
 	"default_line_ending": "unix",
 	"draw_white_space": "selection",
 	"ensure_newline_at_eof_on_save": true,
-	"font_face": "Fira Code",
+	"font_face": "Cascadia Code",
+	"font_size": 11,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"DoxyDoxygen",
-		"Six",
-		"Vintage",
-		"Visual Studio Dark"
 	],
 	"indent_guide_options":
 	[
@@ -35,7 +32,7 @@
 	"show_encoding": true,
 	"show_line_endings": true,
 	"show_tab_close_buttons": false,
-	"theme": "Material-Theme-Darker.sublime-theme",
+	"theme": "SoDaReloaded Dark.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }
