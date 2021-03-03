@@ -1,2 +1,7 @@
 # Ignore Vim swapfiles
 *.swp
+
+# Ignore Emacs stuff
+*~
+\#*\#
+.\#*
