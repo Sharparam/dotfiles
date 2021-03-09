@@ -190,17 +190,40 @@ if [[ -d "$HOME/.rakubrew" ]]; then
   eval "$($HOME/.rakubrew/bin/rakubrew init Zsh)"
 fi
 
+# Following two functions and utilities from:
+# https://github.com/BlackReloaded/wsl2-ssh-pageant
+wsl-gpg-proxy() {
+  export GPG_AGENT_SOCK=$HOME/.gnupg/S.gpg-agent
+  ss -a | grep -q $GPG_AGENT_SOCK
+  if [ $? -ne 0 ]; then
+    rm -rf $GPG_AGENT_SOCK
+    (setsid nohup socat UNIX-LISTEN:$GPG_AGENT_SOCK,fork EXEC:"$HOME/.ssh/wsl2-ssh-pageant.exe --gpg S.gpg-agent" >/dev/null 2>&1 &)
+  fi
+}
+
+wsl-ssh-proxy() {
+  export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+  ss -a | grep -q $SSH_AUTH_SOCK
+  if [ $? -ne 0 ]; then
+    echo "[WSL] Setting up WSL/GPG/SSH agent relay"
+    rm -f $SSH_AUTH_SOCK
+    (setsid nohup socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:$HOME/.ssh/wsl2-ssh-pageant.exe >/dev/null 2>&1 &)
+  fi
+}
+
 export GPG_TTY="$(tty)"
 if [[ $is_wsl ]]; then
-  wsl_gpg_agent_relay="$HOME/.local/bin/wsl-gpg-agent-relay.sh"
-  if [[ -f "$wsl_gpg_agent_relay" ]]; then
-    echo '[WSL] Launching WSL GPG agent relay'
-    $wsl_gpg_agent_relay &
-  else
-    echo "[WSL] Missing: ${wsl_gpg_agent_relay}"
-  fi
-  unset SSH_AGENT_PID
-  export SSH_AUTH_SOCK=$HOME/.local/wsl-ssh-pageant/ssh-agent.sock
+  #wsl_gpg_agent_relay="$HOME/.local/bin/wsl-gpg-agent-relay.sh"
+  #if [[ -f "$wsl_gpg_agent_relay" ]]; then
+  #  echo '[WSL] Launching WSL GPG agent relay'
+  #  $wsl_gpg_agent_relay &
+  #else
+  #  echo "[WSL] Missing: ${wsl_gpg_agent_relay}"
+  #fi
+  #unset SSH_AGENT_PID
+  #export SSH_AUTH_SOCK=$HOME/.local/wsl-ssh-pageant/ssh-agent.sock
+  wsl-gpg-proxy
+  wsl-ssh-proxy
 else
   unset SSH_AGENT_PID
   export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
