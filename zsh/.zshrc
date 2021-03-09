@@ -4,7 +4,7 @@ path=($HOME/.local/bin "$path[@]")
 path[$path[(i)/mnt/c/Ruby/bin]]=()
 export path
 
-if grep -q Microsoft /proc/version; then
+if grep -iq Microsoft /proc/version; then
     is_wsl=1
 else
     is_wsl=
