@@ -272,6 +272,10 @@ scrotclip() {
   scrot $@ /tmp/scrotclip.png -e 'xclip -se c -t image/png -i $f && rm $f'
 }
 
+pj() {
+  pushd "$(j -e $@)"
+}
+
 # WTF, Ansible?
 export ANSIBLE_NOCOWS=1
 
