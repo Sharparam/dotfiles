@@ -13,6 +13,9 @@ b.shiftwidth = 4
 b.tabstop = 4
 b.smartindent = true
 b.modeline = false
+o.hlsearch = true
+o.incsearch = true
+o.showmatch = true
 
 o.backspace = [[indent,eol,start]]
 o.hidden = true
