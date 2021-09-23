@@ -29,7 +29,12 @@ b.synmaxcol = 4000
 w.number = true
 w.relativenumber = true
 
---w.list = true
+w.list = true
+if vim.fn.has('multi_byte') == 1 and vim.o.encoding == 'utf-8' then
+  o.listchars = [[tab:▸ ,lead:·,extends:❯,precedes:❮,nbsp:±,trail:·]]
+else
+  o.listchars = [[tab:> ,lead:.,extends:>,precedes:<,nbsp:.,trail:_]]
+end
 
 w.colorcolumn = [[80,120]]
 w.wrap = false
