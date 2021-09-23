@@ -1,6 +1,13 @@
 local M = {}
 local cmd = vim.cmd
 
+local is_wsl = (function()
+  local output = vim.fn.systemlist 'uname -r'
+  return not not string.find(output[1] or '', 'WSL')
+end)()
+
+M.is_wsl = is_wsl
+
 function M.create_augroup(autocmds, name)
   cmd('augroup ' .. name)
   cmd('autocmd!')

@@ -1,8 +1,11 @@
 local o = vim.o -- globals options
 local w = vim.wo -- window local options
 local b = vim.bo -- buffer local options
+local g = vim.g -- global variables
 
 local utils = require 'utils'
+
+require 'plugins'
 
 vim.g.mapleader = ' '
 
@@ -61,3 +64,7 @@ utils.create_augroup({
   { 'BufEnter,FocusGained,InsertLeave', '*', 'set relativenumber' },
   { 'BufLeave,FocusLost,InsertEnter', '*', 'set norelativenumber' }
 }, 'numbertoggle')
+
+o.background = 'dark'
+vim.cmd [[colorscheme codedark]]
+g.airline_theme = 'codedark'
