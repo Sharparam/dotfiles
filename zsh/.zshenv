@@ -8,4 +8,4 @@ export BASE16_THEME="eighties"
 # WTF, Ansible?
 export ANSIBLE_NOCOWS=1
 
-source "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
