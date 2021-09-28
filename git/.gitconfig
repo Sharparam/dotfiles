@@ -1,17 +1,19 @@
 [user]
-	email = sharparam@sharparam.com
-	name = Adam Hellberg
-	signingkey = C58C41E27B00AD04
+  email = sharparam@sharparam.com
+  name = Adam Hellberg
+  signingkey = C58C41E27B00AD04
 [push]
-	default = simple
+  default = simple
 [github]
   username = Sharparam
 [gui]
-	spellingdictionary = none
+  spellingdictionary = none
 [core]
-	autocrlf = input
+  autocrlf = input
 [commit]
-	gpgsign = true
+  gpgsign = true
+[branch "main"]
+  mergeoptions = --no-ff
 [branch "master"]
   mergeoptions = --no-ff
 [branch "develop"]
