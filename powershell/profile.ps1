@@ -13,6 +13,10 @@ Invoke-Expression (&starship init powershell)
 
 $DEFAULT_PGP_KEYID = 'C58C41E27B00AD04'
 
+if (Test-Path 'env:SUBLIME_MERGE_PATH') {
+  Set-Alias -Name smerge -Value $env:SUBLIME_MERGE_PATH
+}
+
 function Send-Key() {
     [CmdletBinding()]
     param (
