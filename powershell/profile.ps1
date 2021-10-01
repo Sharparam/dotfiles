@@ -3,6 +3,8 @@
 #$OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 
 Set-PSReadlineOption -BellStyle None
+# *nix-/bash-like tab complete
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 #Get-Content -Path "$env:USERPROFILE\dotfiles\windows\aliases.ps1" -Raw | Invoke-Expression
 
