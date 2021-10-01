@@ -18,8 +18,6 @@ then
   umask 022
 fi
 
-alias git=hub
-
 take() { mkdir -p "$1" && cd "$1" }
 gake() { take "$1" && git init }
 
@@ -42,11 +40,6 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 ### BEGIN ZPLUGIN BLOCK ###
-zinit ice wait"0" blockf
-zinit light zsh-users/zsh-completions
-
-zinit ice wait"0" atload"_zsh_autosuggest_start"
-zinit light zsh-users/zsh-autosuggestions
 
 wsl_fix_fsh() {
   if [ ! $is_wsl ]; then
@@ -56,17 +49,10 @@ wsl_fix_fsh() {
   FAST_HIGHLIGHT[chroma-git]="chroma/-ogit.ch"
 }
 
-# fast-syntax-highlighting is very slow in certain contexts at least on WSL
-# Needs testing on non-WSL to see if slowness persists
-if [[ $is_wsl ]]; then
-  zinit ice wait"0"
-  zinit light zsh-users/zsh-syntax-highlighting
-else
-  zinit ice wait"0" atinit"zpcompinit; zpcdreplay" atload"wsl_fix_fsh"
-  zinit light zdharma/fast-syntax-highlighting
-fi
+zinit ice wait lucid atload"_zsh_autosuggest_start"
+zinit light zsh-users/zsh-autosuggestions
 
-zinit ice wait"0"
+zinit ice wait lucid
 zinit light zsh-users/zsh-history-substring-search
 
 zinit ice pick"async.zsh" src"pure.zsh"
@@ -76,7 +62,23 @@ zinit ice atload"base16_${BASE16_THEME}"
 zinit light "chriskempson/base16-shell"
 
 zinit ice from"gh-r" pick"hub-*/bin/hub" as"command" bpick"*linux-amd64*"
-zinit light 'github/hub'
+zinit light github/hub
+zinit ice wait lucid as"completion" mv"*ion -> _hub" blockf
+zinit snippet https://github.com/github/hub/raw/master/etc/hub.zsh_completion
+
+#zinit lucid wait light-mode binary from'gh-r' lman lbin for \
+#  lbin'**/gh' atclone'./**/gh completion --shell zsh > _gh' atpull'%atclone' \
+#  cli/cli
+zinit ice id-as"gh" as"command" from"gh-r" pick"**/gh" \
+  atclone"./**/gh completion -s zsh > _gh" \
+  atpull"%atclone"
+zinit light cli/cli
+# zinit light-mode lucid wait has"gh" for \
+#   id-as"gh-completion" \
+#   as"completion" \
+#   atclone"gh completion -s zsh > _gh" \
+#   atpull"%atclone" \
+#   zdharma/null
 
 zinit ice from"gh-r" as"command" mv"hivemind-* -> hivemind"
 zinit light DarthSim/hivemind
@@ -84,44 +86,42 @@ zinit light DarthSim/hivemind
 zinit ice from"gh-r" as"program"
 zinit light junegunn/fzf-bin
 
-zinit ice pick"bin/fzf-tmux" as"program" multisrc"shell/{completion,key-bindings}.zsh"
+zinit ice pick"bin/fzf-tmux" as"program" multisrc"shell/{completion,key-bindings}.zsh" blockf
 zinit light junegunn/fzf
 
-zinit ice wait"0"
+zinit ice wait lucid
 zinit light molovo/tipz
 
 #if [ ! $is_wsl ]; then
-#  zinit ice wait"0"
+#  zinit ice wait
 #  zinit light marzocchi/zsh-notify
 #fi
 
 zstyle ':prezto:*:*' color 'yes'
-zinit snippet PZT::modules/helper/init.zsh
-zinit ice atload"[ -d external/ ] || git clone https://github.com/zsh-users/zsh-completions external"
-zinit snippet PZT::modules/completion/init.zsh
-zinit snippet PZT::modules/history/init.zsh
-zinit snippet PZT::modules/environment/init.zsh
-zinit snippet PZT::modules/directory/init.zsh
+zinit snippet PZTM::helper/init.zsh
+zinit snippet PZTM::history/init.zsh
+zinit snippet PZTM::environment/init.zsh
+zinit snippet PZTM::directory/init.zsh
 
 zstyle ':prezto:module:utility' safe-ops 'no'
 zinit ice svn
-zinit snippet PZT::modules/utility
+zinit snippet PZTM::utility
 
 zinit ice svn
-zinit snippet PZT::modules/git
-#zinit snippet PZT::modules/ssh/init.zsh
-#zinit snippet PZT::modules/gpg/init.zsh
+zinit snippet PZTM::git
+#zinit snippet PZTM::ssh/init.zsh
+#zinit snippet PZTM::gpg/init.zsh
 
 zinit ice svn
-zinit snippet PZT::modules/ruby
-zinit snippet PZT::modules/rails/init.zsh
+zinit snippet PZTM::ruby
+zinit snippet PZTM::rails/init.zsh
 
 zstyle ':prezto:module:python:virtualenv' auto-switch 'yes'
 zinit ice svn
-zinit snippet PZT::modules/python
+zinit snippet PZTM::python
 
 zinit ice svn
-zinit snippet PZT::modules/node
+zinit snippet PZTM::node
 
 zinit ice from"gh-r" bpick"*linux_amd64*" pick"ghq_*/ghq" as"program"
 zinit light x-motemen/ghq
@@ -131,6 +131,23 @@ zinit light zdharma/zplugin-crasis
 
 zinit light supercrabtree/k
 zinit light rupa/z
+
+zinit ice wait lucid blockf
+zinit light zsh-users/zsh-completions
+
+zinit ice svn blockf \
+  atclone"git clone --recursive https://github.com/zsh-users/zsh-completions external"
+zinit snippet PZTM::completion
+
+# fast-syntax-highlighting is very slow in certain contexts at least on WSL
+# Needs testing on non-WSL to see if slowness persists
+if [[ $is_wsl ]]; then
+  zinit ice wait lucid atinit"zicompinit; zicdreplay -q"
+  zinit light zsh-users/zsh-syntax-highlighting
+else
+  zinit ice wait lucid atinit"zicompinit; zicdreplay -q" atload"wsl_fix_fsh"
+  zinit light zdharma/fast-syntax-highlighting
+fi
 
 ### END ZPLUGIN BLOCK ###
 
