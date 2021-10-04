@@ -21,3 +21,5 @@ export BASE16_THEME="eighties"
 export ANSIBLE_NOCOWS=1
 
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+
+export GOPATH=$HOME/.go

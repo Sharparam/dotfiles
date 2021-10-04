@@ -242,9 +242,8 @@ else
 fi
 
 if [[ -d '/usr/local/go/bin' ]]; then
-  path=("$path[@]" /usr/local/go/bin)
+  path=("$path[@]" /usr/local/go/bin "$GOPATH/bin")
 fi
-#export GOPATH="$HOME/go"
 
 # tmux helpers
 ts() {
