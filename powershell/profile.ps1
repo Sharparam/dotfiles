@@ -19,6 +19,10 @@ if (Test-Path 'env:SUBLIME_MERGE_PATH') {
   Set-Alias -Name smerge -Value $env:SUBLIME_MERGE_PATH
 }
 
+if (Test-Path 'env:MPV_PATH') {
+  Set-Alias -Name mpv -Value $env:MPV_PATH
+}
+
 function Send-Key() {
     [CmdletBinding()]
     param (
