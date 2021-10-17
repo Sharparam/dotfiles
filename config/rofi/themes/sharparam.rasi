@@ -1,0 +1,14 @@
+* {
+  background: #2d2d2dbb;
+  foreground: #d3d0c8;
+}
+
+window {
+  background-color: @background;
+  border: 1;
+  padding: 5;
+}
+
+textbox {
+  text-color: @foreground;
+}
