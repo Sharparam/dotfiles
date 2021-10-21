@@ -286,6 +286,6 @@ pj() {
   pushd "$(j -e $@)"
 }
 
-if [[ $+commands[cowsay] && $+commands[fortune] && ! $ASCIINEMA_REC ]]; then
+if [[ $+commands[cowsay] && $+commands[fortune] && ! $ASCIINEMA_REC && -z "$TMUX" ]]; then
   cowfortune
 fi
