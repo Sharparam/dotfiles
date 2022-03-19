@@ -66,20 +66,6 @@ zinit light github/hub
 zinit ice wait lucid as"completion" mv"*ion -> _hub" blockf
 zinit snippet https://github.com/github/hub/raw/master/etc/hub.zsh_completion
 
-#zinit lucid wait light-mode binary from'gh-r' lman lbin for \
-#  lbin'**/gh' atclone'./**/gh completion --shell zsh > _gh' atpull'%atclone' \
-#  cli/cli
-zinit ice id-as"gh" as"command" from"gh-r" pick"**/gh" \
-  atclone"./**/gh completion -s zsh > _gh" \
-  atpull"%atclone"
-zinit light cli/cli
-# zinit light-mode lucid wait has"gh" for \
-#   id-as"gh-completion" \
-#   as"completion" \
-#   atclone"gh completion -s zsh > _gh" \
-#   atpull"%atclone" \
-#   zdharma-continuum/null
-
 zinit ice from"gh-r" as"command" mv"hivemind-* -> hivemind"
 zinit light DarthSim/hivemind
 
