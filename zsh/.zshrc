@@ -171,6 +171,9 @@ alias .......='../../../../../..'
 alias ga='git add'
 alias gst='git status'
 
+alias vi='nvim'
+alias vim='nvim'
+
 # Vim in terminal
 alias ':q'='exit'
 alias ':wq'='exit'

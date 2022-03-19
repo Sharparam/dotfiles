@@ -6,8 +6,8 @@ fi
 
 export PROJECT_HOME="$HOME/projects/python"
 
-export VISUAL="vim"
-export EDITOR="vim"
+export VISUAL="nvim"
+export EDITOR="nvim"
 
 if [[ $IS_WSL ]]; then
     export BROWSER="wslview"
