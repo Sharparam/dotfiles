@@ -29,9 +29,9 @@ export _Z_CMD=j
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-  print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
+  print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma-continuum/zinit)…%f"
   command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-  command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+  command git clone https://github.com/zdharma-continuum/zinit "$HOME/.zinit/bin" && \
     print -P "%F{33}▓▒░ %F{34}Installation successful.%f" || \
     print -P "%F{160}▓▒░ The clone has failed.%f"
 fi
@@ -78,7 +78,7 @@ zinit light cli/cli
 #   as"completion" \
 #   atclone"gh completion -s zsh > _gh" \
 #   atpull"%atclone" \
-#   zdharma/null
+#   zdharma-continuum/null
 
 zinit ice from"gh-r" as"command" mv"hivemind-* -> hivemind"
 zinit light DarthSim/hivemind
@@ -126,8 +126,8 @@ zinit snippet PZTM::node
 zinit ice from"gh-r" bpick"*linux_amd64*" pick"ghq_*/ghq" as"program"
 zinit light x-motemen/ghq
 
-zinit light zdharma/zui
-zinit light zdharma/zplugin-crasis
+zinit light zdharma-continuum/zui
+#zinit light zdharma-continuum/zplugin-crasis
 
 zinit light supercrabtree/k
 zinit light rupa/z
@@ -146,7 +146,7 @@ if [[ $is_wsl ]]; then
   zinit light zsh-users/zsh-syntax-highlighting
 else
   zinit ice wait lucid atinit"zicompinit; zicdreplay -q" atload"wsl_fix_fsh"
-  zinit light zdharma/fast-syntax-highlighting
+  zinit light zdharma-continuum/fast-syntax-highlighting
 fi
 
 ### END ZPLUGIN BLOCK ###
