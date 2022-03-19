@@ -236,8 +236,10 @@ if [[ $is_wsl ]]; then
   wsl-gpg-proxy
   wsl-ssh-proxy
 else
-  unset SSH_AGENT_PID
-  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  if [ "$HOST" != "melina" ]; then
+    unset SSH_AGENT_PID
+    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  fi
   gpgconf --launch gpg-agent
 fi
 
