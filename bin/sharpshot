@@ -1,0 +1,187 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+err() {
+  printf "%s\n" "$*" >&2
+}
+
+NAME='sharpshot'
+SELF="${0:-$NAME}"
+VERSION='0.0.1'
+OUTPUT_FILE="${SHARPSHOT_OUTPUT_FILE:-/tmp/sharpshot.png}"
+COMMAND="${SHARPSHOT_COMMAND:-spectacle -b -o \"${OUTPUT_FILE}\"}"
+COPY_COMMAND="${SHARPSHOT_COPY_COMMAND:-wl-copy}"
+FULL_SWITCH="${SHARPSHOT_FULL_SWITCH:--f}"
+ACTIVE_SWITCH="${SHARPSHOT_ACTIVE_SWITCH:--a}"
+REGION_SWITCH="${SHARPSHOT_REGION_SWITCH:--r}"
+VERBOSE=false
+DRY=false
+
+verbose() {
+  if $VERBOSE; then
+    printf "%s\n" "$*"
+  fi
+}
+
+full() {
+  verbose 'Capturing full desktop'
+  if $DRY; then
+    echo "DRY-RUN, would execute: '$COMMAND $FULL_SWITCH'"
+  else
+    "$COMMAND" "$FULL_SWITCH"
+  fi
+}
+
+active() {
+  verbose 'Capturing active window'
+  if $DRY; then
+    echo "DRY-RUN, would execute: '$COMMAND $ACTIVE_SWITCH'"
+  else
+    "$COMMAND" "$ACTIVE_SWITCH"
+  fi
+}
+
+region() {
+  verbose 'Capturing region'
+  if $DRY; then
+    echo "DRY-RUN, would execute: '$COMMAND $REGION_SWITCH'"
+  else
+    "$COMMAND" "$REGION_SWITCH"
+  fi
+}
+
+copy() {
+  verbose 'Copying result file to clipboard'
+  if $DRY; then
+    echo "DRY-RUN, would execute: '$COPY_COMMAND < $OUTPUT_FILE'"
+  else
+    "$COPY_COMMAND" < "$OUTPUT_FILE"
+  fi
+  exit 0
+}
+
+printversion() {
+  echo "$NAME v$VERSION"
+}
+
+usage() {
+  echo 'Usage:'
+  echo "  $SELF [options] [action]"
+}
+
+help() {
+  cat <<EOF
+$(printversion)
+
+$(usage)
+
+Screenshot helper
+
+Options:
+  -o <PATH>     Set the output path to write to
+  -c <COMMAND>  Set the base command to use
+  -f <SWITCH>   Set the switch to add to the base command for full screen capture
+  -a <SWITCH>   Set the switch to add to the base command for active window capture
+  -r <SWITCH>   Set the switch to add to the base command for region capture
+  -v            Enable verbose logging
+  -d            Enable dry-run
+
+  -h            Display this help
+  -V            Display version
+EOF
+}
+
+while getopts ':hvdVo:c:f:a:r:' option; do
+  case "$option" in
+    v)
+      VERBOSE=true
+      ;;
+    d)
+      DRY=true
+      ;;
+    V)
+      printversion
+      exit
+      ;;
+    h)
+      help
+      exit
+      ;;
+    o)
+      OUTPUT_FILE="$OPTARG"
+      ;;
+    c)
+      COMMAND="$OPTARG"
+      ;;
+    f)
+      FULL_SWITCH="$OPTARG"
+      ;;
+    a)
+      ACTIVE_SWITCH="$OPTARG"
+      ;;
+    r)
+      REGION_SWITCH="$OPTARG"
+      ;;
+    \?)
+      err "Invalid option '$OPTARG'"
+      exit 1
+      ;;
+    :)
+      err "Missing value for option '$OPTARG'"
+      exit 1
+      ;;
+    *)
+      usage
+      exit 1
+      ;;
+  esac
+done
+
+shift $((OPTIND - 1))
+
+ACTION="${*:-full}"
+
+$DRY && echo "$NAME running in dry-run mode"
+
+verbose "Outputting to $OUTPUT_FILE"
+verbose "Base command: $COMMAND"
+verbose "Full switch: $FULL_SWITCH"
+verbose "Active switch: $ACTIVE_SWITCH"
+verbose "Region switch: $REGION_SWITCH"
+verbose "Action: $ACTION"
+
+out_dir="$(dirname "$OUTPUT_FILE")"
+out_base="$(basename "$OUTPUT_FILE")"
+
+while read -r _ _ f; do
+  if [[ "$f" == "$out_base" ]]; then
+    copy
+    kill $BASHPID
+  fi
+done < <(inotifywait -q -m -e create "$out_dir") &
+inotify_pid=$!
+
+trap 'kill $inotify_pid' SIGINT
+
+verbose "Started inotifywait with PID $inotify_pid"
+
+case "$ACTION" in
+  a*)
+    active
+    ;;
+  r*)
+    region
+    ;;
+  f*)
+    full
+    ;;
+  *)
+    err "Unknown capture mode '$ACTION'"
+    kill $inotify_pid
+    exit 1
+    ;;
+esac
+
+verbose 'Waiting for file creation to happen'
+wait $inotify_pid
