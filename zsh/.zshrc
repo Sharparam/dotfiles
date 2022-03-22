@@ -193,26 +193,41 @@ fi
 # Following two functions and utilities from:
 # https://github.com/BlackReloaded/wsl2-ssh-pageant
 wsl-gpg-proxy() {
-  export GPG_AGENT_SOCK=$HOME/.gnupg/S.gpg-agent
-  ss -a | grep -q $GPG_AGENT_SOCK
-  if [ $? -ne 0 ]; then
-    rm -rf $GPG_AGENT_SOCK
-    (setsid nohup socat UNIX-LISTEN:$GPG_AGENT_SOCK,fork EXEC:"$HOME/.ssh/wsl2-ssh-pageant.exe --gpg S.gpg-agent" >/dev/null 2>&1 &)
+  local appdata=$(cmd.exe /c echo %APPDATA%)
+  if [[ "$HOST" == "PC673" ]]; then
+    appdata=$(cmd.exe /c echo %LOCALAPPDATA%)
+  fi
+  local gpg_conf_base="$(echo -E "${appdata}" | tr -d '[:space:]' | tr '\\' '/')/gnupg"
+  export GPG_AGENT_SOCK="$HOME/.gnupg/S.gpg-agent"
+  if ! ss -a | grep -q "$GPG_AGENT_SOCK"; then
+    rm -rf "$GPG_AGENT_SOCK"
+    wsl2_ssh_pageant_bin="$HOME/.ssh/wsl2-ssh-pageant.exe"
+    if test -x "$wsl2_ssh_pageant_bin"; then
+      (setsid nohup socat UNIX-LISTEN:"$GPG_AGENT_SOCK,fork" EXEC:"$wsl2_ssh_pageant_bin --gpgConfigBasepath '${gpg_conf_base}' --gpg S.gpg-agent" >/dev/null 2>&1 &)
+    else
+      echo >&2 "WARNING: $wsl2_ssh_pageant_bin is not executable."
+    fi
+    unset wsl2_ssh_pageant_bin
   fi
 }
 
 wsl-ssh-proxy() {
-  export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
-  ss -a | grep -q $SSH_AUTH_SOCK
-  if [ $? -ne 0 ]; then
-    echo "[WSL] Setting up WSL/GPG/SSH agent relay"
-    rm -f $SSH_AUTH_SOCK
-    (setsid nohup socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:$HOME/.ssh/wsl2-ssh-pageant.exe >/dev/null 2>&1 &)
+  export SSH_AUTH_SOCK="$HOME/.ssh/agent.sock"
+  if ! ss -a | grep -q "$SSH_AUTH_SOCK"; then
+    rm -f "$SSH_AUTH_SOCK"
+    wsl2_ssh_pageant_bin="$HOME/.ssh/wsl2-ssh-pageant.exe"
+    if test -x "$wsl2_ssh_pageant_bin"; then
+      (setsid nohup socat UNIX-LISTEN:"$SSH_AUTH_SOCK,fork" EXEC:"$wsl2_ssh_pageant_bin" >/dev/null 2>&1 &)
+    else
+      echo >&2 "WARNING: $wsl2_ssh_pageant_bin is not executable."
+    fi
+    unset wsl2_ssh_pageant_bin
   fi
 }
 
 export GPG_TTY="$(tty)"
 if [[ $is_wsl ]]; then
+  echo '[WSL] Configuring GPG and SSH'
   wsl-gpg-proxy
   wsl-ssh-proxy
 else
