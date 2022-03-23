@@ -6,6 +6,10 @@ fi
 
 export PROJECT_HOME="$HOME/projects/python"
 
+if [[ "$HOST" == "melina" ]]; then
+    export TERMINAL="kitty"
+fi
+
 export VISUAL="nvim"
 export EDITOR="nvim"
 

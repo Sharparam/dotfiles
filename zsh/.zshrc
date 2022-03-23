@@ -22,7 +22,7 @@ take() { mkdir -p "$1" && cd "$1" }
 gake() { take "$1" && git init }
 
 if [ "$HOST" = "melina" ]; then
-  export TERMINAL="wezterm"
+  export TERMINAL="kitty"
 elif [ ! $is_wsl ]; then
   export TERMINAL="alacritty"
 fi
