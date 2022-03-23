@@ -293,6 +293,7 @@ pj() {
   pushd "$(j -e $@)"
 }
 
-if [[ $+commands[cowsay] && $+commands[fortune] && ! $ASCIINEMA_REC && -z "$TMUX" ]]; then
+term_name=$(basename $(ps -p $(ps -p $$ -o ppid=) -o args=))
+if [[ "$term_name" != "yakuake" && $+commands[cowsay] && $+commands[fortune] && ! $ASCIINEMA_REC && -z "$TMUX" ]]; then
   cowfortune
 fi
