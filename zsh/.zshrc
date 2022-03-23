@@ -234,17 +234,17 @@ if [[ $is_wsl ]]; then
   wsl-gpg-proxy
   wsl-ssh-proxy
 else
-  if [ "$HOST" = "melina" ]; then
-    if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-      ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
-    fi
-    if [[ ! "$SSH_AUTH_SOCK" ]]; then
-      source "$XDG_RUNTIME_DIR/ssh-agent.env" > /dev/null
-    fi
-  else
-    unset SSH_AGENT_PID
-    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-  fi
+  #if [ "$HOST" = "melina" ]; then
+  #  if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+  #    ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
+  #  fi
+  #  if [[ ! "$SSH_AUTH_SOCK" ]]; then
+  #    source "$XDG_RUNTIME_DIR/ssh-agent.env" > /dev/null
+  #  fi
+  #else
+  unset SSH_AGENT_PID
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  #fi
   gpgconf --launch gpg-agent
 fi
 
