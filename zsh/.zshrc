@@ -21,7 +21,9 @@ fi
 take() { mkdir -p "$1" && cd "$1" }
 gake() { take "$1" && git init }
 
-if [ ! $is_wsl ]; then
+if [ "$HOST" = "melina" ]; then
+  export TERMINAL="wezterm"
+elif [ ! $is_wsl ]; then
   export TERMINAL="alacritty"
 fi
 
