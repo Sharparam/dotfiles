@@ -17,7 +17,8 @@ local config = {
     tab_bar_at_bottom = true,
     term = 'wezterm',
     use_fancy_tab_bar = false,
-    use_ime = true
+    use_ime = true,
+    use_resize_increments = true
 }
 
 local DEFAULT_FONT_SIZE = 12
