@@ -164,6 +164,10 @@ if [[ -d "/usr/share/perl6/" ]]; then
     path=(/usr/share/perl6/vendor/bin /usr/share/perl6/site/bin $path)
 fi
 
+if [[ -d "$HOME/.dotnet/tools" ]]; then
+    path=($HOME/.dotnet/tools $path)
+fi
+
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
