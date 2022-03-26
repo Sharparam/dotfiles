@@ -128,6 +128,13 @@ zinit ice svn blockf \
   atclone"git clone --recursive https://github.com/zsh-users/zsh-completions external"
 zinit snippet PZTM::completion
 
+_dotnet_zsh_complete() {
+  local completions=("$(dotnet complete "$words")")
+  reply=( "${(ps:\n:)completions}" )
+}
+
+compctl -K _dotnet_zsh_complete dotnet
+
 # fast-syntax-highlighting is very slow in certain contexts at least on WSL
 # Needs testing on non-WSL to see if slowness persists
 if [[ $is_wsl ]]; then
