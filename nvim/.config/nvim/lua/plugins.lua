@@ -12,5 +12,7 @@ local packer = require 'packer'
 return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  use 'editorconfig/editorconfig-vim'
+
   use 'tomasiser/vim-code-dark'
 end)
