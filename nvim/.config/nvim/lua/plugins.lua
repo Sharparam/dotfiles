@@ -14,5 +14,10 @@ return packer.startup(function(use)
 
   use 'editorconfig/editorconfig-vim'
 
+  use 'tpope/vim-commentary'
+  use 'tpope/vim-endwise'
+  use 'tpope/vim-repeat'
+  use 'tpope/vim-surround'
+
   use 'tomasiser/vim-code-dark'
 end)
