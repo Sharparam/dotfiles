@@ -65,7 +65,7 @@ if not data
 end
 
 batteries = data.split("\n").map do |line|
-  next unless line =~ /^Battery (\d+): (\w+), (\d+)%/
+  next unless line =~ /^Battery (\d+): ([^,]+), (\d+)%/
 
   data = { id: $1.to_i, status: $2.downcase.to_sym, percent: $3.to_i }
 
