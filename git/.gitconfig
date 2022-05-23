@@ -27,4 +27,4 @@
   root = ~/.ghq
   root = ~/repos
 [init]
-	defaultBranch = main
+  defaultBranch = main
