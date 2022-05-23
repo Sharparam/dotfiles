@@ -23,6 +23,7 @@
   ff = only
 [tag]
   forceSignAnnotated = true
+  sort = version:refname
 [ghq]
   root = ~/.ghq
   root = ~/repos
