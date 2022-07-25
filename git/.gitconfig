@@ -4,6 +4,7 @@
   signingkey = C58C41E27B00AD04
 [push]
   default = simple
+  autoSetupRemote = true
 [github]
   username = Sharparam
 [gui]
