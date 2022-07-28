@@ -268,6 +268,10 @@ if [[ -d '/usr/local/go/bin' ]]; then
   path=("$path[@]" /usr/local/go/bin "$GOPATH/bin")
 fi
 
+start() {
+  nohup $@ &>/dev/null & disown
+}
+
 # tmux helpers
 ts() {
     if [ $# -eq 0 ]; then
