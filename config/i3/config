@@ -38,6 +38,7 @@ bindsym $mod+Shift+q kill
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+space exec --no-startup-id "rofi -combi-modi drun,run -show combi -modi combi"
+bindsym $mod+Shift+space exec --no-startup-id "rofi -show run"
 bindsym XF86Search exec --no-startup-id "rofi -combi-modi window,drun,run -show combi -modi combi"
 
 bindsym XF86Display exec arandr
@@ -69,7 +70,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+f floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+Ctrl+space focus mode_toggle
@@ -283,6 +284,8 @@ for_window [class="minecraft-launcher"] floating enable
 for_window [class="MultiMC5"] floating enable
 
 for_window [title="Steam - News"] floating enable
+
+for_window [class="rens"] floating enable
 
 new_window pixel
 
