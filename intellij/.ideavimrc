@@ -18,6 +18,8 @@ set rnu
 
 set clipboard+=unnamed,unnamedplus
 
+set ideamarks
+
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
@@ -33,5 +35,18 @@ map <Leader>b <Action>(ToggleLineBreakpoint)
 
 map <Leader>t <Action>(SearchEverywhere)
 
+map <Leader>gd <Action>(GotoDeclaration)
+map <Leader>gi <Action>(ReSharperGotoImplementation)
+map <Leader>fu <Action>(FindUsages)
+
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
 
 " Find more examples here: https://jb.gg/share-ideavimrc
