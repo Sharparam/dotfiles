@@ -72,4 +72,5 @@ g.airline_theme = 'codedark'
 -- Disable arrow keys
 for _, key in pairs({ '<Left>', '<Right>', '<Up>', '<Down>' }) do
   utils.map('', key, '', { noremap = true })
+  utils.map('i', key, '', { noremap = true })
 end
