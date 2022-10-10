@@ -70,8 +70,6 @@ vim.cmd [[colorscheme codedark]]
 g.airline_theme = 'codedark'
 
 -- Disable arrow keys
-for _, mode in pairs({ 'n', 'i', 'v' }) do
-  for _, key in pairs({ '<Left>', '<Right>', '<Up>', '<Down>' }) do
-    utils.map(mode, key, '', { noremap = true })
-  end
+for _, key in pairs({ '<Left>', '<Right>', '<Up>', '<Down>' }) do
+  utils.map('', key, '', { noremap = true })
 end
