@@ -1,0 +1,39 @@
+theme = "dark_plus"
+
+[editor]
+line-number = "relative"
+cursorline = true
+idle-timeout = 500
+rulers = [80, 120]
+color-modes = true
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "block"
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+newline = "none"
+
+[editor.whitespace.characters]
+nbsp = "⍽"
+
+[keys.normal]
+left = "no_op"
+right = "no_op"
+up = "no_op"
+down = "no_op"
+
+[keys.insert]
+left = "no_op"
+right = "no_op"
+up = "no_op"
+down = "no_op"
+
+[keys.select]
+left = "no_op"
+right = "no_op"
+up = "no_op"
+down = "no_op"
