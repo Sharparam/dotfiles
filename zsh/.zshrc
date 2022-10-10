@@ -116,7 +116,6 @@ zinit ice from"gh-r" bpick"*linux_amd64*" pick"ghq_*/ghq" as"program"
 zinit light x-motemen/ghq
 
 zinit light zdharma-continuum/zui
-#zinit light zdharma-continuum/zplugin-crasis
 
 zinit light supercrabtree/k
 zinit light rupa/z
