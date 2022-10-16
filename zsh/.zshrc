@@ -167,6 +167,10 @@ if [[ -d "$HOME/.dotnet/tools" ]]; then
     path=($HOME/.dotnet/tools $path)
 fi
 
+if [[ -d "$HOME/.emacs.d/bin" ]]; then
+    path=($HOME/.emacs.d/bin $path)
+fi
+
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
@@ -193,7 +197,8 @@ alias ':wq'='exit'
 alias ':x'='exit'
 
 # Emacs stuff
-alias emacs='emacs -nw'
+#alias emacs='emacs -nw'
+alias emacs='emacsclient -nc'
 
 # Work laptop aliases
 if [[ "$HOST" = "PC637" ]]; then

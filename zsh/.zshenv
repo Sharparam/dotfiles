@@ -27,3 +27,5 @@ export ANSIBLE_NOCOWS=1
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
 export GOPATH=$HOME/.go
+
+export DOOMDIR=$HOME/.config/doom
