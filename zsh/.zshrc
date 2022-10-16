@@ -205,6 +205,9 @@ if [[ "$HOST" = "PC637" ]]; then
   alias smerge='"/mnt/c/Program Files/Sublime Merge/sublime_merge.exe"'
 fi
 
+# Helix aliases
+alias hx=helix
+
 if [[ -d "$HOME/.poetry/bin" ]]; then
   path=($HOME/.poetry/bin "$path[@]")
 fi
