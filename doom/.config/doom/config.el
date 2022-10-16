@@ -41,6 +41,14 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+(setq doom-modeline-modal-icon nil)
+
+;; Projectile configs
+(setq projectile-project-search-path '(
+                                        ("~/projects" . 1)
+                                        ("~/repos" . 3)
+                                        ("~/.ghq" . 3)
+                                        ))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -73,10 +81,3 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-
-;; Projectile configs
-(setq projectile-project-search-path '(
-                                        ("~/projects" . 1)
-                                        ("~/repos" . 3)
-                                        ("~/.ghq" . 3)
-                                        ))
