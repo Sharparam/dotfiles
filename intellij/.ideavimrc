@@ -35,6 +35,7 @@ map <Leader>b <Action>(ToggleLineBreakpoint)
 
 map <Leader>t <Action>(SearchEverywhere)
 
+map <Leader>gb <Action>(GotoSuperMethod)
 map <Leader>gd <Action>(GotoDeclaration)
 map <Leader>gi <Action>(ReSharperGotoImplementation)
 map <Leader>fu <Action>(FindUsages)
