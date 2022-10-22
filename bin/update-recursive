@@ -9,7 +9,7 @@ DRY_RUN=0 # TODO
 # shellcheck disable=SC2034
 FORCE=0 # TODO
 
-NAME=$(basename "$0")
+NAME=${0##*/}
 VERSION="0.1.0"
 API_URL="https://api.github.com"
 REPO_OWNER="arrowtype"
@@ -75,7 +75,7 @@ rec_ver=$(jq -r '.tag | ltrimstr("v")' <<< "$latest_release")
 err "Latest version is $rec_ver"
 vf_file_name="Recursive_VF_${rec_ver}.ttf"
 file_url=$(jq -r '.asset.download_url' <<< "$latest_release")
-file_name=$(basename "$file_url")
+file_name=${file_url##*/}
 
 if [[ -f "${FONT_DIR}/${vf_file_name}" ]]; then
   err "Latest Recursive font already installed"
