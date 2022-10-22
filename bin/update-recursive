@@ -1,0 +1,102 @@
+#!/usr/bin/env bash
+
+# TODO: Build custom Recursive Code font?
+
+set -euo pipefail
+
+# shellcheck disable=SC2034
+DRY_RUN=0 # TODO
+# shellcheck disable=SC2034
+FORCE=0 # TODO
+
+NAME=$(basename "$0")
+VERSION="0.1.0"
+API_URL="https://api.github.com"
+REPO_OWNER="arrowtype"
+REPO_NAME="recursive"
+REPO_PATH="$REPO_OWNER/$REPO_NAME"
+FONT_DIR="${HOME}/.local/share/fonts/ttf/Recursive"
+TMPDIR=${TMPDIR:-/tmp}
+
+err() {
+  printf "%s\n" "$@" >&2
+}
+
+err "$NAME v$VERSION"
+
+curl() {
+  command curl \
+    -sSLf \
+    -H "User-Agent: $NAME/$VERSION" \
+    "$@"
+}
+
+api() {
+  curl \
+    -H "Accept: application/vnd.github+json" \
+    "$@"
+}
+
+jq() {
+  command jq -c "$@"
+}
+
+get_latest_release() {
+  api --get "$API_URL/repos/$REPO_PATH/releases/latest" \
+    | jq "$(cat <<QUERY
+. as \$parent |
+{
+  id,
+  tag: .tag_name,
+  asset: first(
+    .assets[] |
+    select(
+      (.content_type == "application/zip")
+      and (
+        (.name | contains(\$parent.tag_name))
+        or (.name | contains(\$parent.tag_name | ltrimstr("v"))))) |
+    {
+      url,
+      download_url: .browser_download_url,
+      id,
+      name,
+      content_type
+    }
+  )
+}
+QUERY
+)"
+}
+
+[[ -d "$FONT_DIR" ]] || mkdir -p "$FONT_DIR"
+
+latest_release=$(get_latest_release)
+rec_ver=$(jq -r '.tag | ltrimstr("v")' <<< "$latest_release")
+err "Latest version is $rec_ver"
+vf_file_name="Recursive_VF_${rec_ver}.ttf"
+file_url=$(jq -r '.asset.download_url' <<< "$latest_release")
+file_name=$(basename "$file_url")
+
+if [[ -f "${FONT_DIR}/${vf_file_name}" ]]; then
+  err "Latest Recursive font already installed"
+  exit 0
+fi
+
+dl_path="${TMPDIR}/${file_name}"
+if [[ -f "$dl_path" ]]; then
+  err "${dl_path} already exists, skipping download"
+else
+  err "Downloading ${file_url} to ${dl_path}"
+  curl -o "$dl_path" "$file_url"
+fi
+
+err "Deleting old font files"
+rm -f "$FONT_DIR/Recursive_VF_*.ttf" "$FONT_DIR/recursive-static-TTFs.ttc"
+
+err "Unzipping relevant files to $FONT_DIR"
+unzip -j "$dl_path" '*/Recursive_Desktop/Recursive_VF_*.ttf' '*/Recursive_Desktop/recursive-static-TTFs.ttc' -d "$FONT_DIR"
+err "Deleting zip file"
+rm -f "$dl_path"
+
+err "Writing version to file"
+echo  "$rec_ver" > "$FONT_DIR/.VERSION"
