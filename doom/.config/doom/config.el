@@ -96,7 +96,9 @@
 
 ;; Configure org stuff
 (after! org
-  (setq org-roam-directory "~/org/roam/"))
+  (setq
+    org-roam-directory "~/org/roam/"
+    org-hide-emphasis-markers t))
 
 (after! org
   (custom-set-faces!
@@ -123,6 +125,11 @@
     '(org-checkbox-statistics-todo :inherit (org-todo fixed-pitch))
     '(org-indent :inherit (org-hide fixed-pitch))))
 
+(map!
+  :after org-tree-slide
+  :map org-tree-slide-mode-map
+  :n "C-x s h" #'org-tree-slide-display-header-toggle)
+  
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
