@@ -129,7 +129,11 @@
   :after org-tree-slide
   :map org-tree-slide-mode-map
   :n "C-x s h" #'org-tree-slide-display-header-toggle)
-  
+
+(after! org-tree-slide
+  (advice-remove 'org-tree-slide--display-tree-with-narrow
+    #'+org-present--hide-first-heading-maybe-a))
+
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
