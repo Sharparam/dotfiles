@@ -20,11 +20,53 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq my-font-size
+(setq my/font-size
   (cond ((eq system-type 'windows-nt) 28)
     (t 16)))
-(setq doom-font (font-spec :family "Cascadia Code" :size my-font-size :weight 'regular))
-;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
+
+(setq my/font-mode 'caskaydia)
+
+(defun my/cascadia-fonts ()
+  (setq
+    doom-font (font-spec :family "Cascadia Code" :size 16 :weight 'regular)
+    doom-variable-pitch-font (font-spec :family "Fira Sans" :size 18)
+    doom-serif-font (font-spec :family "Meta Serif Pro" :size 16)))
+
+(defun my/caskaydia-fonts ()
+  (setq
+    doom-font (font-spec :family "CaskaydiaCove Nerd Font" :size 16)
+    doom-variable-pitch-font (font-spec :family "Concourse T4" :size 20)
+    doom-serif-font (font-spec :family "Equity Text A" :size 18)))
+
+(defun my/triplicate-fonts ()
+  (setq
+    doom-font (font-spec :family "Triplicate A Code" :size 16 :width 'condensed)
+    doom-variable-pitch-font (font-spec :family "Concourse T4" :size 20)
+    doom-serif-font (font-spec :family "Equity Text A" :size 20)
+    doom-font-increment 4))
+
+(defun my/input-fonts ()
+  (setq
+    doom-font (font-spec :family "Input Mono Condensed" :size 16 :width 'condensed)
+    doom-variable-pitch-font (font-spec :family "Input Sans Condensed" :size 16 :width 'condensed)
+    doom-serif-font (font-spec :family "Input Serif Condensed" :size 16 :width 'condensed)
+    doom-font-increment 4))
+    ;; doom-big-font (font-spec :family "Input Mono Condensed" :size 24))
+
+(defun my/fira-fonts ()
+  (setq
+    doom-font (font-spec :family "Fira Code" :size 16)
+    doom-variable-pitch-font (font-spec :family "Fira Sans" :size 16)
+    doom-serif-font (font-spec :family "Meta Serif Pro" :size 16)
+    doom-font-increment 4))
+
+(cl-case my/font-mode
+  ('triplicate (my/triplicate-fonts))
+  ('input (my/input-fonts))
+  ('caskaydia (my/caskaydia-fonts))
+  ('fira (my/fira-fonts))
+  (t (my/cascadia-fonts)))
+
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -55,6 +97,31 @@
 ;; Configure org stuff
 (after! org
   (setq org-roam-directory "~/org/roam/"))
+
+(after! org
+  (custom-set-faces!
+    '(line-number :inherit fixed-pitch)
+    '(line-number-current-line :inherit (hl-line fixed-pitch))
+    '(org-default :inherit variable-pitch :height 1.0)
+    '(org-document-title :inherit fixed-pitch-serif :height 1.3)
+    '(org-level-1 :inherit (outline-1 fixed-pitch-serif) :weight extra-bold :height 1.5)
+    '(org-level-2 :inherit (outline-2 fixed-pitch-serif) :weight bold :height 1.25)
+    '(org-level-3 :inherit (outline-3 fixed-pitch-serif) :weight bold :height 1.15)
+    '(org-level-4 :inherit (outline-4 fixed-pitch-serif) :weight bold :height 1.12)
+    '(org-level-5 :inherit (outline-5 fixed-pitch-serif) :weight semi-bold :height 1.09)
+    '(org-level-6 :inherit (outline-6 fixed-pitch-serif) :weight semi-bold :height 1.06)
+    '(org-level-7 :inherit (outline-7 fixed-pitch-serif) :weight semi-bold :height 1.03)
+    '(org-level-8 :inherit (outline-8 fixed-pitch-serif) :weight semi-bold)
+    '(org-block :inherit fixed-pitch :weight normal)
+    '(org-code :inherit (shadow fixed-pitch))
+    '(org-table :inherit (shadow fixed-pitch))
+    '(org-verbatim :inherit (shadow fixed-pitch))
+    '(org-special-keyword :inherit (font-lock-comment-face fixed-pitch))
+    '(org-meta-line :inherit (font-lock-comment-face fixed-pitch))
+    '(org-checkbox :inherit (org-todo fixed-pitch))
+    '(org-checkbox-statistics-done :inherit (org-done fixed-pitch))
+    '(org-checkbox-statistics-todo :inherit (org-todo fixed-pitch))
+    '(org-indent :inherit (org-hide fixed-pitch))))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
