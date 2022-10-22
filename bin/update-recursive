@@ -100,3 +100,6 @@ rm -f "$dl_path"
 
 err "Writing version to file"
 echo  "$rec_ver" > "$FONT_DIR/.VERSION"
+
+err "Running fc-cache"
+fc-cache
