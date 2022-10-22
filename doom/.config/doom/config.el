@@ -42,7 +42,7 @@
   (setq
     doom-font (font-spec :family "Triplicate A Code" :size 16 :width 'condensed)
     doom-variable-pitch-font (font-spec :family "Concourse T4" :size 20)
-    doom-serif-font (font-spec :family "Equity Text A" :size 20)
+    doom-serif-font (font-spec :family "Equity Text A" :size 18)
     doom-font-increment 4))
 
 (defun my/input-fonts ()
