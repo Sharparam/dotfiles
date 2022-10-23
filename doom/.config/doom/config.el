@@ -26,6 +26,12 @@
 
 (setq my/font-mode 'caskaydia)
 
+(defun my/adjust-fixed-pitch ()
+  (set-face-attribute 'fixed-pitch nil :height 1.0))
+
+(add-hook! '(after-setting-font-hook doom-init-ui-hook after-init-hook server-after-make-frame-hook)
+  #'my/adjust-fixed-pitch)
+
 (defun my/cascadia-fonts ()
   (setq
     doom-font (font-spec :family "Cascadia Code" :size 16 :weight 'regular)
