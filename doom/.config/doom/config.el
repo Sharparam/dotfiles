@@ -131,6 +131,8 @@
   :n "C-x s h" #'org-tree-slide-display-header-toggle)
 
 (after! org-tree-slide
+  (remove-hook 'org-tree-slide-play-hook #'+org-present-hide-blocks-h)
+  (remove-hook 'org-tree-slide-play-hook #'+org-present-hide-blocks-h)
   (advice-remove 'org-tree-slide--display-tree-with-narrow
     #'+org-present--hide-first-heading-maybe-a))
 
