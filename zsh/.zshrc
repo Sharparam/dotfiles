@@ -208,9 +208,6 @@ fi
 # Helix aliases
 alias hx=helix
 
-if [[ -d "$HOME/.poetry/bin" ]]; then
-  path=($HOME/.poetry/bin "$path[@]")
-fi
 
 if [[ -d "$HOME/.rakubrew" ]]; then
   eval "$($HOME/.rakubrew/bin/rakubrew init Zsh)"
