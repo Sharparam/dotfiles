@@ -103,8 +103,15 @@
 ;; Configure org stuff
 (after! org
   (setq
-    org-roam-directory "~/org/roam/"
-    org-hide-emphasis-markers t))
+    org-time-stamp-formats '("<%Y-%m-%d %a>" . "<%Y-%m-%d %a %H:%M %Z>")
+    org-roam-directory "~/org/roam"
+    org-hide-emphasis-markers t
+    org-roam-capture-templates
+      `(("d" "default" plain
+          (file ,(concat org-roam-directory "/templates/default.org"))
+          :target (file+head "%<%Y%m%dT%H%M%S%z>-${slug}.org"
+                    "#+title: ${title}\n#+date: %U\n")
+          :unnarrowed t))))
 
 (after! org
   (custom-set-faces!
