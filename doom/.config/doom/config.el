@@ -35,8 +35,8 @@
 (defun my/caskaydia-fonts ()
   (setq
     doom-font (font-spec :family "CaskaydiaCove Nerd Font" :size 16)
-    doom-variable-pitch-font (font-spec :family "Concourse T4" :size 20)
-    doom-serif-font (font-spec :family "Equity Text A" :size 18)))
+    doom-variable-pitch-font (font-spec :family "Recursive Sans Linear Static" :size 16)
+    doom-serif-font (font-spec :family "Recursive Mono Casual Static" :size 16)))
 
 (defun my/triplicate-fonts ()
   (setq
