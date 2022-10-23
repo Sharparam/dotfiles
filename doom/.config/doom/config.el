@@ -142,6 +142,8 @@
   (advice-remove 'org-tree-slide--display-tree-with-narrow
     #'+org-present--hide-first-heading-maybe-a))
 
+(load! "hacks/org-roam-alias-display.el")
+
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
