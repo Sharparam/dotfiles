@@ -125,16 +125,16 @@
     org-tags-exclude-from-inheritance '("crypt")
     org-crypt-key "0xC58C41E27B00AD04"
     org-roam-capture-templates
-      `(("d" "default" plain
-          (file ,(concat org-roam-directory "/templates/default.org"))
-          :target (file+head "%<%Y%m%dT%H%M%S%z>-${slug}.org"
-                    "#+title: ${title}\n#+date: %U\n")
-          :unnarrowed t))
+    `(("d" "default" plain
+        (file ,(concat org-roam-directory "/templates/default.org"))
+        :target (file+head "%<%Y%m%dT%H%M%S%z>-${slug}.org"
+                  "#+title: ${title}\n#+date: %U\n")
+        :unnarrowed t))
     org-roam-dailies-capture-templates
-      `(("d" "default" entry
-          (file ,(concat org-roam-directory "/templates/dailies/default.org"))
-          :target (file+head "%<%Y-%m-%d>.org"
-                    "#+title: %<%Y-%m-%d>\n#+date: %U\n")))))
+    `(("d" "default" entry
+        (file ,(concat org-roam-directory "/templates/dailies/default.org"))
+        :target (file+head "%<%Y-%m-%d>.org"
+                  "#+title: %<%Y-%m-%d>\n#+date: %U\n")))))
 
 (after! org
   (custom-set-faces!
