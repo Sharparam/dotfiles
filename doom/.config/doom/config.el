@@ -110,6 +110,7 @@
 ;; Configure org stuff
 (after! org
   (setq
+    org-clock-sound "~/.dotfiles/sound/fm-bell-synth-02.wav"
     org-time-stamp-formats '("<%Y-%m-%d %a>" . "<%Y-%m-%d %a %H:%M %Z>")
     org-roam-directory "~/org/roam"
     org-hide-emphasis-markers t
