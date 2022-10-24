@@ -72,12 +72,6 @@ zinit snippet https://github.com/github/hub/raw/master/etc/hub.zsh_completion
 zinit ice from"gh-r" as"command" mv"hivemind-* -> hivemind"
 zinit light DarthSim/hivemind
 
-zinit ice from"gh-r" as"program"
-zinit light junegunn/fzf-bin
-
-zinit ice pick"bin/fzf-tmux" as"program" multisrc"shell/{completion,key-bindings}.zsh" blockf
-zinit light junegunn/fzf
-
 zinit ice wait lucid
 zinit light molovo/tipz
 
@@ -126,6 +120,9 @@ zinit light zsh-users/zsh-completions
 zinit ice svn blockf \
   atclone"git clone --recursive https://github.com/zsh-users/zsh-completions external"
 zinit snippet PZTM::completion
+
+[[ -f "/usr/share/fzf/completion.zsh" ]] && source /usr/share/fzf/completion.zsh
+[[ -f "/usr/share/fzf/key-bindings.zsh" ]] && source /usr/share/fzf/key-bindings.zsh
 
 _dotnet_zsh_complete() {
   local completions=("$(dotnet complete "$words")")
