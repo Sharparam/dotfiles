@@ -66,11 +66,18 @@
     doom-serif-font (font-spec :family "Meta Serif Pro" :size 16)
     doom-font-increment 4))
 
+(defun my/recursive-fonts ()
+  (setq
+    doom-font (font-spec :family "Rec Mono Custom" :size 16)
+    doom-variable-pitch-font (font-spec :family "Recursive Sans Linear Static" :size 16)
+    doom-serif-font (font-spec :family "Recursive Mono casual Static" :size 16)))
+
 (cl-case my/font-mode
   ('triplicate (my/triplicate-fonts))
   ('input (my/input-fonts))
   ('caskaydia (my/caskaydia-fonts))
   ('fira (my/fira-fonts))
+  ('recursive (my/recursive-fonts))
   (t (my/cascadia-fonts)))
 
 ;;
