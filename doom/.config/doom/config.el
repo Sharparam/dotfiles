@@ -107,6 +107,9 @@
                                         ("~/repos" . 3)
                                         ("~/.ghq" . 3)))
 
+(setq-default show-trailing-whitespace t)
+(setq show-trailing-whitespace t)
+
 ;; Configure org stuff
 (after! org
   (setq
