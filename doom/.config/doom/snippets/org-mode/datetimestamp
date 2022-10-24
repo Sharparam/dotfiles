@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: timestamp (date+time)
+# key: dts
+# uuid: dts
+# --
+`(format-time-string (org-time-stamp-format t nil))`
