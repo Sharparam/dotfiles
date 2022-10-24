@@ -115,11 +115,15 @@
 
 ;; Configure org stuff
 (after! org
+  (require 'org-crypt)
+  (org-crypt-use-before-save-magic)
   (setq
     org-clock-sound "~/.dotfiles/sound/fm-bell-synth-02.wav"
     org-time-stamp-formats '("<%Y-%m-%d %a>" . "<%Y-%m-%d %a %H:%M %Z>")
     org-journal-file-format "%Y%m%d.org"
     org-hide-emphasis-markers t
+    org-tags-exclude-from-inheritance '("crypt")
+    org-crypt-key "0xC58C41E27B00AD04"
     org-roam-capture-templates
       `(("d" "default" plain
           (file ,(concat org-roam-directory "/templates/default.org"))
