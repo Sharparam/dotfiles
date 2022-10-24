@@ -119,7 +119,12 @@
           (file ,(concat org-roam-directory "/templates/default.org"))
           :target (file+head "%<%Y%m%dT%H%M%S%z>-${slug}.org"
                     "#+title: ${title}\n#+date: %U\n")
-          :unnarrowed t))))
+          :unnarrowed t))
+    org-roam-dailies-capture-templates
+      `(("d" "default" entry
+          (file ,(concat org-roam-directory "/templates/dailies/default.org"))
+          :target (file+head "%<%Y-%m-%d>.org"
+                    "#+title: %<%Y-%m-%d>\n#+date: %U\n")))))
 
 (after! org
   (custom-set-faces!
