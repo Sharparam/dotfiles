@@ -97,7 +97,11 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq
+  org-directory "~/org/"
+  org-journal-dir "~/org/journal/"
+  org-roam-directory "~/org/roam/"
+  org-agenda-files org-directory)
 
 (setq doom-modeline-modal-icon nil)
 
@@ -114,7 +118,7 @@
   (setq
     org-clock-sound "~/.dotfiles/sound/fm-bell-synth-02.wav"
     org-time-stamp-formats '("<%Y-%m-%d %a>" . "<%Y-%m-%d %a %H:%M %Z>")
-    org-roam-directory "~/org/roam"
+    org-journal-file-format "%Y%m%d.org"
     org-hide-emphasis-markers t
     org-roam-capture-templates
       `(("d" "default" plain
