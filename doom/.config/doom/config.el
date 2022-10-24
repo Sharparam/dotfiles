@@ -103,7 +103,7 @@
 
 ;; Projectile configs
 (setq projectile-project-search-path '(
-                                        ("~/projects" . 1)
+                                        ("~/projects" . 2)
                                         ("~/repos" . 3)
                                         ("~/.ghq" . 3)))
 
