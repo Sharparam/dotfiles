@@ -101,7 +101,7 @@
   org-directory "~/org/"
   org-journal-dir "~/org/journal/"
   org-roam-directory "~/org/roam/"
-  org-agenda-files org-directory)
+  org-agenda-files `(,org-directory))
 
 (setq doom-modeline-modal-icon nil)
 
