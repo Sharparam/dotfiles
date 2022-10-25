@@ -172,6 +172,10 @@
   (advice-remove 'org-tree-slide--display-tree-with-narrow
     #'+org-present--hide-first-heading-maybe-a))
 
+(after! org-journal
+  (setq
+    org-journal-encrypt-journal t))
+
 (load! "hacks/org-roam-alias-display.el")
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
