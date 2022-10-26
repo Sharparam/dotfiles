@@ -177,7 +177,6 @@
     org-journal-encrypt-journal t))
 
 (map! :after org-journal
-  :map org-journal-mode-map
   :leader
   :desc "Open current journal" "n j c" #'org-journal-open-current-journal-file
   :desc "Search for a string" "n j S" #'org-journal-search)
