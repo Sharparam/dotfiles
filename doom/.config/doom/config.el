@@ -24,7 +24,11 @@
   (cond ((eq system-type 'windows-nt) 28)
     (t 16)))
 
-(setq my/font-mode 'caskaydia)
+(setq
+  my/font-mode
+  (cond
+    ((string= (system-name) "PC673") 'cascadia)
+    (t 'caskaydia)))
 
 (defun my/adjust-fixed-pitch ()
   (set-face-attribute 'fixed-pitch nil :height 1.0))
@@ -35,8 +39,8 @@
 (defun my/cascadia-fonts ()
   (setq
     doom-font (font-spec :family "Cascadia Code" :size 16 :weight 'regular)
-    doom-variable-pitch-font (font-spec :family "Fira Sans" :size 18)
-    doom-serif-font (font-spec :family "Meta Serif Pro" :size 16)))
+    doom-variable-pitch-font (font-spec :family "Recursive Sans Linear Static" :size 16)
+    doom-serif-font (font-spec :family "Recursive Mono Casual Static" :size 16)))
 
 (defun my/caskaydia-fonts ()
   (setq
