@@ -185,6 +185,20 @@
   :desc "Open current journal" "n j c" #'org-journal-open-current-journal-file
   :desc "Search for a string" "n j S" #'org-journal-search)
 
+(use-package! websocket
+  :after org-roam)
+
+(use-package! org-roam-ui
+  :after org-roam
+  :hook (after-init . org-roam-ui-mode)
+  :config
+  (setq
+    org-roam-ui-sync-theme t
+    org-roam-ui-follow t
+    org-roam-ui-update-on-save t
+    org-roam-ui-open-on-start t))
+
+
 (load! "hacks/org-roam-alias-display.el")
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
