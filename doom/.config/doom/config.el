@@ -128,6 +128,7 @@
     org-hide-emphasis-markers t
     org-tags-exclude-from-inheritance '("crypt")
     org-crypt-key "0xC58C41E27B00AD04"
+    org-babel-results-keyword "results"
     org-roam-capture-templates
     `(("d" "default" plain
         (file ,(concat org-roam-directory "/templates/default.org"))
