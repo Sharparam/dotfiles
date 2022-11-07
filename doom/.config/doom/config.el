@@ -198,6 +198,30 @@
     org-roam-ui-update-on-save t
     org-roam-ui-open-on-start t))
 
+;; (defun my/org-appear-trigger ()
+;;   (add-hook 'evil-insert-state-entry-hook
+;;     #'org-appear-manual-start nil t)
+;;   (add-hook 'evil-insert-state-exit-hook
+;;     #'org-appear-manual-stop nil t))
+
+(use-package! org-appear
+  :after org
+  :hook (org-mode . org-appear-mode)
+  :config
+  (setq org-appear-autoemphasis t
+    org-appear-autolinks t
+    org-appear-autosubmarkers t))
+
+;; (use-package! org-appear
+;;   :after org
+;;   :init
+;;   (add-hook 'org-mode-hook #'my/org-appear-trigger)
+;;   :config
+;;   (setq
+;;     org-appear-trigger 'manual
+;;     org-appear-autoemphasis t
+;;     org-appear-autolinks t
+;;     org-appear-autosubmarkers t))
 
 (load! "hacks/org-roam-alias-display.el")
 
