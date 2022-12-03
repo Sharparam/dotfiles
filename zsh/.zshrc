@@ -216,10 +216,7 @@ fi
 # Following two functions and utilities from:
 # https://github.com/BlackReloaded/wsl2-ssh-pageant
 wsl-gpg-proxy() {
-  local appdata=$(cmd.exe /c echo %APPDATA%)
-  if [[ "$HOST" == "PC673" ]]; then
-    appdata=$(cmd.exe /c echo %LOCALAPPDATA%)
-  fi
+  local appdata=$(cmd.exe /c echo %LOCALAPPDATA%)
   local gpg_conf_base="$(echo -E "${appdata}" | tr -d '[:space:]' | tr '\\' '/')/gnupg"
   export GPG_AGENT_SOCK="$HOME/.gnupg/S.gpg-agent"
   if ! ss -a | grep -q "$GPG_AGENT_SOCK"; then
