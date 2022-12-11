@@ -16,5 +16,8 @@ indent_size = 4
 [*.{cs,csx,fs,fsx}]
 indent_size = 4
 
+[*.rb]
+indent_size = 2
+
 [*.py]
 indent_size = 4
