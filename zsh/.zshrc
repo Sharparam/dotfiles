@@ -207,7 +207,7 @@ fi
 # Helix aliases
 alias hx=helix
 
-alias rsync='rsync -Ph --info=PROGRESS2'
+alias rsync='rsync --info=progress2 --partial -h'
 
 if [[ -d "$HOME/.rakubrew" ]]; then
   eval "$($HOME/.rakubrew/bin/rakubrew init Zsh)"
