@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+SOUNDFILE=/home/sharparam/sounds/notifications/cyan_message.ogg
+
+BUFFER=${1:-unknown.buffer}
+PREFIX=${2:-Unknown}
+MESSAGE=${3:-Unknown message}
+
+nohup play "$SOUNDFILE" vol 0.5 &>/dev/null & disown
+
+notify-send \
+  --app-name=weechat \
+  --urgency=normal \
+  --expire-time=5000 \
+  --icon=weechat \
+  --category=im.received \
+  --hint=string:desktop-entry:/usr/share/applications/weechat.desktop \
+  "$PREFIX in $BUFFER" \
+  "$MESSAGE"
+
