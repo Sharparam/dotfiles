@@ -209,6 +209,10 @@ alias hx=helix
 
 alias rsync='rsync --info=progress2 --partial -h'
 
+if [[ -d "$HOME/.perl5/bin" ]]; then
+  path=("$HOME/.perl5/bin" $path)
+fi
+
 if [[ -d "$HOME/.rakubrew" ]]; then
   eval "$($HOME/.rakubrew/bin/rakubrew init Zsh)"
 fi

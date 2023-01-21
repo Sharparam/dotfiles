@@ -1,0 +1,5 @@
+# vim: filetype=perl
+
+use Data::Dumper;
+
+sub pp { print Data::Dumper->Dump([@_]) }
