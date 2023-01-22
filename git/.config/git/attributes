@@ -15,3 +15,4 @@
 *.bz2    binary
 *.tar    binary
 *.rar    binary
+*.7z     binary
