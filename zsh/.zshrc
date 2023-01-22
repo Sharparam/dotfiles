@@ -210,6 +210,11 @@ alias hx=helix
 
 alias rsync='rsync --info=progress2 --partial -h'
 
+if [[ $+commands[bat] ]]; then
+  alias cat='bat --paging=never'
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+fi
+
 if [[ -d "$HOME/.perl5/bin" ]]; then
   path=("$HOME/.perl5/bin" $path)
 fi
