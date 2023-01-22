@@ -37,8 +37,12 @@ map <Leader>t <Action>(SearchEverywhere)
 
 map <Leader>gb <Action>(GotoSuperMethod)
 map <Leader>gd <Action>(GotoDeclaration)
-map <Leader>gi <Action>(ReSharperGotoImplementation)
 map <Leader>fu <Action>(FindUsages)
+
+" Rider mappings
+if &ide =~? 'rider'
+  map <Leader>gi <Action>(ReSharperGotoImplementation)
+endif
 
 noremap <Left> <Nop>
 noremap <Right> <Nop>
