@@ -6,7 +6,7 @@ BUFFER=${1:-unknown.buffer}
 PREFIX=${2:-Unknown}
 MESSAGE=${3:-Unknown message}
 
-nohup play "$SOUNDFILE" vol 0.5 &>/dev/null & disown
+#nohup play "$SOUNDFILE" vol 0.5 &>/dev/null & disown
 
 notify-send \
   --app-name=weechat \
