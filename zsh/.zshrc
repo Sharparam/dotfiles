@@ -184,6 +184,7 @@ alias .......='../../../../../..'
 # Git aliases
 alias ga='git add'
 alias gst='git status'
+alias gdt='git difftool'
 
 alias vi='nvim'
 alias vim='nvim'

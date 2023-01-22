@@ -2,6 +2,8 @@
   email = sharparam@sharparam.com
   name = Adam Hellberg
   signingkey = C58C41E27B00AD04
+[alias]
+  dft = difftool
 [push]
   default = simple
   autoSetupRemote = true
@@ -19,6 +21,14 @@
   mergeoptions = --no-ff
 [branch "develop"]
   mergeoptions = --no-ff
+[diff]
+  tool = difft
+[difftool]
+  prompt = false
+[difftool "difft"]
+  cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+  difftool = true
 [pull]
   #rebase = true
   ff = only
