@@ -121,6 +121,8 @@ zinit ice svn blockf \
   atclone"git clone --recursive https://github.com/zsh-users/zsh-completions external"
 zinit snippet PZTM::completion
 
+zinit light itsbth/zsh-fzf-ghq
+
 [[ -f "/usr/share/fzf/completion.zsh" ]] && source /usr/share/fzf/completion.zsh
 [[ -f "/usr/share/fzf/key-bindings.zsh" ]] && source /usr/share/fzf/key-bindings.zsh
 
