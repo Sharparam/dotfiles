@@ -42,3 +42,5 @@
   defaultBranch = main
 [fetch]
   prune = true
+[github]
+  user = Sharparam
