@@ -1,0 +1,5 @@
+address ircs://soju.sharparam.com:6697
+nickname Sharparam
+realname Sharparam
+username sharparam
+password-cmd kwallet-query kdewallet -f senpai-irc -r password

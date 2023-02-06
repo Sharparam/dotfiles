@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if [[ "$HERE" == "1" ]]; then
+  exit 0
+fi
+
+escape() {
+  printf "%s" "$1" | sed 's#\\#\\\\#g'
+}
+
+SOUNDFILE=/home/sharparam/sounds/notifications/cyan_message.ogg
+nohup play "$SOUNDFILE" vol 0.5 &>/dev/null & disown
+
+notify-send \
+  --app-name=senpai-irc \
+  --urgency=normal \
+  --expire-time=5000 \
+  --icon=senpai-irc \
+  --category=im.received \
+  "${SENDER:-Unknown} in ${BUFFER:-unknown buffer}" \
+  "$(escape "${MESSAGE:-No message}")"
+
