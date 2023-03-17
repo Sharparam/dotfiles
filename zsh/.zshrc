@@ -201,7 +201,7 @@ alias ':x'='exit'
 alias emacs='emacsclient -nc'
 
 # Work laptop aliases
-if [[ "$HOST" = "PC637" ]]; then
+if [[ "$HOST" = "PC673" ]]; then
   alias smerge='"/mnt/c/Program Files/Sublime Merge/sublime_merge.exe"'
 elif [[ "$HOST" = "SHARPARAM-PC" ]]; then
   alias smerge='"/mnt/c/Program Files/Sublime Merge/sublime_merge.exe"'
