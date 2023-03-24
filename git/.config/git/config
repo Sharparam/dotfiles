@@ -44,3 +44,9 @@
   prune = true
 [github]
   user = Sharparam
+[url "git@github.com:Sharparam"]
+  insteadOf = "https://github.com/Sharparam"
+[url "git@github.com:SharpWoW"]
+  insteadOf = "https://github.com/SharpWoW"
+[url "git@github.com:chroma-sdk"]
+  insteadOf = "https://github.com/chroma-sdk"
