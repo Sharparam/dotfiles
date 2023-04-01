@@ -282,10 +282,6 @@ if [[ -d '/usr/local/go/bin' ]]; then
   path=("$path[@]" /usr/local/go/bin "$GOPATH/bin")
 fi
 
-if [[ $+commands[yarn] ]]; then
-  path=("$path[@]" "$(yarn global bin)")
-fi
-
 start() {
   nohup $@ &>/dev/null & disown
 }
