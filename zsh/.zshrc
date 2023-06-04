@@ -282,6 +282,12 @@ if [[ -d '/usr/local/go/bin' ]]; then
   path=("$path[@]" /usr/local/go/bin "$GOPATH/bin")
 fi
 
+if [[ -f "$HOME/.local/share/rtx/bin/rtx" ]]; then
+  eval "$($HOME/.local/share/rtx/bin/rtx activate -s zsh)"
+elif [[ $+commands[rtx] ]]; then
+  eval "$(rtx activate -s zsh)"
+fi
+
 start() {
   nohup $@ &>/dev/null & disown
 }
