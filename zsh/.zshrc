@@ -201,6 +201,11 @@ alias ':x'='exit'
 #alias emacs='emacs -nw'
 alias emacs='emacsclient -nc'
 
+# Use code insiders by default if present
+if [[ $+commands[code-insiders] ]]; then
+  alias code=code-insiders
+fi
+
 # Work laptop aliases
 if [[ "$HOST" = "PC673" ]]; then
   alias smerge='"/mnt/c/Program Files/Sublime Merge/sublime_merge.exe"'
