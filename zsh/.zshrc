@@ -148,8 +148,8 @@ fi
 
 if [ ! $is_wsl ];
 then
-  eval "$(thefuck --alias)"
-  eval "$(hub alias -s)"
+  [ $+commands[thefuck] ] && eval "$(thefuck --alias)"
+  [ $+commands[hub] ] && eval "$(hub alias -s)"
 fi
 
 [ -s $HOME/.luaver/luaver ] && source $HOME/.luaver/luaver
