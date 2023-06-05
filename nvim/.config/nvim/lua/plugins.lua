@@ -25,6 +25,7 @@ return packer.startup(function(use)
   use 'tpope/vim-surround'
 
   use 'ggandor/leap.nvim'
+  use 'ggandor/flit.nvim'
 
   use 'tomasiser/vim-code-dark'
 
