@@ -60,6 +60,16 @@ o.completeopt = [[menuone,noinsert,noselect]]
 o.errorbells = false
 o.visualbell = false
 
+-- Configure ggandor/leap.nvim
+local leap = require 'leap'
+leap.add_default_mappings()
+leap.opts.highlight_unlabeled_phase_one_targets = true
+
+-- Configure ggandor/flit.nvim
+require('flit').setup {
+  multiline = true
+}
+
 utils.create_augroup({
   { 'BufEnter,FocusGained,InsertLeave', '*', 'set relativenumber' },
   { 'BufLeave,FocusLost,InsertEnter', '*', 'set norelativenumber' }
