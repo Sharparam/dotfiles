@@ -76,8 +76,14 @@ utils.create_augroup({
 }, 'numbertoggle')
 
 o.background = 'dark'
-vim.cmd [[colorscheme codedark]]
-g.airline_theme = 'codedark'
+local c = require 'vscode.colors'
+local vscode = require 'vscode'
+vscode.setup({
+  italic_comments = true,
+})
+vscode.load()
+
+-- g.airline_theme = 'codedark'
 
 -- Disable arrow keys
 -- for _, key in pairs({ '<Left>', '<Right>', '<Up>', '<Down>' }) do

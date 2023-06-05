@@ -27,7 +27,7 @@ return packer.startup(function(use)
   use 'ggandor/leap.nvim'
   use 'ggandor/flit.nvim'
 
-  use 'tomasiser/vim-code-dark'
+  use 'Mofiqul/vscode.nvim'
 
   if packer_bootstrap then
     packer.sync()
