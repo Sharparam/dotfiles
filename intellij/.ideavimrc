@@ -1,6 +1,8 @@
 "" Source your .vimrc
 "source ~/.vimrc
 
+" Reload action: IdeaVim.ReloadVimRc.reload
+
 let mapleader=' '
 
 "" -- Suggested options --
@@ -10,7 +12,7 @@ set scrolloff=5
 
 " Do incremental searching.
 set incsearch
-
+set showmode
 set showcmd
 
 set nu
@@ -18,40 +20,87 @@ set rnu
 
 set clipboard+=unnamed,unnamedplus
 
+" Plugins
+set NERDTree
+set commentary
+set surround
+set sneak
+set easymotion
+set quickscope
+
+" IDEA features
 set ideamarks
+set ideajoin
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \r to the Reformat Code action
-map <Leader>r <Action>(ReformatCode)
+map <Leader>ff <Action>(ReformatCode)
+map <Leader>fc <Action>(CodeCleanup)
+map <Leader>fo <Action>(OverrideMethods)
+map <Leader>fi <Action>(ImplementMethods)
+map <Leader>fg <Action>(Generate)
+map <Leader>frr <Action>(Refactorings.QuickListPopupAction)
+map <Leader>frn <Action>(RenameElement)
+map <Leader>frm <Action>(Move)
+map <Leader>frd <Action>(SafeDelete)
+
+map <Leader>cc <Action>(CommentByLineComment)
+map <Leader>cb <Action>(CommentByBlockComment)
 
 "" Map <leader>d to start debug
-map <Leader>d <Action>(Debug)
+map <Leader>rr <Action>(Run)
+map <Leader>rd <Action>(Debug)
+map <Leader>rs <Action>(Stop)
 
 "" Map \b to toggle the breakpoint on the current line
-map <Leader>b <Action>(ToggleLineBreakpoint)
+map <Leader>bb <Action>(ToggleLineBreakpoint)
+map <Leader>bt <Action>(ToggleTemporaryLineBreakpoint)
+map <Leader>be <Action>(ToggleBreakpointEnabled)
 
 map <Leader>t <Action>(SearchEverywhere)
 
 map <Leader>gb <Action>(GotoSuperMethod)
 map <Leader>gd <Action>(GotoDeclaration)
-map <Leader>fu <Action>(FindUsages)
+map <Leader>gt <Action>(GotoTypeDeclaration)
+map <Leader>gu <Action>(FindUsages)
+map <Leader>gs <Action>(FileStructurePopup)
 
 " Rider mappings
 if &ide =~? 'rider'
   map <Leader>gi <Action>(ReSharperGotoImplementation)
 endif
 
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-noremap <Up> <Nop>
-noremap <Down> <Nop>
+map <Leader>nb <Action>(Back)
+map <Leader>nf <Action>(Forward)
 
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
+map <Leader>vd <Action>(ToggleDistractionFreeMode)
+map <Leader>vz <Action>(ToggleZenMode)
+map <Leader>vp <Action>(TogglePresentationMode)
+map <Leader>vc <Action>(ToggleCompactMode)
+
+" NERDTree mappings
+map <Leader>pp :NERDTree<CR>
+map <Leader>pt :NERDTreeToggle<CR>
+map <Leader>pf :NERDTreeFind<CR>
+map <Leader>pc :NERDTreeClose<CR>
+
+" AceJump mappings
+map <Leader>jj <Action>(AceAction)
+map <Leader>jt <Action>(AceTargetAction)
+map <Leader>jl <Action>(AceLineAction)
+
+" Disable arrow keys to encourage learning hjkl
+"noremap <Left> <Nop>
+"noremap <Right> <Nop>
+"noremap <Up> <Nop>
+"noremap <Down> <Nop>
+
+"inoremap <Left> <Nop>
+"inoremap <Right> <Nop>
+"inoremap <Up> <Nop>
+"inoremap <Down> <Nop>
 
 " Find more examples here: https://jb.gg/share-ideavimrc
