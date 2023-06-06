@@ -299,6 +299,18 @@ return {
     }
   },
   {
+    'folke/trouble.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    keys = {
+      { '<Leader>cxx', '<Cmd>TroubleToggle<CR>', desc = 'Diagnostics' },
+      { '<Leader>cxw', '<Cmd>TroubleToggle workspace_diagnostics<CR>', desc = 'Workspace diagnostics' },
+      { '<Leader>cxd', '<Cmd>TroubleToggle document_diagnostics<CR>', desc = 'Document diagnostics' },
+      { '<Leader>cxq', '<Cmd>TroubleToggle quickfix<CR>', desc = 'Quickfix items' },
+      { '<Leader>cxl', '<Cmd>TroubleToggle loclist<CR>', desc = 'Items from location list' },
+    },
+    opts = {}
+  },
+  {
     'rcarriga/nvim-notify',
     opts = {}
   },
