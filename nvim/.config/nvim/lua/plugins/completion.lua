@@ -77,10 +77,30 @@ return {
             cmp.config.compare.order
           }
         },
+        formatting = {
+          format = function(entry, item)
+            local icons = require('config.icons').kinds
+            if icons[item.kind] then
+              item.kind = icons[item.kind] .. item.kind
+            end
+            item.menu = ({
+              buffer = '[BUF]',
+              nvim_lsp = '[LSP]',
+              luasnip = '[SNP]',
+              nvim_lua = '[LUA]',
+              latex_symbols = '[LTX]',
+              path = '[PTH]',
+              cmdline = '[CMD]',
+              copilot = '[COP]'
+            })[entry.source.name]
+            return item
+          end
+        },
         experimental = {
-          ghost_text = {
-            hl_group = 'LspCodeLens'
-          }
+          -- ghost_text = {
+          --   hl_group = 'LspCodeLens'
+          -- }
+          ghost_text = { hl_group = 'NonText' }
         }
       }
     end
