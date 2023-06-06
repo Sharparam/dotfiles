@@ -1,5 +1,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
+vim.keymap.set('n', '<Leader>m', '<LocalLeader>', { remap = true, desc = '+<LocalLeader>' })
 
 -- Disable netrw because we use nvim-tree instead
 vim.g.loaded_netrw = 1
