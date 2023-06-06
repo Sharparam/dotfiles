@@ -12,11 +12,21 @@ return {
     },
     opts = function()
       local bufferline = require 'bufferline'
-      local muted = { fg = { attribute = 'fg', highlight = 'NonText' } }
+      local icons = require 'config.icons'
+      local diag = {
+        error = icons.diagnostics.Error,
+        warning = icons.diagnostics.Warn,
+        hint = icons.diagnostics.Hint,
+        info = icons.diagnostics.Info
+      }
+      local diag_fb = icons.diagnostics.Info
+      -- local muted = { fg = { attribute = 'fg', highlight = 'NonText' } }
       return {
         options = {
           mode = 'buffers',
-          style_preset = bufferline.style_preset.default,
+          style_preset = {
+            bufferline.style_preset.no_italic
+          },
           themable = true,
           numbers = 'both',
           middle_mouse_command = 'bdelete! %d',
@@ -24,7 +34,7 @@ return {
           diagnostics_indicator = function(count, level, diagnostics_dict, context)
             local s = ' '
             for e, n in pairs(diagnostics_dict) do
-              local sym = e == 'error' and ' ' or (e == 'warning' and ' ' or '' )
+              local sym = diag[e] or diag_fb
               s = s .. n .. sym
             end
             return s
@@ -52,37 +62,37 @@ return {
           }
         },
         highlights = {
-          background = muted,
-          tab = muted,
-          tab_close = muted,
-          close_button = muted,
-          close_button_visible = muted,
-          buffer_visible = muted,
-          numbers = muted,
-          numbers_visible = muted,
-          diagnostic = muted,
-          diagnostic_visible = muted,
-          hint = muted,
-          hint_visible = muted,
-          hint_diagnostic = muted,
-          hint_diagnostic_visible = muted,
-          info = muted,
-          info_visible = muted,
-          info_diagnostic = muted,
-          info_diagnostic_visible = muted,
-          warning = muted,
-          warning_visible = muted,
-          warning_diagnostic = muted,
-          warning_diagnostic_visible = muted,
-          error = muted,
-          error_visible = muted,
-          error_diagnostic = muted,
-          error_diagnostic_visible = muted,
-          duplicate_selected = muted,
-          duplicate_visible = muted,
-          duplicate = muted,
-          separator_visible = muted,
-          separator = muted
+          -- background = muted,
+          -- tab = muted,
+          -- tab_close = muted,
+          -- close_button = muted,
+          -- close_button_visible = muted,
+          -- buffer_visible = muted,
+          -- numbers = muted,
+          -- numbers_visible = muted,
+          -- diagnostic = muted,
+          -- diagnostic_visible = muted,
+          -- hint = muted,
+          -- hint_visible = muted,
+          -- hint_diagnostic = muted,
+          -- hint_diagnostic_visible = muted,
+          -- info = muted,
+          -- info_visible = muted,
+          -- info_diagnostic = muted,
+          -- info_diagnostic_visible = muted,
+          -- warning = muted,
+          -- warning_visible = muted,
+          -- warning_diagnostic = muted,
+          -- warning_diagnostic_visible = muted,
+          -- error = muted,
+          -- error_visible = muted,
+          -- error_diagnostic = muted,
+          -- error_diagnostic_visible = muted,
+          -- duplicate_selected = muted,
+          -- duplicate_visible = muted,
+          -- duplicate = muted,
+          -- separator_visible = muted,
+          -- separator = muted
         }
       }
     end,
