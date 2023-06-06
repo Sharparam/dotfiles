@@ -11,12 +11,12 @@ wk.register({
     name = '+help',
     b = {
       name = '+bindings',
-      b = { '<cmd>WhichKey<cr>', 'Show all mappings' }
+      b = { '<Cmd>WhichKey<CR>', 'Show all mappings' }
     }
   },
   o = { name = '+open' },
   -- p = { name = '+project' },
   s = { name = '+search' }
 }, {
-  prefix = '<leader>'
+  prefix = '<Leader>'
 })
