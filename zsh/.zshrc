@@ -61,8 +61,8 @@ PURE_GIT_PULL=0
 zinit ice pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
 
-zinit ice atload"base16_${BASE16_THEME}"
-zinit light "chriskempson/base16-shell"
+# zinit ice atload"base16_${BASE16_THEME}"
+# zinit light "chriskempson/base16-shell"
 
 zinit ice from"gh-r" pick"hub-*/bin/hub" as"command" bpick"*linux-amd64*"
 zinit light github/hub
