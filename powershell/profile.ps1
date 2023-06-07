@@ -23,6 +23,10 @@ if (Test-Path 'env:MPV_PATH') {
   Set-Alias -Name mpv -Value $env:MPV_PATH
 }
 
+if (Test-Path 'env:CODE_INSIDERS_PATH') {
+  Set-Alias -Name code -Value $env:CODE_INSIDERS_PATH
+}
+
 function Send-Key() {
     [CmdletBinding()]
     param (
