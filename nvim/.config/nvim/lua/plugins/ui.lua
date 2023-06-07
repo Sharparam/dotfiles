@@ -312,7 +312,13 @@ return {
   },
   {
     'rcarriga/nvim-notify',
-    opts = {}
+    main = 'notify',
+    opts = {
+      render = 'compact'
+    },
+    config = function(_, opts)
+      require('notify').setup(opts)
+    end
   },
   {
     'Bekaboo/deadcolumn.nvim',

@@ -22,12 +22,20 @@ local available = {
       priority = 1000,
       opts = {
         style = 'night', -- storm, night, moon, day
+        transparent = true,
         styles = {
           comments = { italic = true },
           sidebars = 'dark',
           floats = 'dark'
         },
-        sidebars = { 'NvimTree', 'qf', 'help', 'lazy' }
+        sidebars = { 'NvimTree', 'qf', 'help', 'lazy' },
+        on_highlights = function(hl, c)
+          -- For some reason we have to do this otherwise nvim-notify complains
+          hl.NotifyBackground = {
+            fg = c.fg,
+            bg = '#000000'
+          }
+        end
       },
       config = function(_, opts)
         require 'config.colorscheme'
