@@ -6,7 +6,16 @@ return {
   --   'Olical/nvim-local-fennel'
   -- },
   {
-    'Olical/conjure'
+    'Olical/conjure',
+    ft = {
+      'fennel',
+      'clojure', 'clojurescript', 'clojurec',
+      'racket',
+      'janet',
+      'hy',
+      'scheme',
+      'guile'
+    }
   },
   {
     'PaterJason/cmp-conjure'
