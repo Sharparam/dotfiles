@@ -64,7 +64,8 @@ wk.register({
   f = { name = '+file' },
   g = {
     name = '+git',
-    f = { name = '+find' }
+    f = { name = '+find' },
+    T = { name = '+toggle' }
   },
   h = {
     name = '+help',
@@ -78,5 +79,12 @@ wk.register({
   -- p = { name = '+project' },
   s = { name = '+search' }
 }, {
+  prefix = '<Leader>'
+})
+
+wk.register({
+  g = { name = '+git' }
+}, {
+  mode = 'v',
   prefix = '<Leader>'
 })

@@ -123,6 +123,10 @@ return {
           vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
         end
         map('n', 'gI', vim.lsp.buf.implementation, 'Go to implementation')
+
+        -- mini.bracketed provides diagnostic keybinds
+        -- map('n', '[d', vim.diagnostic.goto_prev, 'Go to previous diagnostic')
+        -- map('n', ']d', vim.diagnostic.goto_next, 'Go to next diagnostic')
       end)
 
       lsp.format_mapping('gq', {
@@ -137,7 +141,8 @@ return {
             'ruby',
             'c', 'cpp',
             'rust',
-            'py'
+            'py',
+            'sh', 'bash', 'zsh'
           }
         }
       })
@@ -155,8 +160,7 @@ return {
       require('mason-null-ls').setup {
         ensure_installed = nil,
         automatic_installation = true,
-        handlers = {
-        }
+        handlers = {}
       }
 
       local cmp = require 'cmp'
