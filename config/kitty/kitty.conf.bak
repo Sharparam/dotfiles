@@ -276,7 +276,7 @@ cursor_shape block
 #: Fill new space with lines from the scrollback buffer after
 #: enlarging a window.
 
-# wheel_scroll_multiplier 5.0
+wheel_scroll_multiplier 5.0
 
 #: Modify the amount scrolled by the mouse wheel. Note this is only
 #: used for low precision scrolling devices, not for high precision
@@ -284,7 +284,7 @@ cursor_shape block
 #: numbers to change scroll direction. See also
 #: wheel_scroll_min_lines.
 
-# wheel_scroll_min_lines 1
+wheel_scroll_min_lines 1
 
 #: The minimum number of lines scrolled by the mouse wheel. The scroll
 #: multiplier <wheel_scroll_multiplier> only takes effect after it
@@ -1120,7 +1120,7 @@ background_opacity 0.95
 #: to yes means that any background processes still using the terminal
 #: can fail silently because their stdout/stderr/stdin no longer work.
 
-# allow_remote_control no
+allow_remote_control yes
 
 #: Allow other programs to control kitty. If you turn this on other
 #: programs can control all aspects of kitty, including sending text
@@ -1134,7 +1134,7 @@ background_opacity 0.95
 #: from controlling kitty. Reloading the config will not affect this
 #: setting.
 
-# listen_on none
+listen_on unix:/tmp/kitty
 
 #: Tell kitty to listen to the specified unix/tcp socket for remote
 #: control connections. Note that this will apply to all kitty
@@ -2056,3 +2056,9 @@ map kitty_mod+z toggle_layout stack
 #: }}}
 
 #: }}}
+
+
+# BEGIN_KITTY_THEME
+# Base16-eighties-256
+include current-theme.conf
+# END_KITTY_THEME
