@@ -63,7 +63,9 @@
                         :telescope true
                         :treesitter true
                         :treesitter_context true
-                        :which_key true}}
+                        :which_key true}
+         :custom_highlights (fn [c]
+                              {:NotifyBackground {:fg c.fg :bg c.base}})}
   :config (fn [_ opts]
             ((. (require :catppuccin) :setup) opts)
             (vim.cmd.colorscheme :catppuccin))}]
