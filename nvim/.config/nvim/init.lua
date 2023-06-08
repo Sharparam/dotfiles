@@ -40,6 +40,7 @@ bootstrap("https://github.com/udayvir-singh/hibiscus.nvim.git", { ref = "v1.5", 
 
 require("tangerine").setup {
   compiler = {
+    verbose = false,
     hooks = { "onsave", "oninit" }
   }
 }
