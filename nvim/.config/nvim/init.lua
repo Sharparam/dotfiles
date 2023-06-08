@@ -1,32 +1,45 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ','
-vim.keymap.set('n', '<Leader>m', '<LocalLeader>', { remap = true, desc = '+<LocalLeader>' })
+---@class BootstrapOptions
+---@field ref string? Git ref to checkout
+---@field name string? Name of the plugin
+---@field path string? Path to clone to
+---@field adjust_rtp boolean? Whether to adjust the runtimepath
 
--- Disable netrw because we use nvim-tree instead
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+--- Bootstraps a plugin by cloning it into the data dir
+---@param url string Git URL to clone
+---@param opts BootstrapOptions Options
+---@return string path path to the installed plugin
+local function bootstrap(url, opts)
+  local name = opts.name or url:gsub(".*/(.+)%.git", "%1") or url:gsub(".*/", "")
+  local path = opts.path or (vim.fn.stdpath("data") .. "/lazy/" .. name)
 
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+  if vim.loop.fs_stat(path) then
+    if opts.adjust_rtp then vim.opt.rtp:prepend(path) end
+    return path
+  end
+
+  print(name .. ": installing in data dir...")
+
+  local cmd = { "git", "clone", "--filter=blob:none", url, path }
+  if opts.ref then table.insert(cmd, 4, "--branch=" .. opts.ref) end
+
+  vim.fn.system(cmd)
+
+  if opts.adjust_rtp then vim.opt.rtp:prepend(path) end
+
+  vim.cmd "redraw"
+  print(name .. ": finished installing")
+
+  return path
 end
 
-vim.opt.rtp:prepend(lazypath)
+bootstrap("https://github.com/folke/lazy.nvim.git", { ref = "stable", adjust_rtp = true })
+bootstrap("https://github.com/udayvir-singh/tangerine.nvim.git", { ref = "v2.4", adjust_rtp = true })
+bootstrap("https://github.com/udayvir-singh/hibiscus.nvim.git", { ref = "v1.5", adjust_rtp = true })
 
-require('lazy').setup('plugins')
+-- vim.opt.rtp:prepend(lazy_path)
 
--- Configure ggandor/leap.nvim
-local leap = require 'leap'
-leap.add_default_mappings()
-leap.opts.highlight_unlabeled_phase_one_targets = true
-
-require 'config.options'
-require 'config.autocmds'
-require 'config.keymaps'
+require("tangerine").setup {
+  compiler = {
+    hooks = { "onsave", "oninit" }
+  }
+}
