@@ -29,5 +29,5 @@
     :config (fn [_ opts]
       (let [wk (require :which-key)]
         (wk.setup opts))
-      (require :config.which_key))}
+      (require :config.which-key))}
 ]

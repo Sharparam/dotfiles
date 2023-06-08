@@ -6,7 +6,7 @@
            :markdown :80
            :ruby :80}]
   (each [lang opt (pairs config)]
-    (let [opt_dest (if (= (type opt) :table) (.. "[" (table.concat opt ", ")"]") opt)]
+    (let [opt_desc (if (= (type opt) :table) (.. "[" (table.concat opt ", ")"]") opt)]
       (vim.api.nvim_create_autocmd
         :FileType
         {
