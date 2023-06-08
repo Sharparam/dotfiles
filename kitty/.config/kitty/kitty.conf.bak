@@ -6,6 +6,7 @@
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
+# CaskaydiaCove Nerd Font
 font_family      Cascadia Code PL
 # bold_font        auto
 # italic_font      auto
@@ -2057,8 +2058,10 @@ map kitty_mod+z toggle_layout stack
 
 #: }}}
 
+# Fix nerd symbols
+include font-nerd-symbols.conf
 
 # BEGIN_KITTY_THEME
-# Base16-eighties-256
+# Tokyo Night
 include current-theme.conf
 # END_KITTY_THEME
