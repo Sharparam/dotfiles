@@ -35,11 +35,11 @@
 (fn M.on-attach [on-attach]
   (vim.api.nvim_create_autocmd
     :LspAttach {
-      :callback (fn [args]
-        (let [buffer args.buf
-              client (vim.lsp.get_client_by_id args.data.client_id)]
-          (on-attach client buffer)))
-    }))
+                :callback (fn [args]
+                           (let [buffer args.buf
+                                 client (vim.lsp.get_client_by_id args.data.client_id)]
+                             (on-attach client buffer)))}))
+
 
 (fn M.has [plugin]
   (let [config (require :lazy.core.config)]
@@ -48,7 +48,7 @@
 (fn M.fg [name]
   (let [hl (or (and vim.api.nvim_get_hl (vim.api.nvim_get_hl 0 { : name })) (vim.api.nvim_get_hl_by_name name true))
         fg (or (and hl hl.fg) hl.foreground)]
-    (and fg { :fg (string.format "#%06x" fg) })))
+    (and fg { :fg (string.format "#%06x" fg)})))
 
 (set _G.utils M)
 M
