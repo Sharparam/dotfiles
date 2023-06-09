@@ -64,6 +64,9 @@ zinit light sindresorhus/pure
 # zinit ice atload"base16_${BASE16_THEME}"
 # zinit light "chriskempson/base16-shell"
 
+zinit ice pick"themes/catppuccin_${CATPPUCCIN_THEME}-zsh-syntax-highlighting.zsh"
+zinit light "catppuccin/zsh-syntax-highlighting"
+
 zinit ice from"gh-r" pick"hub-*/bin/hub" as"command" bpick"*linux-amd64*"
 zinit light github/hub
 zinit ice wait lucid as"completion" mv"*ion -> _hub" blockf

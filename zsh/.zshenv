@@ -20,6 +20,7 @@ else
 fi
 
 export BASE16_THEME="eighties"
+export CATPPUCCIN_THEME="macchiato"
 
 # WTF, Ansible?
 export ANSIBLE_NOCOWS=1
