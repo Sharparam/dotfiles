@@ -1,6 +1,6 @@
 (local utils (require :utils))
 
-(utils.create_augroup
+(utils.create-augroup
   [[ "BufEnter,FocusGained,InsertLeave" :* "set relativenumber"]
    [ "BufLeave,FocusLost,InsertEnter" :* "set norelativenumber"]]
   :numbertoggle)
