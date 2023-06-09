@@ -1,6 +1,7 @@
 let mapleader=' '
 
-let g:airline_theme='base16_eighties'
+" let g:airline_theme='base16_eighties'
+let g:airline_theme='catppuccin'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 
@@ -17,7 +18,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'edkolev/tmuxline.vim'
 Plug 'rhysd/vim-crystal'
 call plug#end()
@@ -73,7 +75,8 @@ set background=dark
 if hostname() != 'PC490' && hostname() != 'Sharparam-PC'
   let base16colorspace=256
 endif
-colorscheme base16-eighties
+" colorscheme base16-eighties
+colorscheme catppuccin
 
 set encoding=utf8
 
