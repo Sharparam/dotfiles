@@ -1,0 +1,13 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Catppuccin color schemes",
+		"EditorConfig",
+		"Enki Theme",
+		"Package Control",
+	],
+}

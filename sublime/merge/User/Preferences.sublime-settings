@@ -1,0 +1,14 @@
+{
+	"editor_argument_format": "-g ${file}:${line}:${col}",
+	"editor_path": "code",
+	"font_face": "Cascadia Mono",
+	"font_size": 12,
+	"hide_menu": true,
+	"render_commit_dialog_message_at_top": true,
+	"side_bar_layout": "commit_graph_as_column",
+	"tab_size": 2,
+	"theme": "Merge Dark.sublime-theme",
+  "color_scheme": "Packages/Enki Theme/scheme/Enki-Tokyo-Night.tmTheme",
+	"time_format": "24h",
+	"translate_tabs_to_spaces": true,
+}

@@ -1,0 +1,26 @@
+{
+    "theme": "Adaptive.sublime-theme",
+    "color_scheme": "Macchiato.sublime-color-scheme",
+    "font_face": "Cascadia Code PL",
+    "font_size": 12,
+    "rulers": [80, 120],
+    "translate_tabs_to_spaces": true,
+    "draw_white_space": ["selection", "trailing", "isolated", "leading_mixed"],
+    "highlight_modified_tabs": true,
+    "show_tab_close_buttons": false,
+    "show_encoding": true,
+    "show_line_endings": true,
+    "show_indentation": true,
+    "show_syntax": true,
+    "show_line_column": "enabled",
+    "hardware_acceleration": "opengl",
+    "vintage_start_in_command_mode": true,
+    "vintage_use_clipboard": true,
+    "vintage_ctrl_keys": false,
+    "relative_line_numbers": true,
+    "ignored_packages":
+    [
+        // "Vintage",
+/*"EditorConfig",*/
+    ],
+}
