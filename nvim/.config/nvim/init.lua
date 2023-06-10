@@ -42,5 +42,10 @@ require("tangerine").setup {
   compiler = {
     verbose = false,
     hooks = { "onsave", "oninit" }
+  },
+  keymaps = {
+    eval_buffer = "<Nop>",
+    peek_buffer = "<Nop>",
+    goto_output = "<Nop>"
   }
 }

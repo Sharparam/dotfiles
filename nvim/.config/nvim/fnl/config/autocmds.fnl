@@ -6,3 +6,4 @@
   :numbertoggle)
 
 (require :config.autocmds.colorcolumn)
+(require :config.autocmds.fennel)
