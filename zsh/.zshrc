@@ -1,6 +1,6 @@
 typeset -aUx path
-fpath=($HOME/.zsh $HOME/.zfunc $HOME/.luaver/completions $fpath)
-path=($HOME/.local/bin "$path[@]")
+fpath=($HOME/.zsh $HOME/.zfunc $fpath)
+path=($HOME/.local/bin "$HOME/.cargo/bin" "$path[@]")
 path[$path[(i)/mnt/c/Ruby/bin]]=()
 export path
 
@@ -151,15 +151,8 @@ fi
 
 if [ ! $is_wsl ];
 then
-  [ $+commands[thefuck] ] && eval "$(thefuck --alias)"
-  [ $+commands[hub] ] && eval "$(hub alias -s)"
-fi
-
-[ -s $HOME/.luaver/luaver ] && source $HOME/.luaver/luaver
-
-if [[ -d "$HOME/.luaenv" ]]; then
-  path=($HOME/.luaenv/bin $path)
-  eval "$(luaenv init -)"
+  [ $+commands[thefuck] -eq 1 ] && eval "$(thefuck --alias)"
+  [ $+commands[hub] -eq 1 ] && eval "$(hub alias -s)"
 fi
 
 if [[ -d "/usr/share/perl6/" ]]; then
@@ -205,7 +198,7 @@ alias ':x'='exit'
 alias emacs='emacsclient -nc'
 
 # Use code insiders by default if present
-if [[ $+commands[code-insiders] ]]; then
+if [[ $+commands[code-insiders] -eq 1 ]]; then
   alias code=code-insiders
 fi
 
@@ -221,7 +214,7 @@ alias hx=helix
 
 alias rsync='rsync --info=progress2 --partial -h'
 
-if [[ $+commands[bat] ]]; then
+if [[ $+commands[bat] -eq 1 ]]; then
   alias cat='bat --paging=never'
   export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 fi
@@ -292,7 +285,7 @@ fi
 
 if [[ -f "$HOME/.local/share/rtx/bin/rtx" ]]; then
   eval "$($HOME/.local/share/rtx/bin/rtx activate -s zsh)"
-elif [[ $+commands[rtx] ]]; then
+elif [[ $+commands[rtx] -eq 1 ]]; then
   eval "$(rtx activate -s zsh)"
 fi
 
@@ -342,6 +335,6 @@ pj() {
 }
 
 term_name=$(basename "$(ps -p $(ps -p $$ -o ppid=) -o args=)")
-if [[ "$term_name" != "yakuake" && $+commands[cowsay] && $+commands[fortune] && ! $ASCIINEMA_REC && -z "$TMUX" ]]; then
+if [[ "$term_name" != "yakuake" && $+commands[cowsay] -eq 1 && $+commands[fortune] -eq 1 && ! $ASCIINEMA_REC && -z "$TMUX" ]]; then
   cowfortune
 fi
