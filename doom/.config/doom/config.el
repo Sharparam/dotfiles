@@ -229,6 +229,12 @@
 ;;     org-appear-autolinks t
 ;;     org-appear-autosubmarkers t))
 
+(setq centaur-tabs-set-bar 'over
+  centaur-tabs-set-close-button nil)
+  ;; x-underline-at-descent-line t)
+;; (after! centaur-tabs
+;;   (centaur-tabs-group-by-projectile-project))
+
 (load! "hacks/org-roam-alias-display.el")
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
