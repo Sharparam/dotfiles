@@ -12,7 +12,7 @@
         :K ["<Cmd>%bdelete<CR>" "Kill all buffers"]
         :s ["<Cmd>w<CR>" "Save buffer"]
         :S ["<Cmd>wa<CR>" "Save all buffers"]
-        :u ["<Cmd>w !sudo tee %<CR>" "Save buffer as root"]
+        :u ["<Cmd>w !sudo tee \"%\"<CR>" "Save buffer as root"]
         :y ["<Cmd>%y<CR>" "Yank buffer"]}
     :c
     {
