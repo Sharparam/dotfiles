@@ -217,7 +217,8 @@
   {
     1 :nvim-telescope/telescope.nvim
     :tag :0.1.1
-    :dependencies [ :nvim-lua/plenary.nvim]
+    :dependencies [:nvim-lua/plenary.nvim
+                   :nvim-telescope/telescope-symbols.nvim]
     :keys
     [
       { 1 "<leader>ff" 2 "<cmd>Telescope find_files hidden=true<cr>" :desc "Find files"}
