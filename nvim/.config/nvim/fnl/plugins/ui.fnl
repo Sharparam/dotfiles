@@ -5,11 +5,11 @@
     :dependencies :nvim-tree/nvim-web-devicons
     :event :VeryLazy
     :keys
-    {
+    [
       { 1 "<Leader>bP" 2 "<Cmd>BufferLineTogglePin<CR>" :desc "Toggle pin"}
       { 1 "<Leader>bU" 2 "<Cmd>BufferLineGroupClose ungrouped<CR>" :desc "Delete unpinned buffers"}
       { 1 "<Leader>bb" 2 "<Cmd>BufferLinePick<CR>" :desc "Pick buffer"}
-      { 1 "<Leader>bD" 2 "<Cmd>BufferLinePickClose<CR>" :desc "Pick buffer to close"}}
+      { 1 "<Leader>bD" 2 "<Cmd>BufferLinePickClose<CR>" :desc "Pick buffer to close"}]
 
     :opts (fn []
            (let
@@ -163,8 +163,8 @@
 
                    {
                      1 (fn [] ((. (require :nvim-navic) :get_location)))
-                     :cond (fn [] (and package.loaded.nvim-navic ((. (require :nvim-navic) :is_available))))}
-                 ]
+                     :cond (fn [] (and package.loaded.nvim-navic ((. (require :nvim-navic) :is_available))))}]
+
 
 
                  :lualine_x
