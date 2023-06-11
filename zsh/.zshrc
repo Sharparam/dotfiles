@@ -4,13 +4,7 @@ path=($HOME/.local/bin "$HOME/.cargo/bin" "$path[@]")
 path[$path[(i)/mnt/c/Ruby/bin]]=()
 export path
 
-if grep -iq Microsoft /proc/version; then
-    is_wsl=1
-else
-    is_wsl=
-fi
-
-if [[ $is_wsl ]];
+if [[ $IS_WSL == true ]];
 then
   echo '[WSL] Disabling setting priority on background processes'
   unsetopt BG_NICE
@@ -20,12 +14,6 @@ fi
 
 take() { mkdir -p "$1" && cd "$1" }
 gake() { take "$1" && git init }
-
-if [ "$HOST" = "melina" ]; then
-  export TERMINAL="kitty"
-elif [ ! $is_wsl ]; then
-  export TERMINAL="alacritty"
-fi
 
 export _Z_CMD=j
 
@@ -44,7 +32,7 @@ autoload -Uz _zinit
 ### BEGIN ZPLUGIN BLOCK ###
 
 wsl_fix_fsh() {
-  if [ ! $is_wsl ]; then
+  if [[ $IS_WSL == false ]]; then
     return
   fi
   #echo "[WSL] Fixing fast-syntax-highlighting"
@@ -78,7 +66,7 @@ zinit light DarthSim/hivemind
 zinit ice wait lucid
 zinit light molovo/tipz
 
-#if [ ! $is_wsl ]; then
+#if [[ $IS_WSL == false ]]; then
 #  zinit ice wait
 #  zinit light marzocchi/zsh-notify
 #fi
@@ -139,7 +127,7 @@ compctl -K _dotnet_zsh_complete dotnet
 
 # fast-syntax-highlighting is very slow in certain contexts at least on WSL
 # Needs testing on non-WSL to see if slowness persists
-if [[ $is_wsl ]]; then
+if [[ $IS_WSL == true ]]; then
   zinit ice wait lucid atinit"zicompinit; zicdreplay -q"
   zinit light zsh-users/zsh-syntax-highlighting
 else
@@ -149,7 +137,7 @@ fi
 
 ### END ZPLUGIN BLOCK ###
 
-if [ ! $is_wsl ];
+if [[ $IS_WSL == false ]];
 then
   [ $+commands[thefuck] -eq 1 ] && eval "$(thefuck --alias)"
   [ $+commands[hub] -eq 1 ] && eval "$(hub alias -s)"
@@ -170,7 +158,7 @@ fi
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
-if [[ $is_wsl ]]; then
+if [[ $IS_WSL == true ]]; then
   [ -f $HOME/qmk_utils/activate_wsl.sh ] && source $HOME/qmk_utils/activate_wsl.sh
 fi
 
@@ -260,7 +248,7 @@ wsl-ssh-proxy() {
 }
 
 export GPG_TTY="$(tty)"
-if [[ $is_wsl ]]; then
+if [[ $IS_WSL == true ]]; then
   echo '[WSL] Configuring GPG and SSH'
   wsl-gpg-proxy
   wsl-ssh-proxy

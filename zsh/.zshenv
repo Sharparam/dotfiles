@@ -3,24 +3,24 @@
 export HOSTNAME=$HOST
 
 if grep -iq Microsoft /proc/version; then
-    export IS_WSL=1
+  export IS_WSL=true
 else
-    export IS_WSL=
+  export IS_WSL=false
 fi
 
 export PROJECT_HOME="$HOME/projects/python"
 
-if [[ "$HOST" == "melina" ]]; then
-    export TERMINAL="kitty"
+if [[ $IS_WSL == false ]]; then
+  export TERMINAL="kitty"
 fi
 
 export VISUAL="nvim"
 export EDITOR="nvim"
 
-if [[ $IS_WSL ]]; then
-    export BROWSER="wslview"
+if [[ $IS_WSL == true ]]; then
+  export BROWSER="wslview"
 else
-    export BROWSER="firefox"
+  export BROWSER="firefox"
 fi
 
 export BASE16_THEME="eighties"
