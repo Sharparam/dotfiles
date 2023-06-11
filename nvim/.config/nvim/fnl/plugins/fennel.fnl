@@ -5,13 +5,16 @@
   ;; [ :Olical/nvim-local-fennel ]
   { 1 :Olical/conjure
     :ft [
-         :fennel
+         :lua :fennel
          :clojure :clojurescript :clojurec
-         :racket
-         :janet
+         :guile
          :hy
-         :scheme
-         :guile]}
+         :lisp
+         :janet
+         :python
+         :racket
+         :rust
+         :scheme]}
 
   [ :PaterJason/cmp-conjure]]
 
