@@ -1,3 +1,7 @@
+# zsh seems to set $HOST automatically?
+#export $HOST=$(hostname)
+export HOSTNAME=$HOST
+
 if grep -iq Microsoft /proc/version; then
     export IS_WSL=1
 else
