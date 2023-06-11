@@ -1,0 +1,1 @@
+[[:fladson/vim-kitty]]
