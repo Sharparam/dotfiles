@@ -20,20 +20,20 @@ newline = "none"
 [editor.whitespace.characters]
 nbsp = "⍽"
 
-[keys.normal]
-left = "no_op"
-right = "no_op"
-up = "no_op"
-down = "no_op"
+# [keys.normal]
+# left = "no_op"
+# right = "no_op"
+# up = "no_op"
+# down = "no_op"
 
-[keys.insert]
-left = "no_op"
-right = "no_op"
-up = "no_op"
-down = "no_op"
+# [keys.insert]
+# left = "no_op"
+# right = "no_op"
+# up = "no_op"
+# down = "no_op"
 
-[keys.select]
-left = "no_op"
-right = "no_op"
-up = "no_op"
-down = "no_op"
+# [keys.select]
+# left = "no_op"
+# right = "no_op"
+# up = "no_op"
+# down = "no_op"
