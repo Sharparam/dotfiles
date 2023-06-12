@@ -50,45 +50,26 @@
   ba = branch --all --verbose
   bc = checkout -b
   bd = branch --delete
-  bD = branch --delete --force
   bl = branch --verbose
-  bL = branch --all --verbose
   bm = branch --move
-  bM = branch --move --force
   br = branch --move
-  bR = branch --move --force
   bs = show-branch
-  bS = show-branch --all
   bv = branch --verbose
-  bV = branch --verbose --verbose
   bx = branch --delete
-  bX = branch --delete --force
   c = commit --verbose
   ca = commit --verbose --all
   cam = commit --all --message
-  caS = commit --verbose --all --gpg-sign
+  cas = commit --verbose --all --gpg-sign
   cf = commit --amend --reuse-message HEAD
-  cfS = commit --amend --reuse-message HEAD --gpg-sign
-  cF = commit --verbose --amend
-  cFS = commit --verbose --amend --gpg-sign
+  cfs = commit --amend --reuse-message HEAD --gpg-sign
   cm = commit --message
-  cmS = commit --message --gpg-sign
+  cms = commit --message --gpg-sign
   co = checkout
-  cO = checkout --patch
   cp = cherry-pick --ff
-  cP = cherry-pick --no-commit
   cr = revert
-  cR = reset "HEAD^"
   cs = show
-  Ca = add $(gCl)
-  Ce = mergetool $(gCl)
-  Cl = --no-pager diff --name-only --diff-filter=U
-  Co = checkout --ours --
-  Ct = checkout --theirs --
-  csS = show --pretty=short --show-signature
-  cS = commit --verbose --gpg-sign
+  css = show --pretty=short --show-signature
   cy = cherry --verbose --abbrev
-  cY = cherry --verbose
   d = ls-files
   dc = ls-files --cached
   di = status --porcelain --short --ignored | sed -n "s/^!! //p"
@@ -106,24 +87,17 @@
   fr = pull --rebase
   fra = pull --rebase --autostash
   g = grep
-  gL = grep --files-without-matches
   gi = grep --ignore-case
   gl = grep --files-with-matches
   gv = grep --invert-match
   gw = grep --word-regexp
   ia = add
-  iA = add --patch
   id = diff --no-ext-diff --cached
-  iD = diff --no-ext-diff --cached --word-diff
   ii = update-index --assume-unchanged
-  iI = update-index --no-assume-unchanged
   ir = reset
-  iR = reset --patch
   iu = add --update
   ix = rm -r --cached
-  iX = rm -r --force --cached
   l = log --topo-order --pretty=format:"%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B"
-  lS = log --show-signature
   lb = log --topo-order --pretty=format:"%C(green)%h%C(reset) %s%n%C(blue)(%ar by %an)%C(red)%d%C(reset)%n"
   lc = shortlog --summary --numbered
   ld = log --topo-order --stat --patch --full-diff --pretty=format:"%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B"
@@ -131,13 +105,11 @@
   lo = log --topo-order --pretty=format:"%C(green)%h%C(reset) %s%C(red)%d%C(reset)%n"
   ls = log --topo-order --stat --pretty=format:"%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B"
   m = merge
-  mC = merge --no-commit
-  mF = merge --no-ff
   ma = merge --abort
+  mc = merge --no-commit
+  mf = merge --no-ff
   mt = mergetool
   p = push
-  pA = push --all && git push --tags
-  pF = push --force
   pa = push --all
   pc = push --set-upstream origin "$(git-branch-current 2> /dev/null)"
   pf = push --force-with-lease
@@ -148,19 +120,7 @@
   rc = rebase --continue
   ri = rebase --interactive
   rs = rebase --skip
-  R = remote
-  Ra = remote add
-  Rb = !git-hub-browse
-  Rl = remote --verbose
-  Rm = remote rename
-  Rp = remote prune
-  Rs = remote show
-  Ru = remote update
-  Rx = remote rm
   s = stash
-  sL = !git-stash-dropped
-  sS = stash save --patch --no-keep-index
-  sX = !git-stash-clear-interactive
   sa = stash apply
   sd = stash show --patch --stat
   sl = stash list
@@ -170,25 +130,10 @@
   st = status
   sw = stash save --include-untracked --keep-index
   sx = stash drop
-  S = submodule
-  SI = submodule update --init --recursive
-  Sa = submodule add
-  Sf = submodule foreach
-  Si = submodule init
-  Sl = submodule status
-  Sm = !git-submodule-move
-  Ss = submodule sync
-  Su = submodule update --remote --recursive
-  Sx = !git-submodule-remove
   t = tag
   tl = tag --list
   ts = tag --sign
   tv = verify-tag
-  wC = clean --force
-  wD = diff --no-ext-diff --word-diff
-  wR = reset --hard
-  wS = status --ignore-submodules=none
-  wX = rm -r --force
   wc = clean --dry-run'
   wd = diff --no-ext-diff
   wr = reset --soft
