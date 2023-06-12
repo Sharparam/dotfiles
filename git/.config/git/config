@@ -122,14 +122,14 @@
   iu = add --update
   ix = rm -r --cached
   iX = rm -r --force --cached
-  l = log --topo-order --pretty=format:"$_git_log_medium_format"
+  l = log --topo-order --pretty=format:"%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B"
   lS = log --show-signature
-  lb = log --topo-order --pretty=format:"$_git_log_brief_format"
+  lb = log --topo-order --pretty=format:"%C(green)%h%C(reset) %s%n%C(blue)(%ar by %an)%C(red)%d%C(reset)%n"
   lc = shortlog --summary --numbered
-  ld = log --topo-order --stat --patch --full-diff --pretty=format:"$_git_log_medium_format"
-  lg = log --topo-order --graph --pretty=format:"$_git_log_oneline_format"
-  lo = log --topo-order --pretty=format:"$_git_log_oneline_format"
-  ls = log --topo-order --stat --pretty=format:"$_git_log_medium_format"
+  ld = log --topo-order --stat --patch --full-diff --pretty=format:"%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B"
+  lg = log --topo-order --graph --pretty=format:"%C(green)%h%C(reset) %s%C(red)%d%C(reset)%n"
+  lo = log --topo-order --pretty=format:"%C(green)%h%C(reset) %s%C(red)%d%C(reset)%n"
+  ls = log --topo-order --stat --pretty=format:"%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B"
   m = merge
   mC = merge --no-commit
   mF = merge --no-ff
@@ -187,12 +187,12 @@
   wC = clean --force
   wD = diff --no-ext-diff --word-diff
   wR = reset --hard
-  wS = status --ignore-submodules=$_git_status_ignore_submodules
+  wS = status --ignore-submodules=none
   wX = rm -r --force
   wc = clean --dry-run'
   wd = diff --no-ext-diff
   wr = reset --soft
-  ws = status --ignore-submodules=$_git_status_ignore_submodules --short
+  ws = status --ignore-submodules=none --short
   wx = rm -r
 [url "git@github.com:Sharparam"]
   insteadOf = "https://github.com/Sharparam"
