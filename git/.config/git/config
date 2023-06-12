@@ -44,6 +44,23 @@
   prune = true
 [github]
   user = Sharparam
+[alias]
+  a = add
+  b = branch
+  c = commit
+  ca = commit --all
+  cam = commit --all -m
+  cm = commit -m
+  co = checkout
+  d = diff
+  dt = difftool
+  f = fetch
+  fm = fetch --merge
+  fr = fetch --rebase
+  p = push
+  pf = push --force-with-lease
+  pF = push --force
+  st = status
 [url "git@github.com:Sharparam"]
   insteadOf = "https://github.com/Sharparam"
 [url "git@github.com:SharpWoW"]
