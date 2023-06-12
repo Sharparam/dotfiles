@@ -27,6 +27,10 @@ if (Test-Path 'env:CODE_INSIDERS_PATH') {
   Set-Alias -Name code -Value $env:CODE_INSIDERS_PATH
 }
 
+Set-Alias -Name g -Value git
+Set-Alias -Name vi -Value nvim
+Set-Alias -name vim -Value nvim
+
 function Send-Key() {
     [CmdletBinding()]
     param (
