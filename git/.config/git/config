@@ -80,11 +80,11 @@
   cr = revert
   cR = reset "HEAD^"
   cs = show
-  Ca = git add $(gCl)
-  Ce = git mergetool $(gCl)
-  Cl = git --no-pager diff --name-only --diff-filter=U
-  Co = git checkout --ours --
-  Ct = git checkout --theirs --
+  Ca = add $(gCl)
+  Ce = mergetool $(gCl)
+  Cl = --no-pager diff --name-only --diff-filter=U
+  Co = checkout --ours --
+  Ct = checkout --theirs --
   csS = show --pretty=short --show-signature
   cS = commit --verbose --gpg-sign
   cy = cherry --verbose --abbrev
