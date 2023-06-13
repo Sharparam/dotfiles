@@ -4,6 +4,7 @@
     :version :*
     :dependencies :nvim-tree/nvim-web-devicons
     :event :VeryLazy
+    :cond (not vim.g.vscode)
     :keys
     [
       { 1 "<Leader>bP" 2 "<Cmd>BufferLineTogglePin<CR>" :desc "Toggle pin"}
@@ -103,6 +104,7 @@
     1 :nvim-lualine/lualine.nvim
     :dependencies :nvim-tree/nvim-web-devicons
     :event :VeryLazy
+    :cond (not vim.g.vscode)
     :opts (fn []
            (let
              [
@@ -219,6 +221,7 @@
     :tag :0.1.1
     :dependencies [:nvim-lua/plenary.nvim
                    :nvim-telescope/telescope-symbols.nvim]
+    :cond (not vim.g.vscode)
     :keys
     [
       { 1 "<leader>ff" 2 "<cmd>Telescope find_files hidden=true<cr>" :desc "Find files"}
@@ -256,11 +259,13 @@
   {
     1 :stevearc/oil.nvim
     :dependencies :nvim-tree/nvim-web-devicons
+    :cond (not vim.g.vscode)
     :opts { :columns [ :permissions :siz :mtime :icon]}}
 
   {
     1 :nvim-tree/nvim-tree.lua
     :dependencies :nvim-tree/nvim-web-devicons
+    :cond (not vim.g.vscode)
     :keys
     [
       { 1 "<Leader>op" 2 "<Cmd>NvimTreeToggle<CR>" :desc "Toggle tree"}
@@ -268,10 +273,11 @@
 
     :opts {}}
 
-  { 1 :stevearc/dressing.nvim :opts {}}
+  { 1 :stevearc/dressing.nvim :cond (not vim.g.vscode) :opts {}}
   {
     1 :folke/noice.nvim
     :dependencies [ :MunifTanjim/nui.nvim :rcarriga/nvim-notify]
+    :cond (not vim.g.vscode)
     :opts
     {
       :lsp
@@ -296,6 +302,7 @@
   {
     1 :folke/trouble.nvim
     :dependencies [ :nvim-tree/nvim-web-devicons]
+    :cond (not vim.g.vscode)
     :keys
     [
       { 1 "<Leader>cxx" 2 "<Cmd>TroubleToggle<CR>" :desc "Diagnostics"}
@@ -308,12 +315,14 @@
 
   {
     1 :rcarriga/nvim-notify
+    :cond (not vim.g.vscode)
     :main :notify
     :opts { :render :compact}
     :config (fn [_ opts] ((. (require :notify) :setup) opts))}
 
   {
     1 :Bekaboo/deadcolumn.nvim
+    :cond (not vim.g.vscode)
     :opts
     {
       :scope :line ; or :buffer

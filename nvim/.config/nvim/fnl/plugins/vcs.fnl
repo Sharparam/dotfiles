@@ -2,6 +2,7 @@
   {
     1 :lewis6991/gitsigns.nvim
     :event :VeryLazy
+    :cond (not vim.g.vscode)
     :keys
     [
       { 1 "<Leader>gTs" 2 "<Cmd>Gitsigns toggle_signs<CR>" :desc "Toggle signs" }

@@ -19,6 +19,7 @@
   {
     1 :echasnovski/mini.indentscope
     :version false
+    :cond (not vim.g.vscode)
     :opts
     (fn []
       (let [indentscope (require :mini.indentscope)]

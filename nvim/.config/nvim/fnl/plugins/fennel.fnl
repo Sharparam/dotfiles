@@ -16,5 +16,6 @@
          :rust
          :scheme]}
 
-  [ :PaterJason/cmp-conjure]]
+  {1 :PaterJason/cmp-conjure
+   :cond (not vim.g.vscode)}]
 

@@ -24,6 +24,7 @@
   {
     1 :VonHeikemen/lsp-zero.nvim
     :branch :v2.x
+    :cond (not vim.g.vscode)
     :dependencies
     [
       [ :neovim/nvim-lspconfig]

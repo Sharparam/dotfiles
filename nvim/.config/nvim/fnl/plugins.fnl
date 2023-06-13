@@ -5,10 +5,12 @@
   ;; [ "tpope/vim-surround" ]
 
   { 1 "numToStr/Comment.nvim"
-    :dependencies "JoosepAlviste/nvim-ts-context-commentstring"
+    :dependencies [{1 "JoosepAlviste/nvim-ts-context-commentstring" :cond (not vim.g.vscode)}]
     :opts (fn []
-           (let [integration (require :ts_context_commentstring.integrations.comment_nvim)]
-             { :pre_hook (integration.create_pre_hook)}))}
+           (if (not vim.g.vscode)
+             (let [integration (require :ts_context_commentstring.integrations.comment_nvim)]
+               { :pre_hook (integration.create_pre_hook)})
+             {}))}
 
   { 1 "ggandor/leap.nvim"
     :dependencies "tpope/vim-repeat"

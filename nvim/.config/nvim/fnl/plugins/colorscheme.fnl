@@ -45,6 +45,7 @@
   :name :catppuccin
   :lazy false
   :priority 1000
+  :cond (not vim.g.vscode)
   :opts {:flavour :macchiato
          :transparent_background true
          :show_end_of_buffer true
