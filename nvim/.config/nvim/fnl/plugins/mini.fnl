@@ -1,7 +1,7 @@
 [
-  { 1 :echasnovski/mini.ai :version false :config true }
-  { 1 :echasnovski/mini.bracketed :version false :config true }
-  { 1 :echasnovski/mini.bufremove :version false :config true }
+  {1 :echasnovski/mini.ai :version false :config true}
+  {1 :echasnovski/mini.bracketed :version false :config true}
+  {1 :echasnovski/mini.bufremove :version false :config true}
   ;; {
   ;;   1 :echasnovski/mini.comment
   ;;   :version false
@@ -23,9 +23,9 @@
     :opts
     (fn []
       (let [indentscope (require :mini.indentscope)]
-        { :draw { :animation (indentscope.gen_animation.none) } }))
-  }
-  { 1 :echasnovski/mini.pairs :version false :config true }
+        { :draw { :animation (indentscope.gen_animation.none)}}))}
+
+  { 1 :echasnovski/mini.pairs :version false :config true}
   {
     1 :echasnovski/mini.surround
     :version false
@@ -41,10 +41,10 @@
         :replace :gzr
         :update_n_lines :gzn
         :suffix_last :l
-        :suffix_next :n
-      }
-    }
-  }
+        :suffix_next :n}}}
+
+
+
   {
     1 :echasnovski/mini.trailspace
     :version false
@@ -53,13 +53,9 @@
       {
         1 "<Leader>cw"
         2 (fn [] ((. (require :mini.trailspace) :trim)))
-        :desc "Trim trailing whitespace"
-      }
+        :desc "Trim trailing whitespace"}
+
       {
         1 "<Leader>cW"
         2 (fn [] ((. (require :mini.trailspace) :trim_last_lines)))
-        :desc "Trim trailing empty lines"
-      }
-    }
-  }
-]
+        :desc "Trim trailing empty lines"}}}]

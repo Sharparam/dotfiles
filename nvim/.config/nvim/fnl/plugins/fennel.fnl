@@ -1,9 +1,9 @@
 [
   ;; [ :Olical/aniseed ]
-  { 1 :udayvir-singh/tangerine.nvim :version :v2.4}
-  { 1 :udayvir-singh/hibiscus.nvim :version :v1.5}
+  {1 :udayvir-singh/tangerine.nvim :version :v2.4}
+  {1 :udayvir-singh/hibiscus.nvim :version :v1.5}
   ;; [ :Olical/nvim-local-fennel ]
-  { 1 :Olical/conjure
+  {1 :Olical/conjure
     :ft [
          :lua :fennel
          :clojure :clojurescript :clojurec
