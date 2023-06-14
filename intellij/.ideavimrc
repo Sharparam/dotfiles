@@ -60,6 +60,9 @@ map <Leader>bb <Action>(ToggleLineBreakpoint)
 map <Leader>bt <Action>(ToggleTemporaryLineBreakpoint)
 map <Leader>be <Action>(ToggleBreakpointEnabled)
 
+map <Leader>ca <Action>(ShowIntentionActions)
+map <Leader>cla <Action>(ShowIntentionActions)
+
 map <Leader>t <Action>(SearchEverywhere)
 
 map <Leader>gb <Action>(GotoSuperMethod)
@@ -67,6 +70,11 @@ map <Leader>gd <Action>(GotoDeclaration)
 map <Leader>gt <Action>(GotoTypeDeclaration)
 map <Leader>gu <Action>(FindUsages)
 map <Leader>gs <Action>(FileStructurePopup)
+
+nmap gcc <Action>(CommentByLineComment)
+nmap gcb <Action>(CommentByBlockComment)
+vmap gc <Action>(CommentByLineComment)
+vmap gb <Action>(CommentByBlockComment)
 
 " Rider mappings
 if &ide =~? 'rider'
@@ -91,6 +99,13 @@ map <Leader>pc :NERDTreeClose<CR>
 map <Leader>jj <Action>(AceAction)
 map <Leader>jt <Action>(AceTargetAction)
 map <Leader>jl <Action>(AceLineAction)
+
+" map ]d <Action>(NextOccurence)
+" map [d <Action>(PreviousOccurence)
+map ]d <Action>(ReSharperGotoNextErrorInSolution)
+map [d <Action>(ReSharperGotoPrevErrorInSolution)
+" map ]e <Action>(ReSharperGotoNextErrorInSolution)
+" map [e <Action>(ReSharperGotoPrevErrorInSolution)
 
 " Disable arrow keys to encourage learning hjkl
 "noremap <Left> <Nop>
