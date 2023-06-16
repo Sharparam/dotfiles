@@ -1,7 +1,7 @@
 "" Source your .vimrc
 "source ~/.vimrc
 
-" Reload action: IdeaVim.ReloadVimRc.reload
+" let g:EasyMotion_do_mapping = 0
 
 let mapleader=' '
 
@@ -18,6 +18,12 @@ set showcmd
 set nu
 set rnu
 
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+augroup END
+
 set clipboard+=unnamed,unnamedplus
 
 " Plugins
@@ -33,7 +39,11 @@ set ideamarks
 set ideajoin
 
 " Don't use Ex mode, use Q for formatting.
-map Q gq
+" map Q gq
+
+map <Leader>hrr <Action>(IdeaVim.ReloadVimRc.reload)
+
+map <Leader>s<Leader> <Plug>(easymotion-prefix)
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \r to the Reformat Code action
@@ -60,16 +70,21 @@ map <Leader>bb <Action>(ToggleLineBreakpoint)
 map <Leader>bt <Action>(ToggleTemporaryLineBreakpoint)
 map <Leader>be <Action>(ToggleBreakpointEnabled)
 
+map <Leader>bP <Action>(PinActiveEditorTab)
+
+map <Leader>a <Action>(ShowIntentionActions)
 map <Leader>ca <Action>(ShowIntentionActions)
 map <Leader>cla <Action>(ShowIntentionActions)
 
-map <Leader>t <Action>(SearchEverywhere)
+map <Leader><Leader> <Action>(SearchEverywhere)
 
-map <Leader>gb <Action>(GotoSuperMethod)
-map <Leader>gd <Action>(GotoDeclaration)
-map <Leader>gt <Action>(GotoTypeDeclaration)
-map <Leader>gu <Action>(FindUsages)
-map <Leader>gs <Action>(FileStructurePopup)
+" +code
+map <Leader>cb <Action>(GotoSuperMethod)
+map <Leader>cd <Action>(GotoDeclaration)
+map <Leader>cD <Action>(FindUsages)
+map <Leader>cr <Action>(RenameElement)
+map <Leader>ct <Action>(GotoTypeDeclaration)
+map <Leader>cS <Action>(FileStructurePopup)
 
 nmap gcc <Action>(CommentByLineComment)
 nmap gcb <Action>(CommentByBlockComment)
@@ -78,34 +93,35 @@ vmap gb <Action>(CommentByBlockComment)
 
 " Rider mappings
 if &ide =~? 'rider'
-  map <Leader>gi <Action>(ReSharperGotoImplementation)
+  map <Leader>ci <Action>(ReSharperGotoImplementation)
+  map ]e <Action>(ReSharperGotoNextErrorInSolution)
+  map [e <Action>(ReSharperGotoPrevErrorInSolution)
 endif
 
-map <Leader>nb <Action>(Back)
-map <Leader>nf <Action>(Forward)
+map [n <Action>(Back)
+map ]n <Action>(Forward)
 
-map <Leader>vd <Action>(ToggleDistractionFreeMode)
-map <Leader>vz <Action>(ToggleZenMode)
-map <Leader>vp <Action>(TogglePresentationMode)
-map <Leader>vc <Action>(ToggleCompactMode)
+map <Leader>td <Action>(ToggleDistractionFreeMode)
+map <Leader>tz <Action>(ToggleZenMode)
+map <Leader>tp <Action>(TogglePresentationMode)
+map <Leader>tC <Action>(ToggleCompactMode)
+map <Leader>tT <Action>(VimFindActionIdAction)
 
 " NERDTree mappings
-map <Leader>pp :NERDTree<CR>
-map <Leader>pt :NERDTreeToggle<CR>
-map <Leader>pf :NERDTreeFind<CR>
-map <Leader>pc :NERDTreeClose<CR>
+" map <Leader>pp :NERDTree<CR>
+map <Leader>op :NERDTreeToggle<CR>
+" map <Leader>op <Action>(ActivateProjectToolWindow)
+map <Leader>oP :NERDTreeFind<CR>
+" map <Leader>oP <Action>(SelectInProjectView)
+" map <Leader>pc :NERDTreeClose<CR>
 
 " AceJump mappings
-map <Leader>jj <Action>(AceAction)
-map <Leader>jt <Action>(AceTargetAction)
-map <Leader>jl <Action>(AceLineAction)
+map <Leader>saj <Action>(AceAction)
+map <Leader>sat <Action>(AceTargetAction)
+map <Leader>sal <Action>(AceLineAction)
 
 " map ]d <Action>(NextOccurence)
 " map [d <Action>(PreviousOccurence)
-map ]d <Action>(ReSharperGotoNextErrorInSolution)
-map [d <Action>(ReSharperGotoPrevErrorInSolution)
-" map ]e <Action>(ReSharperGotoNextErrorInSolution)
-" map [e <Action>(ReSharperGotoPrevErrorInSolution)
 
 " Disable arrow keys to encourage learning hjkl
 "noremap <Left> <Nop>
