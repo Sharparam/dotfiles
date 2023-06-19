@@ -219,8 +219,15 @@ fi
 # https://github.com/BlackReloaded/wsl2-ssh-pageant
 wsl-gpg-proxy() {
   local appdata=$(cmd.exe /c echo %LOCALAPPDATA%)
+  if [[ -z "$appdata" ]]; then
+    echo "appdata empty, returning"
+    return
+  fi
   local gpg_conf_base="$(echo -E "${appdata}" | tr -d '[:space:]' | tr '\\' '/')/gnupg"
-  export GPG_AGENT_SOCK="$HOME/.gnupg/S.gpg-agent"
+  local gpg_socket_dir="$(gpgconf --list-dirs socketdir)"
+  mkdir -p "$gpg_socket_dir" || echo "Failed to create GPG socket dir $gpg_socket_dir"
+  echo "GPG conf base: $gpg_conf_base; socket dir: $gpg_socket_dir"
+  export GPG_AGENT_SOCK="$gpg_socket_dir/S.gpg-agent"
   if ! ss -a | grep -q "$GPG_AGENT_SOCK"; then
     rm -rf "$GPG_AGENT_SOCK"
     wsl2_ssh_pageant_bin="$HOME/.ssh/wsl2-ssh-pageant.exe"
@@ -249,9 +256,13 @@ wsl-ssh-proxy() {
 
 export GPG_TTY="$(tty)"
 if [[ $IS_WSL == true ]]; then
-  echo '[WSL] Configuring GPG and SSH'
-  wsl-gpg-proxy
-  wsl-ssh-proxy
+  if [[ -n "${XDG_SESSION_ID}" && "${TERM}" == "dumb" && "$(ps -p $PPID -o comm=)" == "login" ]]; then
+    # Background login process, do nothing
+  else
+    echo '[WSL] Configuring GPG and SSH'
+    wsl-gpg-proxy
+    wsl-ssh-proxy
+  fi
 else
   #if [ "$HOST" = "melina" ]; then
   #  if ! pgrep -u "$USER" ssh-agent > /dev/null; then
