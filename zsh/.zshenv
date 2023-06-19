@@ -23,6 +23,8 @@ else
   export BROWSER="firefox"
 fi
 
+export NIX_REMOTE=daemon
+
 export BASE16_THEME="eighties"
 export CATPPUCCIN_THEME="macchiato"
 
