@@ -202,6 +202,9 @@ alias hx=helix
 
 alias rsync='rsync --info=progress2 --partial -h'
 
+alias fsi='dotnet fsi'
+alias fsharpi='dotnet fsi'
+
 if [[ $+commands[bat] -eq 1 ]]; then
   alias cat='bat --paging=never'
   export MANPAGER="sh -c 'col -bx | bat -l man -p'"
