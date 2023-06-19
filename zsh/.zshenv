@@ -8,6 +8,8 @@ else
   export IS_WSL=false
 fi
 
+export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
+
 export PROJECT_HOME="$HOME/projects/python"
 
 if [[ $IS_WSL == false ]]; then
@@ -27,6 +29,8 @@ export NIX_REMOTE=daemon
 
 export BASE16_THEME="eighties"
 export CATPPUCCIN_THEME="macchiato"
+
+export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
 
 # WTF, Ansible?
 export ANSIBLE_NOCOWS=1
