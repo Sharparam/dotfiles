@@ -30,7 +30,14 @@ export NIX_REMOTE=daemon
 export BASE16_THEME="eighties"
 export CATPPUCCIN_THEME="macchiato"
 
-export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+if [[ -z "$XDG_DATA_DIRS" ]]; then
+  export XDG_DATA_DIRS="/usr/local/share:/usr/share"
+fi
+
+nix_share="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+if [[ ":${XDG_DATA_DIRS}:" != *":${nix_share}:"* ]]; then
+  export XDG_DATA_DIRS="${nix_share}${XDG_DATA_DIRS:+:${XDG_DATA_DIRS}}"
+fi
 
 # WTF, Ansible?
 export ANSIBLE_NOCOWS=1
