@@ -1,5 +1,5 @@
 # zsh seems to set $HOST automatically?
-#export $HOST=$(hostname)
+#export HOST=$(hostname)
 export HOSTNAME=$HOST
 
 if grep -iq Microsoft /proc/version; then
