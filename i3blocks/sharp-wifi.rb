@@ -12,24 +12,57 @@ def color(percent)
   end
 end
 
-interface = ENV['BLOCK_INSTANCE'] || 'wlp4s0'
+def get_addr(interface)
+  has_addr = `ip -color=never addr show #{interface}` =~ /inet6? ([^\/]+)\//
+  has_addr ? $1 : nil
+end
 
-has_addr = `ip addr show #{interface}` =~ /inet6? ([^\/]+)\//
+def get_wifi_data(interface)
+  conf = `iwconfig #{interface} 2>/dev/null`
+  has_ssid = conf =~ /ESSID:"(.+)"\s*$/
+  if has_ssid
+    ssid = $1
+    quality, max_quality = conf.match(/Link Quality=(\d+)\/(\d+)/).to_a[1..2].map(&:to_f)
+    strength = ((quality / max_quality) * 100).round
+    {
+      ssid: ssid,
+      strength: strength
+    }
+  else
+    {
+      ssid: interface,
+      strength: nil
+    }
+  end
+end
 
-exit unless has_addr
+def get_data(interface)
+  addr = get_addr(interface)
+  return nil unless addr
+  wifi_data = get_wifi_data(interface)
+  {
+    address: addr,
+    ssid: wifi_data[:ssid],
+    strength: wifi_data[:strength]
+  }
+end
 
-address = $1
+interfaces = ENV['BLOCK_INSTANCE']&.split(',') || %w[wlp4s0]
 
-conf = `iwconfig #{interface}`
+data = interfaces.map { |i| get_data(i) }.compact.first
 
-ssid = conf.match(/ESSID:"(.+)"\s*$/)[1].to_s
+exit if data.nil?
 
-quality, max_quality = conf.match(/Link Quality=(\d+)\/(\d+)/).to_a[1..2].map(&:to_f)
+address = data[:address]
+ssid = data[:ssid]
+strength = data[:strength]
 
-strength = ((quality / max_quality) * 100).round
-
-long = "#{ssid}: #{address} #{strength}%"
-short = "#{strength}%"
+if strength
+  long = "#{ssid}: #{address} #{strength}%"
+else
+  long = "#{ssid}: #{address}"
+end
+short = "#{strength || 100}%"
 
 if ENV['BLOCK_BUTTON'].to_i == 2
   require 'open3'
@@ -38,4 +71,4 @@ end
 
 puts long
 puts short
-puts color strength
+puts color strength if strength
