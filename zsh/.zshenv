@@ -58,3 +58,5 @@ export GITHUB_USER=Sharparam
 export CMAKE_GENERATOR="Ninja Multi-Config"
 
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="_ vi vim"

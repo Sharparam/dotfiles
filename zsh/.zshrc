@@ -65,7 +65,8 @@ zinit ice from"gh-r" as"command" mv"hivemind-* -> hivemind"
 zinit light DarthSim/hivemind
 
 zinit ice wait lucid
-zinit light molovo/tipz
+# zinit light molovo/tipz
+zinit light djui/alias-tips
 
 #if [[ $IS_WSL == false ]]; then
 #  zinit ice wait
