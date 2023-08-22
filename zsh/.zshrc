@@ -194,9 +194,9 @@ alias ':x'='exit'
 alias emacs='emacsclient -nc'
 
 # Use code insiders by default if present
-if [[ $+commands[code-insiders] -eq 1 ]]; then
-  alias code=code-insiders
-fi
+# if [[ $+commands[code-insiders] -eq 1 ]]; then
+#   alias code=code-insiders
+# fi
 
 # Work laptop aliases
 if [[ "$HOST" = "PC673" ]]; then
