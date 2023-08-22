@@ -56,3 +56,5 @@ export PERL_MM_OPT="INSTALL_BASE=$HOME/.perl5"
 export GITHUB_USER=Sharparam
 
 export CMAKE_GENERATOR="Ninja Multi-Config"
+
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
