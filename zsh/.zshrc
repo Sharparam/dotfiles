@@ -216,6 +216,7 @@ alias fsharpi='dotnet fsi'
 if [[ $+commands[bat] -eq 1 ]]; then
   alias cat='bat --paging=never'
   export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+  export MANROFFOPT='-c'
 fi
 
 if [[ -d "$HOME/.perl5/bin" ]]; then
