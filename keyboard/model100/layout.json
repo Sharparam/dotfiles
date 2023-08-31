@@ -1,0 +1,2501 @@
+{
+  "keymaps": [
+    [
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 30, "label": {"base": "1", "shifted": "!"}},
+      {"code": 31, "label": {"base": "2", "shifted": "@"}},
+      {"code": 32, "label": {"base": "3", "shifted": "#"}},
+      {"code": 33, "label": {"base": "4", "shifted": "$"}},
+      {"code": 34, "label": {"base": "5", "shifted": "%"}},
+      {"code": 70, "label": {"base": {"full": "Print Screen", "1u": "PrSc"}}},
+      {"code": 41, "label": {"base": "Esc"}},
+      {
+        "code": 49159,
+        "label": {"hint": {"full": "OneShot", "1u": "OSM"}, "base": "AltGr"},
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 231,
+        "label": {"base": {"full": "Windows", "1u": "Win", "short": "W"}},
+        "location": "right",
+        "categories": ["modifier"]
+      },
+      {"code": 35, "label": {"base": "6", "shifted": "^"}},
+      {"code": 36, "label": {"base": "7", "shifted": "&"}},
+      {"code": 37, "label": {"base": "8", "shifted": "*"}},
+      {"code": 38, "label": {"base": "9", "shifted": "("}},
+      {"code": 39, "label": {"base": "0", "shifted": ")"}},
+      {
+        "code": 17409,
+        "label": {"hint": "LockTo", "base": "#1"},
+        "target": 1,
+        "rangeStart": 17408,
+        "categories": ["layer", "locktolayer"]
+      },
+      {"code": 53, "label": {"base": "`", "shifted": "~"}},
+      {"code": 20, "label": {"base": "q", "shifted": "Q"}},
+      {"code": 26, "label": {"base": "w", "shifted": "W"}},
+      {"code": 8, "label": {"base": "e", "shifted": "E"}},
+      {"code": 21, "label": {"base": "r", "shifted": "R"}},
+      {"code": 23, "label": {"base": "t", "shifted": "T"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 40, "label": {"base": "Enter"}},
+      {"code": 44, "label": {"base": "Space"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 28, "label": {"base": "y", "shifted": "Y"}},
+      {"code": 24, "label": {"base": "u", "shifted": "U"}},
+      {"code": 12, "label": {"base": "i", "shifted": "I"}},
+      {"code": 18, "label": {"base": "o", "shifted": "O"}},
+      {"code": 19, "label": {"base": "p", "shifted": "P"}},
+      {"code": 46, "label": {"base": "=", "shifted": "+"}},
+      {"code": 41, "label": {"base": "Esc"}},
+      {
+        "code": 49941,
+        "baseCode": 4,
+        "label": {"hint": "Windows/", "base": "a"},
+        "modifier": "Windows",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "gui"]
+      },
+      {
+        "code": 49703,
+        "baseCode": 22,
+        "label": {"hint": "Alt/", "base": "s"},
+        "modifier": "Alt",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "alt"]
+      },
+      {
+        "code": 49176,
+        "baseCode": 7,
+        "label": {"hint": "Control/", "base": "d"},
+        "modifier": "Control",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "ctrl"]
+      },
+      {
+        "code": 49434,
+        "baseCode": 9,
+        "label": {"hint": "Shift/", "base": "f"},
+        "modifier": "Shift",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "shift"]
+      },
+      {"code": 10, "label": {"base": "g", "shifted": "G"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 42, "label": {"base": {"full": "Backspace", "1u": "Bksp"}}},
+      {"code": 43, "label": {"base": "Tab"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 11, "label": {"base": "h", "shifted": "H"}},
+      {
+        "code": 50462,
+        "baseCode": 13,
+        "label": {"hint": "Right Shift/", "base": "j"},
+        "modifier": "Right Shift",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "rshift"]
+      },
+      {
+        "code": 50207,
+        "baseCode": 14,
+        "label": {"hint": "Right Control/", "base": "k"},
+        "modifier": "Right Control",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "rctrl"]
+      },
+      {
+        "code": 49696,
+        "baseCode": 15,
+        "label": {"hint": "Alt/", "base": "l"},
+        "modifier": "Alt",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "alt"]
+      },
+      {
+        "code": 49988,
+        "baseCode": 51,
+        "label": {"hint": "Windows/", "base": ";"},
+        "modifier": "Windows",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "gui"]
+      },
+      {"code": 52, "label": {"base": "'", "shifted": "\""}},
+      {
+        "code": 49165,
+        "label": {"hint": {"full": "OneShot", "1u": "OSL"}, "base": "#4"},
+        "target": 4,
+        "rangeStart": 49161,
+        "categories": ["layer", "oneshot"]
+      },
+      {"code": 29, "label": {"base": "z", "shifted": "Z"}},
+      {"code": 27, "label": {"base": "x", "shifted": "X"}},
+      {"code": 6, "label": {"base": "c", "shifted": "C"}},
+      {"code": 25, "label": {"base": "v", "shifted": "V"}},
+      {"code": 5, "label": {"base": "b", "shifted": "B"}},
+      {
+        "code": 17452,
+        "label": {"hint": "ShiftTo", "base": "#2"},
+        "target": 2,
+        "rangeStart": 17450,
+        "categories": ["layer", "shifttolayer"]
+      },
+      {
+        "code": 225,
+        "label": {"base": "Shift"},
+        "location": "left",
+        "categories": ["modifier"]
+      },
+      {
+        "code": 229,
+        "label": {"base": "Shift"},
+        "location": "right",
+        "categories": ["modifier"]
+      },
+      {
+        "code": 17452,
+        "label": {"hint": "ShiftTo", "base": "#2"},
+        "target": 2,
+        "rangeStart": 17450,
+        "categories": ["layer", "shifttolayer"]
+      },
+      {"code": 17, "label": {"base": "n", "shifted": "N"}},
+      {"code": 16, "label": {"base": "m", "shifted": "M"}},
+      {"code": 54, "label": {"base": ",", "shifted": "<"}},
+      {"code": 55, "label": {"base": ".", "shifted": ">"}},
+      {"code": 56, "label": {"base": "/", "shifted": "?"}},
+      {"code": 45, "label": {"base": "-", "shifted": "_"}}
+    ],
+    [
+      {
+        "code": 24576,
+        "label": {"hint": "Macro", "base": "#0"},
+        "rangeStart": 24576,
+        "categories": ["macros"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 17153,
+        "label": {
+          "hint": {"full": "LEDEffect", "1u": "LED"},
+          "base": {"full": "Previous", "1u": "Prev."}
+        },
+        "categories": ["ledkeys"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 17152,
+        "label": {"hint": {"full": "LEDEffect", "1u": "LED"}, "base": "Next"},
+        "categories": ["ledkeys"]
+      },
+      {"code": 42, "label": {"base": {"full": "Backspace", "1u": "Bksp"}}},
+      {"code": 36, "label": {"base": "7", "shifted": "&"}},
+      {"code": 37, "label": {"base": "8", "shifted": "*"}},
+      {"code": 38, "label": {"base": "9", "shifted": "("}},
+      {"code": 86, "label": {"base": "-"}, "location": "numpad"},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 24580,
+        "label": {"hint": "Macro", "base": "#4"},
+        "rangeStart": 24576,
+        "categories": ["macros"]
+      },
+      {
+        "code": 24581,
+        "label": {"hint": "Macro", "base": "#5"},
+        "rangeStart": 24576,
+        "categories": ["macros"]
+      },
+      {
+        "code": 24582,
+        "label": {"hint": "Macro", "base": "#6"},
+        "rangeStart": 24576,
+        "categories": ["macros"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 2086,
+        "label": {"hint": null, "base": "("},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 38
+      },
+      {"code": 33, "label": {"base": "4", "shifted": "$"}},
+      {"code": 34, "label": {"base": "5", "shifted": "%"}},
+      {"code": 35, "label": {"base": "6", "shifted": "^"}},
+      {"code": 87, "label": {"base": "+"}, "location": "numpad"},
+      {
+        "code": 2083,
+        "label": {"hint": null, "base": "^"},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 35
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 2087,
+        "label": {"hint": null, "base": ")"},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 39
+      },
+      {"code": 30, "label": {"base": "1", "shifted": "!"}},
+      {"code": 31, "label": {"base": "2", "shifted": "@"}},
+      {"code": 32, "label": {"base": "3", "shifted": "#"}},
+      {"code": 85, "label": {"base": "*"}, "location": "numpad"},
+      {"code": 46, "label": {"base": "=", "shifted": "+"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 83, "label": {"base": {"full": "Num Lock", "1u": "Num"}}},
+      {"code": 57, "label": {"base": {"full": "Caps Lock", "1u": "Caps"}}},
+      {"code": 71, "label": {"base": {"full": "Scroll Lock", "1u": "ScLk"}}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 53607,
+        "label": {"hint": {"full": "Dynamic Macro", "1u": "DM"}, "base": "#11"},
+        "rangeStart": 53596,
+        "categories": ["dynmacros"]
+      },
+      {"code": 39, "label": {"base": "0", "shifted": ")"}},
+      {
+        "code": 53606,
+        "label": {"hint": {"full": "Dynamic Macro", "1u": "DM"}, "base": "#10"},
+        "rangeStart": 53596,
+        "categories": ["dynmacros"]
+      },
+      {"code": 55, "label": {"base": ".", "shifted": ">"}},
+      {"code": 84, "label": {"base": "/"}, "location": "numpad"},
+      {
+        "code": 88,
+        "label": {"base": {"full": "Enter", "1u": "Ent"}},
+        "location": "numpad"
+      }
+    ],
+    [
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 58, "label": {"base": "F1"}},
+      {"code": 59, "label": {"base": "F2"}},
+      {"code": 60, "label": {"base": "F3"}},
+      {"code": 61, "label": {"base": "F4"}},
+      {"code": 62, "label": {"base": "F5"}},
+      {"code": 72, "label": {"base": {"full": "Pause / Break", "1u": "Brk"}}},
+      {"code": 75, "label": {"base": {"full": "Page Up", "1u": "PgUp"}}},
+      {"code": 78, "label": {"base": {"full": "Page Down", "1u": "PgDn"}}},
+      {
+        "code": 18613,
+        "legacyCode": 22709,
+        "label": {"base": {"full": "Next track", "1u": "⏭"}},
+        "categories": ["consumer"]
+      },
+      {"code": 63, "label": {"base": "F6"}},
+      {"code": 64, "label": {"base": "F7"}},
+      {"code": 65, "label": {"base": "F8"}},
+      {"code": 66, "label": {"base": "F9"}},
+      {"code": 67, "label": {"base": "F10"}},
+      {"code": 68, "label": {"base": "F11"}},
+      {"code": 43, "label": {"base": "Tab"}},
+      {
+        "code": 2102,
+        "label": {"hint": null, "base": "<"},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 54
+      },
+      {"code": 47, "label": {"base": "[", "shifted": "{"}},
+      {
+        "code": 2095,
+        "label": {"hint": null, "base": "{"},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 47
+      },
+      {
+        "code": 2086,
+        "label": {"hint": null, "base": "("},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 38
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 18637,
+        "legacyCode": 22733,
+        "label": {"base": {"full": "Play / pause", "1u": "⏯"}},
+        "categories": ["consumer"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 2087,
+        "label": {"hint": null, "base": ")"},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 39
+      },
+      {
+        "code": 2096,
+        "label": {"hint": null, "base": "}"},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 48
+      },
+      {"code": 48, "label": {"base": "]", "shifted": "}"}},
+      {
+        "code": 2103,
+        "label": {"hint": null, "base": ">"},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 55
+      },
+      {"code": 69, "label": {"base": "F12"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 2078,
+        "label": {"hint": null, "base": "!"},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 30
+      },
+      {
+        "code": 2079,
+        "label": {"hint": null, "base": "@"},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 31
+      },
+      {
+        "code": 2080,
+        "label": {"hint": null, "base": "#"},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 32
+      },
+      {
+        "code": 2081,
+        "label": {"hint": null, "base": "$"},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 33
+      },
+      {
+        "code": 2082,
+        "label": {"hint": null, "base": "%"},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 34
+      },
+      {"code": 73, "label": {"base": {"full": "Insert", "1u": "Ins"}}},
+      {"code": 76, "label": {"base": {"full": "Delete", "1u": "Del"}}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 101, "label": {"base": "Menu"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 2083,
+        "label": {"hint": null, "base": "^"},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 35
+      },
+      {
+        "code": 2084,
+        "label": {"hint": null, "base": "&"},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 36
+      },
+      {
+        "code": 2085,
+        "label": {"hint": null, "base": "*"},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 37
+      },
+      {
+        "code": 2104,
+        "label": {"hint": null, "base": "?"},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 56
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 49166,
+        "label": {"hint": {"full": "OneShot", "1u": "OSL"}, "base": "#5"},
+        "target": 5,
+        "rangeStart": 49161,
+        "categories": ["layer", "oneshot"]
+      },
+      {
+        "code": 49156,
+        "label": {
+          "hint": {"full": "OneShot", "1u": "OSM"},
+          "base": {"full": "Left Windows", "1u": "LWin"}
+        },
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 49155,
+        "label": {"hint": {"full": "OneShot", "1u": "OSM"}, "base": "Alt"},
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 49153,
+        "label": {
+          "hint": {"full": "OneShot", "1u": "OSM"},
+          "base": {"full": "Left Control", "1u": "LCtrl"}
+        },
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 49154,
+        "label": {
+          "hint": {"full": "OneShot", "1u": "OSM"},
+          "base": {"full": "Left Shift", "1u": "LSft"}
+        },
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 74, "label": {"base": "Home"}},
+      {"code": 77, "label": {"base": "End"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 80, "label": {"base": {"full": "Left Arrow", "1u": "←"}}},
+      {"code": 81, "label": {"base": {"full": "Down Arrow", "1u": "↓"}}},
+      {"code": 82, "label": {"base": {"full": "Up Arrow", "1u": "↑"}}},
+      {"code": 79, "label": {"base": {"full": "Right Arrow", "1u": "→"}}},
+      {"code": 49, "label": {"base": "\\", "shifted": "|"}},
+      {
+        "code": 2097,
+        "label": {"hint": null, "base": "|"},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 49
+      }
+    ],
+    [
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 30, "label": {"base": "1", "shifted": "!"}},
+      {"code": 31, "label": {"base": "2", "shifted": "@"}},
+      {"code": 32, "label": {"base": "3", "shifted": "#"}},
+      {"code": 33, "label": {"base": "4", "shifted": "$"}},
+      {"code": 34, "label": {"base": "5", "shifted": "%"}},
+      {"code": 70, "label": {"base": {"full": "Print Screen", "1u": "PrSc"}}},
+      {"code": 41, "label": {"base": "Esc"}},
+      {
+        "code": 49159,
+        "label": {"hint": {"full": "OneShot", "1u": "OSM"}, "base": "AltGr"},
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 231,
+        "label": {"base": {"full": "Windows", "1u": "Win", "short": "W"}},
+        "location": "right",
+        "categories": ["modifier"]
+      },
+      {"code": 35, "label": {"base": "6", "shifted": "^"}},
+      {"code": 36, "label": {"base": "7", "shifted": "&"}},
+      {"code": 37, "label": {"base": "8", "shifted": "*"}},
+      {"code": 38, "label": {"base": "9", "shifted": "("}},
+      {"code": 39, "label": {"base": "0", "shifted": ")"}},
+      {
+        "code": 17409,
+        "label": {"hint": "LockTo", "base": "#1"},
+        "target": 1,
+        "rangeStart": 17408,
+        "categories": ["layer", "locktolayer"]
+      },
+      {"code": 53, "label": {"base": "`", "shifted": "~"}},
+      {"code": 52, "label": {"base": "'", "shifted": "\""}},
+      {"code": 54, "label": {"base": ",", "shifted": "<"}},
+      {"code": 55, "label": {"base": ".", "shifted": ">"}},
+      {"code": 19, "label": {"base": "p", "shifted": "P"}},
+      {"code": 28, "label": {"base": "y", "shifted": "Y"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 40, "label": {"base": "Enter"}},
+      {"code": 44, "label": {"base": "Space"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 9, "label": {"base": "f", "shifted": "F"}},
+      {"code": 10, "label": {"base": "g", "shifted": "G"}},
+      {"code": 6, "label": {"base": "c", "shifted": "C"}},
+      {"code": 21, "label": {"base": "r", "shifted": "R"}},
+      {"code": 15, "label": {"base": "l", "shifted": "L"}},
+      {"code": 56, "label": {"base": "/", "shifted": "?"}},
+      {"code": 41, "label": {"base": "Esc"}},
+      {
+        "code": 49941,
+        "baseCode": 4,
+        "label": {"hint": "Windows/", "base": "a"},
+        "modifier": "Windows",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "gui"]
+      },
+      {
+        "code": 49699,
+        "baseCode": 18,
+        "label": {"hint": "Alt/", "base": "o"},
+        "modifier": "Alt",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "alt"]
+      },
+      {
+        "code": 49177,
+        "baseCode": 8,
+        "label": {"hint": "Control/", "base": "e"},
+        "modifier": "Control",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "ctrl"]
+      },
+      {
+        "code": 49449,
+        "baseCode": 24,
+        "label": {"hint": "Shift/", "base": "u"},
+        "modifier": "Shift",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "shift"]
+      },
+      {"code": 12, "label": {"base": "i", "shifted": "I"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 42, "label": {"base": {"full": "Backspace", "1u": "Bksp"}}},
+      {"code": 43, "label": {"base": "Tab"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 7, "label": {"base": "d", "shifted": "D"}},
+      {
+        "code": 50460,
+        "baseCode": 11,
+        "label": {"hint": "Right Shift/", "base": "h"},
+        "modifier": "Right Shift",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "rshift"]
+      },
+      {
+        "code": 50216,
+        "baseCode": 23,
+        "label": {"hint": "Right Control/", "base": "t"},
+        "modifier": "Right Control",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "rctrl"]
+      },
+      {
+        "code": 49698,
+        "baseCode": 17,
+        "label": {"hint": "Alt/", "base": "n"},
+        "modifier": "Alt",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "alt"]
+      },
+      {
+        "code": 49959,
+        "baseCode": 22,
+        "label": {"hint": "Windows/", "base": "s"},
+        "modifier": "Windows",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "gui"]
+      },
+      {"code": 45, "label": {"base": "-", "shifted": "_"}},
+      {
+        "code": 49165,
+        "label": {"hint": {"full": "OneShot", "1u": "OSL"}, "base": "#4"},
+        "target": 4,
+        "rangeStart": 49161,
+        "categories": ["layer", "oneshot"]
+      },
+      {"code": 51, "label": {"base": ";", "shifted": ":"}},
+      {"code": 20, "label": {"base": "q", "shifted": "Q"}},
+      {"code": 13, "label": {"base": "j", "shifted": "J"}},
+      {"code": 14, "label": {"base": "k", "shifted": "K"}},
+      {"code": 27, "label": {"base": "x", "shifted": "X"}},
+      {
+        "code": 17452,
+        "label": {"hint": "ShiftTo", "base": "#2"},
+        "target": 2,
+        "rangeStart": 17450,
+        "categories": ["layer", "shifttolayer"]
+      },
+      {
+        "code": 225,
+        "label": {"base": "Shift"},
+        "location": "left",
+        "categories": ["modifier"]
+      },
+      {
+        "code": 229,
+        "label": {"base": "Shift"},
+        "location": "right",
+        "categories": ["modifier"]
+      },
+      {
+        "code": 17452,
+        "label": {"hint": "ShiftTo", "base": "#2"},
+        "target": 2,
+        "rangeStart": 17450,
+        "categories": ["layer", "shifttolayer"]
+      },
+      {"code": 5, "label": {"base": "b", "shifted": "B"}},
+      {"code": 16, "label": {"base": "m", "shifted": "M"}},
+      {"code": 26, "label": {"base": "w", "shifted": "W"}},
+      {"code": 25, "label": {"base": "v", "shifted": "V"}},
+      {"code": 29, "label": {"base": "z", "shifted": "Z"}},
+      {"code": 46, "label": {"base": "=", "shifted": "+"}}
+    ],
+    [
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 49167,
+        "label": {"hint": {"full": "OneShot", "1u": "OSL"}, "base": "#6"},
+        "target": 6,
+        "rangeStart": 49161,
+        "categories": ["layer", "oneshot"]
+      },
+      {
+        "code": 49156,
+        "label": {
+          "hint": {"full": "OneShot", "1u": "OSM"},
+          "base": {"full": "Left Windows", "1u": "LWin"}
+        },
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 49156,
+        "label": {
+          "hint": {"full": "OneShot", "1u": "OSM"},
+          "base": {"full": "Left Windows", "1u": "LWin"}
+        },
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 49167,
+        "label": {"hint": {"full": "OneShot", "1u": "OSL"}, "base": "#6"},
+        "target": 6,
+        "rangeStart": 49161,
+        "categories": ["layer", "oneshot"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {"code": 58, "label": {"base": "F1"}},
+      {"code": 59, "label": {"base": "F2"}},
+      {"code": 60, "label": {"base": "F3"}},
+      {"code": 61, "label": {"base": "F4"}},
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 49155,
+        "label": {"hint": {"full": "OneShot", "1u": "OSM"}, "base": "Alt"},
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 49155,
+        "label": {"hint": {"full": "OneShot", "1u": "OSM"}, "base": "Alt"},
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {"code": 58, "label": {"base": "F1"}},
+      {"code": 59, "label": {"base": "F2"}},
+      {"code": 60, "label": {"base": "F3"}},
+      {"code": 61, "label": {"base": "F4"}},
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 62, "label": {"base": "F5"}},
+      {"code": 63, "label": {"base": "F6"}},
+      {"code": 64, "label": {"base": "F7"}},
+      {"code": 65, "label": {"base": "F8"}},
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 49153,
+        "label": {
+          "hint": {"full": "OneShot", "1u": "OSM"},
+          "base": {"full": "Left Control", "1u": "LCtrl"}
+        },
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 49157,
+        "label": {
+          "hint": {"full": "OneShot", "1u": "OSM"},
+          "base": {"full": "Right Control", "1u": "RCtrl"}
+        },
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {"code": 62, "label": {"base": "F5"}},
+      {"code": 63, "label": {"base": "F6"}},
+      {"code": 64, "label": {"base": "F7"}},
+      {"code": 65, "label": {"base": "F8"}},
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 66, "label": {"base": "F9"}},
+      {"code": 67, "label": {"base": "F10"}},
+      {"code": 68, "label": {"base": "F11"}},
+      {"code": 69, "label": {"base": "F12"}},
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 24579,
+        "label": {"hint": "Macro", "base": "#3"},
+        "rangeStart": 24576,
+        "categories": ["macros"]
+      },
+      {
+        "code": 49154,
+        "label": {
+          "hint": {"full": "OneShot", "1u": "OSM"},
+          "base": {"full": "Left Shift", "1u": "LSft"}
+        },
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 49158,
+        "label": {
+          "hint": {"full": "OneShot", "1u": "OSM"},
+          "base": {"full": "Right Shift", "1u": "RSft"}
+        },
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 24579,
+        "label": {"hint": "Macro", "base": "#3"},
+        "rangeStart": 24576,
+        "categories": ["macros"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {"code": 66, "label": {"base": "F9"}},
+      {"code": 67, "label": {"base": "F10"}},
+      {"code": 68, "label": {"base": "F11"}},
+      {"code": 69, "label": {"base": "F12"}},
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      }
+    ],
+    [
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 17153,
+        "label": {
+          "hint": {"full": "LEDEffect", "1u": "LED"},
+          "base": {"full": "Previous", "1u": "Prev."}
+        },
+        "categories": ["ledkeys"]
+      },
+      {
+        "code": 18544,
+        "legacyCode": 23664,
+        "label": {
+          "hint": {"full": "Brightness", "1u": "Brght."},
+          "base": {"full": "Down", "1u": "🔅"}
+        },
+        "categories": ["consumer"]
+      },
+      {
+        "code": 18543,
+        "legacyCode": 23663,
+        "label": {
+          "hint": {"full": "Brightness", "1u": "Brght."},
+          "base": {"full": "Up", "1u": "🔆"}
+        },
+        "categories": ["consumer"]
+      },
+      {
+        "code": 17152,
+        "label": {"hint": {"full": "LEDEffect", "1u": "LED"}, "base": "Next"},
+        "categories": ["ledkeys"]
+      },
+      {
+        "code": 17154,
+        "label": {
+          "hint": {"full": "LEDEffect", "1u": "LED"},
+          "base": {"full": "Toggle", "1u": "Togg."}
+        },
+        "categories": ["ledkeys"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 17154,
+        "label": {
+          "hint": {"full": "LEDEffect", "1u": "LED"},
+          "base": {"full": "Toggle", "1u": "Togg."}
+        },
+        "categories": ["ledkeys"]
+      },
+      {
+        "code": 17153,
+        "label": {
+          "hint": {"full": "LEDEffect", "1u": "LED"},
+          "base": {"full": "Previous", "1u": "Prev."}
+        },
+        "categories": ["ledkeys"]
+      },
+      {
+        "code": 18544,
+        "legacyCode": 23664,
+        "label": {
+          "hint": {"full": "Brightness", "1u": "Brght."},
+          "base": {"full": "Down", "1u": "🔅"}
+        },
+        "categories": ["consumer"]
+      },
+      {
+        "code": 18543,
+        "legacyCode": 23663,
+        "label": {
+          "hint": {"full": "Brightness", "1u": "Brght."},
+          "base": {"full": "Up", "1u": "🔆"}
+        },
+        "categories": ["consumer"]
+      },
+      {
+        "code": 17152,
+        "label": {"hint": {"full": "LEDEffect", "1u": "LED"}, "base": "Next"},
+        "categories": ["ledkeys"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 18615,
+        "legacyCode": 22711,
+        "label": {"base": "Stop"},
+        "categories": ["consumer"]
+      },
+      {
+        "code": 18614,
+        "legacyCode": 22710,
+        "label": {"base": {"full": "Previous track", "1u": "⏮"}},
+        "categories": ["consumer"]
+      },
+      {
+        "code": 18637,
+        "legacyCode": 22733,
+        "label": {"base": {"full": "Play / pause", "1u": "⏯"}},
+        "categories": ["consumer"]
+      },
+      {
+        "code": 18613,
+        "legacyCode": 22709,
+        "label": {"base": {"full": "Next track", "1u": "⏭"}},
+        "categories": ["consumer"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 18614,
+        "legacyCode": 22710,
+        "label": {"base": {"full": "Previous track", "1u": "⏮"}},
+        "categories": ["consumer"]
+      },
+      {
+        "code": 18637,
+        "legacyCode": 22733,
+        "label": {"base": {"full": "Play / pause", "1u": "⏯"}},
+        "categories": ["consumer"]
+      },
+      {
+        "code": 18613,
+        "legacyCode": 22709,
+        "label": {"base": {"full": "Next track", "1u": "⏭"}},
+        "categories": ["consumer"]
+      },
+      {
+        "code": 18615,
+        "legacyCode": 22711,
+        "label": {"base": "Stop"},
+        "categories": ["consumer"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 18658,
+        "legacyCode": 19682,
+        "label": {"base": "Mute"},
+        "categories": ["consumer"]
+      },
+      {
+        "code": 18666,
+        "legacyCode": 23786,
+        "label": {
+          "hint": {"full": "Volume", "1u": "Vol."},
+          "base": {"full": "Down", "1u": "🔉"}
+        },
+        "categories": ["consumer"]
+      },
+      {
+        "code": 18665,
+        "legacyCode": 23785,
+        "label": {
+          "hint": {"full": "Volume", "1u": "Vol."},
+          "base": {"full": "Up", "1u": "🔊"}
+        },
+        "categories": ["consumer"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 24579,
+        "label": {"hint": "Macro", "base": "#3"},
+        "rangeStart": 24576,
+        "categories": ["macros"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 24579,
+        "label": {"hint": "Macro", "base": "#3"},
+        "rangeStart": 24576,
+        "categories": ["macros"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 18658,
+        "legacyCode": 19682,
+        "label": {"base": "Mute"},
+        "categories": ["consumer"]
+      },
+      {
+        "code": 18666,
+        "legacyCode": 23786,
+        "label": {
+          "hint": {"full": "Volume", "1u": "Vol."},
+          "base": {"full": "Down", "1u": "🔉"}
+        },
+        "categories": ["consumer"]
+      },
+      {
+        "code": 18665,
+        "legacyCode": 23785,
+        "label": {
+          "hint": {"full": "Volume", "1u": "Vol."},
+          "base": {"full": "Up", "1u": "🔊"}
+        },
+        "categories": ["consumer"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      }
+    ],
+    [
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 49165,
+        "label": {"hint": {"full": "OneShot", "1u": "OSL"}, "base": "#4"},
+        "target": 4,
+        "rangeStart": 49161,
+        "categories": ["layer", "oneshot"]
+      },
+      {
+        "code": 49156,
+        "label": {
+          "hint": {"full": "OneShot", "1u": "OSM"},
+          "base": {"full": "Left Windows", "1u": "LWin"}
+        },
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 49156,
+        "label": {
+          "hint": {"full": "OneShot", "1u": "OSM"},
+          "base": {"full": "Left Windows", "1u": "LWin"}
+        },
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 49165,
+        "label": {"hint": {"full": "OneShot", "1u": "OSL"}, "base": "#4"},
+        "target": 4,
+        "rangeStart": 49161,
+        "categories": ["layer", "oneshot"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 104, "label": {"base": "F13"}},
+      {"code": 105, "label": {"base": "F14"}},
+      {"code": 106, "label": {"base": "F15"}},
+      {"code": 107, "label": {"base": "F16"}},
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 49155,
+        "label": {"hint": {"full": "OneShot", "1u": "OSM"}, "base": "Alt"},
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 49155,
+        "label": {"hint": {"full": "OneShot", "1u": "OSM"}, "base": "Alt"},
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {"code": 104, "label": {"base": "F13"}},
+      {"code": 105, "label": {"base": "F14"}},
+      {"code": 106, "label": {"base": "F15"}},
+      {"code": 107, "label": {"base": "F16"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 108, "label": {"base": "F17"}},
+      {"code": 109, "label": {"base": "F18"}},
+      {"code": 110, "label": {"base": "F19"}},
+      {"code": 111, "label": {"base": "F20"}},
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 49153,
+        "label": {
+          "hint": {"full": "OneShot", "1u": "OSM"},
+          "base": {"full": "Left Control", "1u": "LCtrl"}
+        },
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 49157,
+        "label": {
+          "hint": {"full": "OneShot", "1u": "OSM"},
+          "base": {"full": "Right Control", "1u": "RCtrl"}
+        },
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {"code": 108, "label": {"base": "F17"}},
+      {"code": 109, "label": {"base": "F18"}},
+      {"code": 110, "label": {"base": "F19"}},
+      {"code": 111, "label": {"base": "F20"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 112, "label": {"base": "F21"}},
+      {"code": 113, "label": {"base": "F22"}},
+      {"code": 114, "label": {"base": "F23"}},
+      {"code": 115, "label": {"base": "F24"}},
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 24579,
+        "label": {"hint": "Macro", "base": "#3"},
+        "rangeStart": 24576,
+        "categories": ["macros"]
+      },
+      {
+        "code": 49154,
+        "label": {
+          "hint": {"full": "OneShot", "1u": "OSM"},
+          "base": {"full": "Left Shift", "1u": "LSft"}
+        },
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 49158,
+        "label": {
+          "hint": {"full": "OneShot", "1u": "OSM"},
+          "base": {"full": "Right Shift", "1u": "RSft"}
+        },
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 24579,
+        "label": {"hint": "Macro", "base": "#3"},
+        "rangeStart": 24576,
+        "categories": ["macros"]
+      },
+      {
+        "code": 0,
+        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "categories": ["blanks"]
+      },
+      {"code": 112, "label": {"base": "F21"}},
+      {"code": 113, "label": {"base": "F22"}},
+      {"code": 114, "label": {"base": "F23"}},
+      {"code": 115, "label": {"base": "F24"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      }
+    ],
+    [
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 30, "label": {"base": "1", "shifted": "!"}},
+      {"code": 31, "label": {"base": "2", "shifted": "@"}},
+      {"code": 32, "label": {"base": "3", "shifted": "#"}},
+      {"code": 33, "label": {"base": "4", "shifted": "$"}},
+      {"code": 34, "label": {"base": "5", "shifted": "%"}},
+      {"code": 70, "label": {"base": {"full": "Print Screen", "1u": "PrSc"}}},
+      {"code": 41, "label": {"base": "Esc"}},
+      {
+        "code": 49159,
+        "label": {"hint": {"full": "OneShot", "1u": "OSM"}, "base": "AltGr"},
+        "rangeStart": 49153,
+        "categories": ["oneshot", "modifier"]
+      },
+      {
+        "code": 231,
+        "label": {"base": {"full": "Windows", "1u": "Win", "short": "W"}},
+        "location": "right",
+        "categories": ["modifier"]
+      },
+      {"code": 35, "label": {"base": "6", "shifted": "^"}},
+      {"code": 36, "label": {"base": "7", "shifted": "&"}},
+      {"code": 37, "label": {"base": "8", "shifted": "*"}},
+      {"code": 38, "label": {"base": "9", "shifted": "("}},
+      {"code": 39, "label": {"base": "0", "shifted": ")"}},
+      {
+        "code": 17409,
+        "label": {"hint": "LockTo", "base": "#1"},
+        "target": 1,
+        "rangeStart": 17408,
+        "categories": ["layer", "locktolayer"]
+      },
+      {"code": 53, "label": {"base": "`", "shifted": "~"}},
+      {"code": 20, "label": {"base": "q", "shifted": "Q"}},
+      {"code": 26, "label": {"base": "w", "shifted": "W"}},
+      {"code": 9, "label": {"base": "f", "shifted": "F"}},
+      {"code": 19, "label": {"base": "p", "shifted": "P"}},
+      {"code": 5, "label": {"base": "b", "shifted": "B"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 40, "label": {"base": "Enter"}},
+      {"code": 44, "label": {"base": "Space"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 13, "label": {"base": "j", "shifted": "J"}},
+      {"code": 15, "label": {"base": "l", "shifted": "L"}},
+      {"code": 24, "label": {"base": "u", "shifted": "U"}},
+      {"code": 28, "label": {"base": "y", "shifted": "Y"}},
+      {"code": 51, "label": {"base": ";", "shifted": ":"}},
+      {"code": 46, "label": {"base": "=", "shifted": "+"}},
+      {"code": 41, "label": {"base": "Esc"}},
+      {
+        "code": 49941,
+        "baseCode": 4,
+        "label": {"hint": "Windows/", "base": "a"},
+        "modifier": "Windows",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "gui"]
+      },
+      {
+        "code": 49702,
+        "baseCode": 21,
+        "label": {"hint": "Alt/", "base": "r"},
+        "modifier": "Alt",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "alt"]
+      },
+      {
+        "code": 49191,
+        "baseCode": 22,
+        "label": {"hint": "Control/", "base": "s"},
+        "modifier": "Control",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "ctrl"]
+      },
+      {
+        "code": 49448,
+        "baseCode": 23,
+        "label": {"hint": "Shift/", "base": "t"},
+        "modifier": "Shift",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "shift"]
+      },
+      {"code": 10, "label": {"base": "g", "shifted": "G"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 42, "label": {"base": {"full": "Backspace", "1u": "Bksp"}}},
+      {"code": 43, "label": {"base": "Tab"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 16, "label": {"base": "m", "shifted": "M"}},
+      {
+        "code": 50466,
+        "baseCode": 17,
+        "label": {"hint": "Right Shift/", "base": "n"},
+        "modifier": "Right Shift",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "rshift"]
+      },
+      {
+        "code": 50201,
+        "baseCode": 8,
+        "label": {"hint": "Right Control/", "base": "e"},
+        "modifier": "Right Control",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "rctrl"]
+      },
+      {
+        "code": 49693,
+        "baseCode": 12,
+        "label": {"hint": "Alt/", "base": "i"},
+        "modifier": "Alt",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "alt"]
+      },
+      {
+        "code": 49955,
+        "baseCode": 18,
+        "label": {"hint": "Windows/", "base": "o"},
+        "modifier": "Windows",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "gui"]
+      },
+      {"code": 52, "label": {"base": "'", "shifted": "\""}},
+      {
+        "code": 49165,
+        "label": {"hint": {"full": "OneShot", "1u": "OSL"}, "base": "#4"},
+        "target": 4,
+        "rangeStart": 49161,
+        "categories": ["layer", "oneshot"]
+      },
+      {"code": 29, "label": {"base": "z", "shifted": "Z"}},
+      {"code": 27, "label": {"base": "x", "shifted": "X"}},
+      {"code": 6, "label": {"base": "c", "shifted": "C"}},
+      {"code": 7, "label": {"base": "d", "shifted": "D"}},
+      {"code": 25, "label": {"base": "v", "shifted": "V"}},
+      {
+        "code": 17452,
+        "label": {"hint": "ShiftTo", "base": "#2"},
+        "target": 2,
+        "rangeStart": 17450,
+        "categories": ["layer", "shifttolayer"]
+      },
+      {
+        "code": 225,
+        "label": {"base": "Shift"},
+        "location": "left",
+        "categories": ["modifier"]
+      },
+      {
+        "code": 229,
+        "label": {"base": "Shift"},
+        "location": "right",
+        "categories": ["modifier"]
+      },
+      {
+        "code": 17452,
+        "label": {"hint": "ShiftTo", "base": "#2"},
+        "target": 2,
+        "rangeStart": 17450,
+        "categories": ["layer", "shifttolayer"]
+      },
+      {"code": 14, "label": {"base": "k", "shifted": "K"}},
+      {"code": 11, "label": {"base": "h", "shifted": "H"}},
+      {"code": 54, "label": {"base": ",", "shifted": "<"}},
+      {"code": 55, "label": {"base": ".", "shifted": ">"}},
+      {"code": 56, "label": {"base": "/", "shifted": "?"}},
+      {"code": 45, "label": {"base": "-", "shifted": "_"}}
+    ]
+  ],
+  "colormaps": [
+    [
+      8,
+      0,
+      8,
+      8,
+      8,
+      8,
+      1,
+      8,
+      8,
+      1,
+      8,
+      8,
+      8,
+      8,
+      1,
+      8,
+      8,
+      1,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      0,
+      1,
+      0,
+      8,
+      8,
+      8,
+      8,
+      8,
+      1,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      1,
+      8,
+      8,
+      1,
+      8,
+      8,
+      8,
+      8,
+      1,
+      8,
+      8,
+      1,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    [
+      15,
+      0,
+      15,
+      14,
+      15,
+      1,
+      8,
+      15,
+      15,
+      15,
+      3,
+      15,
+      15,
+      6,
+      15,
+      9,
+      9,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      9,
+      8,
+      15,
+      15,
+      0,
+      1,
+      0,
+      15,
+      15,
+      15,
+      15,
+      15,
+      1,
+      15,
+      15,
+      15,
+      15,
+      12,
+      2,
+      2,
+      0,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      5,
+      5,
+      5,
+      5,
+      8,
+      5,
+      5,
+      1
+    ],
+    [
+      15,
+      0,
+      15,
+      15,
+      15,
+      2,
+      8,
+      15,
+      15,
+      8,
+      2,
+      15,
+      15,
+      2,
+      8,
+      15,
+      15,
+      8,
+      2,
+      15,
+      15,
+      15,
+      15,
+      15,
+      8,
+      15,
+      15,
+      15,
+      1,
+      10,
+      15,
+      15,
+      15,
+      15,
+      8,
+      1,
+      15,
+      15,
+      15,
+      15,
+      1,
+      15,
+      15,
+      15,
+      15,
+      2,
+      15,
+      1,
+      1,
+      15,
+      2,
+      15,
+      15,
+      2,
+      15,
+      1,
+      15,
+      15,
+      2,
+      15,
+      15,
+      15,
+      15,
+      15
+    ],
+    [
+      8,
+      0,
+      8,
+      8,
+      8,
+      8,
+      3,
+      8,
+      8,
+      3,
+      8,
+      8,
+      8,
+      8,
+      3,
+      8,
+      8,
+      3,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      0,
+      1,
+      0,
+      8,
+      8,
+      8,
+      8,
+      8,
+      1,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      3,
+      8,
+      8,
+      3,
+      8,
+      8,
+      8,
+      8,
+      3,
+      8,
+      8,
+      3,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    [
+      15,
+      0,
+      15,
+      15,
+      15,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      15,
+      15,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      15,
+      15,
+      15,
+      15,
+      15,
+      8,
+      15,
+      14,
+      15,
+      15,
+      15,
+      15,
+      4,
+      4,
+      15,
+      15,
+      15,
+      15,
+      14,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      15,
+      15,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      15,
+      15,
+      15,
+      15,
+      15
+    ],
+    [
+      15,
+      0,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      0,
+      0,
+      15,
+      15,
+      15,
+      15,
+      1,
+      5,
+      1,
+      5,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      0,
+      1,
+      0,
+      15,
+      15,
+      15,
+      15,
+      15,
+      1,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      0,
+      0,
+      5,
+      1,
+      15,
+      15,
+      15,
+      15,
+      5,
+      1,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15
+    ],
+    [
+      15,
+      0,
+      15,
+      15,
+      15,
+      14,
+      14,
+      14,
+      14,
+      14,
+      14,
+      15,
+      15,
+      14,
+      14,
+      14,
+      14,
+      14,
+      14,
+      15,
+      15,
+      15,
+      15,
+      15,
+      8,
+      15,
+      4,
+      15,
+      15,
+      15,
+      15,
+      14,
+      14,
+      15,
+      15,
+      15,
+      15,
+      4,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      14,
+      14,
+      14,
+      14,
+      14,
+      14,
+      15,
+      15,
+      14,
+      14,
+      14,
+      14,
+      14,
+      14,
+      15,
+      15,
+      15,
+      15,
+      15
+    ],
+    [
+      8,
+      0,
+      8,
+      8,
+      8,
+      8,
+      6,
+      8,
+      8,
+      6,
+      8,
+      8,
+      8,
+      8,
+      6,
+      8,
+      8,
+      6,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      0,
+      1,
+      0,
+      8,
+      8,
+      8,
+      8,
+      8,
+      1,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      6,
+      8,
+      8,
+      6,
+      8,
+      8,
+      8,
+      8,
+      6,
+      8,
+      8,
+      6,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ]
+  ],
+  "palette": [
+    {"r": 170, "g": 0, "b": 0, "rgb": "rgb(170, 0, 0)"},
+    {"r": 0, "g": 170, "b": 0, "rgb": "rgb(0, 170, 0)"},
+    {"r": 0, "g": 0, "b": 170, "rgb": "rgb(0, 0, 170)"},
+    {"r": 0, "g": 170, "b": 170, "rgb": "rgb(0, 170, 170)"},
+    {"r": 170, "g": 0, "b": 170, "rgb": "rgb(170, 0, 170)"},
+    {"r": 255, "g": 255, "b": 85, "rgb": "rgb(255, 255, 85)"},
+    {"r": 255, "g": 128, "b": 0, "rgb": "rgb(255, 128, 0)"},
+    {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
+    {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
+    {"r": 255, "g": 255, "b": 255, "rgb": "rgb(255, 255, 255)"},
+    {"r": 255, "g": 85, "b": 85, "rgb": "rgb(255, 85, 85)"},
+    {"r": 85, "g": 255, "b": 85, "rgb": "rgb(85, 255, 85)"},
+    {"r": 85, "g": 85, "b": 255, "rgb": "rgb(85, 85, 255)"},
+    {"r": 85, "g": 255, "b": 255, "rgb": "rgb(85, 255, 255)"},
+    {"r": 255, "g": 85, "b": 255, "rgb": "rgb(255, 85, 255)"},
+    {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"}
+  ]
+}
