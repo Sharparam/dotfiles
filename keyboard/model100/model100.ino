@@ -752,6 +752,12 @@ void setup() {
   // don't have a lot of power to share with USB devices
   DefaultLEDModeConfig.activateLEDModeIfUnconfigured(&LEDOff);
 
+  //OneShot.setTimeout(2500);
+  //OneShot.setHoldTimeout(250);
+  OneShot.setDoubleTapTimeout(500);
+  //OneShot.enableStickabilityForModifiers();
+  //OneShot.enableStickabilityForLayers();
+
   // Qukeys config
   Qukeys.setOverlapThreshold(90);
   Qukeys.setMinimumHoldTime(100);
