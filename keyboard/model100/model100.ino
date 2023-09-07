@@ -717,17 +717,19 @@ void setup() {
   // https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/LED-Stalker.md
   StalkerEffect.variant = STALKER(BlazingTrail);
 
+  const uint8_t EEPROM_LAYER_COUNT = 10;
+
   // To make the keymap editable without flashing new firmware, we store
   // additional layers in EEPROM. For now, we reserve space for eight layers. If
   // one wants to use these layers, just set the default layer to one in EEPROM,
   // by using the `settings.defaultLayer` Focus command, or by using the
   // `keymap.onlyCustom` command to use EEPROM layers only.
-  EEPROMKeymap.setup(8);
+  EEPROMKeymap.setup(EEPROM_LAYER_COUNT);
 
   // We need to tell the Colormap plugin how many layers we want to have custom
   // maps for. To make things simple, we set it to eight layers, which is how
   // many editable layers we have (see above).
-  ColormapEffect.max_layers(8);
+  ColormapEffect.max_layers(EEPROM_LAYER_COUNT);
 
   // For Dynamic Macros, we need to reserve storage space for the editable
   // macros. A kilobyte is a reasonable default.
@@ -745,7 +747,7 @@ void setup() {
   // Editable layer names are stored in EEPROM too, and we reserve 16 bytes per
   // layer for them. We need one extra byte per layer for bookkeeping, so we
   // reserve 17 / layer in total.
-  LayerNames.reserve_storage(17 * 8);
+  LayerNames.reserve_storage(17 * EEPROM_LAYER_COUNT);
 
   // Unless configured otherwise with Chrysalis, we want to make sure that the
   // firmware starts with LED effects off. This avoids over-taxing devices that
