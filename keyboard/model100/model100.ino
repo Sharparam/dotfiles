@@ -761,8 +761,9 @@ void setup() {
   //OneShot.enableStickabilityForLayers();
 
   // Qukeys config
-  Qukeys.setOverlapThreshold(90);
-  Qukeys.setMinimumHoldTime(100);
+  Qukeys.setOverlapThreshold(80); // default: 80
+  Qukeys.setMinimumHoldTime(100); // default: 50
+  Qukeys.setMinimumPriorInterval(100); // default: 75
 }
 
 /** loop is the second of the standard Arduino sketch functions.
