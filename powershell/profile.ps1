@@ -31,6 +31,30 @@ Set-Alias -Name g -Value git
 Set-Alias -Name vi -Value nvim
 Set-Alias -name vim -Value nvim
 
+function Invoke-Copilot-Shell-Suggestion {
+  [Alias('?s')]
+  param([string] $query)
+  gh copilot suggest -t shell $query
+}
+
+function Invoke-Copilot-Git-Suggestion {
+  [Alias('?g')]
+  param([string] $query)
+  gh copilot suggest -t git $query
+}
+
+function Invoke-Copilot-GitHub-Cli-Suggestion {
+  [Alias('?gh')]
+  param([string] $query)
+  gh copilot suggest -t gh $query
+}
+
+function Invoke-Copilot-Explain {
+  [Alias('?e')]
+  param([string] $query)
+  gh copilot explain $query
+}
+
 function Send-Key() {
     [CmdletBinding()]
     param (
