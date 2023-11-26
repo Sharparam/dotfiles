@@ -145,3 +145,5 @@
   insteadOf = "https://github.com/SharpWoW"
 [url "git@github.com:chroma-sdk"]
   insteadOf = "https://github.com/chroma-sdk"
+[url "ssh://git@github.com"]
+  pushInsteadOf = "https://github.com"
