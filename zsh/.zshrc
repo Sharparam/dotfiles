@@ -219,6 +219,13 @@ if [[ $+commands[bat] -eq 1 ]]; then
   export MANROFFOPT='-c'
 fi
 
+# GitHub CLI aliases
+alias '?'='gh copilot suggest -t shell'
+alias '?g'='gh copilot suggest -t git'
+alias '?gh'='gh copilot suggest -t gh'
+alias '??'='gh copilot explain'
+alias '?e'='gh copilot explain'
+
 if [[ -d "$HOME/.perl5/bin" ]]; then
   path=("$HOME/.perl5/bin" $path)
 fi
