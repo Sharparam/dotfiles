@@ -301,10 +301,10 @@ if [[ -d '/usr/local/go/bin' ]]; then
   path=("$path[@]" /usr/local/go/bin "$GOPATH/bin")
 fi
 
-if [[ -f "$HOME/.local/share/rtx/bin/rtx" ]]; then
-  eval "$($HOME/.local/share/rtx/bin/rtx activate -s zsh)"
-elif [[ $+commands[rtx] -eq 1 ]]; then
-  eval "$(rtx activate -s zsh)"
+if [[ -f "$HOME/.local/bin/mise" ]]; then
+  eval "$($HOME/.local/bin/mise activate -s zsh)"
+elif [[ $+commands[mise] -eq 1 ]]; then
+  eval "$(mise activate -s zsh)"
 fi
 
 start() {
