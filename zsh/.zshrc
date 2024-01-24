@@ -15,8 +15,6 @@ fi
 take() { mkdir -p "$1" && cd "$1" }
 gake() { take "$1" && git init }
 
-export _Z_CMD=j
-
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
   print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma-continuum/zinit)…%f"
@@ -105,7 +103,6 @@ zinit light x-motemen/ghq
 zinit light zdharma-continuum/zui
 
 zinit light supercrabtree/k
-zinit light rupa/z
 
 # Nix plugins
 zinit light chisui/zsh-nix-shell
@@ -144,6 +141,8 @@ else
 fi
 
 ### END ZPLUGIN BLOCK ###
+
+[ $+commands[zoxide] -eq 1 ] && eval "$(zoxide init --cmd j zsh)"
 
 if [[ $IS_WSL == false ]];
 then
