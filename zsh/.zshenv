@@ -61,3 +61,11 @@ export CMAKE_GENERATOR="Ninja"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="_ vi vim"
+
+# Restic stuff
+[ -f "$HOME/.config/restic/repository" ] && export RESTIC_REPOSITORY_FILE="$HOME/.config/restic/repository"
+if [[ -f "$HOME/.config/restic/password_command" ]]; then
+  export RESTIC_PASSWORD_COMMAND=$(< "$HOME/.config/restic/password_command")
+elif [[ -f "$HOME/.config/restic/password" ]]; then
+  export RESTIC_PASSWORD_FILE="$HOME/.config/restic/password"
+fi
