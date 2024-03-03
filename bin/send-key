@@ -13,6 +13,8 @@ echo "Publishing to GnuPG keyserver"
 gpg --keyserver keys.gnupg.net --send-key "$KEYID"
 echo "Publishing to Ubuntu keyserver"
 gpg --keyserver hkps://keyserver.ubuntu.com:443 --send-key "$KEYID"
+echo "Publishing to Mailvelope keyserver"
+gpg --keyserver hkps://keys.mailvelope.com --send-key "$KEYID"
 
 if [ "$KEYID" = "$DEFAULT_KEYID" ]; then
   echo "Publishing key to keys.openpgp.org, this will require verification!"
