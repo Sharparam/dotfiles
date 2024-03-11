@@ -27,6 +27,8 @@
   prompt = false
 [difftool "difft"]
   cmd = difft "$LOCAL" "$REMOTE"
+[merge]
+  conflictstyle = zdiff3
 [pager]
   difftool = true
 [pull]
@@ -42,6 +44,8 @@
   defaultBranch = main
 [fetch]
   prune = true
+[rerere]
+  enabled = true
 [github]
   user = Sharparam
 [alias]
