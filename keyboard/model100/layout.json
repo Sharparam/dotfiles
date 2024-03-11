@@ -21,7 +21,7 @@
       },
       {
         "code": 231,
-        "label": {"base": {"full": "Super", "1u": "Sup.", "short": "Su"}},
+        "label": {"base": {"full": "Windows", "1u": "Win", "short": "W"}},
         "location": "right",
         "categories": ["modifier"]
       },
@@ -65,8 +65,8 @@
       {
         "code": 49941,
         "baseCode": 4,
-        "label": {"hint": "Super/", "base": "a"},
-        "modifier": "Super",
+        "label": {"hint": "Windows/", "base": "a"},
+        "modifier": "Windows",
         "rangeStart": 49169,
         "categories": ["modifier", "dualuse", "gui"]
       },
@@ -135,8 +135,8 @@
       {
         "code": 49988,
         "baseCode": 51,
-        "label": {"hint": "Super/", "base": ";"},
-        "modifier": "Super",
+        "label": {"hint": "Windows/", "base": ";"},
+        "modifier": "Windows",
         "rangeStart": 49169,
         "categories": ["modifier", "dualuse", "gui"]
       },
@@ -625,7 +625,7 @@
         "code": 49156,
         "label": {
           "hint": {"full": "OneShot", "1u": "OSM"},
-          "base": {"full": "Left Super", "1u": "LSup."}
+          "base": {"full": "Left Windows", "1u": "LWin"}
         },
         "rangeStart": 49153,
         "categories": ["oneshot", "modifier"]
@@ -704,7 +704,7 @@
       },
       {
         "code": 231,
-        "label": {"base": {"full": "Super", "1u": "Sup.", "short": "Su"}},
+        "label": {"base": {"full": "Windows", "1u": "Win", "short": "W"}},
         "location": "right",
         "categories": ["modifier"]
       },
@@ -748,8 +748,8 @@
       {
         "code": 49941,
         "baseCode": 4,
-        "label": {"hint": "Super/", "base": "a"},
-        "modifier": "Super",
+        "label": {"hint": "Windows/", "base": "a"},
+        "modifier": "Windows",
         "rangeStart": 49169,
         "categories": ["modifier", "dualuse", "gui"]
       },
@@ -818,8 +818,8 @@
       {
         "code": 49959,
         "baseCode": 22,
-        "label": {"hint": "Super/", "base": "s"},
-        "modifier": "Super",
+        "label": {"hint": "Windows/", "base": "s"},
+        "modifier": "Windows",
         "rangeStart": 49169,
         "categories": ["modifier", "dualuse", "gui"]
       },
@@ -911,7 +911,7 @@
         "code": 49156,
         "label": {
           "hint": {"full": "OneShot", "1u": "OSM"},
-          "base": {"full": "Left Super", "1u": "LSup."}
+          "base": {"full": "Left Windows", "1u": "LWin"}
         },
         "rangeStart": 49153,
         "categories": ["oneshot", "modifier"]
@@ -920,7 +920,7 @@
         "code": 49156,
         "label": {
           "hint": {"full": "OneShot", "1u": "OSM"},
-          "base": {"full": "Left Super", "1u": "LSup."}
+          "base": {"full": "Left Windows", "1u": "LWin"}
         },
         "rangeStart": 49153,
         "categories": ["oneshot", "modifier"]
@@ -1547,7 +1547,7 @@
         "code": 49156,
         "label": {
           "hint": {"full": "OneShot", "1u": "OSM"},
-          "base": {"full": "Left Super", "1u": "LSup."}
+          "base": {"full": "Left Windows", "1u": "LWin"}
         },
         "rangeStart": 49153,
         "categories": ["oneshot", "modifier"]
@@ -1556,7 +1556,7 @@
         "code": 49156,
         "label": {
           "hint": {"full": "OneShot", "1u": "OSM"},
-          "base": {"full": "Left Super", "1u": "LSup."}
+          "base": {"full": "Left Windows", "1u": "LWin"}
         },
         "rangeStart": 49153,
         "categories": ["oneshot", "modifier"]
@@ -1784,7 +1784,7 @@
       },
       {
         "code": 231,
-        "label": {"base": {"full": "Super", "1u": "Sup.", "short": "Su"}},
+        "label": {"base": {"full": "Windows", "1u": "Win", "short": "W"}},
         "location": "right",
         "categories": ["modifier"]
       },
@@ -1828,8 +1828,8 @@
       {
         "code": 49941,
         "baseCode": 4,
-        "label": {"hint": "Super/", "base": "a"},
-        "modifier": "Super",
+        "label": {"hint": "Windows/", "base": "a"},
+        "modifier": "Windows",
         "rangeStart": 49169,
         "categories": ["modifier", "dualuse", "gui"]
       },
@@ -1898,8 +1898,8 @@
       {
         "code": 49955,
         "baseCode": 18,
-        "label": {"hint": "Super/", "base": "o"},
-        "modifier": "Super",
+        "label": {"hint": "Windows/", "base": "o"},
+        "modifier": "Windows",
         "rangeStart": 49169,
         "categories": ["modifier", "dualuse", "gui"]
       },
