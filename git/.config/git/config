@@ -151,3 +151,6 @@
   insteadOf = "https://github.com/chroma-sdk"
 [url "ssh://git@github.com"]
   pushInsteadOf = "https://github.com"
+
+[includeIf "gitdir:~/projects/work/ninetech/"]
+  path = config.d/ninetech
