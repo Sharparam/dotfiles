@@ -16,6 +16,12 @@ indent_size = 4
 [*.{cs,csx,fs,fsx}]
 indent_size = 4
 
+[*.java]
+indent_size = 4
+
+[*.{kt,kts,ktm}]
+indent_size = 4
+
 [*.rb]
 indent_size = 2
 
