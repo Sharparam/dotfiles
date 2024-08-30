@@ -160,8 +160,8 @@ if [[ -d "$HOME/.dotnet/tools" ]]; then
     path=($HOME/.dotnet/tools $path)
 fi
 
-if [[ -d "$HOME/.emacs.d/bin" ]]; then
-    path=($HOME/.emacs.d/bin $path)
+if [[ -d "$HOME/.config/emacs/bin" ]]; then
+    path=($HOME/.config/emacs/bin $path)
 fi
 
 # added by travis gem
