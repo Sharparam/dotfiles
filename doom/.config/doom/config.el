@@ -77,11 +77,11 @@
     doom-serif-font (font-spec :family "Recursive Mono casual Static" :size 16)))
 
 (cl-case my/font-mode
-  ('triplicate (my/triplicate-fonts))
-  ('input (my/input-fonts))
-  ('caskaydia (my/caskaydia-fonts))
-  ('fira (my/fira-fonts))
-  ('recursive (my/recursive-fonts))
+  (triplicate (my/triplicate-fonts))
+  (input (my/input-fonts))
+  (caskaydia (my/caskaydia-fonts))
+  (fira (my/fira-fonts))
+  (recursive (my/recursive-fonts))
   (t (my/cascadia-fonts)))
 
 ;;
