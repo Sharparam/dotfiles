@@ -13,6 +13,7 @@
   spellingdictionary = none
 [core]
   autocrlf = input
+  askPass = /usr/bin/ksshaskpass
 [commit]
   gpgsign = true
 [branch "main"]
@@ -154,3 +155,5 @@
 
 [includeIf "gitdir:~/projects/work/ninetech/"]
   path = config.d/ninetech
+[credential]
+  helper = libsecret
