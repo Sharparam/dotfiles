@@ -177,6 +177,12 @@ alias .....='../../../..'
 alias ......='../../../../..'
 alias .......='../../../../../..'
 
+# ls aliases
+alias ls='\ls --color=auto --group-directories-first --time-style=long-iso --kibibytes'
+alias l='ls -1 --all'
+alias ll='ls -lh'
+alias la='ll --all'
+
 # Git aliases
 alias ga='git add'
 alias gst='git status'
