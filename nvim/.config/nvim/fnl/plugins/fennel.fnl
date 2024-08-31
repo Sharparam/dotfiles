@@ -1,6 +1,6 @@
 [
   ;; [ :Olical/aniseed ]
-  {1 :udayvir-singh/tangerine.nvim :version :v2.8}
+  {1 :udayvir-singh/tangerine.nvim :version :v2.9}
   {1 :udayvir-singh/hibiscus.nvim :version :v1.7}
   ;; [ :Olical/nvim-local-fennel ]
   {1 :Olical/conjure
