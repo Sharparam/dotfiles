@@ -23,7 +23,7 @@
 [
   {
     1 :VonHeikemen/lsp-zero.nvim
-    :branch :v2.x
+    :branch :v4.x
     :cond (not vim.g.vscode)
     :dependencies
     [
