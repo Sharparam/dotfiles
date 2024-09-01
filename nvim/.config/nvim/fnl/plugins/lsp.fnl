@@ -74,7 +74,7 @@
       [ :rafamadriz/friendly-snippets]
       { 1 :folke/neoconf.nvim :config true}
       { 1 :folke/neodev.nvim :dependencies :hrsh7th/nvim-cmp :opts {}}
-      { 1 :jose-elias-alvarez/null-ls.nvim :dependencies :williamboman/mason.nvim}
+      { 1 :nvimtools/none-ls.nvim :dependencies :williamboman/mason.nvim}
       {
         1 :jay-babu/mason-null-ls.nvim
         :event [ :BufReadPre :BufNewFile]
