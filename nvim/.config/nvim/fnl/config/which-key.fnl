@@ -1,176 +1,158 @@
 (local wk (require :which-key))
 
-(wk.register
-  {
-    :b {:name :+buffer
-        "[" ["<Cmd>bprevious<CR>" "Previous buffer"]
-        :p ["<Cmd>bprevious<CR>" "Previous buffer"]
-        "]" ["<Cmd>bnext<CR>" "Next buffer"]
-        :n ["<Cmd>bnext<CR>" "Next buffer"]
-        :d ["<Cmd>bdelete<CR>" "Kill buffer"]
-        :k ["<Cmd>bdelete<CR>" "Kill buffer"]
-        :K ["<Cmd>%bdelete<CR>" "Kill all buffers"]
-        :s ["<Cmd>w<CR>" "Save buffer"]
-        :S ["<Cmd>wa<CR>" "Save all buffers"]
-        :u ["<Cmd>w !sudo tee \"%\"<CR>" "Save buffer as root"]
-        :y ["<Cmd>%y<CR>" "Yank buffer"]}
-    :c
-    {
-      :name :+code
-      :d [ vim.lsp.buf.definition "Jump to definition"]
-      :D [ vim.lsp.buf.references "Jump to references"]
-      :f [ (fn [] (vim.lsp.buf.format { :async true })) "Format buffer"]
-      :i [ vim.lsp.buf.implementation "Find implementations"]
-      :k [ vim.lsp.buf.hover "Show help"]
-      :l
-      {
-        :name :+lsp
-        :=
-        {
-          :name :+formatting
-          := [ (fn [] (vim.lsp.buf.format { :async true })) "Format buffer"]}
+(fn flatten [...]
+  (let [r {}]
+    (each [_ v (ipairs [...])]
+          (each [_ iv (ipairs v)]
+            (table.insert r iv)))
+    r))
 
-        :a
-        {
-          :name "+code actions"
-          :a [ vim.lsp.buf.code_action "Code actions"]}
+(fn merge [a b]
+  (if (= (type b) :table)
+    (each [k v (pairs b)]
+      (tset a k v))))
 
-        :d
-        {
-          :name :+diagnostics
-          :l [ vim.diagnostic.open_float "Show diagnostics window"]
-          :n [ vim.diagnostic.goto_next "Go to next diagnostic"]
-          :p [ vim.diagnostic.goto_prev "Go to previous diagnostic"]}
+(fn group [key name opts ...]
+  (let [bindings [{1 key :group name}]]
+    (merge (. bindings 1) opts)
+    (each [_ sub (ipairs (flatten ...))]
+      (tset sub 1 (.. key (. sub 1)))
+      (table.insert bindings sub))
+    bindings))
 
-        :f
-        {
-          :name :+folders
-          :a [ vim.lsp.buf.add_workspace_folder "Add workspace folder"]
-          :l [ vim.lsp.buf.list_workspace_folders "List workspace folders"]
-          :r [ vim.lsp.buf.remove_workspace_folder "Remove workspace folder"]}
+(fn bind [key cmd desc opts]
+  (let [binding [{1 key 2 cmd : desc}]]
+    (merge (. binding 1) opts)
+    binding))
 
-        :g
-        {
-          :name :+goto
-          :a [ vim.lsp.buf.workspace_symbol "Find symbol in workspace"]
-          :c [ vim.lsp.buf.incoming_calls "Find incoming calls"]
-          :C [ vim.lsp.buf.outgoing_calls "Find outgoing calls"]
-          :d [ vim.lsp.buf.declaration "Find declarations"]
-          :g [ vim.lsp.buf.definition "Find definitions"]
-          :i [ vim.lsp.buf.implementation "Find implementations"]
-          :r [ vim.lsp.buf.references "Find references"]
-          :t [ vim.lsp.buf.type_definition "Find type definition"]}
+(fn desc [key desc] [{1 key : desc}])
 
-        :G { :name :+peek}
-        :h
-        {
-          :name :+help
-          :s [ vim.lsp.buf.signature_help "Show signature help"]}
+(wk.add
+  (flatten
+    (group :<Leader>b :+buffer nil
+      (bind "[" "<Cmd>bprevious<CR>" "Previous buffer")
+      (bind :p "<Cmd>bprevious<CR>" "Previous buffer")
+      (bind "]" "<Cmd>bnext<CR>" "Next buffer")
+      (bind :n "<Cmd>bnext<CR>" "Next buffer")
+      (bind :d "<Cmd>bdelete<CR>" "Kill buffer")
+      (bind :k "<Cmd>bdelete<CR>" "Kill buffer")
+      (bind :K "<Cmd>%bdelete<CR>" "Kill all buffers")
+      (bind :s "<Cmd>w<CR>" "Save buffer")
+      (bind :S "<Cmd>wa<CR>" "Save all buffers")
+      (bind :u "<Cmd>w !sudo tee \"%\"<CR>" "Save buffer as root")
+      (bind :y "<Cmd>%y<CR>" "Yank buffer"))
+    (group :<Leader>c :+code nil
+      (bind :d vim.lsp.buf.definition "Jump to definition")
+      (bind :D vim.lsp.buf.references "Jump to references")
+      (bind :f (fn [] (vim.lsp.buf.format { :async true })) "Format buffer")
+      (bind :i vim.lsp.buf.implementation "Find implementations")
+      (bind :k vim.lsp.buf.hover "Show help")
+      (group :l :+lsp nil
+        (group := :+formatting nil
+          (bind := (fn [] (vim.lsp.buf.format { :async true })) "Format buffer"))
+        (group :a "+code actions" nil
+          (bind :a vim.lsp.buf.code_action "Code actions"))
+        (group :d :+diagnostics nil
+          (bind :l vim.diagnostic.open_float "Show diagnostics window")
+          (bind :n vim.diagnostic.goto_next "Go to next diagnostic")
+          (bind :p vim.diagnostic.goto_prev "Go to previous diagnostic"))
+        (group :f :+folders nil
+          (bind :a vim.lsp.buf.add_workspace_folder "Add workspace folder")
+          (bind :l vim.lsp.buf.list_workspace_folders "List workspace folders")
+          (bind :r vim.lsp.buf.remove_workspace_folder "Remove workspace folder"))
+        (group :g :+goto nil
+          (bind :a vim.lsp.buf.workspace_symbol "Find symbol in workspace")
+          (bind :c vim.lsp.buf.incoming_calls "Find incoming calls")
+          (bind :C vim.lsp.buf.outgoing_calls "Find outgoing calls")
+          (bind :d vim.lsp.buf.declaration "Find declarations")
+          (bind :g vim.lsp.buf.definition "Find definitions")
+          (bind :i vim.lsp.buf.implementation "Find implementations")
+          (bind :r vim.lsp.buf.references "Find references")
+          (bind :t vim.lsp.buf.type_definition "Find type definition"))
+        (group :G :+peek)
+        (group :h :+help nil
+          (bind :s vim.lsp.buf.signature_help "Show signature help"))
+        (group :r :+refactor nil
+          (bind :r vim.lsp.buf.rename "Rename"))
+        (group :t :+toggle nil
+          (bind :s vim.lsp.buf.signature_help "Show signature help")))
+      (bind :r vim.lsp.buf.rename "Rename")
+      (bind :t vim.lsp.buf.type_definition "Find type definition")
+      (group :x :+Trouble))
+    (group :<Leader>f :+file)
+    (group :<Leader>g :+git nil
+      (group :f :+find)
+      (group :T :+toggle))
+    (group :<Leader>h :+help nil
+      (group :b :+bindings nil
+        (bind :b "<Cmd>WhichKey<CR>" "Show all mappings")))
+    (group :<Leader>i :+insert)
+    (group :<Leader>o :+open)
+    (group :<Leader>s :+search)
+    (group :<Leader>w :window
+      (bind :+ "<C-w>+" "Increase height")
+      (bind :- "<C-w>-" "Decrease height")
+      (bind :< "<C-w><" "Decrease width")
+      (bind := "<C-w>=" "Balance")
+      (bind :_ "<C-w>_" "Set height")
+      (bind :> "<C-w>>" "Increase width")
+      (bind :b "<C-w>b" "Go to bottom")
+      (bind :c "<Cmd>close<CR>" "Close")
+      (bind :C "<Cmd>close!<CR>" "Close discard changes")
+      (bind :d "<C-w>d" "Split to definition")
+      (bind :f "<C-w>f" "Split to file")
+      (bind :F "<C-w>F" "Split to file:line")
+      (group :g :prefix nil
+        (bind "<C-]>" "<C-w>g<C-]>" "Split and tag jump")
+        (bind "]" "<C-w>g]" "Split and tag select")
+        (bind "}" "<C-w>g}" "Preview tag jump")
+        (bind :f "<C-w>gf" "Edit file in new tab page")
+        (bind :F "<C-w>gF" "Edit file:line in new tab page")
+        (bind :t "<Cmd>tabnext<CR>" "Next tab page")
+        (bind :T "<Cmd>tabprevious<CR>" "Previous tab page")
+        (bind :<Tab> "<Cmd>tablast<CR>" "Last accessed tab page"))
+      (bind :h "<C-w>h" "Go left")
+      (bind :H "<C-w>H" "Move left")
+      (bind :i "<C-w>i" "Split to declaration")
+      (bind :j "<C-w>j" "Go down")
+      (bind :J "<C-w>J" "Move down")
+      (bind :k "<C-w>k" "Go up")
+      (bind :K "<C-w>K" "Move up")
+      (bind :l "<C-w>l" "Go right")
+      (bind :n "<C-w>n" "New")
+      (bind :o "<Cmd>only<CR>" "Close all but current")
+      (bind :p "<C-w>p" "Go to previous")
+      (bind :P "<C-w>P" "Go to preview")
+      (bind :q "<Cmd>quit<CR>" "Quit")
+      (bind :Q "<Cmd>quit!<CR>" "Quit discard changes")
+      (bind :r "<C-w>r" "Rotate downwards")
+      (bind :R "<C-w>R" "Rotate upwards")
+      (bind :s "<C-w>s" "Split horizontal")
+      (bind :S "<C-w>S" "Split horizontal")
+      (bind :t "<C-w>t" "Go to top")
+      (bind :T "<C-w>T" "Move to new tab page")
+      (bind :v "<C-w>v" "Split vertical")
+      (bind :w "<C-w>w" "Go to next (wrap around)")
+      (bind :W "<C-w>W" "Previous (wrap around)")
+      (bind :x "<C-w>x" "Exchange")
+      (bind :z "<C-w>z" "Close preview")
+      (bind "}" "<C-w>}" "Show tag in preview")
+      (bind :<Down> "<C-w>j" "Go down")
+      (bind :<Up> "<C-w>k" "Go up")
+      (bind :<Left> "<C-w>h" "Go left")
+      (bind :<Right> "<C-w>l" "Go right"))))
 
-        :r
-        {
-          :name :+refactor
-          :r [ vim.lsp.buf.rename "Rename"]}
-
-        :t
-        {
-          :name :+toggle
-          :s [ vim.lsp.buf.signature_help "Show signature help"]}}
-
-        ;; :w { :name :+workspaces }
-
-      :r [ vim.lsp.buf.rename "Rename"]
-      :t [ vim.lsp.buf.type_definition "Find type definition"]
-      :x { :name :+Trouble}}
-
-    :f { :name :+file}
-    :g
-    {
-      :name :+git
-      :f { :name :+find}
-      :T { :name :+toggle}}
-
-    :h
-    {
-      :name :+help
-      :b
-      {
-        :name :+bindings
-        :b [ "<Cmd>WhichKey<CR>" "Show all mappings"]}}
-
-
-    :i { :name :insert}
-    :o { :name :open}
-    :s { :name :search}
-    :w
-    {:name :window
-     :+ ["<C-w>+" "Increase height"]
-     :- ["<C-w>-" "Decrease height"]
-     :< ["<C-w><" "Decrease width"]
-     := ["<C-w>=" "Balance"]
-     :_ ["<C-w>_" "Set height"]
-     :> ["<C-w>>" "Increase width"]
-     :b ["<C-w>b" "Go to bottom"]
-     :c ["<Cmd>close<CR>" "Close"]
-     :C ["<Cmd>close!<CR>" "Close discard changes"]
-     :d ["<C-w>d" "Split to definition"]
-     :f ["<C-w>f" "Split to file"]
-     :F ["<C-w>F" "Split to file:line"]
-     :g
-     {:name :prefix
-      "<C-]>" ["<C-w>g<C-]>" "Split and tag jump"]
-      "]" ["<C-w>g]" "Split and tag select"]
-      "}" ["<C-w>g}" "Preview tag jump"]
-      :f ["<C-w>gf" "Edit file in new tab page"]
-      :F ["<C-w>gF" "Edit file:line in new tab page"]
-      :t ["<Cmd>tabnext<CR>" "Next tab page"]
-      :T ["<Cmd>tabprevious<CR>" "Previous tab page"]
-      "<Tab>" ["<Cmd>tablast<CR>" "Last accessed tab page"]}
-     :h ["<C-w>h" "Go left"]
-     :H ["<C-w>H" "Move left"]
-     :i ["<C-w>i" "Split to declaration"]
-     :j ["<C-w>j" "Go down"]
-     :J ["<C-w>J" "Move down"]
-     :k ["<C-w>k" "Go up"]
-     :K ["<C-w>K" "Move up"]
-     :l ["<C-w>l" "Go right"]
-     :n ["<C-w>n" "New"]
-     :o ["<Cmd>only<CR>" "Close all but current"]
-     :p ["<C-w>p" "Go to previous"]
-     :P ["<C-w>P" "Go to preview"]
-     :q ["<Cmd>quit<CR>" "Quit"]
-     :Q ["<Cmd>quit!<CR>" "Quit discard changes"]
-     :r ["<C-w>r" "Rotate downwards"]
-     :R ["<C-w>R" "Rotate upwards"]
-     :s ["<C-w>s" "Split horizontal"]
-     :S ["<C-w>S" "Split horizontal"]
-     :t ["<C-w>t" "Go to top"]
-     :T ["<C-w>T" "Move to new tab page"]
-     :v ["<C-w>v" "Split vertical"]
-     :w ["<C-w>w" "Go to next (wrap around)"]
-     :W ["<C-w>W" "Previous (wrap around)"]
-     :x ["<C-w>x" "Exchange"]
-     :z ["<C-w>z" "Close preview"]
-     "}" ["<C-w>}" "Show tag in preview"]
-     "<Down>" ["<C-w>j" "Go down"]
-     "<Up>" ["<C-w>k" "Go up"]
-     "<Left>" ["<C-w>h" "Go left"]
-     "<Right>" ["<C-w>l" "Go right"]}}
-
-  {:prefix "<Leader>"})
-
-(wk.register {:g {:name :git}} {:mode :v :prefix "<Leader>"})
+(wk.add (group :<Leader>g :git {:mode :v}))
 
 ;; Manually added bindings that which-key doesn't detect
-(wk.register
-  {:gt ["Next tab page"]
-   :gT ["Previous tab page"]
-   "g<Tab>" ["Last accessed tab page"]})
+(wk.add
+  (flatten
+    (desc :gt "Next tab page")
+    (desc :gT "Previous tab page")
+    (desc :g<Tab> "Last accessed tab page")))
 
-(wk.register
-  {:g
-    {:name :prefix
-     :t ["Next tab page"]
-     :T ["Previous tab page"]
-     "<Tab>" ["Last accessed tab page"]}}
-  {:prefix "<C-w>"})
+(wk.add
+  (group :<C-w>g :prefix nil
+    (desc :t "Next tab page")
+    (desc :T "Previous tab page")
+    (desc :<Tab> "Last accessed tab page")))
