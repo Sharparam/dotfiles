@@ -6,9 +6,7 @@
 (set vim.g.loaded_netrw 1)
 (set vim.g.loaded_netrwPlugin 1)
 
-(let [lazy (require :lazy)]
-  (lazy.setup "plugins"))
-
+(require :config.lazy)
 (require "config.options")
 (require "config.autocmds")
 (require "config.keymaps")
