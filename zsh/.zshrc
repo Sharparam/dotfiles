@@ -1,6 +1,6 @@
 typeset -aUx path
 fpath=($HOME/.zsh $HOME/.zfunc $fpath)
-path=($HOME/.local/bin "$HOME/.nix-profile/bin" "$HOME/.cargo/bin" "$path[@]")
+path=($HOME/.local/bin "$HOME/.cargo/bin" "$path[@]")
 path[$path[(i)/mnt/c/Ruby/bin]]=()
 export path
 
