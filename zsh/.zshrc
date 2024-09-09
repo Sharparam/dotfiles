@@ -319,9 +319,9 @@ elif [[ $+commands[mise] -eq 1 ]]; then
 fi
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/sharparam/.local/share/google-cloud-cli/path.zsh.inc' ]; then . '/home/sharparam/.local/share/google-cloud-cli/path.zsh.inc'; fi
+if [ -f "$HOME/.local/share/google-cloud-cli/path.zsh.inc" ]; then . "$HOME/.local/share/google-cloud-cli/path.zsh.inc"; fi
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/sharparam/.local/share/google-cloud-cli/completion.zsh.inc' ]; then . '/home/sharparam/.local/share/google-cloud-cli/completion.zsh.inc'; fi
+if [ -f "$HOME/.local/share/google-cloud-cli/completion.zsh.inc" ]; then . "$HOME/.local/share/google-cloud-cli/completion.zsh.inc"; fi
 
 start() {
   nohup $@ &>/dev/null & disown
