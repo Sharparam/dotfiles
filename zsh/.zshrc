@@ -152,6 +152,10 @@ then
   [ $+commands[hub] -eq 1 ] && eval "$(hub alias -s)"
 fi
 
+if (( $+commands[atuin] == 1 )); then
+  eval "$(atuin init zsh)"
+fi
+
 if [[ -d "/usr/share/perl6/" ]]; then
     path=(/usr/share/perl6/vendor/bin /usr/share/perl6/site/bin $path)
 fi
