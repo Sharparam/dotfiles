@@ -321,6 +321,13 @@ elif [[ $+commands[mise] -eq 1 ]]; then
   eval "$(mise activate -s zsh)"
 fi
 
+# bun
+if [[ -d "$BUN_INSTALL" ]]; then
+  # bun completions
+  [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
+  [ -d "$BUN_INSTALL/bin" ] && path=("$BUN_INSTALL/bin" $path)
+fi
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/.local/share/google-cloud-cli/path.zsh.inc" ]; then . "$HOME/.local/share/google-cloud-cli/path.zsh.inc"; fi
 # The next line enables shell command completion for gcloud.

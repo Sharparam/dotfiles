@@ -51,6 +51,8 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="_ vi vim"
 
+[ -d "$HOME/.bun" ] && export BUN_INSTALL="$HOME/.bun"
+
 # Restic stuff
 [ -f "$HOME/.config/restic/repository" ] && export RESTIC_REPOSITORY_FILE="$HOME/.config/restic/repository"
 if [[ -f "$HOME/.config/restic/password_command" ]]; then
