@@ -1,8 +1,7 @@
 typeset -aUx path
 fpath=($HOME/.zsh $HOME/.zfunc $fpath)
-path=($HOME/.local/bin "$HOME/.cargo/bin" "$path[@]")
+path=($HOME/.local/bin "$HOME/.cargo/bin" $path)
 path[$path[(i)/mnt/c/Ruby/bin]]=()
-export path
 
 if [[ $IS_WSL == true ]];
 then
@@ -309,7 +308,7 @@ else
 fi
 
 if [[ -d '/usr/local/go/bin' ]]; then
-  path=("$path[@]" /usr/local/go/bin "$GOPATH/bin")
+  path+=(/usr/local/go/bin "$GOPATH/bin")
 fi
 
 if [[ "$TERM_PROGRAM" == "WarpTerminal" ]] && [[ $+commands[starship] -eq 1 ]]; then
