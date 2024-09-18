@@ -63,31 +63,50 @@ zinit light djui/alias-tips
 #  zinit light marzocchi/zsh-notify
 #fi
 
+_fix-pzt-module() {
+  if [[ ! -f ._zinit/teleid ]] then return 0; fi
+  if [[ ! $(cat ._zinit/teleid) =~ "^PZT::.*" ]] then return 0; fi
+  local PZTM_NAME=$(cat ._zinit/teleid | sed -n 's/PZT::modules\///p')
+  git clone --quiet --no-checkout --depth=1 --filter=tree:0 https://github.com/sorin-ionescu/prezto
+  cd prezto
+  git sparse-checkout set --no-cone modules/$PZTM_NAME
+  git checkout --quiet
+  cd ..
+  local file
+  for file in prezto/modules/$PZTM_NAME/*~(.gitignore|*.plugin.zsh)(D); do
+    local filename="${file:t}"
+    echo "Copying $file to $(pwd)/$filename..."
+    cp -R $file $filename
+  done
+  rm -rf prezto
+}
+
 zstyle ':prezto:*:*' color 'yes'
 zinit snippet PZTM::helper/init.zsh
+zinit snippet PZTM::spectrum/init.zsh
 zinit snippet PZTM::history/init.zsh
 zinit snippet PZTM::environment/init.zsh
 zinit snippet PZTM::directory/init.zsh
 
 zstyle ':prezto:module:utility' safe-ops 'no'
-zinit ice svn
-zinit snippet PZTM::utility
+zinit ice atpull"%atclone" atclone"_fix-pzt-module"
+zinit snippet PZT::modules/utility
 
-zinit ice svn
-zinit snippet PZTM::git
+zinit ice atpull"%atclone" atclone"_fix-pzt-module"
+zinit snippet PZT::modules/git
 #zinit snippet PZTM::ssh/init.zsh
 #zinit snippet PZTM::gpg/init.zsh
 
-zinit ice svn
-zinit snippet PZTM::ruby
+zinit ice atpull"%atclone" atclone"_fix-pzt-module"
+zinit snippet PZT::modules/ruby
 zinit snippet PZTM::rails/init.zsh
 
 zstyle ':prezto:module:python:virtualenv' auto-switch 'yes'
-zinit ice svn
-zinit snippet PZTM::python
+zinit ice atpull"%atclone" atclone"_fix-pzt-module"
+zinit snippet PZT::modules/python
 
-zinit ice svn
-zinit snippet PZTM::node
+zinit ice atpull"%atclone" atclone"_fix-pzt-module"
+zinit snippet PZT::modules/node
 
 zinit light zdharma-continuum/zui
 
@@ -102,9 +121,10 @@ zinit light nix-community/nix-zsh-completions
 zinit ice wait lucid blockf
 zinit light zsh-users/zsh-completions
 
-zinit ice svn blockf \
-  atclone"git clone --recursive https://github.com/zsh-users/zsh-completions external"
-zinit snippet PZTM::completion
+zinit ice blockf \
+  atpull"_fix-pzt-module" \
+  atclone"_fix-pzt-module && git clone --recursive https://github.com/zsh-users/zsh-completions external"
+zinit snippet PZT::modules/completion
 
 zinit ice ver"feat/clone-remote"
 zinit light itsbth/zsh-fzf-ghq
