@@ -89,9 +89,6 @@ zinit snippet PZTM::python
 zinit ice svn
 zinit snippet PZTM::node
 
-zinit ice from"gh-r" bpick"*linux_amd64*" pick"ghq_*/ghq" as"program"
-zinit light x-motemen/ghq
-
 zinit light zdharma-continuum/zui
 
 zinit light supercrabtree/k
