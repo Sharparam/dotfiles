@@ -129,6 +129,10 @@ else
   zinit light zdharma-continuum/fast-syntax-highlighting
 fi
 
+autoload -Uz compinit
+compinit
+zinit cdreplay -q
+
 ### END ZPLUGIN BLOCK ###
 
 [ $+commands[zoxide] -eq 1 ] && eval "$(zoxide init --cmd j zsh)"
