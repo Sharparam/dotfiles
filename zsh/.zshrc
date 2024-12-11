@@ -328,9 +328,9 @@ if [[ "$TERM_PROGRAM" == "WarpTerminal" ]] && [[ $+commands[starship] -eq 1 ]]; 
 fi
 
 if [[ -f "$HOME/.local/bin/mise" ]]; then
-  eval "$($HOME/.local/bin/mise activate -s zsh)"
+  eval "$($HOME/.local/bin/mise activate zsh)"
 elif [[ $+commands[mise] -eq 1 ]]; then
-  eval "$(mise activate -s zsh)"
+  eval "$(mise activate zsh)"
 fi
 
 # bun
