@@ -38,12 +38,12 @@ zinit light zsh-users/zsh-autosuggestions
 zinit ice wait lucid
 zinit light zsh-users/zsh-history-substring-search
 
-if [[ "$TERM_PROGRAM" != "WarpTerminal" ]]; then
-  PURE_GIT_PULL=0
-  zstyle :prompt:pure:git:stash show yes
-  zinit ice pick"async.zsh" src"pure.zsh"
-  zinit light sindresorhus/pure
-fi
+# if [[ "$TERM_PROGRAM" != "WarpTerminal" ]]; then
+#   PURE_GIT_PULL=0
+#   zstyle :prompt:pure:git:stash show yes
+#   zinit ice pick"async.zsh" src"pure.zsh"
+#   zinit light sindresorhus/pure
+# fi
 
 # zinit ice atload"base16_${BASE16_THEME}"
 # zinit light "chriskempson/base16-shell"
@@ -348,6 +348,10 @@ fi
 if [ -f "$HOME/.local/share/google-cloud-cli/path.zsh.inc" ]; then . "$HOME/.local/share/google-cloud-cli/path.zsh.inc"; fi
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/.local/share/google-cloud-cli/completion.zsh.inc" ]; then . "$HOME/.local/share/google-cloud-cli/completion.zsh.inc"; fi
+
+if [[ $+commands[starship] -eq 1 ]]; then
+  eval "$(starship init zsh)"
+fi
 
 start() {
   nohup $@ &>/dev/null & disown
