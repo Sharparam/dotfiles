@@ -248,6 +248,10 @@ alias '?gh'='gh copilot suggest -t gh'
 alias '??'='gh copilot explain'
 alias '?e'='gh copilot explain'
 
+if [[ $+commands[direnv] -eq 1 ]]; then
+  eval "$(direnv hook zsh)"
+fi
+
 if [[ -d "$HOME/.perl5/bin" ]]; then
   path=("$HOME/.perl5/bin" $path)
 fi
