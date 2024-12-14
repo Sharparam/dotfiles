@@ -215,6 +215,9 @@ alias ':x'='exit'
 #alias emacs='emacs -nw'
 alias emacs='emacsclient -nc'
 
+# Ruby aliases
+alias rbbi='bundle install'
+
 # Use code insiders by default if present
 # if [[ $+commands[code-insiders] -eq 1 ]]; then
 #   alias code=code-insiders
