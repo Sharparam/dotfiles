@@ -166,3 +166,6 @@ $RECYCLE.BIN/
 
 # Mise
 .mise.local.toml
+
+# Ruby
+.bundle/
