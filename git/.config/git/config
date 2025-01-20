@@ -47,6 +47,9 @@
   prune = true
 [rerere]
   enabled = true
+[trailer]
+  where = after
+  ifexists = addIfDifferent
 [github]
   user = Sharparam
 [alias]
