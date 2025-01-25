@@ -51,9 +51,6 @@ zinit light zsh-users/zsh-history-substring-search
 zinit ice pick"themes/catppuccin_${CATPPUCCIN_THEME}-zsh-syntax-highlighting.zsh"
 zinit light "catppuccin/zsh-syntax-highlighting"
 
-zinit ice from"gh-r" as"command" mv"hivemind-* -> hivemind"
-zinit light DarthSim/hivemind
-
 zinit ice wait lucid
 # zinit light molovo/tipz
 zinit light djui/alias-tips
@@ -107,16 +104,6 @@ zinit snippet PZT::modules/python
 
 zinit ice atpull"%atclone" atclone"_fix-pzt-module"
 zinit snippet PZT::modules/node
-
-zinit light zdharma-continuum/zui
-
-zinit light supercrabtree/k
-
-# Nix plugins
-zinit light chisui/zsh-nix-shell
-
-zinit ice wait lucid blockf
-zinit light nix-community/nix-zsh-completions
 
 zinit ice wait lucid blockf
 zinit light zsh-users/zsh-completions
