@@ -160,3 +160,5 @@
   path = config.d/ninetech
 [credential]
   helper = libsecret
+[hub]
+  protocol = ssh
