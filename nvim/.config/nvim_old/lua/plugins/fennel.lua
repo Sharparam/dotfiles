@@ -1,0 +1,2 @@
+-- :fennel:1725147523
+return {{"udayvir-singh/tangerine.nvim", version = "v2.9"}, {"udayvir-singh/hibiscus.nvim", version = "v1.7"}, {"Olical/conjure", ft = {"lua", "fennel", "clojure", "clojurescript", "clojurec", "guile", "hy", "lisp", "janet", "python", "racket", "rust", "scheme"}}, {"PaterJason/cmp-conjure", cond = not vim.g.vscode}}
