@@ -8,6 +8,7 @@
   default = simple
   autoSetupRemote = true
 [github]
+  user = Sharparam
   username = Sharparam
 [gui]
   spellingdictionary = none
@@ -50,8 +51,6 @@
 [trailer]
   where = after
   ifexists = addIfDifferent
-[github]
-  user = Sharparam
 [alias]
   a = add
   b = branch
