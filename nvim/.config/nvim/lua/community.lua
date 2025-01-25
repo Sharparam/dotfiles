@@ -6,6 +6,7 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.colorscheme.catppuccin" }
+  { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.editing-support.nvim-treesitter-endwise" },
   -- import/override with your plugins folder
 }
