@@ -3,4 +3,4 @@
 
 # We are using Fennel, so ignore the /lua directory since it will only
 # contain compiled Fennel files
-/.config/nvim/lua/
+/.config/nvim_old/lua/
