@@ -1,51 +1,19 @@
----@class BootstrapOptions
----@field ref string? Git ref to checkout
----@field name string? Name of the plugin
----@field path string? Path to clone to
----@field adjust_rtp boolean? Whether to adjust the runtimepath
+-- This file simply bootstraps the installation of Lazy.nvim and then calls other files for execution
+-- This file doesn't necessarily need to be touched, BE CAUTIOUS editing this file and proceed at your own risk.
+local lazypath = vim.env.LAZY or vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+if not (vim.env.LAZY or (vim.uv or vim.loop).fs_stat(lazypath)) then
+  -- stylua: ignore
+  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
+end
+vim.opt.rtp:prepend(lazypath)
 
---- Bootstraps a plugin by cloning it into the data dir
----@param url string Git URL to clone
----@param opts BootstrapOptions Options
----@return string path path to the installed plugin
-local function bootstrap(url, opts)
-  local name = opts.name or url:gsub(".*/(.+)%.git", "%1") or url:gsub(".*/", "")
-  local path = opts.path or (vim.fn.stdpath("data") .. "/lazy/" .. name)
-
-  if vim.loop.fs_stat(path) then
-    if opts.adjust_rtp then vim.opt.rtp:prepend(path) end
-    return path
-  end
-
-  print(name .. ": installing in data dir...")
-
-  local cmd = { "git", "clone", "--filter=blob:none", url, path }
-  if opts.ref then table.insert(cmd, 4, "--branch=" .. opts.ref) end
-
-  vim.fn.system(cmd)
-
-  if opts.adjust_rtp then vim.opt.rtp:prepend(path) end
-
-  vim.cmd "redraw"
-  print(name .. ": finished installing")
-
-  return path
+-- validate that lazy is available
+if not pcall(require, "lazy") then
+  -- stylua: ignore
+  vim.api.nvim_echo({ { ("Unable to load lazy from: %s\n"):format(lazypath), "ErrorMsg" }, { "Press any key to exit...", "MoreMsg" } }, true, {})
+  vim.fn.getchar()
+  vim.cmd.quit()
 end
 
-bootstrap("https://github.com/folke/lazy.nvim.git", { ref = "stable", adjust_rtp = true })
-bootstrap("https://github.com/udayvir-singh/tangerine.nvim.git", { ref = "v2.9", adjust_rtp = true })
-bootstrap("https://github.com/udayvir-singh/hibiscus.nvim.git", { ref = "v1.7", adjust_rtp = true })
-
--- vim.opt.rtp:prepend(lazy_path)
-
-require("tangerine").setup {
-  compiler = {
-    verbose = false,
-    hooks = { "onsave", "oninit" }
-  },
-  keymaps = {
-    eval_buffer = "<Nop>",
-    peek_buffer = "<Nop>",
-    goto_output = "<Nop>"
-  }
-}
+require "lazy_setup"
+require "polish"
