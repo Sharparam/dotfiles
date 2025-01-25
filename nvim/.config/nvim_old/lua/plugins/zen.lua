@@ -1,2 +1,0 @@
--- :fennel:1686673977
-return {{cond = not vim.g.vscode, keys = {{desc = "Toggle Zen mode", "<Leader>tz", "<Cmd>ZenMode<CR>"}}, opts = {plugins = {kitty = {enabled = true}}}, "folke/zen-mode.nvim"}, {cond = not vim.g.vscode, keys = {{desc = "Toggle Twilight", "<Leader>tt", "<Cmd>Twilight<CR>"}}, opts = {}, "folke/twilight.nvim"}}
