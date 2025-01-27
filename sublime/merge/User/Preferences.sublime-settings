@@ -7,8 +7,8 @@
 	"render_commit_dialog_message_at_top": true,
 	"side_bar_layout": "commit_graph_as_column",
 	"tab_size": 2,
-	"theme": "Merge Dark.sublime-theme",
-  "color_scheme": "Packages/Enki Theme/scheme/Enki-Tokyo-Night.tmTheme",
+	"theme": "Catppuccin Frappe.sublime-theme",
+	"color_scheme": "Catppuccin Frappe.sublime-color-scheme",
 	"time_format": "24h",
 	"translate_tabs_to_spaces": true,
 }
