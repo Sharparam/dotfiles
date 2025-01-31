@@ -294,9 +294,9 @@ if [[ $IS_WSL == true ]]; then
   if [[ -n "${XDG_SESSION_ID}" && "${TERM}" == "dumb" && "$(ps -p $PPID -o comm=)" == "login" ]]; then
     # Background login process, do nothing
   else
-    echo '[WSL] Configuring GPG and SSH'
-    wsl-gpg-proxy
-    wsl-ssh-proxy
+    # echo '[WSL] Configuring GPG and SSH'
+    # wsl-gpg-proxy
+    # wsl-ssh-proxy
   fi
 else
   #if [ "$HOST" = "melina" ]; then
