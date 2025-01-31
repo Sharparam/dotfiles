@@ -1,7 +1,12 @@
 [user]
   email = sharparam@sharparam.com
   name = Adam Hellberg
-  signingkey = C58C41E27B00AD04
+  ; signingkey = C58C41E27B00AD04
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAZcQxmr5ZfF/d0YqEZfhr0ZjuHUjxKBf7YgVjYqS+gE
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = "/opt/1Password/op-ssh-sign"
 [alias]
   dft = difftool
 [push]

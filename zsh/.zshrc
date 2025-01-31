@@ -307,8 +307,10 @@ else
   #    source "$XDG_RUNTIME_DIR/ssh-agent.env" > /dev/null
   #  fi
   #else
-  unset SSH_AGENT_PID
-  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  # Experiment with 1Password as SSH agent for a bit,
+  # so disable these env vars for now (see .zshenv)
+  # unset SSH_AGENT_PID
+  # export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
   #fi
   gpgconf --launch gpg-agent
 fi

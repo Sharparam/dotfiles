@@ -28,6 +28,9 @@ fi
 export BASE16_THEME="eighties"
 export CATPPUCCIN_THEME="macchiato"
 
+unset SSH_AGENT_PID
+export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
+
 # WTF, Ansible?
 export ANSIBLE_NOCOWS=1
 
