@@ -30,6 +30,8 @@
 #  https://developer.1password.com/docs/ssh/agent/config
 [[ssh-keys]]
 vault = "ydqtet743mjbloqnmwewyqfkom" # Private
+account = "LZDNXBQM7FA4JIUZ3WNDLVIN2E" # Personal account
 
 [[ssh-keys]]
 vault = "jnd5jn2vgdwbnxvek7qa6mzg2q" # Employee
+account = "62RN72VUIJHHLFBUJBYKN5VEBQ" # Work account
