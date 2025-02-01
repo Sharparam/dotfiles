@@ -6,6 +6,7 @@
 [gpg]
   format = ssh
 [gpg "ssh"]
+  allowedSignersFile = "~/.ssh/allowed_signers"
   program = "/opt/1Password/op-ssh-sign"
 [alias]
   dft = difftool
