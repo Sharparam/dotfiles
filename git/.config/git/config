@@ -2,7 +2,7 @@
   email = sharparam@sharparam.com
   name = Adam Hellberg
   ; signingkey = C58C41E27B00AD04
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAZcQxmr5ZfF/d0YqEZfhr0ZjuHUjxKBf7YgVjYqS+gE
+  signingkey = "key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAZcQxmr5ZfF/d0YqEZfhr0ZjuHUjxKBf7YgVjYqS+gE"
 [gpg]
   format = ssh
 [gpg "ssh"]
