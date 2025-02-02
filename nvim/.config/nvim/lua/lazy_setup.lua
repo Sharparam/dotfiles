@@ -1,5 +1,13 @@
 require("lazy").setup({
   {
+    --[[
+      We put this here before even loading core AstroNvim plugins since we want to
+      ensure that any plugins depending on direnv resources can access them.
+    ]]
+    "actionshrimp/direnv.nvim",
+    opts = {}
+  },
+  {
     "AstroNvim/AstroNvim",
     version = "^4", -- Remove version tracking to elect for nightly AstroNvim
     import = "astronvim.plugins",
