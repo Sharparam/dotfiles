@@ -31,6 +31,8 @@ return {
   { import = "astrocommunity.pack.xml" },
   { import = "astrocommunity.pack.yaml" },
 
+  { import = "astrocommunity.recipes.vscode" },
+
   -- { import = "astrocommunity.workflow.bad-practices-nvim" },
   { import = "astrocommunity.workflow.hardtime-nvim" },
   { import = "astrocommunity.workflow.precognition-nvim" },
