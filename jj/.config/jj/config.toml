@@ -1,0 +1,22 @@
+[user]
+name = "Adam Hellberg"
+email = "sharparam@sharparam.com"
+
+[signing]
+sign-all = true
+backend = "ssh"
+key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAZcQxmr5ZfF/d0YqEZfhr0ZjuHUjxKBf7YgVjYqS+gE" # 1Password
+
+[signing.backends.ssh]
+allowed-signers = "~/.ssh/allowed_signers"
+program = "/opt/1Password/op-ssh-sign"
+
+[git]
+sign-on-push = true
+subprocess = true
+
+[ui]
+show-cryptographic-signatures = true
+
+[template-aliases]
+"format_short_cryptographic_signature(sig)" = 'if (sig, sig.status(), "(no sig)")'
