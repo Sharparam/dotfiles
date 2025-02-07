@@ -315,10 +315,6 @@ if [[ -d '/usr/local/go/bin' ]]; then
   path+=(/usr/local/go/bin "$GOPATH/bin")
 fi
 
-if [[ "$TERM_PROGRAM" == "WarpTerminal" ]] && [[ $+commands[starship] -eq 1 ]]; then
-  eval "$(starship init zsh)"
-fi
-
 if [[ -f "$HOME/.local/bin/mise" ]]; then
   eval "$($HOME/.local/bin/mise activate zsh)"
 elif [[ $+commands[mise] -eq 1 ]]; then
@@ -337,6 +333,7 @@ if [ -f "$HOME/.local/share/google-cloud-cli/path.zsh.inc" ]; then . "$HOME/.loc
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/.local/share/google-cloud-cli/completion.zsh.inc" ]; then . "$HOME/.local/share/google-cloud-cli/completion.zsh.inc"; fi
 
+# if [[ "$TERM_PROGRAM" == "WarpTerminal" ]] && [[ $+commands[starship] -eq 1 ]]; then
 if [[ $+commands[starship] -eq 1 ]]; then
   eval "$(starship init zsh)"
 fi
