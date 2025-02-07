@@ -35,18 +35,12 @@ wsl_fix_fsh() {
 zinit ice wait lucid atload"_zsh_autosuggest_start"
 zinit light zsh-users/zsh-autosuggestions
 
-zinit ice wait lucid
-zinit light zsh-users/zsh-history-substring-search
-
 # if [[ "$TERM_PROGRAM" != "WarpTerminal" ]]; then
 #   PURE_GIT_PULL=0
 #   zstyle :prompt:pure:git:stash show yes
 #   zinit ice pick"async.zsh" src"pure.zsh"
 #   zinit light sindresorhus/pure
 # fi
-
-# zinit ice atload"base16_${BASE16_THEME}"
-# zinit light "chriskempson/base16-shell"
 
 zinit ice pick"themes/catppuccin_${CATPPUCCIN_THEME}-zsh-syntax-highlighting.zsh"
 zinit light "catppuccin/zsh-syntax-highlighting"
