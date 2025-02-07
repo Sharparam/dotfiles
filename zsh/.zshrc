@@ -341,7 +341,7 @@ if [[ $+commands[starship] -eq 1 ]]; then
   eval "$(starship init zsh)"
 fi
 
-start() {
+launch() {
   nohup $@ &>/dev/null & disown
 }
 
@@ -372,10 +372,6 @@ cowfortune() {
 
 thinkfortune () {
   fortune $@ | cowthink -W 70 -f bong -s
-}
-
-launch() {
-  nohup $@ >&/dev/null &
 }
 
 scrotclip() {
