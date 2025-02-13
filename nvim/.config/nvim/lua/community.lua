@@ -10,6 +10,8 @@ return {
   { import = "astrocommunity.editing-support.nvim-treesitter-endwise" },
   { import = "astrocommunity.editing-support.zen-mode-nvim" },
 
+  { import = "astrocommunity.icon.mini-icons" },
+
   { import = "astrocommunity.indent.mini-indentscope" },
 
   { import = "astrocommunity.motion.flit-nvim" },
