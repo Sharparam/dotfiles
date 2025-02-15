@@ -176,10 +176,17 @@ alias ......='../../../../..'
 alias .......='../../../../../..'
 
 # ls aliases
-alias ls='\ls --color=auto --group-directories-first --time-style=long-iso --kibibytes'
-alias l='ls -1 --all'
-alias ll='ls -lh'
-alias la='ll --all'
+if [[ $+commands[lsd] -eq 1 ]]; then
+  alias ls='lsd --group-dirs first'
+  alias l='ls --oneline --all'
+  alias ll='ls --long'
+  alias la='ll --all'
+else
+  alias ls='\ls --color=auto --group-directories-first --time-style=long-iso --kibibytes'
+  alias l='ls -1 --all'
+  alias ll='ls -lh'
+  alias la='ll --all'
+fi
 
 # Git aliases
 alias ga='git add'
