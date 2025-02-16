@@ -21,60 +21,60 @@
 ;; accept. For example:
 ;;
 (setq my/font-size
-  (cond ((eq system-type 'windows-nt) 28)
-    (t 16)))
+      (cond ((eq system-type 'windows-nt) 28)
+            (t 16)))
 
 (setq
-  my/font-mode
-  (cond
-    ((string= (system-name) "PC673") 'cascadia)
-    (t 'caskaydia)))
+ my/font-mode
+ (cond
+  ((string= (system-name) "PC673") 'cascadia)
+  (t 'caskaydia)))
 
 (defun my/adjust-fixed-pitch ()
   (set-face-attribute 'fixed-pitch nil :height 1.0))
 
 (add-hook! '(after-setting-font-hook doom-init-ui-hook after-init-hook server-after-make-frame-hook)
-  #'my/adjust-fixed-pitch)
+           #'my/adjust-fixed-pitch)
 
 (defun my/cascadia-fonts ()
   (setq
-    doom-font (font-spec :family "Cascadia Code" :size 16 :weight 'regular)
-    doom-variable-pitch-font (font-spec :family "Recursive Sans Linear Static" :size 16)
-    doom-serif-font (font-spec :family "Recursive Mono Casual Static" :size 16)))
+   doom-font (font-spec :family "Cascadia Code" :size 16 :weight 'regular)
+   doom-variable-pitch-font (font-spec :family "Recursive Sans Linear Static" :size 16)
+   doom-serif-font (font-spec :family "Recursive Mono Casual Static" :size 16)))
 
 (defun my/caskaydia-fonts ()
   (setq
-    doom-font (font-spec :family "CaskaydiaCove Nerd Font" :size 16)
-    doom-variable-pitch-font (font-spec :family "Recursive Sans Linear Static" :size 16)
-    doom-serif-font (font-spec :family "Recursive Mono Casual Static" :size 16)))
+   doom-font (font-spec :family "CaskaydiaCove Nerd Font" :size 16)
+   doom-variable-pitch-font (font-spec :family "Recursive Sans Linear Static" :size 16)
+   doom-serif-font (font-spec :family "Recursive Mono Casual Static" :size 16)))
 
 (defun my/triplicate-fonts ()
   (setq
-    doom-font (font-spec :family "Triplicate A Code" :size 16 :width 'condensed)
-    doom-variable-pitch-font (font-spec :family "Concourse T4" :size 20)
-    doom-serif-font (font-spec :family "Equity Text A" :size 18)
-    doom-font-increment 4))
+   doom-font (font-spec :family "Triplicate A Code" :size 16 :width 'condensed)
+   doom-variable-pitch-font (font-spec :family "Concourse T4" :size 20)
+   doom-serif-font (font-spec :family "Equity Text A" :size 18)
+   doom-font-increment 4))
 
 (defun my/input-fonts ()
   (setq
-    doom-font (font-spec :family "Input Mono Condensed" :size 16 :width 'condensed)
-    doom-variable-pitch-font (font-spec :family "Input Sans Condensed" :size 16 :width 'condensed)
-    doom-serif-font (font-spec :family "Input Serif Condensed" :size 16 :width 'condensed)
-    doom-font-increment 4))
-    ;; doom-big-font (font-spec :family "Input Mono Condensed" :size 24))
+   doom-font (font-spec :family "Input Mono Condensed" :size 16 :width 'condensed)
+   doom-variable-pitch-font (font-spec :family "Input Sans Condensed" :size 16 :width 'condensed)
+   doom-serif-font (font-spec :family "Input Serif Condensed" :size 16 :width 'condensed)
+   doom-font-increment 4))
+;; doom-big-font (font-spec :family "Input Mono Condensed" :size 24))
 
 (defun my/fira-fonts ()
   (setq
-    doom-font (font-spec :family "Fira Code" :size 16)
-    doom-variable-pitch-font (font-spec :family "Fira Sans" :size 16)
-    doom-serif-font (font-spec :family "Meta Serif Pro" :size 16)
-    doom-font-increment 4))
+   doom-font (font-spec :family "Fira Code" :size 16)
+   doom-variable-pitch-font (font-spec :family "Fira Sans" :size 16)
+   doom-serif-font (font-spec :family "Meta Serif Pro" :size 16)
+   doom-font-increment 4))
 
 (defun my/recursive-fonts ()
   (setq
-    doom-font (font-spec :family "Rec Mono Custom" :size 16)
-    doom-variable-pitch-font (font-spec :family "Recursive Sans Linear Static" :size 16)
-    doom-serif-font (font-spec :family "Recursive Mono casual Static" :size 16)))
+   doom-font (font-spec :family "Rec Mono Custom" :size 16)
+   doom-variable-pitch-font (font-spec :family "Recursive Sans Linear Static" :size 16)
+   doom-serif-font (font-spec :family "Recursive Mono casual Static" :size 16)))
 
 (cl-case my/font-mode
   (triplicate (my/triplicate-fonts))
@@ -107,18 +107,18 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq
-  org-directory "~/org/"
-  org-journal-dir "~/org/journal/"
-  org-roam-directory "~/org/roam/"
-  org-agenda-files `(,org-directory))
+ org-directory "~/org/"
+ org-journal-dir "~/org/journal/"
+ org-roam-directory "~/org/roam/"
+ org-agenda-files `(,org-directory))
 
 (setq doom-modeline-modal-icon nil)
 
 ;; Projectile configs
 (setq projectile-project-search-path '(
-                                        ("~/projects" . 2)
-                                        ("~/repos" . 3)
-                                        ("~/.ghq" . 3)))
+                                       ("~/projects" . 2)
+                                       ("~/repos" . 3)
+                                       ("~/.ghq" . 3)))
 
 ;; (load! "hacks/trailing-whitespace.el")
 
@@ -127,24 +127,24 @@
   (require 'org-crypt)
   (org-crypt-use-before-save-magic)
   (setq
-    org-clock-sound "~/.dotfiles/sound/fm-bell-synth-02.wav"
-    org-time-stamp-formats '("<%Y-%m-%d %a>" . "<%Y-%m-%d %a %H:%M %Z>")
-    org-journal-file-format "%Y%m%d.org"
-    org-hide-emphasis-markers t
-    org-tags-exclude-from-inheritance '("crypt")
-    org-crypt-key "0xC58C41E27B00AD04"
-    org-babel-results-keyword "results"
-    org-roam-capture-templates
-    `(("d" "default" plain
-        (file ,(concat org-roam-directory "/templates/default.org"))
-        :target (file+head "%<%Y%m%dT%H%M%S%z>-${slug}.org"
-                  "#+title: ${title}\n#+date: %U\n")
-        :unnarrowed t))
-    org-roam-dailies-capture-templates
-    `(("d" "default" entry
-        (file ,(concat org-roam-directory "/templates/dailies/default.org"))
-        :target (file+head "%<%Y-%m-%d>.org"
-                  "#+title: %<%Y-%m-%d>\n#+date: %U\n")))))
+   org-clock-sound "~/.dotfiles/sound/fm-bell-synth-02.wav"
+   org-time-stamp-formats '("<%Y-%m-%d %a>" . "<%Y-%m-%d %a %H:%M %Z>")
+   org-journal-file-format "%Y%m%d.org"
+   org-hide-emphasis-markers t
+   org-tags-exclude-from-inheritance '("crypt")
+   org-crypt-key "0xC58C41E27B00AD04"
+   org-babel-results-keyword "results"
+   org-roam-capture-templates
+   `(("d" "default" plain
+      (file ,(concat org-roam-directory "/templates/default.org"))
+      :target (file+head "%<%Y%m%dT%H%M%S%z>-${slug}.org"
+                         "#+title: ${title}\n#+date: %U\n")
+      :unnarrowed t))
+   org-roam-dailies-capture-templates
+   `(("d" "default" entry
+      (file ,(concat org-roam-directory "/templates/dailies/default.org"))
+      :target (file+head "%<%Y-%m-%d>.org"
+                         "#+title: %<%Y-%m-%d>\n#+date: %U\n")))))
 
 (after! org
   (custom-set-faces!
@@ -172,24 +172,24 @@
     '(org-indent :inherit (org-hide fixed-pitch))))
 
 (map!
-  :after org-tree-slide
-  :map org-tree-slide-mode-map
-  :n "C-x s h" #'org-tree-slide-display-header-toggle)
+ :after org-tree-slide
+ :map org-tree-slide-mode-map
+ :n "C-x s h" #'org-tree-slide-display-header-toggle)
 
 (after! org-tree-slide
   (remove-hook 'org-tree-slide-play-hook #'+org-present-hide-blocks-h)
   (remove-hook 'org-tree-slide-play-hook #'+org-present-hide-blocks-h)
   (advice-remove 'org-tree-slide--display-tree-with-narrow
-    #'+org-present--hide-first-heading-maybe-a))
+                 #'+org-present--hide-first-heading-maybe-a))
 
 (after! org-journal
   (setq
-    org-journal-encrypt-journal t))
+   org-journal-encrypt-journal t))
 
 (map! :after org-journal
-  :leader
-  :desc "Open current journal" "n j c" #'org-journal-open-current-journal-file
-  :desc "Search for a string" "n j S" #'org-journal-search)
+      :leader
+      :desc "Open current journal" "n j c" #'org-journal-open-current-journal-file
+      :desc "Search for a string" "n j S" #'org-journal-search)
 
 (use-package! websocket
   :after org-roam)
@@ -199,10 +199,10 @@
   :hook (after-init . org-roam-ui-mode)
   :config
   (setq
-    org-roam-ui-sync-theme t
-    org-roam-ui-follow t
-    org-roam-ui-update-on-save t
-    org-roam-ui-open-on-start t))
+   org-roam-ui-sync-theme t
+   org-roam-ui-follow t
+   org-roam-ui-update-on-save t
+   org-roam-ui-open-on-start t))
 
 ;; (defun my/org-appear-trigger ()
 ;;   (add-hook 'evil-insert-state-entry-hook
@@ -215,8 +215,8 @@
   :hook (org-mode . org-appear-mode)
   :config
   (setq org-appear-autoemphasis t
-    org-appear-autolinks t
-    org-appear-autosubmarkers t))
+        org-appear-autolinks t
+        org-appear-autosubmarkers t))
 
 ;; (use-package! org-appear
 ;;   :after org
@@ -230,8 +230,8 @@
 ;;     org-appear-autosubmarkers t))
 
 (setq centaur-tabs-set-bar 'over
-  centaur-tabs-set-close-button nil)
-  ;; x-underline-at-descent-line t)
+      centaur-tabs-set-close-button nil)
+;; x-underline-at-descent-line t)
 ;; (after! centaur-tabs
 ;;   (centaur-tabs-group-by-projectile-project))
 
