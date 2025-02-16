@@ -104,6 +104,15 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
 
+;; Configure nix stuff to use alejandra
+(set-formatter! 'alejandra '("alejandra" "--quiet") :modes '(nix-mode))
+(use-package! lsp-nix
+  :defer t
+  :custom (lsp-nix-nil-formatter ["alejandra" "--quiet"]))
+(use-package! nix-mode
+  :defer t
+  :custom (nix-nixfmt-bin "alejandra"))
+
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq
