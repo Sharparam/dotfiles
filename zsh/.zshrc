@@ -319,7 +319,11 @@ else
 fi
 
 if [[ -d '/usr/local/go/bin' ]]; then
-  path+=(/usr/local/go/bin "$GOPATH/bin")
+  path+=(/usr/local/go/bin)
+fi
+
+if [[ -d "$GOPATH/bin" ]]; then
+  path+=("$GOPATH/bin")
 fi
 
 if [[ -f "$HOME/.local/bin/mise" ]]; then
