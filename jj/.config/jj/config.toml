@@ -1,9 +1,11 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
 [user]
 name = "Adam Hellberg"
 email = "sharparam@sharparam.com"
 
 [signing]
-sign-all = true
+behavior = "own"
 backend = "ssh"
 key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAZcQxmr5ZfF/d0YqEZfhr0ZjuHUjxKBf7YgVjYqS+gE" # 1Password
 
@@ -12,11 +14,17 @@ allowed-signers = "~/.ssh/allowed_signers"
 program = "/opt/1Password/op-ssh-sign"
 
 [git]
+push-bookmark-prefix = "sharparam/push-"
 sign-on-push = true
-subprocess = true
+write-change-id-header = true
 
 [ui]
 show-cryptographic-signatures = true
 
+[templates]
+commit_trailers = '''
+format_signed_off_by_trailer(self)
+++ if(!trailers.contains_key("Change-Id"), format_gerrit_change_id_trailer(self))'''
+
 [template-aliases]
-"format_short_cryptographic_signature(sig)" = 'if (sig, sig.status(), "(no sig)")'
+"format_short_cryptographic_signature(sig)" = 'if(sig, sig.status(), "(no sig)")'
