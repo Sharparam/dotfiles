@@ -136,6 +136,10 @@ zinit cdreplay -q
 
 ### END ZPLUGIN BLOCK ###
 
+if (( $+commands[jj] == 1 )); then
+  source <(COMPLETE=zsh jj)
+fi
+
 [ -f "$HOME/.config/op/plugins.sh" ] && source "$HOME/.config/op/plugins.sh"
 
 [ $+commands[zoxide] -eq 1 ] && eval "$(zoxide init --cmd j zsh)"
