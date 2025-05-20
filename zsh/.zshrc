@@ -209,6 +209,8 @@ alias ':x'='exit'
 #alias emacs='emacs -nw'
 alias emacs='emacsclient -nc'
 
+alias zed='zeditor'
+
 # Ruby aliases
 alias rbbi='bundle install'
 
