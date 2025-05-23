@@ -23,6 +23,7 @@
   askPass = /usr/bin/ksshaskpass
 [commit]
   gpgsign = true
+  verbose = true
 [branch "main"]
   mergeoptions = --no-ff
 [branch "master"]
