@@ -1,5 +1,9 @@
 "$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
 
+# Inspirations:
+# https://oppi.li/posts/configuring_jujutsu/
+# https://gist.github.com/thoughtpolice/8f2fd36ae17cd11b8e7bd93a70e31ad6#file-jjconfig-toml
+
 [user]
 name = "Adam Hellberg"
 email = "sharparam@sharparam.com"
@@ -14,17 +18,59 @@ allowed-signers = "~/.ssh/allowed_signers"
 program = "/opt/1Password/op-ssh-sign"
 
 [git]
+auto-local-bookmark = false
+colocate = true
+private-commits = "blacklist()"
 push-bookmark-prefix = "sharparam/push-"
 sign-on-push = true
 write-change-id-header = true
 
 [ui]
+default-command = "log"
+diff.tool = "difft"
+merge-editor = "mergiraf"
 show-cryptographic-signatures = true
+
+# [merge-tools.mergiraf]
+# program = "mergiraf"
+# merge-args = ["merge", "$base", "$left", "$right", "-o", "$output", "--fast"]
+# merge-conflict-exit-codes = [1]
+# conflict-marker-style = "git"
+
+[merge-tools.difft]
+program = "difft"
+diff-args = ["--color=always", "$left", "$right"]
+
+[aliases]
+d = ["diff"]
+s = ["show"]
+ll = ["log", "--template", "builtin_log_detailed"]
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+
+[revset-aliases]
+"gh_pages()" = 'ancestors(remote_bookmarks(exact:"gh-pages"))'
+
+"wip()" = 'description(glob:"wip:*")'
+"private()" = 'description(glob:"private:*")'
+"blacklist()" = "wip() | private()"
 
 [templates]
 commit_trailers = '''
 format_signed_off_by_trailer(self)
 ++ if(!trailers.contains_key("Change-Id"), format_gerrit_change_id_trailer(self))'''
 
+draft_commit_description = '''
+concat(
+  coalesce(description, default_commit_description, "\n"),
+  surround(
+    "\nJJ: This commit contains the following changes:\n", "",
+    indent("JJ:     ", diff.stat(72)),
+  ),
+  "\nJJ: ignore-rest\n",
+  diff.git(),
+)
+'''
+
 [template-aliases]
+"format_short_signature(sig)" = '"<" ++ if(sig.email(), sig.email(), label("text warning", "NO EMAIL")) ++ ">"'
 "format_short_cryptographic_signature(sig)" = 'if(sig, sig.status(), "(no sig)")'
