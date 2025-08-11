@@ -1,0 +1,9 @@
+[tools]
+node = "lts"
+lua = "latest"
+raku = "latest"
+ruby = "latest"
+usage = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
