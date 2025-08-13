@@ -21,13 +21,14 @@ program = "/opt/1Password/op-ssh-sign"
 auto-local-bookmark = false
 colocate = true
 private-commits = "blacklist()"
-push-bookmark-prefix = "sharparam/push-"
+# push-bookmark-prefix = "sharparam/push-"
 sign-on-push = true
 write-change-id-header = true
 
 [ui]
 default-command = "log"
-diff.tool = "difft"
+# diff.tool = "difft"
+diff-formatter = "difft"
 merge-editor = "mergiraf"
 show-cryptographic-signatures = true
 
@@ -70,6 +71,8 @@ concat(
   diff.git(),
 )
 '''
+
+git_push_bookmark = '"sharparam/push-" ++ change_id.short()'
 
 [template-aliases]
 "format_short_signature(sig)" = '"<" ++ if(sig.email(), sig.email(), label("text warning", "NO EMAIL")) ++ ">"'
