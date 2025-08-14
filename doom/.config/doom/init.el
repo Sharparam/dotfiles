@@ -23,7 +23,8 @@
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
-       company             ; the ultimate code completion backend
+       ;;company             ; the ultimate code completion backend
+       (corfu +orderless)  ; complete with cap(f), cape and a flying feather!
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
@@ -71,6 +72,7 @@
        :emacs
        (dired +icons)    ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
+       ;;eww               ; the internet is gross
        (ibuffer +icons)         ; interactive buffer management
        ;;tramp           ; <no description>
        undo              ; persistent, smarter undo for your inevitable mistakes
@@ -98,6 +100,7 @@
        (eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
+       ;;llm                 ; when I said you needed friends, I didn't mean...
        lsp               ; M-x vscode
        magit ; +forge             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
@@ -108,6 +111,7 @@
        ;;taskrunner        ; taskrunner for all your projects
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
+       tree-sitter       ; syntax and parsing, sitting in a tree...
        ;;upload            ; map local to remote projects via ssh/ftp
 
        :os
@@ -123,13 +127,13 @@
        ;;coq               ; proofs-as-programs
        crystal           ; ruby at the speed of c
        (csharp +dotnet +lsp)            ; unity, .NET, and mono shenanigans
-       ;;(dart +flutter)   ; paint ui and not much else
        data              ; config/data formats
+       ;;(dart +flutter)   ; paint ui and not much else
        ;;dhall
-       (elixir +lsp)            ; erlang done right
+       (elixir +lsp +tree-sitter)            ; erlang done right
        ;;elm               ; care for a cup of TEA?
        emacs-lisp        ; drown in parentheses
-       ;;(erlang +lsp)            ; an elegant language for a more civilized age
+       (erlang +lsp +tree-sitter)            ; an elegant language for a more civilized age
        ;;ess               ; emacs speaks statistics
        ;;factor
        ;;faust             ; dsp, but you get to keep your soul
@@ -143,8 +147,8 @@
        ;;idris             ; a language you can depend on
        json              ; At least it ain't XML
        (java +lsp)       ; the poster child for carpal tunnel syndrome
-       (javascript +lsp)        ; all(hope(abandon(ye(who(enter(here))))))
-       (json +lsp)
+       (javascript +lsp +tree-sitter)        ; all(hope(abandon(ye(who(enter(here))))))
+       (json +lsp +tree-sitter)
        ;;julia             ; a better, faster MATLAB
        (kotlin +lsp)            ; a better, slicker Java(Script)
        (latex +latexmk +lsp) ; writing papers in Emacs has never been so fun
@@ -153,20 +157,20 @@
        (lua +lsp +fennel +moonscript) ; one-based indices? one-based indices
        (markdown +grip)          ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
-       nix               ; I hereby declare "nix geht mehr!"
+       (nix +lsp +tree-sitter)     ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        (org +present +pretty +roam2 +journal +jupyter) ; organize your plain life in plain text
-       (php +lsp)               ; perl's insecure younger brother
+       (php +lsp +tree-sitter)               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
-       (python +lsp +pyright +poetry) ; beautiful is better than ugly
+       (python +lsp +tree-sitter +pyright +poetry) ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
        (racket +lsp)            ; a DSL for DSLs
        raku              ; the artist formerly known as perl6
        rest              ; Emacs as a REST client
        ;;rst               ; ReST in peace
-       (ruby +lsp +rbenv +rails) ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
-       (rust +lsp)       ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+       (ruby +lsp +tree-sitter +rbenv +rails) ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
+       (rust +lsp +tree-sitter)       ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
        ;;(scheme +guile)   ; a fully conniving family of lisps
        (sh +lsp +powershell) ; she sells {ba,z,fi}sh shells on the C xor
@@ -189,7 +193,6 @@
        ;;everywhere        ; *leave* Emacs!? You must be joking
        ;;irc               ; how neckbeards socialize
        ;;(rss +org)        ; emacs as an RSS reader
-       ;;twitter           ; twitter client https://twitter.com/vnought
 
        :config
        ;;literate
