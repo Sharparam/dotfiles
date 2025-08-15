@@ -46,13 +46,17 @@ diff-args = ["--color=always", "$left", "$right"]
 d = ["diff"]
 s = ["show"]
 ll = ["log", "--template", "builtin_log_detailed"]
-tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+# tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pushable(@)"]
 
 [revset-aliases]
+"desc(x)" = 'description(x)'
+"closest_bookmark(to)" = 'heads(::to & bookmarks())'
+"closest_pushable(to)" = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
 "gh_pages()" = 'ancestors(remote_bookmarks(exact:"gh-pages"))'
 
-"wip()" = 'description(glob:"wip:*")'
-"private()" = 'description(glob:"private:*")'
+"wip()" = 'description(glob:"wip:*") | description(glob:"WIP:*")'
+"private()" = 'description(glob:"private:*") | description(glob:"PRIVATE:*")'
 "blacklist()" = "wip() | private()"
 
 [templates]
