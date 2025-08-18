@@ -166,6 +166,10 @@ if [[ -d "$HOME/.config/emacs/bin" ]]; then
     path=($HOME/.config/emacs/bin $path)
 fi
 
+if [[ -d "$HOME/.mix/escripts" ]]; then
+  path+=($HOME/.mix/escripts)
+fi
+
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
