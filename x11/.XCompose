@@ -3,6 +3,8 @@ include "%L"
 <Multi_key> <o> <o> : "ö" U00F6 # LATIN SMALL LETTER O WITH DIAERESIS
 <Multi_key> <O> <O> : "Ö" U00D6 # LATIN CAPITAL LETTER O WITH DIAERESIS
 
+<Multi_key> <o> <p> : "℗" U2117 # SOUND RECORDING COPYRIGHT
+
 # Greek alphabet
 <Multi_key> <asterisk> <a> : "α" U03B1 # GREEK SMALL LETTER ALPHA
 <Multi_key> <asterisk> <b> : "β" U03B2 # GREEK SMALL LETTER BETA
