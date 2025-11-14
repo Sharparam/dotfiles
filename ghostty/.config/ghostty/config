@@ -53,3 +53,7 @@ theme = Catppuccin Macchiato
 
 background-opacity = 0.95
 background-blur = false
+
+gtk-wide-tabs = false
+gtk-tabs-location = bottom
+gtk-custom-css = tab-style.css
