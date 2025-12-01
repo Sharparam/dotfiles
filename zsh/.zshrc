@@ -111,7 +111,7 @@ zinit ice ver"feat/clone-remote"
 zinit light itsbth/zsh-fzf-ghq
 
 [[ -f "/usr/share/fzf/completion.zsh" ]] && source /usr/share/fzf/completion.zsh
-[[ -f "/usr/share/fzf/key-bindings.zsh" ]] && source /usr/share/fzf/key-bindings.zsh
+[[ -f "/usr/share/fzf/key-bindings.zsh" ]] && FZF_CTRL_R_COMMAND= source /usr/share/fzf/key-bindings.zsh
 
 _dotnet_zsh_complete() {
   local completions=("$(dotnet complete "$words")")
