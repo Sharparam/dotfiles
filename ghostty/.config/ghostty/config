@@ -54,6 +54,10 @@ theme = Catppuccin Macchiato
 background-opacity = 0.95
 background-blur = false
 
+quick-terminal-position = top
+
 gtk-wide-tabs = false
 gtk-tabs-location = bottom
 gtk-custom-css = tab-style.css
+
+keybind = global:super+f12=toggle_quick_terminal
