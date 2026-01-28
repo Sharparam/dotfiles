@@ -13,7 +13,7 @@ export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 export PROJECT_HOME="$HOME/projects/python"
 
 if [[ $IS_WSL == false ]]; then
-  export TERMINAL="kitty"
+  export TERMINAL="ghostty"
 fi
 
 export VISUAL="nvim"
