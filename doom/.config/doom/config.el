@@ -124,10 +124,10 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq
- org-directory "~/org/"
+ org-directory "~/org/main/"
  org-journal-dir "~/org/journal/"
  org-roam-directory "~/org/roam/"
- org-agenda-files `(,org-directory))
+ org-agenda-files "~/org/agenda/")
 
 (setq doom-modeline-modal-icon nil)
 
