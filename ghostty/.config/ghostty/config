@@ -54,6 +54,8 @@ theme = Catppuccin Macchiato
 background-opacity = 0.95
 background-blur = false
 
+shell-integration-features = ssh-env,ssh-terminfo
+
 quick-terminal-position = top
 
 gtk-wide-tabs = false
