@@ -240,8 +240,13 @@ alias fsharpi='dotnet fsi'
 
 if [[ $+commands[bat] -eq 1 ]]; then
   alias cat='bat --paging=never'
-  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-  export MANROFFOPT='-c'
+  # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+  # export MANROFFOPT='-c'
+fi
+
+if (( $+commands[nvim] == 1 )); then
+  export MANPAGER='nvim -M +Man!'
+  export MANWIDTH=999
 fi
 
 # GitHub CLI aliases
