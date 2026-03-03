@@ -246,7 +246,7 @@ fi
 
 if (( $+commands[nvim] == 1 )); then
   export MANPAGER='nvim -M +Man!'
-  export MANWIDTH=999
+  # export MANWIDTH=999
 fi
 
 # GitHub CLI aliases
