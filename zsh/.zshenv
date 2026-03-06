@@ -67,3 +67,7 @@ if [[ -f "$HOME/.config/restic/password_command" ]]; then
 elif [[ -f "$HOME/.config/restic/password" ]]; then
   export RESTIC_PASSWORD_FILE="$HOME/.config/restic/password"
 fi
+
+# Home manager session variables
+hm_sess_vars="$HOME/.local/state/nix/profile/etc/profile.d/hm-session-vars.sh"
+[ -f "$hm_sess_vars" ] && source "$hm_sess_vars"
