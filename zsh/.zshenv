@@ -68,6 +68,8 @@ elif [[ -f "$HOME/.config/restic/password" ]]; then
   export RESTIC_PASSWORD_FILE="$HOME/.config/restic/password"
 fi
 
+### Home manager (home-manager)
+export FLAKE_CONFIG_URI="$HOME/repos/github.com/Sharparam/nix-config#homeConfigurations.\"$USER@$HOST\""
 # Home manager session variables
 hm_sess_vars="$HOME/.local/state/nix/profile/etc/profile.d/hm-session-vars.sh"
 [ -f "$hm_sess_vars" ] && source "$hm_sess_vars"
