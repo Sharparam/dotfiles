@@ -1,6 +1,6 @@
 typeset -aUx path
 fpath=($HOME/.zsh $HOME/.zfunc $fpath)
-path=($HOME/.local/bin "$HOME/.cargo/bin" $path)
+path=($HOME/.local/bin $path)
 
 take() { mkdir -p "$1" && cd "$1" }
 gake() { take "$1" && git init }
