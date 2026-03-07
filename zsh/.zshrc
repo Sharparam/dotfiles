@@ -119,10 +119,6 @@ if (( $+commands[atuin] == 1 )); then
   eval "$(atuin init zsh)"
 fi
 
-if [[ -d "/usr/share/perl6/" ]]; then
-    path=(/usr/share/perl6/vendor/bin /usr/share/perl6/site/bin $path)
-fi
-
 if [[ -d "$HOME/.dotnet/tools" ]]; then
     path=($HOME/.dotnet/tools $path)
 fi
@@ -271,27 +267,6 @@ ta() {
     fi
 }
 
-cowfortune() {
-  cowargs=('-b' '-d' '-g' '-p' '-s' '-t' '-w' '-y' '')
-  cowextra=${cowargs[$(($RANDOM % ${#cowargs[@]}))]}
-  files=($(cowsay -l | tail -n +2))
-  cowfile=${files[$((RANDOM % ${#files[@]} + 1))]}
-  fortune $@ | cowsay -W 70 -f ${cowfile} ${cowextra}
-}
-
-thinkfortune () {
-  fortune $@ | cowthink -W 70 -f bong -s
-}
-
-scrotclip() {
-  scrot $@ /tmp/scrotclip.png -e 'xclip -se c -t image/png -i $f && rm $f'
-}
-
 pj() {
   pushd "$(j -e $@)"
 }
-
-term_name=$(basename "$(ps -p $(ps -p $$ -o ppid=) -o args=)")
-if [[ "$term_name" != "yakuake" && $+commands[cowsay] -eq 1 && $+commands[fortune] -eq 1 && ! $ASCIINEMA_REC && -z "$TMUX" ]]; then
-  cowfortune
-fi
