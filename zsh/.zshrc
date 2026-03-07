@@ -1,15 +1,6 @@
 typeset -aUx path
 fpath=($HOME/.zsh $HOME/.zfunc $fpath)
 path=($HOME/.local/bin "$HOME/.cargo/bin" $path)
-path[$path[(i)/mnt/c/Ruby/bin]]=()
-
-if [[ $IS_WSL == true ]];
-then
-  echo '[WSL] Disabling setting priority on background processes'
-  unsetopt BG_NICE
-  echo '[WSL] Setting umask to 022'
-  umask 022
-fi
 
 take() { mkdir -p "$1" && cd "$1" }
 gake() { take "$1" && git init }
@@ -24,23 +15,8 @@ autoload -Uz _zinit
 
 ### BEGIN ZPLUGIN BLOCK ###
 
-wsl_fix_fsh() {
-  if [[ $IS_WSL == false ]]; then
-    return
-  fi
-  #echo "[WSL] Fixing fast-syntax-highlighting"
-  FAST_HIGHLIGHT[chroma-git]="chroma/-ogit.ch"
-}
-
 zinit ice wait lucid atload"_zsh_autosuggest_start"
 zinit light zsh-users/zsh-autosuggestions
-
-# if [[ "$TERM_PROGRAM" != "WarpTerminal" ]]; then
-#   PURE_GIT_PULL=0
-#   zstyle :prompt:pure:git:stash show yes
-#   zinit ice pick"async.zsh" src"pure.zsh"
-#   zinit light sindresorhus/pure
-# fi
 
 zinit ice pick"themes/catppuccin_${CATPPUCCIN_THEME}-zsh-syntax-highlighting.zsh"
 zinit light "catppuccin/zsh-syntax-highlighting"
@@ -55,8 +31,8 @@ zinit light djui/alias-tips
 #fi
 
 _fix-pzt-module() {
-  if [[ ! -f ._zinit/teleid ]] then return 0; fi
-  if [[ ! $(cat ._zinit/teleid) =~ "^PZT::.*" ]] then return 0; fi
+  if [[ ! -f ._zinit/teleid ]]; then return 0; fi
+  if [[ ! $(cat ._zinit/teleid) =~ "^PZT::.*" ]]; then return 0; fi
   local PZTM_NAME=$(cat ._zinit/teleid | sed -n 's/PZT::modules\///p')
   git clone --quiet --no-checkout --depth=1 --filter=tree:0 https://github.com/sorin-ionescu/prezto
   cd prezto
@@ -120,15 +96,8 @@ _dotnet_zsh_complete() {
 
 compctl -K _dotnet_zsh_complete dotnet
 
-# fast-syntax-highlighting is very slow in certain contexts at least on WSL
-# Needs testing on non-WSL to see if slowness persists
-if [[ $IS_WSL == true ]]; then
-  zinit ice wait lucid atinit"zicompinit; zicdreplay -q"
-  zinit light zsh-users/zsh-syntax-highlighting
-else
-  zinit ice wait lucid atinit"zicompinit; zicdreplay -q" atload"wsl_fix_fsh"
-  zinit light zdharma-continuum/fast-syntax-highlighting
-fi
+zinit ice wait lucid atinit"zicompinit; zicdreplay -q"
+zinit light zdharma-continuum/fast-syntax-highlighting
 
 autoload -Uz compinit
 compinit
@@ -143,12 +112,8 @@ fi
 [ -f "$HOME/.config/op/plugins.sh" ] && source "$HOME/.config/op/plugins.sh"
 
 [ $+commands[zoxide] -eq 1 ] && eval "$(zoxide init --cmd j zsh)"
-
-if [[ $IS_WSL == false ]];
-then
-  [ $+commands[thefuck] -eq 1 ] && eval "$(thefuck --alias)"
-  [ $+commands[hub] -eq 1 ] && eval "$(hub alias -s)"
-fi
+[ $+commands[thefuck] -eq 1 ] && eval "$(thefuck --alias)"
+[ $+commands[hub] -eq 1 ] && eval "$(hub alias -s)"
 
 if (( $+commands[atuin] == 1 )); then
   eval "$(atuin init zsh)"
@@ -168,13 +133,6 @@ fi
 
 if [[ -d "$HOME/.mix/escripts" ]]; then
   path+=($HOME/.mix/escripts)
-fi
-
-# added by travis gem
-[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
-
-if [[ $IS_WSL == true ]]; then
-  [ -f $HOME/qmk_utils/activate_wsl.sh ] && source $HOME/qmk_utils/activate_wsl.sh
 fi
 
 alias ...='../..'
@@ -218,18 +176,6 @@ alias zed='zeditor'
 # Ruby aliases
 alias rbbi='bundle install'
 
-# Use code insiders by default if present
-# if [[ $+commands[code-insiders] -eq 1 ]]; then
-#   alias code=code-insiders
-# fi
-
-# Work laptop aliases
-if [[ "$HOST" = "PC673" ]]; then
-  alias smerge='"/mnt/c/Program Files/Sublime Merge/sublime_merge.exe"'
-elif [[ "$HOST" = "SHARPARAM-PC" ]]; then
-  alias smerge='"/mnt/c/Program Files/Sublime Merge/sublime_merge.exe"'
-fi
-
 # Helix aliases
 alias hx=helix
 
@@ -268,68 +214,8 @@ if [[ -d "$HOME/.rakubrew" ]]; then
   eval "$($HOME/.rakubrew/bin/rakubrew init Zsh)"
 fi
 
-# Following two functions and utilities from:
-# https://github.com/BlackReloaded/wsl2-ssh-pageant
-wsl-gpg-proxy() {
-  local appdata=$(cmd.exe /c echo %LOCALAPPDATA%)
-  if [[ -z "$appdata" ]]; then
-    echo "appdata empty, returning"
-    return
-  fi
-  local gpg_conf_base="$(echo -E "${appdata}" | tr -d '[:space:]' | tr '\\' '/')/gnupg"
-  local gpg_socket_dir="$(gpgconf --list-dirs socketdir)"
-  mkdir -p "$gpg_socket_dir" || echo "Failed to create GPG socket dir $gpg_socket_dir"
-  echo "GPG conf base: $gpg_conf_base; socket dir: $gpg_socket_dir"
-  export GPG_AGENT_SOCK="$gpg_socket_dir/S.gpg-agent"
-  if ! ss -a | grep -q "$GPG_AGENT_SOCK"; then
-    rm -rf "$GPG_AGENT_SOCK"
-    wsl2_ssh_pageant_bin="$HOME/.ssh/wsl2-ssh-pageant.exe"
-    if test -x "$wsl2_ssh_pageant_bin"; then
-      (setsid nohup socat UNIX-LISTEN:"$GPG_AGENT_SOCK,fork" EXEC:"$wsl2_ssh_pageant_bin --gpgConfigBasepath '${gpg_conf_base}' --gpg S.gpg-agent" >/dev/null 2>&1 &)
-    else
-      echo >&2 "WARNING: $wsl2_ssh_pageant_bin is not executable."
-    fi
-    unset wsl2_ssh_pageant_bin
-  fi
-}
-
-wsl-ssh-proxy() {
-  export SSH_AUTH_SOCK="$HOME/.ssh/agent.sock"
-  if ! ss -a | grep -q "$SSH_AUTH_SOCK"; then
-    rm -f "$SSH_AUTH_SOCK"
-    wsl2_ssh_pageant_bin="$HOME/.ssh/wsl2-ssh-pageant.exe"
-    if test -x "$wsl2_ssh_pageant_bin"; then
-      (setsid nohup socat UNIX-LISTEN:"$SSH_AUTH_SOCK,fork" EXEC:"$wsl2_ssh_pageant_bin" >/dev/null 2>&1 &)
-    else
-      echo >&2 "WARNING: $wsl2_ssh_pageant_bin is not executable."
-    fi
-    unset wsl2_ssh_pageant_bin
-  fi
-}
-
 export GPG_TTY="$(tty)"
-if [[ $IS_WSL == true ]]; then
-  if [[ -n "${XDG_SESSION_ID}" && "${TERM}" == "dumb" && "$(ps -p $PPID -o comm=)" == "login" ]]; then
-    # Background login process, do nothing
-  else
-    # echo '[WSL] Configuring GPG and SSH'
-    # wsl-gpg-proxy
-    # wsl-ssh-proxy
-  fi
-else
-  #if [ "$HOST" = "melina" ]; then
-  #  if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-  #    ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
-  #  fi
-  #  if [[ ! "$SSH_AUTH_SOCK" ]]; then
-  #    source "$XDG_RUNTIME_DIR/ssh-agent.env" > /dev/null
-  #  fi
-  #else
-  # Experiment with 1Password as SSH agent for a bit,
-  # so disable these env vars for now (see .zshenv)
-  # unset SSH_AGENT_PID
-  # export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-  #fi
+if (( $+commands[gpgconf] == 1 )); then
   gpgconf --launch gpg-agent
 fi
 
