@@ -12,18 +12,10 @@ export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 
 export PROJECT_HOME="$HOME/projects/python"
 
-if [[ $IS_WSL == false ]]; then
-  export TERMINAL="ghostty"
-fi
-
+export TERMINAL="ghostty"
 export VISUAL="nvim"
 export EDITOR="nvim"
-
-if [[ $IS_WSL == true ]]; then
-  export BROWSER="wslview"
-else
-  export BROWSER="firefox"
-fi
+export BROWSER="firefox"
 
 export BASE16_THEME="eighties"
 export CATPPUCCIN_THEME="macchiato"
@@ -44,10 +36,6 @@ export PERL5LIB="$HOME/.perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
 export PERL_LOCAL_LIB_ROOT="$HOME/.perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
 export PERL_MB_OPT="--install_base \"$HOME/.perl5\""
 export PERL_MM_OPT="INSTALL_BASE=$HOME/.perl5"
-
-if [[ $IS_WSL == true ]]; then
-  export GIT_SSH="ssh.exe"
-fi
 
 export GITHUB_USER=Sharparam
 
