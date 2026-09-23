@@ -7,8 +7,25 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "features": {
-    "edit_prediction_provider": "zed"
+  "edit_predictions": {
+    "provider": "zed"
+  },
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "git_panel": {
+    "dock": "left"
   },
   "icon_theme": "Catppuccin Macchiato",
   "vim_mode": true,
